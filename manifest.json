@@ -1,0 +1,126 @@
+{
+  "subjects": [
+    {
+      "key": "general-studies",
+      "en": "General Studies",
+      "ta": "பொது அறிவு",
+      "chapters": [
+        {
+          "key": "chapter-01-indian-polity-and-administration",
+          "en": "Indian Polity & Administration",
+          "ta": "இந்திய அரசியல் அமைப்பு மற்றும் நிர்வாகம்",
+          "units": [
+            {
+              "key": "unit-01-states-uts-capitals-languages",
+              "en": "States, Union Territories, Capitals & Languages",
+              "ta": "மாநிலங்கள், யூனியன் பிரதேசங்கள், தலைநகரங்கள் மற்றும் மொழிகள்",
+              "path": "subjects/general-studies/chapter-01-indian-polity-and-administration/unit-01-states-uts-capitals-languages/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "tamil-literature",
+      "en": "Tamil Literature",
+      "ta": "தமிழ் இலக்கியம்",
+      "chapters": []
+    },
+    {
+      "key": "tamil-grammar",
+      "en": "Tamil Grammar",
+      "ta": "தமிழ் இலக்கணம்",
+      "chapters": []
+    },
+    {
+      "key": "tamil-language-history",
+      "en": "History of Tamil Language",
+      "ta": "தமிழ் மொழி வரலாறு",
+      "chapters": []
+    },
+    {
+      "key": "english-literature",
+      "en": "English Literature",
+      "ta": "ஆங்கில இலக்கியம்",
+      "chapters": []
+    },
+    {
+      "key": "english-grammar",
+      "en": "English Grammar",
+      "ta": "ஆங்கில இலக்கணம்",
+      "chapters": []
+    },
+    {
+      "key": "history-of-tamil-nadu",
+      "en": "History of Tamil Nadu",
+      "ta": "தமிழ்நாடு வரலாறு",
+      "chapters": []
+    },
+    {
+      "key": "history-of-india",
+      "en": "History of India",
+      "ta": "இந்திய வரலாறு",
+      "chapters": []
+    },
+    {
+      "key": "geography-of-india",
+      "en": "Geography of India",
+      "ta": "இந்திய புவியியல்",
+      "chapters": []
+    },
+    {
+      "key": "geography-of-tamil-nadu",
+      "en": "Geography of Tamil Nadu",
+      "ta": "தமிழ்நாடு புவியியல்",
+      "chapters": []
+    },
+    {
+      "key": "economy-of-india",
+      "en": "Economy of India",
+      "ta": "இந்திய பொருளாதாரம்",
+      "chapters": []
+    },
+    {
+      "key": "economy-of-tamil-nadu",
+      "en": "Economy of Tamil Nadu",
+      "ta": "தமிழ்நாடு பொருளாதாரம்",
+      "chapters": []
+    },
+    {
+      "key": "numerical-aptitude",
+      "en": "Numerical Aptitude",
+      "ta": "எண் திறன்",
+      "chapters": []
+    },
+    {
+      "key": "reasoning-and-logic",
+      "en": "Reasoning & Logic",
+      "ta": "பகுத்தறிவு மற்றும் தர்க்கம்",
+      "chapters": []
+    },
+    {
+      "key": "physics",
+      "en": "Physics",
+      "ta": "இயற்பியல்",
+      "chapters": []
+    },
+    {
+      "key": "chemistry",
+      "en": "Chemistry",
+      "ta": "வேதியியல்",
+      "chapters": []
+    },
+    {
+      "key": "botany",
+      "en": "Botany",
+      "ta": "தாவரவியல்",
+      "chapters": []
+    },
+    {
+      "key": "zoology",
+      "en": "Zoology",
+      "ta": "விலங்கியல்",
+      "chapters": []
+    }
+  ]
+}

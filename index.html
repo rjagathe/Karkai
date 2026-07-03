@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>கற்கை | Karkai — All Subjects</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Merriweather:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --cream:#FAEEDA; --cream-dark:#F3E2BE; --brown:#633806; --brown-deep:#3F2404;
+    --orange:#D85A30; --gold:#BA7517; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--cream); color:var(--brown-deep); font-family:'Inter',sans-serif; }
+  .ta{ font-family:'Noto Sans Tamil',sans-serif; }
+  header{ background:var(--white); text-align:center; border-bottom:3px solid var(--gold); }
+  header img{ width:100%; max-width:900px; display:block; margin:0 auto; }
+
+  main{ max-width:900px; margin:0 auto; padding:1.6rem 1.2rem 4rem; }
+  h1{ font-family:'Merriweather',serif; color:var(--brown); text-align:center; font-size:1.7rem; margin-top:1rem;}
+  h1 .ta{ display:block; font-size:1.1rem; color:var(--orange); margin-top:0.3rem; }
+
+  #search{
+    width:100%; padding:0.8rem 1rem; font-size:1rem; border-radius:999px;
+    border:2px solid var(--cream-dark); margin:1.5rem 0; font-family:inherit;
+  }
+  #search:focus{ outline:none; border-color:var(--gold); }
+
+  .subject{ background:var(--white); border-radius:14px; margin-bottom:0.9rem; box-shadow:0 2px 10px rgba(99,56,6,0.07); overflow:hidden; }
+  .subject-head{
+    display:flex; justify-content:space-between; align-items:center; padding:1rem 1.3rem;
+    cursor:pointer; user-select:none;
+  }
+  .subject-head:hover{ background:var(--cream-dark); }
+  .subject-title{ font-family:'Merriweather',serif; font-weight:700; color:var(--brown); font-size:1.05rem; }
+  .subject-title .ta{ display:block; font-size:0.85rem; color:var(--orange); font-weight:500; margin-top:0.1rem;}
+  .arrow{ font-size:1.1rem; color:var(--gold); transition:transform .2s; }
+  .subject.open .arrow{ transform:rotate(90deg); }
+
+  .subject-body{ display:none; padding:0 1.3rem 1.1rem; }
+  .subject.open .subject-body{ display:block; }
+
+  .chapter{ margin-top:0.6rem; }
+  .chapter-title{ font-weight:600; color:var(--brown-deep); font-size:0.95rem; margin-bottom:0.3rem; }
+  .chapter-title .ta{ font-size:0.82rem; color:var(--gold); margin-left:0.4rem; }
+
+  .unit-link{
+    display:block; padding:0.55rem 0.9rem; margin:0.3rem 0; border-radius:8px;
+    background:var(--cream); text-decoration:none; color:var(--brown-deep); font-size:0.92rem;
+    border:1px solid var(--cream-dark);
+  }
+  .unit-link:hover{ border-color:var(--orange); }
+  .unit-link .ta{ display:block; font-size:0.82rem; color:var(--orange); margin-top:0.1rem; }
+
+  .empty-note{ font-size:0.85rem; color:#a08860; font-style:italic; margin-top:0.4rem; }
+  .no-results{ text-align:center; color:#a08860; margin-top:2rem; font-style:italic; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="assets/karkai_banner.png" alt="Karkai banner">
+</header>
+
+<main>
+  <h1>All Subjects &amp; Units
+    <span class="ta">அனைத்து பாடங்களும் பாடப்பிரிவுகளும்</span>
+  </h1>
+
+  <input type="text" id="search" placeholder="Search a subject, chapter, or unit... / பாடம், அத்தியாயம், அல்லது பாடப்பிரிவைத் தேடுங்கள்...">
+
+  <div id="subjectList"></div>
+  <p class="no-results" id="noResults" style="display:none;">No matching unit found. / பொருந்தும் பாடப்பிரிவு எதுவும் இல்லை.</p>
+</main>
+
+<script>
+let MANIFEST = null;
+
+fetch('manifest.json')
+  .then(r => r.json())
+  .then(data => { MANIFEST = data; render(''); })
+  .catch(err => {
+    document.getElementById('subjectList').innerHTML =
+      '<p class="no-results">Could not load manifest.json — make sure it sits next to index.html.</p>';
+  });
+
+function matches(text, q){ return text.toLowerCase().includes(q); }
+
+function render(query){
+  const q = query.trim().toLowerCase();
+  const container = document.getElementById('subjectList');
+  container.innerHTML = '';
+  let anyVisible = false;
+
+  MANIFEST.subjects.forEach((subject, sIdx) => {
+    const chapters = subject.chapters || [];
+    // Filter chapters/units by query
+    const filteredChapters = chapters.map(ch => {
+      const units = (ch.units || []).filter(u =>
+        !q || matches(u.en, q) || matches(u.ta, q) || matches(ch.en, q) || matches(ch.ta, q) || matches(subject.en, q) || matches(subject.ta, q)
+      );
+      return { ...ch, units };
+    }).filter(ch => ch.units.length > 0);
+
+    const subjectMatchesDirectly = !q || matches(subject.en, q) || matches(subject.ta, q);
+    if (q && filteredChapters.length === 0 && !subjectMatchesDirectly) return; // hide subject entirely
+    if (q && filteredChapters.length === 0 && subjectMatchesDirectly && chapters.length > 0) return; // has chapters but none match
+
+    anyVisible = true;
+    const div = document.createElement('div');
+    div.className = 'subject' + (q ? ' open' : '');
+    div.innerHTML = `
+      <div class="subject-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="subject-title">${subject.en}<span class="ta">${subject.ta}</span></div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="subject-body">
+        ${
+          chapters.length === 0
+            ? '<p class="empty-note">Units coming soon / விரைவில் பாடப்பிரிவுகள் சேர்க்கப்படும்</p>'
+            : (filteredChapters.length ? filteredChapters : chapters).map(ch => `
+              <div class="chapter">
+                <div class="chapter-title">${ch.en}<span class="ta">${ch.ta}</span></div>
+                ${(ch.units || []).map(u => `
+                  <a class="unit-link" href="${u.path}">
+                    ${u.en}<span class="ta">${u.ta}</span>
+                  </a>
+                `).join('')}
+              </div>
+            `).join('')
+        }
+      </div>
+    `;
+    container.appendChild(div);
+  });
+
+  document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+}
+
+document.getElementById('search').addEventListener('input', e => render(e.target.value));
+</script>
+
+</body>
+</html>
