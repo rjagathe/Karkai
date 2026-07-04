@@ -90,7 +90,21 @@
       "key": "numerical-aptitude",
       "en": "Numerical Aptitude",
       "ta": "எண் திறன்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-percentage",
+          "en": "Percentage",
+          "ta": "சதவீதம்",
+          "units": [
+            {
+              "key": "unit-01-percentage-high-school-level",
+              "en": "Percentage — High School Level",
+              "ta": "சதவீதம் — உயர்நிலைப் பள்ளி மட்டம்",
+              "path": "subjects/numerical-aptitude/chapter-01-percentage/unit-01-percentage-high-school-level/index.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "reasoning-and-logic",
