@@ -66,7 +66,21 @@
       "key": "geography-of-india",
       "en": "Geography of India",
       "ta": "இந்திய புவியியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-physical-features",
+          "en": "Physical Features",
+          "ta": "இயற்பியல் அமைப்புகள்",
+          "units": [
+            {
+              "key": "unit-01-physical-features-high-school-level",
+              "en": "Physical Features — High School Level",
+              "ta": "இயற்பியல் அமைப்புகள் — உயர்நிலைப் பள்ளி மட்டம்",
+              "path": "subjects/geography-of-india/chapter-01-physical-features/unit-01-physical-features-high-school-level/index.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "geography-of-tamil-nadu",
