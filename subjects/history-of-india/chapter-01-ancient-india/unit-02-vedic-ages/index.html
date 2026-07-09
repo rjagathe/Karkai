@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering the Vedic Ages — Advanced Bilingual Digital Compendium</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a1c10',
+                        secondary: '#8c3b1a',
+                        accent: '#d9742b',
+                        bgLight: '#fdfaf6',
+                        bgCard: '#ffffff',
+                        textDark: '#26160f',
+                        textMuted: '#665248',
+                        borderCol: '#eddcd2',
+                        levelBasic: '#1b5e20',
+                        levelElem: '#0d47a1',
+                        levelInter: '#e65100',
+                        levelAdv: '#b71c1c',
+                        levelExp: '#4a148c',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        lora: ['Lora', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        noto: ['Noto Sans Tamil', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
+        
+        /* Language view control logic toggled cleanly via body class */
+        .content-en, .content-ta { display: none; }
+        body.view-en .content-en { display: block; }
+        body.view-ta .content-ta { display: block; }
+        
+        body {
+            background-color: #fdfaf6;
+            color: #26160f;
+        }
+
+        .academic-p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.95;
+            text-align: justify;
+        }
+
+        .academic-li {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="view-en font-lora">
+
+    <!-- MASTER HEADER BANNER -->
+    <header class="bg-gradient-to-r from-primary to-secondary text-white py-16 px-6 text-center border-b-8 border-accent relative overflow-hidden shadow-lg">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h1 class="font-cinzel text-4xl md:text-6xl font-black tracking-wider mb-4 content-en">The Vedic Ages</h1>
+            <h1 class="font-cinzel text-4xl md:text-6xl font-black tracking-wider mb-4 content-ta">வேத காலங்கள்</h1>
+            <p class="font-inter text-base md:text-xl max-w-3xl mx-auto opacity-90 italic content-en">
+                An Advanced, Deep-Dive Bilingual Master Compendium Mapped Across TN State Board, CBSE, ICSE, and IB Diplomas
+            </p>
+            <p class="font-noto text-base md:text-xl max-w-3xl mx-auto opacity-90 italic content-ta">
+                தமிழ்நாடு மாநிலப் பாடத்திட்டம், CBSE, ICSE மற்றும் IB வகுப்புகளின் அடிப்படையில் தொகுக்கப்பட்ட ஒரு விரிவான வரலாற்றுப் பெட்டகம்
+            </p>
+        </div>
+    </header>
+
+    <!-- STICKY BILINGUAL LANGUAGE TABS -->
+    <div class="language-tab-bar sticky top-0 bg-[#e8dad0] py-3 flex justify-center z-50 border-b-2 border-borderCol shadow-md">
+        <button class="lang-btn active font-inter px-6 py-2.5 mx-3 text-lg font-bold border-2 border-primary rounded-lg transition-all duration-300 bg-primary text-white" id="btn-en" onclick="switchLanguage('en')">English Edition</button>
+        <button class="lang-btn font-noto px-6 py-2.5 mx-3 text-lg font-bold border-2 border-primary rounded-lg transition-all duration-300 bg-white text-primary" id="btn-ta" onclick="switchLanguage('ta')">தமிழ் பதிப்பு</button>
+    </div>
+
+    <!-- META-NAVIGATION BAR -->
+    <nav class="meta-nav bg-primary text-white py-3 text-center text-sm md:text-base sticky z-40 shadow-lg border-b border-borderCol" style="top: 67px;">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-4 px-4 font-inter font-semibold">
+            <a href="#lvl-1" class="text-[#ffe0b2] hover:text-white hover:underline transition">1. Basic Outline</a>
+            <span class="text-accent">|</span>
+            <a href="#lvl-2" class="text-[#ffe0b2] hover:text-white hover:underline transition">2. Literary Structure</a>
+            <span class="text-accent">|</span>
+            <a href="#lvl-3" class="text-[#ffe0b2] hover:text-white hover:underline transition">3. Comparative Life</a>
+            <span class="text-accent">|</span>
+            <a href="#lvl-4" class="text-[#ffe0b2] hover:text-white hover:underline transition">4. PGW Archeology</a>
+            <span class="text-accent">|</span>
+            <a href="#lvl-5" class="text-[#ffe0b2] hover:text-white hover:underline transition">5. Historiography</a>
+            <span class="text-accent">|</span>
+            <a href="#quiz-section" class="text-[#ffe0b2] hover:text-white hover:underline transition">6. Examination Hub</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 md:px-8 py-10 max-w-7xl">
+
+        <!-- ================================================================= -->
+        <!-- ==================== ENGLISH SECTION ============================ -->
+        <!-- ================================================================= -->
+        <div class="content-en">
+            
+            <!-- LEVEL 1: BASIC OUTLINE -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-1">
+                <span class="difficulty-badge b-basic bg-levelBasic text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">Level 1: Basic Points & Outline</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">1. Chronological Framing & The Rigvedic Matrix</h2>
+                
+                <p class="academic-p">
+                    The <strong class="text-primary font-bold">Vedic Age (c. 1500 BCE – 600 BCE)</strong> represents the core cultural foundation of the ancient Indian subcontinent. Following the decline of the highly urbanized, chalcolithic Indus Valley Civilisation (IVC), the Vedic Era introduced a pastoral, rural, and semi-nomadic socio-economic system that transitioned into complex iron-bearing territorial states. This epoch is divided into two distinct historical phases: the <strong class="text-secondary font-semibold">Early Vedic (or Rigvedic) Period (c. 1500 BCE – 1000 BCE)</strong> and the <strong class="text-secondary font-semibold">Later Vedic Period (c. 1000 BCE – 600 BCE)</strong>. 
+                    <span class="citation">CBSE Theme 1 / TNSB Grade 11</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Rigveda_MS2097_1_10_1_Sanskrit_Manuscript.jpg" alt="Rigveda Manuscript Page" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">Sanskrit Rigveda Manuscript Page — The Foundations of Indo-Aryan Literature</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault 1: The Boghazkoi Peace Treaty (Anatolia, Turkey)</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        The timeline of Indo-Aryan migrations is verified by an inscription discovered in modern Turkey! The <strong>Boghazkoi Clay Tablets (c. 1400 BCE)</strong> record a peace treaty signed between the Hittite and Mitanni kings. To seal their agreement, they called upon the gods <strong>Mitra, Varuna, Indra, and the Nasatyas (Ashvins)</strong>—the exact pantheon celebrated in the Rigveda! This confirms a shared cultural and linguistic home for Indo-Aryan speakers across West-Central Asia before they crossed the Hindu Kush.
+                    </p>
+                </div>
+
+                <p class="academic-p">
+                    The early phase was defined by kinship-based tribal structures, cattle pastoralism, and simple nature worship. The primary source for this era is the **Rigveda Samhita**, a collection of 1,028 hymns composed in early Vedic Sanskrit. The transition to the Later Vedic period was driven by the migration of tribes eastward into the Ganga-Yamuna Doab and the discovery of iron metallurgy around 1000 BCE. This transition brought massive changes: shifting the economy toward settled agriculture, transforming small tribal clans into territorial kingdoms (Janapadas), and establishing a rigid, hereditary social hierarchy.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">The Classification of Vedic Literature</h3>
+                <p class="academic-p">
+                    Vedic texts are split into two primary philosophical categories based on how they were preserved and transmitted over generations:
+                </p>
+                <ul class="list-disc pl-8 mb-6 space-y-2 text-base md:text-lg text-justify">
+                    <li class="academic-li"><strong>Shruti ("That which is Heard"):</strong> Considered divine, eternal, and unauthored (Apaurusheya). This category contains the core Samhitas (Rigveda, Samaveda, Yajurveda, Atharvaveda), along with their ritual explanations (Brahmanas), forest treatises (Aranyakas), and philosophical teachings (Upanishads). They were transmitted through highly disciplined oral memorization and chanting techniques.</li>
+                    <li class="academic-li"><strong>Smriti ("That which is Remembered"):</strong> Authored by human sages to explain, codify, and preserve the divine truths of Shruti. This broad category includes the six Vedangas (limbs of the Veda), Upavedas (applied sciences), Puranas, Dharmashastras (legal manuals), and the major epics (Ramayana and Mahabharata). <span class="citation">ICSE Class 9 History</span></li>
+                </ul>
+            </article>
+
+            <!-- LEVEL 2: ELEMENTARY ESSENTIALS -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-2">
+                <span class="difficulty-badge b-2 bg-levelElem text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">Level 2: Elementary Essential Points</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">2. Geographical Frontiers & Literary Compilation</h2>
+                
+                <p class="academic-p">
+                    During the Early Vedic period, Indo-Aryan society was concentrated in northwestern India, a territory named the **Saptasindhu** (Land of the Seven Rivers). This region included eastern Afghanistan, Pakistan's Punjab, and parts of modern Jammu and Kashmir, Himachal Pradesh, Haryana, and Rajasthan. The seven sacred rivers were the Indus (Sindhu), Vitasta (Jhelum), Asikni (Chenab), Parushni (Ravi), Vipas (Beas), Sutudri (Sutlej), and the highly revered, now-lost Sarasvati.
+                    <span class="citation">NCERT Class 6</span>
+                </p>
+
+                <div class="graphic-container my-8">
+                    <h4 class="font-cinzel text-primary text-xl font-bold mb-4 text-center">The Five-Tier Vedic Political Structure</h4>
+                    <div class="overflow-x-auto">
+                        <svg width="650" height="150" viewBox="0 0 650 150" class="mx-auto bg-white border border-borderCol rounded-lg">
+                            <g transform="translate(10, 10)">
+                                <!-- Kula -->
+                                <rect x="0" y="30" width="100" height="60" rx="8" fill="#1b5e20" />
+                                <text x="50" y="60" fill="white" font-weight="bold" font-size="14" text-anchor="middle" font-family="Arial">KULA</text>
+                                <text x="50" y="76" fill="#e8f5e9" font-size="10" text-anchor="middle" font-family="Arial">Family (Kulapa)</text>
+
+                                <!-- Arrow 1 -->
+                                <line x1="100" y1="60" x2="130" y2="60" stroke="#8c3f15" stroke-width="3" />
+
+                                <!-- Grama -->
+                                <rect x="130" y="30" width="100" height="60" rx="8" fill="#0d47a1" />
+                                <text x="180" y="60" fill="white" font-weight="bold" font-size="14" text-anchor="middle" font-family="Arial">GRAMA</text>
+                                <text x="180" y="76" fill="#e3f2fd" font-size="10" text-anchor="middle" font-family="Arial">Village (Gramini)</text>
+
+                                <!-- Arrow 2 -->
+                                <line x1="230" y1="60" x2="260" y2="60" stroke="#8c3f15" stroke-width="3" />
+
+                                <!-- Vis -->
+                                <rect x="260" y="30" width="100" height="60" rx="8" fill="#e65100" />
+                                <text x="310" y="60" fill="white" font-weight="bold" font-size="14" text-anchor="middle" font-family="Arial">VIS</text>
+                                <text x="310" y="76" fill="#fff3e0" font-size="10" text-anchor="middle" font-family="Arial">Clan (Vispati)</text>
+
+                                <!-- Arrow 3 -->
+                                <line x1="360" y1="60" x2="390" y2="60" stroke="#8c3f15" stroke-width="3" />
+
+                                <!-- Jana -->
+                                <rect x="390" y="30" width="100" height="60" rx="8" fill="#b71c1c" />
+                                <text x="440" y="60" fill="white" font-weight="bold" font-size="14" text-anchor="middle" font-family="Arial">JANA</text>
+                                <text x="440" y="76" fill="#ffebee" font-size="10" text-anchor="middle" font-family="Arial">People (Rajan)</text>
+
+                                <!-- Arrow 4 -->
+                                <line x1="490" y1="60" x2="520" y2="60" stroke="#8c3f15" stroke-width="3" />
+
+                                <!-- Janapada -->
+                                <rect x="520" y="30" width="110" height="60" rx="8" fill="#4a148c" />
+                                <text x="575" y="60" fill="white" font-weight="bold" font-size="14" text-anchor="middle" font-family="Arial">JANAPADA</text>
+                                <text x="575" y="76" fill="#f3e5f5" font-size="10" text-anchor="middle" font-family="Arial">Territory (Samrat)</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault 2: Saptasindhu vs. The Modern Rivers</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        The river names in the Rigveda are highly descriptive and differ from their modern names. The <strong>Sutlej</strong> was called <em>Sutudri</em>, the <strong>Ravi</strong> was <em>Parushni</em>, the <strong>Beas</strong> was <em>Vipas</em>, the <strong>Chenab</strong> was <em>Asikni</em>, and the <strong>Jhelum</strong> was known as <em>Vitasta</em>. The lost river <strong>Sarasvati</strong> is celebrated as the greatest of all—'Nditama' (the best of all rivers), described as flowing with majestic speed from the Himalayas to the Arabian Sea.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">Structural Breakdown of the Four Vedas</h3>
+                <p class="academic-p">
+                    Each of the four Samhitas represents a distinct functional branch of liturgical and ceremonial knowledge:
+                </p>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white">Veda Samhita</th>
+                                <th class="py-3 px-4 bg-primary text-white">Core Content & Liturgy</th>
+                                <th class="py-3 px-4 bg-primary text-white">Key Officiating Priest</th>
+                                <th class="py-3 px-4 bg-primary text-white">Associated Upaveda (Applied Veda)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Rigveda</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">1,028 hymns (Suktas) divided into 10 books (Mandalas). Dedicated to early nature deities.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Hotri (The reciter of sacred hymns)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Ayurveda (Traditional medicine)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Samaveda</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">1,549 musical melodies (Ragas). Most verses are extracted from the Rigveda and set to tune.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Udgatri (The chanter of musical liturgies)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Gandharvaveda (Music, drama, and fine arts)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Yajurveda</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Ritual manuals explaining the exact steps for sacrifices (Yajnas). Split into Black (Krishna) and White (Shukla) texts.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Adhvaryu (The physical performer of rituals)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Dhanurveda (Military strategy and archery)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Atharvaveda</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">730 hymns containing magic spells, chants, charms, and medical folklore.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Brahma (The supervising high priest)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Shilpaveda (Engineering, architecture, and crafts)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- LEVEL 3: AVERAGE STUDENT MILESTONES -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-3">
+                <span class="difficulty-badge b-3 bg-levelInter text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">Level 3: Intermediate Facts (Scoring 60%+)</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">3. Comprehensive Comparison of Early vs. Later Vedic Society</h2>
+                
+                <p class="academic-p">
+                    As the Indo-Aryans migrated from nomadic pastoral life to settled farming, almost every aspect of their society—polity, status of women, economic wealth, and religious beliefs—changed deeply.
+                    <span class="citation">TNSB Grade 9 / CBSE Theme 3</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Sacrificial_altar_fire_vedic.jpg" alt="Vedic sacrificial altar" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">Vedic Yajna Shala — High-precision geometry used to construct brick altars</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault 3: The Sulba Sutras & Pythagorean Theorems</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        Long before Pythagoras was born in Greece, Vedic priests had already calculated and recorded the geometric equations for right-angled triangles! The <strong>Sulba Sutras</strong> (part of the Kalpa Vedanga) contain precise mathematical instructions for building complex brick sacrificial altars (Yajna Kundas). These altars had to be built with exact geometric areas using different shapes (like birds or wheels) to ensure the rituals worked. These texts include the earliest recorded statements of the theorem that we now know as the <strong>Pythagorean Theorem</strong>!
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">The Evolutionary Transition: Early vs. Later Vedic Life</h3>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">Aspect</th>
+                                <th class="py-3 px-4 bg-primary text-white w-3/8">Early Vedic Period (c. 1500 – 1000 BCE)</th>
+                                <th class="py-3 px-4 bg-primary text-white w-3/8">Later Vedic Period (c. 1000 – 600 BCE)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Polity & Administration</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Kinship-based tribal democracy. The king (Rajan) was a protector of cattle and had limited, checked powers. He was advised by popular, democratic assemblies like the **Sabha, Samiti, Vidatha, and Gana**. Gavisthi (conflicts over cows) was the primary cause of minor tribal clashes.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Territorial monarchies emerged as tribes settled down. Small clans merged to form kingdoms called **Janapadas** (e.g., Kuru-Panchala, Kosala). The king's power grew significantly, and he assumed grand titles like *Samrat* and *Ekrat*. The democratic assemblies (Sabha and Samiti) lost their power, and the Vidatha disappeared entirely.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Social System</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Highly flexible social structure. Social division was based on occupation (*Varna* meant color or choice of work). Sages, warriors, and workers lived together as equals. The Rigveda records a famous quote: *"I am a poet, my father is a physician, and my mother grinds corn on stone."* This shows there was no hereditary caste system.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">The social structure hardened into a rigid, hereditary caste system based on birth. The four varnas—**Brahmins, Kshatriyas, Vaishyas, and Shudras**—became distinct social classes. The Purusha Sukta hymn in the 10th Mandala of the Rigveda was re-interpreted to justify this rigid social order, and the Shudras were marginalized.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Status of Women</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Relatively high and equal status. Women had access to education and took part in assemblies like the Sabha and Vidatha. They could choose their husbands through *Swayamvara*, and child marriage was unknown. Widow remarriage (*Niyoga*) was allowed. Notable female scholars of this era include **Gargi, Maitreyi, Lopamudra, and Apala**.<span class="citation">TNSB Class 11</span></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Women's status declined significantly. They lost their right to attend assemblies, and their access to education was restricted. The Upanayana (sacred thread) ceremony was denied to them. Child marriages began, and the practices of dowry and polygamy became common. Women were now considered dependent on men throughout their lives.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Economic Wealth</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Primarily pastoral and cattle-rearing. The cow (**Gau**) was highly sacred and served as the main unit of value and wealth. Agriculture was a secondary activity. Copper (Ayas) was the main metal used for tools.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Settled agriculture became the main economic driver, supported by the discovery of iron (**Shyama Ayas / Krishna Ayas**) around 1000 BCE in northwestern India. This allowed people to clear the dense forests of the Ganga valley and cultivate crops like rice (Vrihi), wheat (Godhuma), and barley (Yava) on a large scale.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Religious Practice</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Worship of personified natural forces. The main gods were **Indra** (Purandara, god of rain and war), **Agni** (fire god, who acted as an intermediary), and **Varuna** (god of cosmic order - *Rta*). Rituals were simple, focused on prayers and food offerings, without temples or idols.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">The early nature gods lost their prominence. A new trinity emerged: **Prajapati** (the Creator, Brahma), **Vishnu** (the Preserver), and **Rudra** (the Destroyer, Shiva). Rituals and animal sacrifices became extremely complex and expensive, giving the Brahmin priests immense power over society.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- LEVEL 4: ADVANCED EXPLORATORY ANALYSIS -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-4">
+                <span class="difficulty-badge b-4 bg-levelAdv text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">Level 4: Exploratory Analysis for High Achievers</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">4. Archeological Synchronisms & Metallurgical Transformations</h2>
+                
+                <p class="academic-p">
+                    To understand the transition from the Early to Later Vedic Period, we must look at the archaeological evidence. Historians connect Later Vedic literature with the **Painted Grey Ware (PGW) culture**, which dates from c. 1100 BCE to 600 BCE. PGW sites have been excavated across East Punjab, Haryana, and western Uttar Pradesh, including important settlements like **Atranjikhera, Hastinapur, Noh, Kurukshetra, and Kampil**.<span class="citation">IB Diploma Syllabus</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Painted_Grey_Ware_vessel_reconstructed.jpg" alt="Painted Grey Ware Pottery Vessel" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">Painted Grey Ware (PGW) Vessel — Archaeological Identifier of the Later Vedic Period</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault 4: The Transformational Metallurgy of Atranjikhera</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        What sparked the rise of the great kingdoms in the Ganga valley? The answer lies in the soil of <strong>Atranjikhera</strong> (Uttar Pradesh). Excavations there revealed early iron-smelting furnaces dating back to c. 1000 BCE. The discovery of iron (Shyama Ayas) allowed the Later Vedic people to replace soft copper and stone tools with strong iron axes and plows. This allowed them to clear the dense forests of the Ganga plain, plow the heavy soil, and produce agricultural surpluses, which led to the rise of towns and kingdoms.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">Battle of the Ten Kings (Dasharajna War)</h3>
+                <p class="academic-p">
+                    The Rigveda describes a famous prehistoric war known as the **Battle of the Ten Kings (Dasharajna)**. This conflict took place along the banks of the **Parushni River** (modern Ravi River). King Sudas of the **Bharata clan** (Tritsu family) faced a coalition of ten major tribes led by Puru. Sudas won a decisive victory, establishing the Bharata clan as the dominant power in northern India, from which the name of the country—*Bharatavarsha*—is derived.<span class="citation">Encyclopedia Britannica</span>
+                </p>
+                
+                <div class="flex-row">
+                    <div class="flex-box">
+                        <h3 class="text-xl font-bold text-primary mb-3">Weapons & Metallurgy of PGW Sites</h3>
+                        <p class="text-sm md:text-base text-justify">PGW sites have yielded arrowheads, spearheads, and daggers made of iron, along with delicate grey pottery decorated with painted black geometric designs. This shows that the Later Vedic people were skilled in metallurgy, craft production, and organized warfare.</p>
+                    </div>
+                    <div class="flex-box">
+                        <h3 class="text-xl font-bold text-primary mb-3">Evolution of Trade & Currency</h3>
+                        <p class="text-sm md:text-base text-justify">While barter was still common, early forms of currency began to emerge. The texts mention gold and silver weights like **Nishka, Satamana, and Krishnala**, which were used as standard measures of value in long-distance trade with kingdoms in central India and across the seas.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- LEVEL 5: HIGH-ORDER THINKING SKILLS -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-5">
+                <span class="difficulty-badge b-5 bg-levelExp text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">Level 5: High-Order Thinking Skills (HOTS)</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">5. Historiographical Debates & Philosophical Paradigm Shifts</h2>
+                
+                <p class="academic-p">
+                    At the highest levels of historical scholarship, we study the debate surrounding the origins of the Indo-Aryan speakers and their migration into India. While early colonial scholars proposed an "Aryan Invasion Theory," modern archaeological and genetic research has dismissed this view. Today, historians agree that the Indo-Aryans migrated peacefully into the subcontinent in small waves over centuries, interacting and blending with local cultures.<span class="citation">IB Diploma Core / Britannica</span>
+                </p>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault 5: From Sacrificial Rituals to the Upanishads</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        By the end of the Later Vedic Period, many thinkers began to question the expensive, animal-sacrificing rituals led by the Brahmin priests. This intellectual rebellion led to the creation of the <strong>Upanishads</strong> (also known as <em>Vedanta</em>, the end of the Vedas). Moving away from outward sacrifices, these texts focused on deep inner philosophy, discussing the relationship between the individual soul (<strong>Atman</strong>) and the universal soul (<strong>Brahman</strong>). This philosophical shift laid the foundation for Buddhism, Jainism, and classical Indian philosophy.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">Analytical Comparison of Aryan Origin Theories</h3>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">Origin Theory Name</th>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">Key Academic Proponents</th>
+                                <th class="py-3 px-4 bg-primary text-white w-1/2">Proposed Homeland & Supporting Evidence / Modern Rejection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Central Asian Steppe Hypothesis</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Max Müller, Shereen Ratnagar, modern geneticists (DNA haplogroups R1a)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Proposes that the Indo-Aryans migrated from the Steppes of Russia and Central Asia. Supported by linguistic similarities between Sanskrit, Greek, and Latin, and shared pastoral, horse-rearing cultures. This is the most widely accepted view in modern scholarship.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Arctic Region Theory</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">Bal Gangadhar Tilak</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Proposed that the Aryans originated in the Arctic circle. Tilak pointed to Rigvedic descriptions of long, multi-month dawns and dark winter nights as celestial memories of their original polar home. *Now rejected by modern science.*</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>Indigenous / Out of India Theory (OIT)</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">K.D. Sethna, Subhash Kak</td>
+                                <td class="py-3 px-4 border-b border-gray-200">Argues that the Indo-Aryans were indigenous to the Indian subcontinent and that the Indus Valley Civilisation was a late Vedic society. Proposes that Indo-Aryan languages spread outward from India to Europe. *Contested by mainstream linguistic scholars.*</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </div>
+
+
+        <!-- ================================================================= -->
+        <!-- ==================== TAMIL SECTION ============================== -->
+        <!-- ================================================================= -->
+        <div class="content-ta">
+            
+            <!-- LEVEL 1: BASIC OUTLINE (TAMIL) -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-1-ta">
+                <span class="difficulty-badge b-basic bg-levelBasic text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">நிலை 1: அடிப்படை விவரங்கள் & அறிமுகம்</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">1. காலவரிசைக் கட்டமைப்பு மற்றும் ரிக்வேத அடிப்படை</h2>
+                
+                <p class="academic-p">
+                    **வேத காலம்** (கி.மு. 1500 – கி.மு. 600) என்பது இந்தியத் துணைக் கண்டத்தின் வரலாற்றில் ஒரு மிக முக்கியமான திருப்புமுனையாகும். மிகவும் நகரமயமாக்கப்பட்ட, செம்புக் கால சிந்து சமவெளி நாகரிகத்தின் வீழ்ச்சிக்குப் பிறகு, வேத காலம் ஒரு புதிய மேய்ச்சல் மற்றும் அரை-நாடோடி வாழ்க்கை முறையை அறிமுகப்படுத்தியது. இது படிப்படியாக இரும்பு உலோகவியல் பயன்பாடு கொண்ட வலிமையான பிராந்திய அரசுகளாக (ஜனபதங்கள்) உருவெடுத்தது. இந்த நீண்ட வரலாற்றுப் பகுதி இரண்டு வெவ்வேறு காலகட்டங்களாகப் பிரிக்கப்பட்டுள்ளது: **முற்கால வேத காலம்** அல்லது **ரிக்வேத காலம்** (கி.மு. 1500–1000) மற்றும் **பிற்கால வேத காலம்** (கி.மு. 1000–600). இந்த பிரிவினையானது மொழிசார்ந்த உரை அடுக்குகள் மற்றும் இரும்பு உலோகப் பயன்பாட்டின் வளர்ச்சி ஆகியவற்றின் மூலம் தொல்பொருள் அறிஞர்களால் உறுதி செய்யப்பட்டுள்ளது.
+                    <span class="citation">CBSE Theme 1 / TNSB Grade 11</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Rigveda_MS2097_1_10_1_Sanskrit_Manuscript.jpg" alt="Rigveda Manuscript Page" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">சமஸ்கிருத ரிக்வேத ஓலைச்சுவடி — பழமையான இந்தோ-ஐரோப்பிய இலக்கிய ஆதாரம்</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம் 1: போகஸ்கோய் கல்வெட்டுகள் (அனடோலியா, துருக்கி)</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        இந்தோ-ஆரியர்களின் இடம்பெயர்வு காலத்தை நாம் எவ்வாறு துல்லியமாகக் கணிக்கிறோம்? இதற்கான மிக ஆச்சரியமான ஆதாரம் இந்தியாவில் இருந்து அல்ல, மாறாக துருக்கியில் இருந்து கிடைத்துள்ளது! துருக்கியின் <strong>போகஸ்கோய்</strong> என்னுமிடத்தில் கண்டெடுக்கப்பட்ட களிமண் பலகைகள் (கி.மு. 1400) இட்டைட்டு மற்றும் மிட்டானி மன்னர்களுக்கிடையேயான சமாதான உடன்படிக்கையை விவரிக்கின்றன. இந்த உடன்படிக்கையை உறுதிப்படுத்த அவர்கள் <strong>மித்திரன், வருணன், இந்திரன் மற்றும் நாசத்தியர் (அஸ்வின்கள்)</strong> ஆகிய தெய்வங்களின் மீது ஆணையிட்டுள்ளனர்—இவை அனைத்தும் ரிக்வேதத்தில் போற்றப்படும் அதே தெய்வங்களாகும்! இது இந்தோ-ஆரிய மொழியினர் இந்து குஷ் மலையைக் கடவதற்கு முன்பே மேற்கு-மத்திய ஆசியாவில் பரவியிருந்ததை நிரூபிக்கிறது.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">முக்கிய மைல்கற்கள்: சுருதி மற்றும் ஸ்மிருதி இலக்கியங்கள்</h3>
+                <p class="academic-p">
+                    வேத இலக்கியங்கள் அனைத்தும் அவை பாதுகாக்கப்பட்ட மற்றும் கடத்தப்பட்ட முறையின் அடிப்படையில் இரண்டு முக்கிய பிரிவுகளாகப் பிரிக்கப்பட்டுள்ளன:
+                </p>
+                <ul class="list-disc pl-8 mb-6 space-y-2 text-base md:text-lg text-justify">
+                    <li class="academic-li"><strong>சுருதி (கேட்கப்படுவது):</strong> இவை மாறாதவை, தெய்வீகமானவை மற்றும் மனிதர்களால் எழுதப்படாதவை (அபவ்ருஷேயா) என்று நம்பப்படுகின்றன. நான்கு முக்கிய வேதங்கள் (ரிக், சாம, யஜுர், அதர்வ) மற்றும் அவற்றின் ஆரண்யகங்கள், பிராமணங்கள், உபநிடதங்கள் ஆகியவை இதில் அடங்கும். இவை பல நூற்றாண்டுகளாக வாய்மொழி ஓதுதல் மூலம் மிகத் துல்லியமாகப் பாதுகாக்கப்பட்டு வந்தன.</li>
+                    <li class="academic-li"><strong>ஸ்மிருதி (நினைவில் வைக்கப்படுவது):</strong> சுருதியின் தெய்வீக உண்மைகளை விளக்குவதற்காக மனித முனிவர்களால் எழுதப்பட்டவை. வேதங்களின் அங்கங்கள் (வேதாங்கங்கள்), உபவேதங்கள், புராணங்கள், சூத்திரங்கள் மற்றும் இரண்டு முக்கிய காவியங்கள் (இராமாயணம் மற்றும் மகாபாரதம்) இதில் அடங்கும்.<span class="citation">ICSE Class 9 History</span></li>
+                </ul>
+            </article>
+
+            <!-- LEVEL 2: ELEMENTARY ESSENTIALS (TAMIL) -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-2-ta">
+                <span class="difficulty-badge b-2 bg-levelElem text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">நிலை 2: அடிப்படை அத்தியாவசிய விவரங்கள்</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">2. புவியியல் இடப்பெயர்வும் இலக்கிய அமைப்பும்</h2>
+                
+                <p class="academic-p">
+                    முற்கால வேத காலத்தில், இந்தோ-ஆரியர்கள் **சப்தசிந்து** (ஏழு நதிகள் பாயும் நிலப்பகுதி) என்று அழைக்கப்படும் பகுதியில் வாழ்ந்தனர். இப்பகுதி இன்றைய கிழக்கு ஆப்கானிஸ்தான், பாகிஸ்தானின் பஞ்சாப் மற்றும் வடமேற்கு இந்தியாவை உள்ளடக்கியிருந்தது. அந்த ஏழு நதிகள்: சிந்து (Sindhu), விதஸ்தா (ஜீலம்), அசிக்னி (செனாப்), பருஷ்ணி (ரவி), விபாஸ் (பியாஸ்), சுதுத்ரி (சத்லஜ்) மற்றும் மிகவும் போற்றப்பட்ட, இன்று மறைந்துவிட்ட சரஸ்வதி ஆகும். மக்கள் தொகை பெருக்கம் மற்றும் இரும்பு போன்ற கருவிகளின் பயன்பாட்டால், பிற்கால வேத காலத்தில் அவர்களின் புவியியல் மையம் கங்கை-யமுனை சமவெளி பகுதியை நோக்கி (ஆரியவர்த்தம்) நகர்ந்தது.
+                    <span class="citation">NCERT Class 6</span>
+                </p>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம் 2: சப்தசிந்து நதிகளும் அவற்றின் இன்றைய பெயர்களும்</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        ரிக்வேதத்தில் உள்ள நதிகளின் பெயர்கள் மிகவும் இனிமையானவை. இன்றைய நதிகளின் பழைய பெயர்கள்: <strong>சத்லஜ்</strong> நதி <em>சுதுத்ரி</em> என்றும், <strong>ரவி</strong> நதி <em>பருஷ்ணி</em> என்றும், <strong>பியாஸ்</strong> நதி <em>விபாஸ்</em> என்றும், <strong>செனாப்</strong> நதி <em>அசிக்னி</em> என்றும், <strong>ஜீலம்</strong> நதி <em>விதஸ்தா</em> என்றும் அழைக்கப்பட்டன. சரஸ்வதி நதியானது மிக உயர்ந்த நதியாக—'நதிதமா' (நதிகளிலேயே மிகச் சிறந்தது) என்று புகழப்பட்டது.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-secondary mt-8 mb-4">நான்கு வேதங்களின் விரிவான பகுப்பாய்வு</h3>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white">வேத சம்ஹிதை</th>
+                                <th class="py-3 px-4 bg-primary text-white">முக்கிய நோக்கம் & உள்ளடக்கம்</th>
+                                <th class="py-3 px-4 bg-primary text-white">தொடர்புடைய பூசாரி</th>
+                                <th class="py-3 px-4 bg-primary text-white">தத்துவ முக்கியத்துவம் / உபவேதம்</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>ரிக்வேதம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">10 புத்தகங்களாக (மண்டலங்கள்) பிரிக்கப்பட்ட 1,028 பாடல்களின் (சூக்தங்கள்) தொகுப்பு. இயற்கை தெய்வங்களைப் போற்றுகிறது.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">ஹோத்ரி (பாடல்களை ஓதுபவர்)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">ஆயுர்வேதம் (மருத்துவம்)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>சாமவேதம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">1,549 இசைப் பாடல்களின் தொகுப்பு. இதன் பெரும்பாலான வரிகள் ரிக்வேதத்திலிருந்து எடுக்கப்பட்டு இசை வடிவில் அமைக்கப்பட்டுள்ளன.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">உத்காத்ரி (இசைப்பவர்)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">காந்தர்வவேதம் (இசை/கலைகள்)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>யஜுர்வேதம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">யாகங்கள் மற்றும் சடங்குகளைச் செய்வதற்கான வழிமுறைகளை விளக்கும் நூல். இது கிருஷ்ண யஜுர்வேதம் (கருப்பு) மற்றும் சுக்ல யஜுர்வேதம் (வெள்ளை) என இரு பிரிவுகளைக் கொண்டது.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">அத்வர்யு (சடங்குகளை நடத்துபவர்)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">தனுர்வேதம் (போர்க்கலை)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>அதர்வவேதம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">தீமைகளை விரட்டவும் நோய்களைக் குணப்படுத்தவும் உதவும் மந்திரங்கள், தந்திரங்கள் மற்றும் அன்றாடப் பரிகாரங்கள் கொண்ட 730 பாடல்களின் தொகுப்பு.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">பிரம்மா (முக்கிய மேற்பார்வைப் பூசாரி)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">சில்பவேதம் (கட்டிடக்கலை)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- LEVEL 3: AVERAGE STUDENT MILESTONES (TAMIL) -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-3-ta">
+                <span class="difficulty-badge b-3 bg-levelInter text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">நிலை 3: இடைநிலை உண்மைகள் (60%+)</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">3. முற்கால மற்றும் பிற்கால வேத சமூகங்களின் ஒப்பீட்டு பகுப்பாய்வு</h2>
+                
+                <p class="academic-p">
+                    வேத காலத்தில் ஆரியர்கள் நாடோடி வாழ்க்கையிலிருந்து நிலையான விவசாய வாழ்க்கைக்கு மாறியபோது, அவர்களின் அரசியல், சமூக அமைப்பு, பெண்களின் நிலை மற்றும் மத நம்பிக்கைகள் என அனைத்தும் பெரும் மாற்றங்களைச் சந்தித்தன.
+                    <span class="citation">TNSB Grade 9 / CBSE Theme 3</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Sacrificial_altar_fire_vedic.jpg" alt="Vedic sacrificial altar" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">வேத யாக சாலை — வடிவியல் அடிப்படையில் அமைக்கப்பட்ட யாக குண்டங்கள்</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம் 3: சுல்ப சூத்திரங்களும் பிதாகரஸ் தேற்றமும்</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        கிரேக்கத்தில் பிதாகரஸ் பிறப்பதற்கு பல நூற்றாண்டுகளுக்கு முன்பே, வேத கால முனிவர்கள் செங்கோண முக்கோணத்திற்கான கணித சமன்பாடுகளைக் கணக்கிட்டு எழுதியிருந்தனர்! <strong>சுல்ப சூத்திரங்கள்</strong> (வேதாங்கத்தின் ஒரு பகுதி) வெவ்வேறு வடிவங்களில் (பறவை, சக்கரம் போன்றவை) துல்லியமான பரப்பளவு கொண்ட செங்கல் யாக பீடங்களை அமைப்பதற்கான கணித வழிமுறைகளைக் கொண்டுள்ளன. இதில் நாம் இன்று <strong>பிதாகரஸ் தேற்றம்</strong> என்று அழைக்கும் கணிதக் கோட்பாட்டின் ஆரம்பகால வடிவம் தெளிவாக விவரிக்கப்பட்டுள்ளது!
+                    </p>
+                </div>
+
+                <h3>சமூக மாற்ற ஒப்பீட்டு அட்டவணை</h3>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">வாழ்க்கைப் பண்பு</th>
+                                <th class="py-3 px-4 bg-primary text-white w-3/8">முற்கால வேத காலம் (கி.மு. 1500 – 1000)</th>
+                                <th class="py-3 px-4 bg-primary text-white w-3/8">பிற்கால வேத காலம் (கி.மு. 1000 – 600)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>அரசியல் அதிகாரம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">இரத்த உறவு சார்ந்த பழங்குடி ஜனநாயகம் நிலவியது. அரசன் (ராஜன்) மக்களின் மற்றும் கால்நடைகளின் பாதுகாவலனாக மட்டுமே செயல்பட்டார். அவரது அதிகாரம் வரம்புக்குட்பட்டதாக இருந்தது. அவர் **சபா (Sabha), சமிதி (Samiti), விதாதா (Vidatha)** மற்றும் கணா (Gana) போன்ற அமைப்புகளால் வழிநடத்தப்பட்டார். கால்நடைகளுக்கான சண்டைகளே (கவிஷ்டி) முக்கியப் போர்களாக இருந்தன.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">நிலப்பரப்பு சார்ந்த நாடுகள் உருவாயின. சிறிய பழங்குடிகள் இணைந்து **ஜனபதங்கள்** (எ.கா. குரு-பாஞ்சாலம், கோசலம்) என்ற பெரிய நாடுகள் உருவாகின. அரசரின் அதிகாரம் பெருமளவு அதிகரித்தது. அவர் *சாம்ராட்*, *ஏக்ராட்* போன்ற பட்டங்களைச் சூட்டிக்கொண்டார். சபா, சமிதி போன்ற மக்கள் அமைப்புகள் தங்கள் செல்வாக்கை இழந்தன. விதாதா முற்றிலுமாக அழிந்தது.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>சமூகப் பிரிவுகள்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">சமூகப் பிரிவுகள் நெகிழ்வுத்தன்மையுடன் இருந்தன. தொழில் அடிப்படையிலேயே பிரிவுகள் (வர்ணம்) அமைந்தன. ஒரே குடும்பத்தில் வெவ்வேறு தொழில் செய்பவர்கள் வாழ்ந்தனர். ரிக்வேதத்தில் ஒரு கவிஞர் கூறுகிறார்: *"நான் ஒரு கவிஞன், என் தந்தை ஒரு மருத்துவர், என் தாய் கல்லில் மாவு அரைப்பவர்."* பிறப்பு அடிப்படையிலான சாதிமுறை அப்போது இல்லை.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">பிறப்பு அடிப்படையிலான கடுமையான, பரம்பரைச் சாதி முறை உருவானது. சமூகம் **பிராமணர், க்ஷத்திரியர், வைசியர், சூத்திரர்** என நான்கு கடுமையான வர்ணங்களாகப் பிரிக்கப்பட்டது. ரிக்வேதத்தின் பத்தாவது மண்டலத்தில் உள்ள புருஷ சூக்தப் பாடல் இந்த கடுமையான சமூகப் படிநிலையை நியாயப்படுத்தப் பயன்படுத்தப்பட்டது மற்றும் சூத்திரர்கள் ஒடுக்கப்பட்டனர்.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>பெண்களின் நிலை</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">பெண்களுக்கு சமூகத்தில் சமமான, உயர் மதிப்பும் சுதந்திரமும் இருந்தது. பெண்கள் கல்வி கற்கவும், சபா மற்றும் விதாதா போன்ற அரசியல் கூட்டங்களில் பங்கேற்கவும் முடிந்தது. தங்கள் கணவரைத் தேர்ந்தெடுக்கும் உரிமை (*சுயம்வரம்*) பெற்றிருந்தனர். குழந்தை திருமணம் இல்லை. கைம்பெண் மறுமணம் அனுமதிக்கப்பட்டது. **கார்கி, மைத்ரேயி, லோபாமுத்ரா** போன்ற பெண் அறிஞர்கள் வாழ்ந்தனர்.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">பெண்களின் நிலை மிகவும் சரிந்தது. அவர்கள் அரசியல் கூட்டங்களில் பங்கேற்கும் உரிமையை இழந்தனர். பெண்களுக்கான கல்வி மறுக்கப்பட்டதுடன், உபநயனம் (பூணூல் அணியும் சடங்கு) செய்யும் உரிமை பறிக்கப்பட்டது. குழந்தை திருமணம், பலதார மணம் மற்றும் வரதட்சணை முறைகள் வழக்கத்திற்கு வந்தன. பெண்கள் எப்போதும் ஆண்களைச் சார்ந்திருக்க வேண்டும் என்ற நிலை உருவானது.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>பொருளாதாரம்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">முதன்மையாக மேய்ச்சல் மற்றும் கால்நடை வளர்ப்பை அடிப்படையாகக் கொண்டது. பசுமாடு மிகவும் புனிதமானதாகவும், செல்வத்தின் அளவீடாகவும் கருதப்பட்டது. விவசாயம் இரண்டாம் நிலைத் தொழிலாக மட்டுமே இருந்தது. கருவிகள் செய்ய செம்பு (அயாஸ்) பயன்படுத்தப்பட்டது.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">நிலையான விவசாயம் முக்கிய பொருளாதாரத் தொழிலாக மாறியது. கி.மு. 1000 வாக்கில் வடமேற்கு இந்தியாவில் கண்டறியப்பட்ட இரும்பு (**கிருஷ்ண அயாஸ்**) பயன்பாடு இதற்கு முக்கிய காரணமாகும். இதன் மூலம் அடர்ந்த காடுகளை அழித்து நெல் (விருஹி), கோதுமை (கோதுமா) மற்றும் பார்லி (யவா) ஆகியவற்றை அதிகளவில் பயிரிட்டனர்.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>மத நம்பிக்கைகள்</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">இயற்கை ஆற்றல்களைத் தெய்வங்களாக வழிபட்டனர். முக்கிய தெய்வங்கள்: **இந்திரன்** (மழை மற்றும் போர்க் கடவுள்), **அக்னி** (நெருப்புக் கடவுள், மனிதர்களுக்கும் இறைவனுக்கும் இடையிலான தூதுவர்) மற்றும் **வருணன்** (பிரபஞ்ச ஒழுங்குமுறையின் காவலர் - *ரிதா*). வழிபாடுகள் எளிமையான பிரார்த்தனைகள் மூலம் அமைந்தன; கோயில்களோ சிலைகளோ இல்லை.</td>
+                                <td class="py-3 px-4 border-b border-gray-200">பழைய இயற்கை தெய்வங்கள் தங்கள் முக்கியத்துவத்தை இழந்தன. புதிய முக்கடவுள் வழிபாடு உருவானது: **பிரஜாபதி** (படைப்புக் கடவுள், பிரம்மா), **விஷ்ணு** (காக்கும் கடவுள்) மற்றும் **ருத்திரன்** (அழிக்கும் கடவுள், சிவன்). சடங்குகளும் விலங்கு பலியிடுதல்களும் மிகவும் சிக்கலானதாகவும், செலவுமிக்கதாகவும் மாறின. இதனால் பூசாரிகளின் ஆதிக்கம் அதிகரித்தது.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- LEVEL 4: ADVANCED EXPLORATORY ANALYSIS (TAMIL) -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-4-ta">
+                <span class="difficulty-badge b-4 bg-levelAdv text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">நிலை 4: சிறந்த மாணவர்களுக்கான ஆய்வுக் கட்டுரைகள்</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">4. தொல்பொருளியல், வண்ணம்பூசப்பட்ட சாம்பல் பாண்டங்கள் &amp; உலோகவியல்</h2>
+                
+                <p class="academic-p">
+                    முற்காலத்திலிருந்து பிற்கால வேத காலத்திற்கான மாற்றத்தைத் தொல்பொருள் சான்றுகள் மூலம் நாம் தெளிவாகப் புரிந்துகொள்ள முடியும். வரலாற்று அறிஞர்கள் பிற்கால வேத கால இலக்கியங்களை **வண்ணம்பூசப்பட்ட சாம்பல் பாண்ட பண்பாட்டுடன் (Painted Grey Ware - PGW)** தொடர்புபடுத்துகிறார்கள். இப்பண்பாடு கி.மு. 1100 முதல் கி.மு. 600 வரையிலான காலத்தைச் சேர்ந்ததாகும். பஞ்சாப், ஹரியானா மற்றும் உத்தரப் பிரதேசத்தின் பல இடங்களில் இத்தகைய சாம்பல் பாண்டங்கள் கண்டறியப்பட்டுள்ளன. குறிப்பாக **அத்ரஞ்சிகேரா, ஹஸ்தினாபூர், நோஹ், குருக்ஷேத்திரம் மற்றும் காம்பில்** ஆகியவை முக்கிய இடங்களாகும்.
+                    <span class="citation">IB Syllabus</span>
+                </p>
+
+                <div class="image-showcase-grid my-8">
+                    <div class="image-card max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md border border-borderCol bg-white text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Painted_Grey_Ware_vessel_reconstructed.jpg" alt="Painted Grey Ware Pottery Vessel" class="w-full h-80 object-cover border-b border-borderCol hover:scale-105 transition-transform duration-300">
+                        <div class="image-tagline py-3 bg-[#faf5f0] text-primary font-inter font-bold text-sm">வண்ணம்பூசப்பட்ட சாம்பல் நிற மண்பாண்டம் (PGW) — பிற்கால வேத காலத்தின் அடையாள சின்னம்</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம் 4: அத்ரஞ்சிகேராவின் இரும்பு உலோகவியல் புரட்சி</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        கங்கைச் சமவெளியில் பெரிய அரசுகள் உருவாக என்ன காரணம்? அதற்கான விடை உத்தரப் பிரதேசத்தின் <strong>அத்ரஞ்சிகேரா</strong> அகழ்வாராய்ச்சியில் கிடைத்துள்ளது! அங்கு கி.மு. 1000 ஆம் ஆண்டைச் சேர்ந்த பழமையான இரும்பு உருக்கு உலைகள் கண்டறியப்பட்டுள்ளன. இரும்பின் (கிருஷ்ண அயாஸ்) கண்டுபிடிப்பு பிற்கால வேத கால மக்கள் அடர்ந்த காடுகளை எளிதாக அழிக்கவும், கடினமான நிலங்களை ஆழமாக உழுது விவசாய உபரி உற்பத்தியைப் பெருக்கவும் உதவியது. இதுவே நகரங்கள் மற்றும் பேரரசுகள் உருவாக வழிவகுத்தது.
+                    </p>
+                </div>
+
+                <h3>பத்து ராஜாக்களின் போர் (தசராஜ்ஞ போர்)</h3>
+                <p class="academic-p">
+                    ரிக்வேதத்தில் விவரிக்கப்பட்டுள்ள ஒரு புகழ்பெற்ற வரலாற்று நிகழ்வு **பத்து ராஜாக்களின் போர் (தசராஜ்ஞ போர்)** ஆகும். இப்போரானது **பருஷ்ணி** நதிக்கரையில் (இன்றைய ரவி நதி) நடைபெற்றது. பரத குலத்தைச் சேர்ந்த (திருத்சு குடும்பம்) அரசன் **சுதாஸ்** என்பவருக்கு எதிராகவும், புரு குலம் தலைமையிலான பத்து பழங்குடி அரசுகளின் கூட்டணிக்கு எதிராகவும் இப்போர் நடைபெற்றது. இதில் அரசன் சுதாஸ் பெரும் வெற்றி பெற்று வட இந்தியாவின் தலைசிறந்த அரசராக உருவெடுத்தார். இவரது குலத்தின் பெயரிலிருந்தே நமது நாட்டிற்கு *பாரதவர்ஷம்* (பாரதம்) என்ற பெயர் உருவானது.
+                    <span class="citation">Encyclopedia Britannica</span>
+                </p>
+            </article>
+
+            <!-- LEVEL 5: HIGH-ORDER THINKING SKILLS (TAMIL) -->
+            <article class="card bg-white rounded-2xl p-6 md:p-10 mb-12 shadow-md border-t-8 border-accent" id="lvl-5-ta">
+                <span class="difficulty-badge b-5 bg-levelExp text-white px-5 py-1.5 rounded-full text-xs uppercase font-bold inline-block mb-6">நிலை 5: உயர்சிந்தனைத் திறன் உண்மைகள் (HOTS)</span>
+                
+                <h2 class="text-3xl md:text-4xl font-cinzel font-bold text-primary mb-6">5. வரலாற்று விவாதங்களும் தத்துவப் புரட்சியும்</h2>
+                
+                <p class="academic-p">
+                    வரலாற்று ஆய்வுகளில் இந்தோ-ஆரியர்களின் தாயகம் மற்றும் அவர்களின் வருகை பற்றிய விவாதங்கள் மிகவும் முக்கியமானவை. முந்தைய காலனித்துவ வரலாற்றாசிரியர்கள் முன்வைத்த "ஆரிய படையெடுப்புக் கோட்பாடு" முற்றிலும் தவறானது என்று நவீன மரபியல் மற்றும் தொல்பொருள் ஆய்வுகள் நிரூபித்துள்ளன. ஆரியர்கள் அமைதியான முறையில் சிறு குழுக்களாகப் பல நூற்றாண்டுகளாகப் புலம்பெயர்ந்து இந்தியாவிற்குள் வந்தனர் என்றும், இங்குள்ள உள்ளூர் மக்களுடன் கலந்து வாழ்ந்தனர் என்றும் தற்போதைய வரலாற்று அறிஞர்கள் ஒருமித்த கருத்தை எட்டியுள்ளனர்.
+                    <span class="citation">IB Core / Britannica</span>
+                </p>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம் 5: சடங்குகளிலிருந்து உபநிடத தத்துவங்களை நோக்கி</h4>
+                    <p class="text-sm md:text-base text-gray-800">
+                        பிற்கால வேத காலத்தின் இறுதியில், பூசாரிகளால் நடத்தப்பட்ட விலங்கு பலியிடுதல் மற்றும் ஆடம்பர சடங்குகளுக்கு எதிராக அறிவுஜீவிகள் குரல் எழுப்பினர். இந்த சிந்தனைப் புரட்சியின் விளைவாக உருவானவையே <strong>உபநிடதங்கள்</strong> (வேதாந்தம் - வேதங்களின் இறுதிப் பகுதி). இவை வெளிப்படையான சடங்குகளைப் புறந்தள்ளிவிட்டு, ஆத்மா (Atman) மற்றும் பிரம்மன் (Brahman) போன்ற ஆழமான தத்துவக் கருத்துக்களைப் போதித்தன. இந்த தத்துவார்த்த மாற்றமே பிற்காலத்தில் பௌத்தம் மற்றும் சமண மதங்கள் தோன்ற வழிவகுத்தது.
+                    </p>
+                </div>
+
+                <h3>ஆரியர்களின் தாயகம் பற்றிய கோட்பாடுகளின் பகுப்பாய்வு</h3>
+                <div class="overflow-x-auto my-6">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">கோட்பாட்டின் பெயர்</th>
+                                <th class="py-3 px-4 bg-primary text-white w-1/4">முக்கிய வரலாற்றாசிரியர்கள்</th>
+                                <th class="py-3 px-4 bg-primary text-white w-1/2">தாயகம் & முக்கிய தொல்பொருள்/மரபியல் சான்றுகள்</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>மத்திய ஆசிய சமவெளி (Steppe) கொள்கை</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">மேக்ஸ் முல்லர், நவீன மரபியலாளர்கள் (DNA R1a குரூப்)</td>
+                                <td class="py-3 px-4 border-b border-gray-200">ஆரியர்கள் ரஷ்யா மற்றும் மத்திய ஆசியாவின் புல்வெளிப் பகுதிகளிலிருந்து வந்தனர் என்று கூறுகிறது. சமற்கிருதம், கிரேக்கம் மற்றும் லத்தீன் மொழிகளுக்கு இடையேயான ஒற்றுமைகள் மற்றும் குதிரை வளர்ப்பு முறைகள் இதற்குச் சான்றாகும். இதுவே தற்போதைய உலகளாவிய ஆய்வுகளால் ஏற்றுக்கொள்ளப்பட்ட கொள்கையாகும்.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>ஆர்டிக் வட்டக் கொள்கை</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">பால கங்காதர திலகர்</td>
+                                <td class="py-3 px-4 border-b border-gray-200">ஆரியர்களின் பூர்வீகம் ஆர்டிக் பகுதி என்று திலகர் கூறினார். ரிக்வேதத்தில் விவரிக்கப்பட்டுள்ள நீண்ட பகல் மற்றும் நீண்ட பனி இரவுகள் பற்றிய வானியல் குறிப்புகளை அடிப்படையாகக் கொண்டு திலகர் இதனை முன்வைத்தார். *இது அறிவியல் பூர்வமாக நிராகரிக்கப்பட்டுள்ளது.*</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b border-gray-200"><strong>இந்தியாவிலிருந்து வெளியேறும் கொள்கை (OIT)</strong></td>
+                                <td class="py-3 px-4 border-b border-gray-200">கே.டி. சேத்னா, சுபாஷ் காக்</td>
+                                <td class="py-3 px-4 border-b border-gray-200">ஆரியர்கள் இந்தியாவின் பூர்வீகக் குடிகள் என்றும், சிந்து சமவெளி நாகரிகமே பிற்கால வேத நாகரிகம் என்றும் இக்கொள்கை கூறுகிறது. இந்தியாவிலிருந்தே மொழிகள் ஐரோப்பாவிற்குப் பரவின என்று இவர்கள் வாதிடுகின்றனர். *பெரும்பான்மையான மொழி அறிஞர்களால் இது ஏற்கப்படவில்லை.*</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </div>
+
+
+        <!-- ==================== INTERACTIVE QUIZ ENGINE ==================== -->
+        <div class="card bg-white rounded-2xl border-t-8 border-primary p-6 md:p-10 mb-12 shadow-md" id="quiz-section">
+            <div class="quiz-top-banner bg-primary text-white p-6 rounded-t-xl flex justify-between items-center flex-wrap gap-4 font-inter">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-cinzel font-bold text-white mb-2 border-none pb-0">Interactive Practice Quiz / வினாடி வினா</h2>
+                    <p class="text-sm text-[#ffe0b2] font-semibold">Test your performance against 50 deep curriculum alignment items across 5 tiers of intellectual depth.</p>
+                </div>
+                <div>
+                    <span id="score-counter" class="text-sm md:text-base font-bold bg-accent px-4 py-2 rounded-lg whitespace-nowrap">Questions Completed: 0/50</span>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="quiz-button-group flex flex-wrap gap-2 my-6 font-inter">
+                <button class="btn btn-toggle active px-4 py-2 rounded font-bold text-sm bg-primary text-white border border-primary transition" id="filter-All" onclick="filterQuiz('All', this)">All Questions</button>
+                <button class="btn btn-toggle px-4 py-2 rounded font-bold text-sm bg-gray-200 text-gray-800 border border-gray-200 transition" onclick="filterQuiz('Basic', this)">Basic</button>
+                <button class="btn btn-toggle px-4 py-2 rounded font-bold text-sm bg-gray-200 text-gray-800 border border-gray-200 transition" onclick="filterQuiz('Elementary', this)">Elementary</button>
+                <button class="btn btn-toggle px-4 py-2 rounded font-bold text-sm bg-gray-200 text-gray-800 border border-gray-200 transition" onclick="filterQuiz('Intermediate', this)">Intermediate</button>
+                <button class="btn btn-toggle px-4 py-2 rounded font-bold text-sm bg-gray-200 text-gray-800 border border-gray-200 transition" onclick="filterQuiz('Advanced', this)">Advanced</button>
+                <button class="btn btn-toggle px-4 py-2 rounded font-bold text-sm bg-gray-200 text-gray-800 border border-gray-200 transition" onclick="filterQuiz('Expert', this)">Expert</button>
+                <button class="btn ml-auto bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded font-bold transition" onclick="calculateTotalScore()">Grade Exam / சமர்ப்பிக்கவும்</button>
+            </div>
+
+            <!-- Dynamic Question Wrapper -->
+            <div id="quiz-questions-wrapper"></div>
+
+            <div id="final-score-board" class="score-display-panel p-6 rounded-xl border-3 border-green-700 bg-green-50 mt-8 hidden text-center"></div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchLanguage(lang) {
+            document.body.className = 'view-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'bg-white', 'text-primary');
+                if (btn.id === 'btn-' + lang) {
+                    btn.classList.add('bg-primary', 'text-white');
+                } else {
+                    btn.classList.add('bg-white', 'text-primary');
+                }
+            });
+        }
+
+        const quizData = [
+            {
+                id: 1, diff: "Basic", std: "Standard 6",
+                q_en: "Which of the following is the oldest of the four Vedas?",
+                q_ta: "நான்கு வேதங்களில் மிகவும் பழமையானது எது?",
+                opts_en: ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+                opts_ta: ["ரிக்வேதம்", "சாமவேதம்", "யஜுர்வேதம்", "அதர்வவேதம்"],
+                ans: "A", ans_en: "Rigveda", ans_ta: "ரிக்வேதம்"
+            },
+            {
+                id: 2, diff: "Basic", std: "Standard 6",
+                q_en: "What was the region inhabited by the early Aryans known as?",
+                q_ta: "ஆரம்பகால ஆரியர்கள் குடியேறிய பகுதி எவ்வாறு அழைக்கப்பட்டது?",
+                opts_en: ["Saptasindhu", "Aryavarta", "Dakshinapatha", "Kurukshetra"],
+                opts_ta: ["சப்தசிந்து", "ஆரியவர்த்தம்", "தட்சிணபாதை", "குருக்ஷேத்திரம்"],
+                ans: "A", ans_en: "Saptasindhu", ans_ta: "சப்தசிந்து"
+            },
+            {
+                id: 3, diff: "Basic", std: "Standard 6",
+                q_en: "In the Early Vedic Period, what was the primary source of wealth and economic value?",
+                q_ta: "முற்கால வேத காலத்தில், செல்வத்தின் முதன்மை ஆதாரமாகவும் பொருளாதார அளவீடாகவும் இருந்தது எது?",
+                opts_en: ["Gold", "Cattle (Cow)", "Land", "Iron tools"],
+                opts_ta: ["தங்கம்", "கால்நடைகள் (பசு)", "நிலம்", "இரும்புக் கருவிகள்"],
+                ans: "B", ans_en: "Cattle (Cow)", ans_ta: "கால்நடைகள் (பசு)"
+            },
+            {
+                id: 4, diff: "Basic", std: "Standard 6",
+                q_en: "The famous Gayatri Mantra is found in which Veda?",
+                q_ta: "புகழ்பெற்ற காயத்ரி மந்திரம் எந்த வேதத்தில் காணப்படுகிறது?",
+                opts_en: ["Atharvaveda", "Rigveda", "Samaveda", "Yajurveda"],
+                opts_ta: ["அதர்வவேதம்", "ரிக்வேதம்", "சாமவேதம்", "யஜுர்வேதம்"],
+                ans: "B", ans_en: "Rigveda", ans_ta: "ரிக்வேதம்"
+            },
+            {
+                id: 5, diff: "Basic", std: "Standard 6",
+                q_en: "Who was the chief Rigvedic god of war and rain, also known as 'Purandara'?",
+                q_ta: "போர் மற்றும் மழையின் அதிபதியாக கருதப்பட்ட ரிக்வேத கடவுள் யார்? (அவர் 'புரந்தரா' என்றும் அழைக்கப்பட்டார்)",
+                opts_en: ["Indra", "Agni", "Varuna", "Soma"],
+                opts_ta: ["இந்திரன்", "அக்னி", "வருணன்", "சோமன்"],
+                ans: "A", ans_en: "Indra", ans_ta: "இந்திரன்"
+            },
+            {
+                id: 6, diff: "Basic", std: "Standard 6",
+                q_en: "What does the term 'Shruti' literally mean in Vedic literature?",
+                q_ta: "வேத இலக்கியத்தில் 'சுருதி' என்ற சொல்லின் நேரடிப் பொருள் என்ன?",
+                opts_en: ["That which is Written", "That which is Read", "That which is Heard", "That which is Remembered"],
+                opts_ta: ["எழுதப்பட்டது", "படிக்கப்பட்டது", "கேட்கப்பட்டது", "நினைவில் வைக்கப்பட்டது"],
+                ans: "C", ans_en: "That which is Heard", ans_ta: "கேட்கப்பட்டது"
+            },
+            {
+                id: 7, diff: "Basic", std: "Standard 6",
+                q_en: "Which Veda is the foundational source of classical Indian music and melodies?",
+                q_ta: "இந்திய பாரம்பரிய இசையின் அடிப்படை ஆதாரமாக விளங்கும் வேதம் எது?",
+                opts_en: ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+                opts_ta: ["ரிக்வேதம்", "சாமவேதம்", "யஜுர்வேதம்", "அதர்வவேதம்"],
+                ans: "B", ans_en: "Samaveda", ans_ta: "சாமவேதம்"
+            },
+            {
+                id: 8, diff: "Basic", std: "Standard 6",
+                q_en: "What was the head of a family (Kula) called during the Rigvedic era?",
+                q_ta: "ரிக்வேத காலத்தில் ஒரு குடும்பத்தின் (குலம்) தலைவர் எவ்வாறு அழைக்கப்பட்டார்?",
+                opts_en: ["Gramini", "Vispati", "Kulapa", "Bhagadugha"],
+                opts_ta: ["கிராமணி", "விஸ்பதி", "குலபா", "பாகதுகா"],
+                ans: "C", ans_en: "Kulapa", ans_ta: "குலபா"
+            },
+            {
+                id: 9, diff: "Basic", std: "Standard 6",
+                q_en: "Which metal was known as 'Ayas' in the early parts of the Rigveda?",
+                q_ta: "முற்கால ரிக்வேதத்தில் 'அயாஸ்' என்று அழைக்கப்பட்ட உலோகம் எது?",
+                opts_en: ["Iron", "Copper/Bronze", "Gold", "Silver"],
+                opts_ta: ["இரும்பு", "செம்பு/வெண்கலம்", "தங்கம்", "வெள்ளி"],
+                ans: "B", ans_en: "Copper/Bronze", ans_ta: "செம்பு/வெண்கலம்"
+            },
+            {
+                id: 10, diff: "Basic", std: "Standard 6",
+                q_en: "In Vedic society, what was the basic social and administrative unit?",
+                q_ta: "வேத கால சமூகத்தில், மிக அடிப்படையான சமூக மற்றும் நிர்வாக அமைப்பு எது?",
+                opts_en: ["Grama", "Kula (Family)", "Vis", "Jana"],
+                opts_ta: ["கிராமம்", "குலம் (குடும்பம்)", "விஸ்", "ஜனம்"],
+                ans: "B", ans_en: "Kula (Family)", ans_ta: "குலம் (குடும்பம்)"
+            },
+            {
+                id: 11, diff: "Elementary", std: "Standard 7",
+                q_en: "At what river bank did the historic 'Battle of Ten Kings' (Dasharajna) take place?",
+                q_ta: "வரலாற்று சிறப்புமிக்க 'பத்து ராஜாக்களின் போர்' (தசராஜ்ஞ போர்) எந்த நதிக்கரையில் நடைபெற்றது?",
+                opts_en: ["Sindhu", "Parushni (Ravi)", "Sutudri", "Vitasta"],
+                opts_ta: ["சிந்து", "பருஷ்ணி (ரவி)", "சுதுத்ரி", "விதஸ்தா"],
+                ans: "B", ans_en: "Parushni (Ravi)", ans_ta: "பருஷ்ணி (ரவி)"
+            },
+            {
+                id: 12, diff: "Elementary", std: "Standard 7",
+                q_en: "Which Vedic assembly was purely democratic, consisting of both men and women, but vanished in the Later Vedic Period?",
+                q_ta: "பெண்களும் பங்கேற்கக்கூடிய முற்றிலும் ஜனநாயக அமைப்பாக இருந்து, பிற்கால வேத காலத்தில் மறைந்துவிட்ட வேத சபை எது?",
+                opts_en: ["Sabha", "Samiti", "Vidatha", "Gana"],
+                opts_ta: ["சபா", "சமிதி", "விதாதா", "கணா"],
+                ans: "C", ans_en: "Vidatha", ans_ta: "விதாதா"
+            },
+            {
+                id: 13, diff: "Elementary", std: "Standard 7",
+                q_en: "The discovery and smelting of which metal revolutionized agriculture in the Later Vedic Period?",
+                q_ta: "பிற்கால வேத காலத்தில் எந்த உலோகத்தின் கண்டுபிடிப்பும் உருக்குதலும் விவசாயத்தில் புரட்சியை ஏற்படுத்தியது?",
+                opts_en: ["Gold", "Copper", "Iron (Shyama Ayas)", "Zinc"],
+                opts_ta: ["தங்கம்", "செம்பு", "இரும்பு (கிருஷ்ண அயாஸ்)", "துத்தநாகம்"],
+                ans: "C", ans_en: "Iron (Shyama Ayas)", ans_ta: "இரும்பு (கிருஷ்ண அயாஸ்)"
+            },
+            {
+                id: 14, diff: "Elementary", std: "Standard 7",
+                q_en: "Which text is considered the source of Ayurveda, the classical Indian medicine?",
+                q_ta: "இந்திய பாரம்பரிய மருத்துவ முறையான ஆயுர்வேதத்தின் மூல ஆதாரமாக கருதப்படும் நூல் எது?",
+                opts_en: ["Rigveda Upaveda", "Yajurveda Upaveda", "Samaveda Upaveda", "Atharvaveda Upaveda"],
+                opts_ta: ["ரிக்வேத உபவேதம்", "யஜுர்வேத உபவேதம்", "சாமவேத உபவேதம்", "அதர்வவேத உபவேதம்"],
+                ans: "D", ans_en: "Atharvaveda Upaveda", ans_ta: "அதர்வவேத உபவேதம்"
+            },
+            {
+                id: 15, diff: "Elementary", std: "Standard 7",
+                q_en: "What was the tribal tax or voluntary offering made to the king in the Early Vedic Period called?",
+                q_ta: "முற்கால வேத காலத்தில் அரசனுக்கு செலுத்தப்பட்ட பழங்குடி வரி அல்லது தன்னார்வ காணிக்கை எவ்வாறு அழைக்கப்பட்டது?",
+                opts_en: ["Bhaga", "Bali", "Shulka", "Hiranya"],
+                opts_ta: ["பாகா", "பலி", "சுல்கா", "ஹிரண்யா"],
+                ans: "B", ans_en: "Bali", ans_ta: "பலி"
+            },
+            {
+                id: 16, diff: "Elementary", std: "Standard 7",
+                q_en: "Which of the following female scholars composed hymns found in the Rigveda?",
+                q_ta: "ரிக்வேதத்தில் உள்ள பாடல்களை இயற்றிய பெண் அறிஞர்களில் ஒருவர் யார்?",
+                opts_en: ["Gargi", "Apala", "Maitreyi", "Savitri"],
+                opts_ta: ["கர்கி", "அபாலா", "மைத்ரேயி", "சாவித்திரி"],
+                ans: "B", ans_en: "Apala", ans_ta: "அபாலா"
+            },
+            {
+                id: 17, diff: "Elementary", std: "Standard 7",
+                q_en: "Into how many Mandalaras (books) is the Rigveda Samhita divided?",
+                q_ta: "ரிக்வேத சம்ஹிதை எத்தனை மண்டலங்களாகப் பிரிக்கப்பட்டுள்ளது?",
+                opts_en: ["Eight", "Ten", "Twelve", "Eighteen"],
+                opts_ta: ["எட்டு", "பத்து", "பன்னிரண்டு", "பதினெட்டு"],
+                ans: "B", ans_en: "Ten", ans_ta: "பத்து"
+            },
+            {
+                id: 18, diff: "Elementary", std: "Standard 7",
+                q_en: "What was the chief deity associated with maintaining cosmic order (Rta) in the Early Vedic Period?",
+                q_ta: "முற்கால வேத காலத்தில் பிரபஞ்ச ஒழுங்குமுறையை (ரிதா) காக்கும் தெய்வமாகக் கருதப்பட்டவர் யார்?",
+                opts_en: ["Indra", "Agni", "Varuna", "Soma"],
+                opts_ta: ["இந்திரன்", "அக்னி", "வருணன்", "சோமன்"],
+                ans: "C", ans_en: "Varuna", ans_ta: "வருணன்"
+            },
+            {
+                id: 19, diff: "Elementary", std: "Standard 7",
+                q_en: "The practice of 'Niyoga' in Early Vedic society refers to which of the following?",
+                q_ta: "முற்கால வேத சமூகத்தில் 'நியோகா' என்ற வழக்கம் எதைக் குறிக்கிறது?",
+                opts_en: ["Child marriage", "Widow remarriage / cohabitation for issue", "Women joining the military", "Sacrificing cattle during Yajna"],
+                opts_ta: ["குழந்தை திருமணம்", "கைம்பெண் மறுமணம் / வாரிசுக்காக இணைந்து வாழ்தல்", "பெண்கள் இராணுவத்தில் சேருதல்", "யாகங்களின் போது கால்நடைகளைப் பலியிடுதல்"],
+                ans: "B", ans_en: "Widow remarriage / cohabitation for issue", ans_ta: "கைம்பெண் மறுமணம் / வாரிசுக்காக இணைந்து வாழ்தல்"
+            },
+            {
+                id: 20, diff: "Elementary", std: "Standard 7",
+                q_en: "Which part of the Vedic literature represents the philosophical transition away from ritual sacrifices?",
+                q_ta: "வேத இலக்கியங்களில் சடங்குகளிலிருந்து தத்துவ ஞானத்தை நோக்கி மாறிய பகுதியை உணர்த்துவது எது?",
+                opts_en: ["Samhitas", "Brahmanas", "Upanishads", "Aranyakas"],
+                opts_ta: ["சம்ஹிதைகள்", "பிராமணங்கள்", "உபநிடதங்கள்", "ஆரண்யகங்கள்"],
+                ans: "C", ans_en: "Upanishads", ans_ta: "உபநிடதங்கள்"
+            },
+            {
+                id: 21, diff: "Intermediate", std: "Standard 8",
+                q_en: "Which ancient geometric texts contain instructions for constructing sacrificial altars?",
+                q_ta: "யாக குண்டங்களை அமைப்பதற்கான வழிமுறைகளைக் கொண்டுள்ள பழமையான வடிவியல் நூல்கள் எவை?",
+                opts_en: ["Sulba Sutras", "Grihya Sutras", "Dharma Sutras", "Srauta Sutras"],
+                opts_ta: ["சுல்ப சூத்திரங்கள்", "கிருஹ்ய சூத்திரங்கள்", "தர்ம சூத்திரங்கள்", "ஸ்ரௌத சூத்திரங்கள்"],
+                ans: "A", ans_en: "Sulba Sutras", ans_ta: "சுல்ப சூத்திரங்கள்"
+            },
+            {
+                id: 22, diff: "Intermediate", std: "Standard 8",
+                q_en: "In the Later Vedic Period, who was the state official responsible for revenue collection (taxes)?",
+                q_ta: "பிற்கால வேத காலத்தில் வரி வசூலிக்கும் பணியைச் செய்த முக்கிய அதிகாரி யார்?",
+                opts_en: ["Sangrihitri", "Bhagadugha", "Gramini", "Senani"],
+                opts_ta: ["சங்கிரஹித்ரி", "பாகதுகா", "கிராமிணி", "சேனானி"],
+                ans: "B", ans_en: "Bhagadugha", ans_ta: "பாகதுகா"
+            },
+            {
+                id: 23, diff: "Intermediate", std: "Standard 8",
+                q_en: "The signature pottery type associated with Later Vedic sites is:",
+                q_ta: "பிற்கால வேத காலத்தின் தொல்பொருள் அடையாளமாகக் கருதப்படும் மண்பாண்ட வகை எது?",
+                opts_en: ["Black and Red Ware (BRW)", "Ochre Coloured Pottery (OCP)", "Painted Grey Ware (PGW)", "Northern Black Polished Ware (NBPW)"],
+                opts_ta: ["கருப்பு மற்றும் சிவப்பு பாண்டங்கள்", "வண்ணம்பூசப்பட்ட சாம்பல் பாண்டங்கள் (PGW)", "மண்பாண்டங்கள்", "மெருகூட்டப்பட்ட கருப்பு பாண்டங்கள்"],
+                ans: "C", ans_en: "Painted Grey Ware (PGW)", ans_ta: "வண்ணம்பூசப்பட்ட சாம்பல் பாண்டங்கள் (PGW)"
+            },
+            {
+                id: 24, diff: "Intermediate", std: "Standard 8",
+                q_en: "Which Veda details the formulas for spells, chants, and medicinal folklore?",
+                q_ta: "மந்திரங்கள் மற்றும் மருத்துவ முறைகளைக் கொண்ட வேதம் எது?",
+                opts_en: ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+                opts_ta: ["ரிக்வேதம்", "சாமவேதம்", "யஜுர்வேதம்", "அதர்வவேதம்"],
+                ans: "D", ans_en: "Atharvaveda", ans_ta: "அதர்வவேதம்"
+            },
+            {
+                id: 25, diff: "Intermediate", std: "Standard 8",
+                q_en: "Who led the Bharata clan to victory in the historic Battle of the Ten Kings?",
+                q_ta: "பத்து அரசர்களின் போரில் பரத குலத்தை வெற்றிப்பாதைக்கு அழைத்துச் சென்ற மன்னர் யார்?",
+                opts_en: ["King Sudas", "King Puru", "King Divodasa", "King Harishchandra"],
+                opts_ta: ["திவோதாசன்", "சுதாஸ்", "புரு", "ஹரிச்சந்திரன்"],
+                ans: "A", ans_en: "King Sudas", ans_ta: "மன்னன் சுதாஸ்"
+            },
+            {
+                id: 26, diff: "Intermediate", std: "Standard 8",
+                q_en: "What was the name of the gold coin/weight standard mentioned in Later Vedic texts?",
+                q_ta: "பிற்கால வேத நூல்களில் குறிப்பிடப்படும் தங்கம் அல்லது நாணயத்தின் பெயர் என்ன?",
+                opts_en: ["Nishka", "Rupee", "Dinar", "Pana"],
+                opts_ta: ["நிஷ்கா", "ரூபாய்", "தினார்", "பணம்"],
+                ans: "A", ans_en: "Nishka", ans_ta: "நிஷ்கா"
+            },
+            {
+                id: 27, diff: "Intermediate", std: "Standard 8",
+                q_en: "Which of the following Later Vedic sacrifices was performed to establish royal supremacy?",
+                q_ta: "மன்னரின் இறையாண்மையை நிலைநாட்ட நடத்தப்பட்ட யாகம் எது?",
+                opts_en: ["Ashvamedha", "Agnihotra", "Vajapeya", "Rajasuya"],
+                opts_ta: ["அஸ்வமேதம்", "அக்னிஹோத்திரம்", "வாஜபேயம்", "ராஜசூயம்"],
+                ans: "A", ans_en: "Ashvamedha", ans_ta: "அஸ்வமேத யாகம்"
+            },
+            {
+                id: 28, diff: "Intermediate", std: "Standard 8",
+                q_en: "What are the seasonal streams flanking the site of Dholavira?",
+                q_ta: "தோலவிரா தளத்தின் இருபுறமும் பாயும் பருவகால ஓடைகள் யாவை?",
+                opts_en: ["Ganga and Yamuna", "Narmada and Tapti", "Mansar and Manhar", "Sarasvati and Drishadvati"],
+                opts_ta: ["கங்கை மற்றும் யமுனை", "நர்மதை மற்றும் தபதி", "மான்சர் மற்றும் மான்ஹர்", "சரஸ்வதி மற்றும் திருஷத்வதி"],
+                ans: "C", ans_en: "Mansar and Manhar", ans_ta: "மான்சர் மற்றும் மான்ஹர்"
+            },
+            {
+                id: 29, diff: "Intermediate", std: "Standard 8",
+                q_en: "The term 'Vrihi' in Later Vedic texts refers to which cereal crop?",
+                q_ta: "பிற்கால வேத நூல்களில் 'விருஹி' என்று குறிக்கப்படும் தானியப் பயிர் எது?",
+                opts_en: ["Wheat", "Barley", "Rice", "Millet"],
+                opts_ta: ["கோதுமை", "பார்லி", "நெல் (அரிசி)", "தினை"],
+                ans: "C", ans_en: "Rice", ans_ta: "நெல் (அரிசி)"
+            },
+            {
+                id: 30, diff: "Intermediate", std: "Standard 8",
+                q_en: "In the Later Vedic period, the assemblies Sabha and Samiti saw what change?",
+                q_ta: "பிற்கால வேத காலத்தில் சபா மற்றும் சமிதி அமைப்புகளில் ஏற்பட்ட மாற்றம் என்ன?",
+                opts_en: ["Women were granted more seats", "They completely lost their democratic powers", "They were merged into a single court", "They became the primary choosing body of priests"],
+                opts_ta: ["பெண்களுக்கு அதிக இடங்கள் வழங்கப்பட்டன", "அவை தங்கள் ஜனநாயக அதிகாரங்களை முழுமையாக இழந்தன", "அவை ஒரே நீதிமன்றமாக இணைக்கப்பட்டன", "அவை பூசாரிகளைத் தேர்ந்தெடுக்கும் அமைப்பாக மாறின"],
+                ans: "B", ans_en: "They completely lost their democratic powers", ans_ta: "அவை தங்கள் ஜனநாயக அதிகாரங்களை முழுமையாக இழந்தன"
+            },
+            {
+                id: 31, diff: "Advanced", std: "Standard 9",
+                q_en: "The philosophical dialogue between Nachiketa and Yama is found in which Upanishad?",
+                q_ta: "நசிகேதனுக்கும் எமனுக்கும் இடையே நடைபெறும் புகழ்பெற்ற தத்துவ விவாதம் எந்த உபநிடதத்தில் உள்ளது?",
+                opts_en: ["Katha Upanishad", "Chandogya Upanishad", "Mundaka Upanishad", "Brihadaranyaka Upanishad"],
+                opts_ta: ["கடோபநிடதம்", "சாந்தோக்கிய உபநிடதம்", "முண்டக உபநிடதம்", "பிருஹதாரண்யக உபநிடதம்"],
+                ans: "A", ans_en: "Katha Upanishad", ans_ta: "கடோபநிடதம்"
+            },
+            {
+                id: 32, diff: "Advanced", std: "Standard 9",
+                q_en: "Where does the national motto of India, 'Satyameva Jayate', originate from?",
+                q_ta: "இந்தியாவின் தேசிய வாசகமான 'சத்யமேவ ஜெயதே' (வாய்மையே வெல்லும்) எதிலிருந்து எடுக்கப்பட்டது?",
+                opts_en: ["Rigveda Mandala 10", "Mundaka Upanishad", "Srimad Bhagavad Gita", "Matsya Purana"],
+                opts_ta: ["ரிக்வேதம் மண்டலம் 10", "முண்டக உபநிடதம்", "பகவத் கீதை", "மத்ஸ்ய புராணம்"],
+                ans: "B", ans_en: "Mundaka Upanishad", ans_ta: "முண்டக உபநிடதம்"
+            },
+            {
+                id: 33, diff: "Advanced", std: "Standard 9",
+                q_en: "What does the Rigvedic term 'Gavisthi' literally translate to?",
+                q_ta: "ரிக்வேத சொல்லான 'கவிஷ்டி' என்பதன் நேரடிப் பொருள் என்ன?",
+                opts_en: ["The worship of dawn", "The search for cows / battle", "The protection of priests", "The cultivation of lands"],
+                opts_ta: ["விடியற்காலை வழிபாடு", "பசுக்களைத் தேடிச் செல்லுதல் / போர்", "பூசாரிகளைப் பாதுகாத்தல்", "நிலங்களைச் சாகுபடி செய்தல்"],
+                ans: "B", ans_en: "The search for cows / battle", ans_ta: "பசுக்களைத் தேடிச் செல்லுதல் / போர்"
+            },
+            {
+                id: 34, diff: "Advanced", std: "Standard 9",
+                q_en: "Which school of Indian philosophy is directly referred to as 'Vedanta'?",
+                q_ta: "இந்திய தத்துவக் கோட்பாடுகளில் 'வேதாந்தம்' என்று நேரடியாகக் குறிப்பிடப்படுவது எது?",
+                opts_en: ["Samkhya", "Nyaya", "Mimamsa", "Uttara Mimamsa (Upanishads)"],
+                opts_ta: ["சாங்கியம்", "நியாயம்", "மீமாம்சை", "உத்தர மீமாம்சை (உபநிடதங்கள்)"],
+                ans: "D", ans_en: "Uttara Mimamsa (Upanishads)", ans_ta: "உத்தர மீமாம்சை (உபநிடதங்கள்)"
+            },
+            {
+                id: 35, diff: "Advanced", std: "Standard 9",
+                q_en: "The Painted Grey Ware archaeological culture overlaps heavily with which literary geography?",
+                q_ta: "வண்ணம்பூசப்பட்ட சாம்பல் பாண்ட பண்பாடு எந்த இலக்கியப் புவியியலுடன் ஒத்துப்போகிறது?",
+                opts_en: ["Rigvedic Saptasindhu", "Later Vedic Ganga-Yamuna Doab", "Indus Valley Civilisation Core", "Sangam Age Tamil Nadu"],
+                opts_ta: ["முற்கால ரிக்வேத சப்தசிந்து", "பிற்கால கங்கை-யமுனை சமவெளி", "சிந்து சமவெளி மையப்பகுதி", "சங்க கால தமிழ்நாடு"],
+                ans: "B", ans_en: "Later Vedic Ganga-Yamuna Doab", ans_ta: "பிற்கால கங்கை-யமுனை சமவெளி"
+            },
+            {
+                id: 36, diff: "Advanced", std: "Standard 9",
+                q_en: "In the Rigveda, which river is referred to as 'Nditama' (the best of all rivers)?",
+                q_ta: "ரிக்வேதத்தில் 'நதிதமா' (நதிகளிலேயே மிகச் சிறந்தது) என்று போற்றப்படும் நதி எது?",
+                opts_en: ["Sindhu", "Ganga", "Sarasvati", "Yamuna"],
+                opts_ta: ["சிந்து", "கங்கை", "சரஸ்வதி", "யமுனை"],
+                ans: "C", ans_en: "Sarasvati", ans_ta: "சரஸ்வதி"
+            },
+            {
+                id: 37, diff: "Advanced", std: "Standard 9",
+                q_en: "Which Vedanga deals with Vedic grammar and linguistics?",
+                q_ta: "சமஸ்கிருத இலக்கணத்தையும் மொழி அமைப்பையும் விளக்கும் வேதாங்கம் எது?",
+                opts_en: ["Shiksha", "Vyakarana", "Nirukta", "Kalpa"],
+                opts_ta: ["சிக்ஷா", "வியாகரணம்", "நிருக்தம்", "கல்பம்"],
+                ans: "B", ans_en: "Vyakarana", ans_ta: "வியாகரணம்"
+            },
+            {
+                id: 38, diff: "Advanced", std: "Standard 9",
+                q_en: "The custom of 'Niyoga' indicates that Vedic society was:",
+                q_ta: "வேத கால சமூகம் எவ்வாறு இருந்தது என்பதை நியோகா வழக்கம் காட்டுகிறது?",
+                opts_en: ["Exclusively matriarchal", "Pragmatically patriarchal with lineage priority", "Entirely egalitarian and non-familial", "Highly ritualistic without social concerns"],
+                opts_ta: ["தாய்வழி சமூகம்", "தந்தைவழி சமூகமாக இருந்தாலும் வாரிசுக்கு முன்னுரிமை", "சமத்துவ சமூகம்", "சமூக அக்கறையற்ற சடங்கு சமூகம்"],
+                ans: "B", ans_en: "Pragmatically patriarchal with lineage priority", ans_ta: "தந்தைவழி சமூகமாக இருந்தாலும் வாரிசுக்கு முன்னுரிமை"
+            },
+            {
+                id: 39, diff: "Advanced", std: "Standard 9",
+                q_en: "What was the specific ritual purpose of the Rajasuya sacrifice?",
+                q_ta: "ராஜசூய யாகத்தின் குறிப்பிட்ட சடங்கு நோக்கம் என்ன?",
+                opts_en: ["Securing fertile crops", "Consecration of the king's political status", "Ensuring victory in horse races", "Warding off cosmic disasters"],
+                opts_ta: ["விவசாய செழிப்பை வேண்டுதல்", "அரசரின் அரசியல் நிலையை உறுதிப்படுத்துதல்", "குதிரைப் பந்தயத்தில் வெற்றி பெறுதல்", "பேரழிவுகளைத் தடுத்தல்"],
+                ans: "B", ans_en: "Consecration of the king's political status", ans_ta: "அரசரின் அரசியல் நிலையை உறுதிப்படுத்துதல்"
+            },
+            {
+                id: 40, diff: "Advanced", std: "Standard 9",
+                q_en: "At which archaeological site were early iron smelting furnaces dating to 1000 BCE found?",
+                q_ta: "கி.மு. 1000 காலத்து இரும்பு உருக்கு உலைகள் கண்டறியப்பட்ட தொல்பொருள் தளம் எது?",
+                opts_en: ["Hastinapur", "Atranjikhera", "Rakhigarhi", "Lothal"],
+                opts_ta: ["ஹஸ்தினாபூர்", "அத்ரஞ்சிகேரா", "ராகிகர்ஹி", "லோத்தல்"],
+                ans: "B", ans_en: "Atranjikhera", ans_ta: "அத்ரஞ்சிகேரா"
+            },
+            {
+                id: 41, diff: "Expert", std: "Standard 10",
+                q_en: "The peace treaty of Boghazkoi mentions four deities which proves:",
+                q_ta: "போகஸ்கோய் உடன்படிக்கையில் நான்கு வேத கால தெய்வங்கள் குறிப்பிடப்பட்டிருப்பது எதை நிரூபிக்கிறது?",
+                opts_en: ["Colonial settlement of Anatolia by Indians", "Linguistic and mythic lineage of Indo-Aryans outside India", "The complete collapse of the Hittite Empire", "That Atharvaveda is older than Rigveda"],
+                opts_ta: ["துருக்கியில் இந்தியர்களின் குடியேற்றம்", "இந்தோ-ஆரியர்களின் மொழியியல் மற்றும் வரலாற்றுத் தொடர்பு", "ஹிட்டார்டு பேரரசின் வீழ்ச்சி", "அதர்வவேதம் ரிக்வேதத்தை விட பழமையானது"],
+                ans: "B", ans_en: "Linguistic and mythic lineage of Indo-Aryans outside India", ans_ta: "இந்தோ-ஆரியர்களின் மொழியியல் மற்றும் வரலாற்றுத் தொடர்பு"
+            },
+            {
+                id: 42, diff: "Expert", std: "Standard 10",
+                q_en: "Which Sanskrit text is the earliest systematic dictionary of etymology and linguistic derivation?",
+                q_ta: "சொற்பிறப்பியல் மற்றும் மொழி ஆராய்ச்சி குறித்த உலகின் மிகப்பழைமையான அகராதியாக கருதப்படும் வேத நூல் எது?",
+                opts_en: ["Ashtadhyayi", "Nirukta of Yaska", "Siddhanta Kaumudi", "Manusmriti"],
+                opts_ta: ["அஷ்டாத்தியாயி", "யாஸ்கரின் நிருக்தம்", "சித்தாந்த கௌமுதி", "மனுஸ்மிருதி"],
+                ans: "B", ans_en: "Nirukta of Yaska", ans_ta: "யாஸ்கரின் நிருக்தம்"
+            },
+            {
+                id: 43, diff: "Expert", std: "Standard 10",
+                q_en: "The Vedic transition from pastoral kinship to territorial statehood is marked by which change?",
+                q_ta: "வேத கால மேய்ச்சல் சமூகம் படிப்படியாக நிலப்பரப்பு சார்ந்து மாறியதைக் காட்டும் அறிகுறி எது?",
+                opts_en: ["The total elimination of Brahmins", "Shift of loyalty from 'Jana' (tribe) to 'Janapada' (territory)", "Complete abandonment of agricultural crops", "The transition to maritime ocean travel only"],
+                opts_ta: ["பிராமணர்களின் வீழ்ச்சி", "பற்றுறுதி 'ஜனம்' (பழங்குடி) என்பதிலிருந்து 'ஜனபதம்' (நிலப்பரப்பு) என மாறியது", "விவசாய முற்றிலுமாக கைவிடப்பட்டது", "கடல்வழிப் பயணங்கள் மட்டுமே மேற்கொள்ளப்பட்டது"],
+                ans: "B", ans_en: "Shift of loyalty from 'Jana' (tribe) to 'Janapada' (territory)", ans_ta: "பற்றுறுதி 'ஜனம்' என்பதிலிருந்து 'ஜனபதம்' என மாறியது"
+            },
+            {
+                id: 44, diff: "Expert", std: "Standard 10",
+                q_en: "What major challenge prevents modern historians from adopting Mortimer Wheeler's Aryan Invasion Theory?",
+                q_ta: "வரலாற்று அறிஞர் மார்டிமர் வீலரின் ஆரிய படையெடுப்புக் கோட்பாட்டை நவீன வரலாற்றாசிரியர்கள் நிராகரிக்கக் காரணம் என்ன?",
+                opts_en: ["Complete absence of physical battlefield trauma in Harappan skeletons", "Total lack of Sanskrit scripts in Europe", "Rigvedic mentions of early railway lines", "Finding horse remains across all Harappan pre-historic sites"],
+                opts_ta: ["ஹரப்பா எலும்புக்கூடுகளில் போர்க்கள காயங்கள் எதுவும் இல்லாதது", "ஐரோப்பாவில் சமஸ்கிருத எழுத்துக்கள் இல்லாதது", "இரயில் பாதைகள் பற்றிய குறிப்புகள்", "அனைத்து ஹரப்பா தளங்களிலும் குதிரை எலும்புகள் கிடைத்தது"],
+                ans: "A", ans_en: "Complete absence of physical battlefield trauma in Harappan skeletons", ans_ta: "ஹரப்பா எலும்புக்கூடுகளில் போர்க்கள காயங்கள் எதுவும் இல்லாதது"
+            },
+            {
+                id: 45, diff: "Expert", std: "Standard 10",
+                q_en: "The Vedic cosmological concept 'Rta' refers to:",
+                q_ta: "வேத கால அண்டவியல் கோட்பாடான 'ரிதா' (Rta) எதைக் குறிக்கிறது?",
+                opts_en: ["Sacrificial animal offerings", "The eternal natural and moral cosmic order", "The dynamic tax calculation system", "The selection of tribal chiefs"],
+                opts_ta: ["விலங்கு பலி", "இயற்கை மற்றும் நெறிமுறை சார்ந்த பிரபஞ்ச ஒழுங்குமுறை", "வரி கணக்கீட்டு முறை", "பழங்குடித் தலைவர்களைத் தேர்ந்தெடுத்தல்"],
+                ans: "B", ans_en: "The eternal natural and moral cosmic order", ans_ta: "இயற்கை மற்றும் நெறிமுறை சார்ந்த பிரபஞ்ச ஒழுங்குமுறை"
+            },
+            {
+                id: 46, diff: "Expert", std: "Standard 10",
+                q_en: "In the Later Vedic period, the Upanayana ceremony was denied to:",
+                q_ta: "பிற்கால வேத காலத்தில் உபநயன சடங்கு யாருக்கு மறுக்கப்பட்டது?",
+                opts_en: ["Brahmins", "Kshatriyas", "Women and Shudras", "Vaishyas"],
+                opts_ta: ["பிராமணர்கள்", "க்ஷத்திரியர்கள்", "பெண்கள் மற்றும் சூத்திரர்கள்", "வைசியர்கள்"],
+                ans: "C", ans_en: "Women and Shudras", ans_ta: "பெண்கள் மற்றும் சூத்திரர்கள்"
+            },
+            {
+                id: 47, diff: "Expert", std: "Standard 10",
+                q_en: "Which Vedic text contains the earliest discussion on life after death and the transmigration of souls?",
+                q_ta: "மறுபிறவி மற்றும் ஆத்மா இடமாற்றம் பற்றிய தத்துவங்களை முதன்முதலில் விவரிக்கும் வேத நூல் எது?",
+                opts_en: ["Rigveda Samhita", "Satapatha Brahmana", "Brihadaranyaka Upanishad", "Atharvaveda"],
+                opts_ta: ["ரிக்வேத சம்ஹிதை", "சதபத பிராமணம்", "பிருஹதாரண்யக உபநிடதம்", "அதர்வவேதம்"],
+                ans: "C", ans_en: "Brihadaranyaka Upanishad", ans_ta: "பிருஹதாரண்யக உபநிடதம்"
+            },
+            {
+                id: 48, diff: "Expert", std: "Standard 10",
+                q_en: "Bal Gangadhar Tilak calculated the antiquity of the Vedas using which parameter?",
+                q_ta: "பால கங்காதர திலகர் எதனை அடிப்படையாகக் கொண்டு வேதங்களின் காலத்தைக் கணக்கிட்டார்?",
+                opts_en: ["Astronomical positions of constellations and Orion", "Smelting temperatures of iron", "Depth of Painted Grey Ware pottery", "Linguistic similarities to Egyptian Hieroglyphics"],
+                opts_ta: ["விண்மீன்கள் மற்றும் மிருகசீரிஷத்தின் வானியல் நிலைகள்", "இரும்பு உருக்கும் வெப்பநிலை", "மண்பாண்டங்களின் ஆழம்", "எகிப்திய சித்திர எழுத்துக்களின் ஒற்றுமை"],
+                ans: "A", ans_en: "Astronomical positions of constellations and Orion", ans_ta: "விண்மீன்கள் மற்றும் மிருகசீரிஷத்தின் வானியல் நிலைகள்"
+            },
+            {
+                id: 49, diff: "Expert", std: "Standard 10",
+                q_en: "Which Vedic priest is specifically tasked with correcting and supervising errors in sacrifices?",
+                q_ta: "யாகங்களின் போது ஏற்படும் பிழைகளைத் திருத்தும் மற்றும் கண்காணிக்கும் பூசாரி யார்?",
+                opts_en: ["Hotri", "Udgatri", "Adhvaryu", "Brahma"],
+                opts_ta: ["ஹோத்ரி", "உத்காத்ரி", "அத்வர்யு", "பிரம்மா"],
+                ans: "D", ans_en: "Brahma", ans_ta: "பிரம்மா"
+            },
+            {
+                id: 50, diff: "Expert", std: "Standard 10",
+                q_en: "What was the fundamental cause of structural transition from PGW to NBPW archaeological cultures?",
+                q_ta: "தொல்பொருளியலில் PGW இலிருந்து NBPW பண்பாட்டிற்கு மாறியதற்கான அடிப்படை காரணி என்ன?",
+                opts_en: ["The complete abandonment of iron technology", "The emergence of true urban towns and monetary trade", "Massive global cold-wave climate migrations", "The discovery of bronze-working methods"],
+                opts_ta: ["இரும்புத் தொழில் கைவிடப்பட்டது", "உண்மையான நகரங்கள் மற்றும் நாணயம் வர்த்தகம் தோன்றியது", "உலகளாவிய பனி அலையின் காலநிலை இடப்பெயர்வுகள்", "வெண்கல வார்ப்பு முறைகள்"],
+                ans: "B", ans_en: "The emergence of true urban towns and monetary trade", ans_ta: "உண்மையான நகரங்கள் மற்றும் நாணயம் வர்த்தகம் தோன்றியது"
+            }
+        ];
+
+        let userAnswers = {};
+
+        function renderQuiz() {
+            const wrapper = document.getElementById("quiz-questions-wrapper");
+            if (!wrapper) return;
+            wrapper.innerHTML = "";
+
+            quizData.forEach((q, idx) => {
+                let optionsHTML = "";
+                const letterMapping = ["A", "B", "C", "D"];
+                
+                for(let i=0; i<4; i++) {
+                    optionsHTML += `
+                        <div class="option-element p-4 border border-borderCol rounded-lg cursor-pointer bg-white transition hover:bg-orange-50 hover:border-accent" id="opt-${q.id}-${letterMapping[i]}" onclick="selectOption(${q.id}, '${letterMapping[i]}')">
+                            <strong>${letterMapping[i]}:</strong> ${q.opts_en[i]} <br/>
+                            <span class="text-sm text-gray-500 font-noto">${q.opts_ta[i]}</span>
+                        </div>
+                    `;
+                }
+
+                const card = document.createElement("div");
+                card.className = "question-card p-6 mb-6 border rounded-xl shadow-sm bg-white";
+                card.setAttribute("data-difficulty", q.diff);
+                card.id = `q-box-${q.id}`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-4 text-xs text-gray-500 font-inter">
+                        <span>Question ${idx + 1} of 50 (${q.std})</span>
+                        <span class="font-bold text-accent uppercase">Tier: ${q.diff}</span>
+                    </div>
+                    <div class="question-title font-inter mb-4 text-primary font-bold text-lg border-b border-gray-100 pb-2">
+                        <div class="content-en">${idx + 1}. ${q.q_en}</div>
+                        <div class="content-ta font-noto font-normal italic text-[#44332a] mt-1">${idx + 1}. ${q.q_ta}</div>
+                    </div>
+                    <div class="options-list grid grid-cols-1 md:grid-cols-2 gap-4">
+                        ${optionsHTML}
+                    </div>
+                    <div class="feedback-log mt-4 font-inter text-sm" id="feedback-${q.id}"></div>
+                `;
+                wrapper.appendChild(card);
+            });
+            updateScoreCounter();
+        }
+
+        function selectOption(questionId, optionLetter) {
+            const letterMapping = ["A", "B", "C", "D"];
+            letterMapping.forEach(l => {
+                const optEl = document.getElementById(`opt-${questionId}-${l}`);
+                if (optEl) {
+                    optEl.classList.remove("selected", "bg-[#ffe6d5]", "border-accent", "font-bold");
+                }
+            });
+
+            const selectedEl = document.getElementById(`opt-${questionId}-${optionLetter}`);
+            if (selectedEl) {
+                selectedEl.classList.add("selected", "bg-[#ffe6d5]", "border-accent", "font-bold");
+            }
+            userAnswers[questionId] = optionLetter;
+            updateScoreCounter();
+        }
+
+        function updateScoreCounter() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const counterEl = document.getElementById("score-counter");
+            if (counterEl) {
+                counterEl.innerText = `Questions Completed: ${answeredCount}/50`;
+            }
+        }
+
+        function filterQuiz(level, clickedBtn) {
+            const buttons = document.querySelectorAll(".quiz-button-group .btn-toggle");
+            buttons.forEach(b => {
+                b.classList.remove("active", "bg-primary", "text-white");
+                b.classList.add("bg-gray-200", "text-gray-800");
+            });
+            
+            if (clickedBtn) {
+                clickedBtn.classList.add("active", "bg-primary", "text-white");
+                clickedBtn.classList.remove("bg-gray-200", "text-gray-800");
+            }
+
+            const cards = document.querySelectorAll(".question-card");
+            cards.forEach(c => {
+                if(level === "All" || c.getAttribute("data-difficulty") === level) {
+                    c.style.display = "block";
+                } else {
+                    c.style.display = "none";
+                }
+            });
+        }
+
+        function calculateTotalScore() {
+            let correctCount = 0;
+            
+            quizData.forEach(q => {
+                const feedbackDiv = document.getElementById(`feedback-${q.id}`);
+                if (feedbackDiv) feedbackDiv.style.display = "block";
+                
+                const letterMapping = ["A", "B", "C", "D"];
+                var userAns = userAnswers[q.id];
+                
+                letterMapping.forEach(l => {
+                    const optEl = document.getElementById(`opt-${q.id}-${l}`);
+                    if (optEl) {
+                        optEl.classList.remove("correct", "wrong", "bg-green-100", "border-green-600", "text-green-800", "bg-red-100", "border-red-600", "text-red-800", "font-bold");
+                    }
+                });
+
+                const correctEl = document.getElementById(`opt-${q.id}-${q.ans}`);
+                
+                if(userAns === q.ans) {
+                    correctCount++;
+                    if (correctEl) {
+                        correctEl.classList.add("correct", "bg-green-100", "border-green-600", "text-green-800", "font-bold");
+                    }
+                    if (feedbackDiv) {
+                        feedbackDiv.innerHTML = `<span class="text-green-700 font-bold">✔ Correct! — Selected ${q.ans} : ${q.ans_en} (${q.ans_ta})</span>`;
+                    }
+                } else {
+                    if(userAns) {
+                        const wrongEl = document.getElementById(`opt-${q.id}-${userAns}`);
+                        if (wrongEl) {
+                            wrongEl.classList.add("wrong", "bg-red-100", "border-red-600", "text-red-800");
+                        }
+                    }
+                    if (correctEl) {
+                        correctEl.classList.add("correct", "bg-green-100", "border-green-600", "text-green-800", "font-bold");
+                    }
+                    if (feedbackDiv) {
+                        feedbackDiv.innerHTML = `<span class="text-red-700 font-bold">✘ Incorrect. Correct is: ${q.ans} — ${q.ans_en} (${q.ans_ta})</span>`;
+                    }
+                }
+            });
+
+            const finalPercentage = ((correctCount / 50) * 100).toFixed(1);
+            const scoreBoard = document.getElementById("final-score-board");
+            if (scoreBoard) {
+                scoreBoard.style.display = "block";
+                scoreBoard.innerHTML = `
+                    <div class="text-xl font-bold mb-2">Course Assessment Report Generated / வினாடி வினா முடிவுகள்!</div>
+                    <div class="text-4xl font-extrabold text-green-800 my-4">Grading: ${correctCount} / 50 (${finalPercentage}%)</div>
+                    <p class="text-base text-gray-700 font-medium">
+                        ${finalPercentage >= 60 ? "Average Milestone Passed! Target 60% standard successfully established. / தேர்ச்சி மைல்கல் எட்டப்பட்டது!" : "Further Revision Recommended. / மீண்டும் படிக்க பரிந்துரைக்கப்படுகிறது."}
+                    </p>
+                `;
+                scoreBoard.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderQuiz);
+    </script>
+</body>
+</html>
