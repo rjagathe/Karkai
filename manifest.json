@@ -60,7 +60,21 @@
       "key": "history-of-india",
       "en": "History of India",
       "ta": "இந்திய வரலாறு",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-ancient-india",
+          "en": "Ancient India",
+          "ta": "பண்டைய இந்தியா",
+          "units": [
+            {
+              "key": "unit-01-indus-valley-civilisation",
+              "en": "The Indus Valley Civilisation",
+              "ta": "சிந்து சமவெளி நாகரிகம்",
+              "path": "subjects/history-of-india/chapter-01-ancient-india/unit-01-indus-valley-civilisation/index.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "geography-of-india",
