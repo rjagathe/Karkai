@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering the Indus Valley Civilisation - The Complete Scholarly Compendium</title>
+    <style>
+        :root {
+            --primary: #4a1c10;
+            --secondary: #8c3b1a;
+            --accent: #d9742b;
+            --bg-light: #fefcf9;
+            --bg-card: #ffffff;
+            --text-dark: #26160f;
+            --text-muted: #665248;
+            --border: #eddcd2;
+            --level-1: #1b5e20;
+            --level-2: #0d47a1;
+            --level-3: #e65100;
+            --level-4: #b71c1c;
+            --level-5: #4a148c;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Georgia', 'Times New Roman', serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; padding: 0; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white; padding: 60px 20px; text-align: center; border-bottom: 8px solid var(--accent);
+        }
+        header h1 { font-size: 3rem; letter-spacing: 1px; font-variant: small-caps; margin-bottom: 15px; font-family: 'Trebuchet MS', sans-serif; }
+        header p { font-size: 1.2rem; max-width: 900px; margin: 0 auto; opacity: 0.95; font-style: italic; }
+
+        /* Master Language Switcher Tabs */
+        .language-tab-bar {
+            display: flex; justify-content: center; background: #e8dad0; padding: 10px 0;
+            position: sticky; top: 0; z-index: 1001; border-bottom: 2px solid var(--border);
+        }
+        .lang-btn {
+            background: white; border: 2px solid var(--primary); color: var(--primary);
+            padding: 10px 25px; margin: 0 10px; font-size: 1.1rem; font-weight: bold;
+            border-radius: 6px; cursor: pointer; transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+        .lang-btn.active {
+            background: var(--primary); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .meta-nav {
+            background-color: var(--primary); color: white; padding: 12px; text-align: center;
+            font-size: 0.95rem; position: sticky; top: 63px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            font-family: 'Arial', sans-serif;
+        }
+        .meta-nav a { color: #ffe0b2; text-decoration: none; margin: 0 12px; font-weight: bold; transition: color 0.2s; }
+        .meta-nav a:hover { color: white; text-decoration: underline; }
+
+        .container { max-width: 1250px; margin: 40px auto; padding: 0 25px; }
+        
+        .difficulty-badge {
+            display: inline-block; padding: 6px 18px; border-radius: 25px; font-weight: bold;
+            font-size: 0.85rem; color: white; text-transform: uppercase; margin-bottom: 22px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08); font-family: 'Arial', sans-serif;
+        }
+        .b-1 { background-color: var(--level-1); }
+        .b-2 { background-color: var(--level-2); }
+        .b-3 { background-color: var(--level-3); }
+        .b-4 { background-color: var(--level-4); }
+        .b-5 { background-color: var(--level-5); }
+
+        .card {
+            background: var(--bg-card); border-radius: 14px; padding: 45px; margin-bottom: 55px;
+            box-shadow: 0 10px 30px rgba(74, 28, 16, 0.05); border-top: 6px solid var(--accent);
+        }
+
+        /* Curiosity Highlight Boxes */
+        .curiosity-vault {
+            background: #fff3e0; border: 2px dashed #e65100; border-left: 8px solid #e65100;
+            border-radius: 10px; padding: 25px; margin: 35px 0; box-shadow: 0 4px 15px rgba(230,81,0,0.05);
+        }
+        .curiosity-vault h4 {
+            color: #e65100; font-size: 1.3rem; margin-bottom: 12px; font-family: 'Arial', sans-serif;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        /* Language View Conditional Display */
+        .content-en, .content-ta { display: none; }
+        body.view-en .content-en { display: block; }
+        body.view-ta .content-ta { display: block; }
+
+        h2 { font-size: 2.3rem; color: var(--primary); margin-bottom: 22px; border-bottom: 2px solid var(--border); padding-bottom: 12px; font-family: 'Arial', sans-serif; }
+        h3 { font-size: 1.5rem; color: var(--secondary); margin-top: 30px; margin-bottom: 15px; font-family: 'Arial', sans-serif; }
+        p { margin-bottom: 22px; font-size: 1.15rem; text-align: justify; }
+        ul, ol { margin-left: 30px; margin-bottom: 25px; font-size: 1.1rem; }
+        li { margin-bottom: 10px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 35px 0; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-radius: 10px; overflow: hidden; }
+        th { background-color: var(--primary); color: white; padding: 16px 20px; font-weight: bold; text-align: left; font-family: 'Arial', sans-serif; }
+        td { padding: 16px 20px; border-bottom: 1px solid var(--border); background-color: #fff; }
+        tr:nth-child(even) td { background-color: #faf6f2; }
+
+        .citation { font-size: 0.85rem; font-style: italic; color: var(--text-muted); background: #f4ebe1; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-left: 6px; font-family: 'Arial', sans-serif; }
+        .highlight { background-color: #fff3cd; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
+
+        .image-showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 35px 0; }
+        .image-card { background: white; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.04); text-align: center; }
+        .image-card img { width: 100%; height: 260px; object-fit: cover; border-bottom: 1px solid var(--border); transition: transform 0.3s; }
+        .image-card img:hover { transform: scale(1.02); }
+        .image-tagline { padding: 14px; font-size: 1rem; font-weight: bold; color: var(--primary); background: #faf5f0; font-family: 'Arial', sans-serif; }
+
+        .graphic-container { background: #fffdfb; border: 1px solid var(--border); border-radius: 10px; padding: 25px; text-align: center; margin: 35px 0; }
+        .flex-row { display: flex; gap: 25px; flex-wrap: wrap; margin: 30px 0; }
+        .flex-box { flex: 1; min-width: 290px; background: #faf6f1; padding: 25px; border-radius: 10px; border-left: 5px solid var(--accent); }
+
+        /* Quiz UI Layout CSS */
+        .quiz-top-banner { background: var(--primary); color: white; padding: 25px; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-family: 'Arial', sans-serif; }
+        .quiz-button-group { display: flex; gap: 12px; margin: 25px 0; flex-wrap: wrap; font-family: 'Arial', sans-serif; }
+        .btn { background: var(--accent); color: white; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { background: var(--secondary); }
+        .btn-toggle { background: #e8dad0; color: var(--text-dark); }
+        .btn-toggle.active { background: var(--primary); color: white; }
+        .question-card { background: #fefefe; border: 1px solid var(--border); border-radius: 10px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .question-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 18px; color: var(--primary); font-family: 'Arial', sans-serif; }
+        .option-element { background: white; border: 1px solid var(--border); padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; font-family: 'Arial', sans-serif; }
+        .option-element:hover { background: #fff5ee; border-color: var(--accent); }
+        .option-element.selected { background: #ffe6d5; border-color: var(--accent); font-weight: bold; }
+        .option-element.correct { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; font-weight: bold; }
+        .option-element.wrong { background: #ffebee; border-color: #c62828; color: #b71c1c; }
+        .feedback-log { margin-top: 12px; font-weight: bold; font-size: 1rem; display: none; font-family: 'Arial', sans-serif; }
+        .score-display-panel { background: #e8f5e9; border: 3px solid #2e7d32; padding: 30px; border-radius: 10px; text-align: center; font-size: 1.4rem; font-weight: bold; color: #1b5e20; margin-top: 35px; display: none; font-family: 'Arial', sans-serif; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.1rem; }
+            .card { padding: 25px; }
+            table { font-size: 0.95rem; }
+            th, td { padding: 12px; }
+        }
+    </style>
+</head>
+<body class="view-en">
+
+    <header>
+        <h1 class="content-en">The Indus Valley Civilisation</h1>
+        <h1 class="content-ta">சிந்து சமவெளி நாகரிகம்</h1>
+        <p class="content-en">An Advanced, Exhaustive Master Compendium Mapped Across All Major Education Boards (TNSB, CBSE, ICSE, IB)</p>
+        <p class="content-ta">அனைத்து முக்கிய கல்வி வாரியங்களின் (TNSB, CBSE, ICSE, IB) பாடத்திட்டங்களின்படி தொகுக்கப்பட்ட ஒரு மேம்பட்ட வரலாற்று களஞ்சியம்</p>
+    </header>
+
+    <!-- Language Navigation Bar -->
+    <div class="language-tab-bar">
+        <button class="lang-btn active" id="btn-en" onclick="switchLanguage('en')">English Edition</button>
+        <button class="lang-btn" id="btn-ta" onclick="switchLanguage('ta')">தமிழ் பதிப்பு</button>
+    </div>
+
+    <div class="meta-nav">
+        <a href="#lvl-1">1. Outline Overview</a> | 
+        <a href="#lvl-2">2. Geographic Anchors</a> | 
+        <a href="#lvl-3">3. Architectural Engineering</a> | 
+        <a href="#lvl-4">4. Material Arts & Trade</a> | 
+        <a href="#lvl-5">5. Historiographical Debate</a> | 
+        <a href="#quiz-section">Interactive Practice Quiz (50 Qs)</a>
+    </div>
+
+    <div class="container">
+
+        <!-- ==================== ENGLISH SECTION ==================== -->
+        <div class="content-en">
+            <!-- LEVEL 1 -->
+            <div class="card" id="lvl-1">
+                <span class="difficulty-badge b-1">Level 1: Basic Points & Outline</span>
+                <h2>1. Primary Cultural & Chronological Outlines</h2>
+                <p>The Indus Valley Civilisation (IVC) stands as a paramount urban pillar of the ancient Bronze Age world. Coexisting with contemporary fluvial societies along the Nile, the Tigris, and the Euphrates, the IVC was distinguished by its vast territorial spread and unparalleled level of standardized civic planning. It is traditionally labeled the Harappan Civilisation, honoring the fundamental rules of archeological stratigraphy: a prehistoric culture must be named after the specific standard locality where its definitive material assemblage was first recovered.<span class="citation">TNSB Class 6 / CBSE Theme 1</span></p>
+                
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcS1ZZVIDWOC28uTxflV4Ec4yIsNvqK7UXJP588r1A_CRpLIljFWZeuVuHmjrFUVvVrKCl77UvD0ZAaDbBg" alt="Mohenjo-daro Structural Formations">
+                        <div class="image-tagline">Urban Plan Layout Excavation Ruins at Mohenjo-daro</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault: Prehistoric Pioneers</h4>
+                    <p>Did you know that long before the grand cities of Harappa and Mohenjo-daro were built, a neolithic settlement named <strong>Mehrgarh</strong> (in modern Balochistan) was thriving around 7000 BCE? Archaeologists discovered clear evidence that these early people had already mastered wheat farming, mud-brick home construction, and remarkably, an early form of proto-dentistry using flint drills to fix teeth teeth!</p>
+                </div>
+
+                <h3>Chronological Matrix & Evolutionary Phases</h3>
+                <p>The development of the Harappan cultural complex is an evolved continuum divided into three discrete, empirically verified phases:</p>
+                <ul>
+                    <li><strong>Early Harappan Phase (c. 3300 BCE – 2600 BCE):</strong> Marked by the transition from rural neolithic farming communities to proto-urban nuclear networks. Key structural traits include the initial construction of defensive perimeter walls, specialized kilns, and early specialized craft industries visible at Amri and Kot Diji.<span class="citation">TNSB Class 11</span></li>
+                    <li><strong>Mature Harappan Phase (c. 2600 BCE – 1900 BCE):</strong> The peak of the civilization. Characterized by fully developed grid-pattern cities, highly sophisticated drainage systems, standardized weights and measures, extensive regional and international trade, and uniform glyptic writing styles.<span class="citation">CBSE Class 12 Theme 1</span></li>
+                    <li><strong>Late Harappan Phase (c. 1900 BCE – 1300 BCE):</strong> A period of decline and de-urbanization. Marked by the loss of systemic weights, the abandonment of scripts, civic infrastructure deterioration, and demographic shifts toward the eastern Ganga-Yamuna plain.<span class="citation">IB Pathway Data</span></li>
+                </ul>
+            </div>
+
+            <!-- LEVEL 2 -->
+            <div class="card" id="lvl-2">
+                <span class="difficulty-badge b-2">Level 2: Elementary Essential Points</span>
+                <h2>2. Geographical Parameters & Historical Discovery Tracks</h2>
+                <p>Understanding the scale of the Harappan world requires a detailed look at its outer boundaries. The civilization formed a huge, irregular triangular shape covering roughly 1.5 million square kilometers across modern India, Pakistan, and parts of Afghanistan. It maintained strategic outposts along major trade routes to control the flow of precious raw materials and luxury minerals.<span class="citation">ICSE Class 9</span></p>
+
+                <h3>The Pioneer Discovery Timeline</h3>
+                <p>The discovery of the civilization followed a series of key archaeological breakthroughs in the 19th and early 20th centuries:</p>
+                <ol>
+                    <li><strong>1826 — Charles Masson:</strong> The first European traveler to visit Harappa and document the presence of massive prehistoric brick structures, though he mistakenly associated them with Alexander the Great's campaigns.</li>
+                    <li><strong>1856 — John and William Brunton:</strong> These two British railway engineers laying the line from Lahore to Karachi unintentionally dug up millions of high-quality ancient bricks from the Harappan mounds, using them as ballast tracks and destroying precious archaeological layers[cite: 1].</li>
+                    <li><strong>1875 — Alexander Cunningham:</strong> The founding Director-General of the ASI, he examined the site and published drawings of an anomalous ancient seal featuring an unknown script and a single-horned animal profile.<span class="citation">CBSE Theme 1</span></li>
+                    <li><strong>1921–1924 — The Great Announcement:</strong> Executing targeted excavations, Rai Bahadur Daya Ram Sahni uncovered Harappa in 1921, while Rakhal Das Banerji discovered Mohenjo-daro in 1922. Sir John Marshall officially announced the discovery of an entirely new ancient civilization to the global community in 1924.<span class="citation">TNSB Class 9</span></li>
+                </ol>
+            </div>
+
+            <!-- LEVEL 3 -->
+            <div class="card" id="lvl-3">
+                <span class="difficulty-badge b-3">Level 3: Core Facts for Average Students (Scoring 60%+)</span>
+                <h2>3. The Eight Key Urban Centers & Infrastructure Systems</h2>
+                <p>Average students must fully master the explicit geographical, economic, and archaeological attributes of the eight primary key sites that formed the core of the Indus state architecture.</p>
+
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ0MutlAsKNXE3qY4MOuh5K1CtrVm9a1FBSMrMi2upxhL39BQPsEep24UFeir5fEhPTX-VHMWUeifK3b4U" alt="The Great Bath Structure">
+                        <div class="image-tagline">The Great Bath at Mohenjo-daro - Structural Engineering Masterpiece</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://rakhigarhi.in/wp-content/uploads/2026/03/converted_image-99.webp" alt="Rakhigarhi Excavation Trenches">
+                        <div class="image-tagline">Rakhigarhi Excavation Site - The Largest Harappan Metropolis</div>
+                    </div>
+                </div>
+
+                <h3>Exhaustive Archaeological Breakdown of the 8 Key Sites</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Site & Modern Location</th>
+                            <th>Associated Streams / Rivers</th>
+                            <th>Defining Architectural Features & Discoveries</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Harappa</strong> (Punjab, Pak)</td><td>Ravi River</td><td>Rows of 6 massive granaries, grain threshing circles, workers' quarters, and wooden coffin burials.</td></tr>
+                        <tr><td><strong>2. Mohenjo-daro</strong> (Sindh, Pak)</td><td>Indus River</td><td>The Great Bath, Great Granary, Assembly Hall, bronze Dancing Girl, and steatite Priest-King.</td></tr>
+                        <tr><td><strong>3. Lothal</strong> (Gujarat, India)</td><td>Bhogavo River</td><td>Artificial baked-brick tidal dockyard with water lock-gates, extensive warehouses, and terracotta ship models.</td></tr>
+                        <tr><td><strong>4. Kalibangan</strong> (Rajasthan, India)</td><td>Ghaggar River</td><td>Earliest ploughed agricultural field with crossing furrows, ritual fire altars, and decorative mud-bricks.</td></tr>
+                        <tr><td><strong>5. Chanhudaro</strong> (Sindh, Pak)</td><td>Indus Basin</td><td>The only city built without a fortified Citadel. Acted as a dedicated industrial craft town for beads and weights.</td></tr>
+                        <tr><td><strong>6. Dholavira</strong> (Gujarat, India)</td><td>Flanked by seasonal <strong>Mansar</strong> (North) & <strong>Manhar</strong> (South) streams; Khadir Bet island[cite: 1].</td><td>Unique three-tier layout (Citadel, Middle Town, Lower Town) with massive stone fortifications, large storm-water reservoirs, and a 10-glyph billboard[cite: 1].</td></tr>
+                        <tr><td><strong>7. Banawali</strong> (Haryana, India)</td><td>Ancient Sarasvati</td><td>Deposits of high-purity barley grains, a terracotta toy model of an agricultural plow, and lapis beads.</td></tr>
+                        <tr><td><strong>8. Rakhigarhi</strong> (Haryana, India)</td><td>Ghaggar-Hakra</td><td>The geographically largest metropolis of the IVC (over 350 hectares). Features multiple mounds and a citadel wall.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- LEVEL 4 -->
+            <div class="card" id="lvl-4">
+                <span class="difficulty-badge b-4">Level 4: Exploratory & Artistic Insights</span>
+                <h2>4. Glyptic Arts, Metallurgical Science, & Global Maritime Logistics</h2>
+                <p>For advanced historical mastery, students must look closely at the complex craft methods and trade routes that connected Harappan merchants to kingdoms across the ancient Near East.</p>
+
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Dancing_girl_of_Mohenjo-daro.jpg" alt="The Bronze Dancing Girl Figurine">
+                        <div class="image-tagline">The Bronze "Dancing Girl" figurine - Lost-Wax Casting Masterpiece</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://smarthistory.org/wp-content/uploads/2020/04/Thumbnail-Shiva_Pashupati.jpg" alt="The Pashupati Seal Artifact">
+                        <div class="image-tagline">The Humped Bull Stamp/Pashupati Seal - Steatite Glyptic Masterpiece</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 Curiosity Vault: Harappan Legacy in Board Games</h4>
+                    <p>Did you know the roots of modern board games like Chess and Ludo can be tracked directly back to the streets of Lothal and Harappa? Archaeologists recovered beautifully polished terracotta gaming boards grid-marked with corresponding cubical dice made of chert and clay, proving that strategic board games were a favorite leisure pass-time among Harappan urban centers!</p>
+                </div>
+
+                <h3>The Cire Perdue Metallurgical Method</h3>
+                <p>The iconic **"Dancing Girl"** figurine (discovered at Mohenjo-daro) stands as a monument to ancient science. It was manufactured utilizing the high-precision <span class="highlight">Lost-Wax Casting (*cire perdue*)</span> technique. The artisan hand-sculpted a detailed model in pure beeswax, encased it completely in thick layers of alluvial clay, and fired the matrix to harden the mold while letting the melted wax drain out. Finally, molten bronze alloy was poured into the hollow space. This shows that the Harappans had fully mastered metal casting and alloy chemistry.<span class="citation">CBSE Class 12 / ICSE</span></p>
+                <p>Over 3,000 square or rectangular seals made from soft soapstone (steatite) have been recovered. The most famous include the Zebu Bull seal, showing an explicit focus on animal anatomy and advanced engraving tools. These seals functioned as official custom security tags for cargo shipments and symbols of merchant identity.<span class="citation">Britannica</span></p>
+            </div>
+
+            <!-- LEVEL 5 -->
+            <div class="card" id="lvl-5">
+                <span class="difficulty-badge b-5">Level 5: High-Order Thinking Skills & Historiographical Debates</span>
+                <h2>5. Political Theory Contradictions & Systemic Collapse Hypotheses</h2>
+                <p>At the highest levels of historical scholarship, we move past basic factual lists to analyze core political contradictions and debate the causes behind the civilization's end.</p>
+                <p>The Indus Valley Civilisation presents a unique puzzle for political scientists. It maintained incredibly consistent brick sizes, identical weight standards, and mirrored city layouts across thousands of miles. Yet, extensive excavations have revealed **no grand palaces, royal tombs, military barracks, or specialized weapons of war**. This raises a key question: *How did they maintain law and order across such a massive territory without an armed ruling class or military force?* Historians are divided into theories of monolithic priest-kings, commercial merchant guild oligarchies, or a radical egalitarian co-op network.<span class="citation">IB Core Readings</span></p>
+            </div>
+        </div>
+
+
+        <!-- ==================== TAMIL SECTION ==================== -->
+        <div class="content-ta">
+            <!-- LEVEL 1 -->
+            <div class="card" id="lvl-1-ta">
+                <span class="difficulty-badge b-1">நிலை 1: அடிப்படைப் புள்ளிகள் மற்றும் சுருக்கம்</span>
+                <h2>1. முதன்மைக் கலாச்சார மற்றும் காலவரிசை மேலோட்டங்கள்</h2>
+                <p>சிந்து சமவெளி நாகரிகமானது (IVC) பண்டைய வெண்கலக் கால உலகத்தின் மிக முக்கியமான நகர்ப்புற தூணாகத் திகழ்கிறது. நைல், டைக்ரிஸ் மற்றும் யூப்ரடீஸ் ஆகிய நதிக்கரைகளில் உருவான சமகால நாகரிகங்களுடன் இணைந்து செயல்பட்ட சிந்து சமவெளி நாகரிகம், அதன் பரந்த பிராந்திய பரவலாலும் மற்றும் இணையற்ற அளவிலான தரப்படுத்தப்பட்ட நகரத் திட்டமிடலாலும் தனித்துவம் பெற்றிருந்தது. தொல்பொருள் அடுக்குமுறைப் பகுப்பாய்வின் அடிப்படை விதிகளின்படி, இது பாரம்பரியமாக ஹரப்பா நாகரிகம் என்று அழைக்கப்படுகிறது: வரலாற்றுக்கு முந்தைய ஒரு கலாச்சாரம், அதன் முதன்மையான பொருட்கள் முதலில் கண்டறியப்பட்ட குறிப்பிட்ட இடத்தின் பெயரால் அழைக்கப்பட வேண்டும் என்ற விதிமுறைப்படி இதற்கு இப்பெயர் வழங்கப்பட்டது.<span class="citation">TNSB Class 6 / CBSE Theme 1</span></p>
+                
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcS1ZZVIDWOC28uTxflV4Ec4yIsNvqK7UXJP588r1A_CRpLIljFWZeuVuHmjrFUVvVrKCl77UvD0ZAaDbBg" alt="Mohenjo-daro Structural Formations">
+                        <div class="image-tagline">மொஹஞ்சதாரோவில் நகர்ப்புற திட்டவட்டமான அகழ்வாராய்ச்சி இடிபாடுகள்</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம்: வரலாற்றுக்கு முந்தைய முன்னோடிகள்</h4>
+                    <p>ஹரப்பா மற்றும் மொஹஞ்சதாரோவின் பிரம்மாண்டமான நகரங்கள் கட்டப்படுவதற்கு நீண்ட காலத்திற்கு முன்பே, கி.மு. 7000 ஆம் ஆண்டிலேயே **மெஹர்கர்** (இன்றைய பலுசிஸ்தான்) என்ற புதிய கற்கால குடியிருப்பு செழித்து வளர்ந்தது உங்களுக்குத் தெரியுமா? இந்த ஆரம்பகால மக்கள் கோதுமை விவசாயம், மண் செங்கல் வீடுகள் கட்டுதல் மற்றும் வியக்கத்தக்க வகையில், பற்களை சரிசெய்வதற்காக பிளின்ட் துரப்பணங்களைப் பயன்படுத்தி ஆரம்பகால புரோட்டோ-பல் மருத்துவ முறையையும் கையாண்டதற்கான தெளிவான ஆதாரங்களை தொல்பொருள் ஆராய்ச்சியாளர்கள் கண்டறிந்துள்ளனர்!</p>
+                </div>
+
+                <h3>காலவரிசை மற்றும் பரிணாமக் கட்டங்கள்</h3>
+                <p>ஹரப்பா கலாச்சாரத்தின் வளர்ச்சி என்பது ஒரு தனித்துவமான காலவரிசை நிகழ்வு அல்ல, மாறாக அது மூன்று முக்கிய கட்டங்களாகப் பிரிக்கப்பட்ட ஒரு பரிணாமத் தொடர்ச்சியாகும்:</p>
+                <ul>
+                    <li><strong>தொடக்க ஹரப்பா கட்டம் (கி.மு. 3300 – கி.மு. 2600):</strong> கிராமப்புற புதிய கற்கால விவசாய சமூகங்களிலிருந்து ஆரம்பகால நகர்ப்புற நெட்வொர்க்குகளாக மாறிய காலகட்டம் இதுவாகும். பாதுகாப்புச் சுவர்கள், பிரத்யேக செங்கல் சூளைகள் மற்றும் அம்ரி மற்றும் கோட் டிஜி ஆகிய இடங்களில் காணப்பட்ட ஆரம்பகால கைவினைத் தொழில்கள் இதன் முக்கிய உள்கட்டமைப்பு பண்புகளாகும்.<span class="citation">TNSB Class 11</span></li>
+                    <li><strong>முதிர்ந்த ஹரப்பா கட்டம் (கி.மு. 2600 – கி.மு. 1900):</strong> இந்த நாகரிகத்தின் உச்சக்கட்டம். கட்டம் (Grid) வடிவிலான திட்டமிடப்பட்ட நகரங்கள், மிகவும் மேம்பட்ட வடிகால் அமைப்புகள், தரப்படுத்தப்பட்ட எடைகள் மற்றும் அளவைகள், விரிவான சர்வதேச கடல்சார் வணிகம் மற்றும் சீரான எழுத்து முறைகள் ஆகியவை இதன் சிறப்பம்சங்களாகும்.<span class="citation">CBSE Class 12 Theme 1</span></li>
+                    <li><strong>பிந்தைய ஹரப்பா கட்டம் (கி.மு. 1900 – கி.மு. 1300):</strong> நகரமயமாக்கல் சரிந்து வீழ்ச்சியடைந்த காலகட்டம். முறையான எடை அமைப்புகளின் இழப்பு, எழுத்து முறைகள் கைவிடப்படுதல், சிவில் உள்கட்டமைப்பு சீர்குலைவு மற்றும் கிழக்கு நோக்கி கங்கை-யமுனை சமவெளிப் பகுதியை நோக்கிய மக்கள் இடப்பெயர்வு ஆகியவை இக்கட்டத்தைக் குறிக்கின்றன.<span class="citation">IB Pathway Data</span></li>
+                </ul>
+            </div>
+
+            <!-- LEVEL 2 -->
+            <div class="card" id="lvl-2-ta">
+                <span class="difficulty-badge b-2">நிலை 2: அடிப்படை அத்தியாவசியப் புள்ளிகள்</span>
+                <h2>2. புவியியல் எல்லைகள் மற்றும் வரலாற்று கண்டுபிடிப்புப் பாதைகள்</h2>
+                <p>அனைத்து மாணவர்களும் சிந்து சமவெளி உலகத்தின் அளவைப் புரிந்து கொள்ள அதன் வெளி எல்லைகளை விரிவாக ஆராய வேண்டும். இந்த நாகரிகம் நவீன இந்தியா, பாகிஸ்தான் மற்றும் ஆப்கானிஸ்தானின் சில பகுதிகளை உள்ளடக்கி சுமார் 1.5 மில்லியன் சதுர கிலோமீட்டர் பரப்பளவில் ஒரு பெரிய முக்கோண வடிவத்தை உருவாக்கியிருந்தது. மதிப்புமிக்க மூலப்பொருட்கள் மற்றும் ஆடம்பர தாதுக்களின் ஓட்டத்தைக் கட்டுப்படுத்த இது முக்கிய வர்த்தக வழிகளில் உத்திகளை வகுத்து எல்லைக் காவல் முகாம்களைப் பராமரித்தது.<span class="citation">ICSE Class 9</span></p>
+
+                <h3>முன்னோடி கண்டுபிடிப்புகளின் காலவரிசை</h3>
+                <p>இந்த நாகரிகத்தின் கண்டுபிடிப்பானது 19 ஆம் மற்றும் 20 ஆம் நூற்றாண்டின் தொடக்கத்தில் நிகழ்ந்த தொடர்ச்சியான முக்கிய தொல்பொருள் முன்னேற்றங்களைப் பின்பற்றியதாகும்:</p>
+                <ol>
+                    <li><strong>1826 — சார்லஸ் மேசன்:</strong> ஹரப்பாவிற்கு விஜயம் செய்து, அங்கு வரலாற்றுக்கு முந்தைய பிரம்மாண்டமான செங்கல் கோட்டைகள் இருப்பதை ஆவணப்படுத்திய முதல் ஐரோப்பிய பயணி இவராவார்.</li>
+                    <li><strong>1856 — ஜான் மற்றும் வில்லியம் பிரண்டன்:</strong> லாகூர் முதல் கராச்சி வரை இரயில் பாதையை அமைத்த இந்த இரண்டு பிரிட்டிஷ் பொறியாளர்கள், அறியாமையின் காரணமாக ஹரப்பா மேடுகளிலிருந்து மில்லியன் கணக்கான உயர்தர பழங்காலச் செங்கற்களைத் தோண்டி எடுத்து இரயில் பாதையின் அடித்தளக் கற்களாகப் பயன்படுத்தியதால், விலைமதிப்பற்ற தொல்பொருள் அடுக்குகள் நாசமாயின[cite: 1].</li>
+                    <li><strong>1875 — அலெக்சாண்டர் கன்னிங்காம்:</strong> இந்திய தொல்பொருள் ஆய்வுத்துறையின் (ASI) நிறுவனர் மற்றும் முதல் இயக்குநர் ஜெனரலான இவர், இந்த இடத்தை ஆராய்ந்து, அறியப்படாத எழுத்துக்களையும் ஒற்றைக் கொம்பு விலங்கின் உருவத்தையும் கொண்ட ஒரு விசித்திரமான பழங்கால முத்திரையின் வரைபடங்களை வெளியிட்டார்.<span class="citation">CBSE Theme 1</span></li>
+                    <li><strong>1921–1924 — பெரும் அதிகாரப்பூர்வ அறிவிப்பு:</strong> இலக்கு வைக்கப்பட்ட அகழ்வாராய்ச்சிகளை மேற்கொண்டு, ராய் பகதூர் தயா ராம் சாஹனி 1921 இல் ஹரப்பாவையும், ராகல் தாஸ் பானர்ஜி 1922 இல் மொஹஞ்சதாரோரையும் கண்டறிந்தனர். இந்த ஆதாரங்களின் அடிப்படையில், சர் ஜான் மார்ஷல் 1924 இல் உலகிற்கு ஒரு புதிய பண்டைய நாகரிகத்தின் கண்டுபிடிப்பை அதிகாரப்பூர்வமாக அறிவித்தார்.<span class="citation">TNSB Class 9</span></li>
+                </ol>
+            </div>
+
+            <!-- LEVEL 3 -->
+            <div class="card" id="lvl-3-ta">
+                <span class="difficulty-badge b-3">நிலை 3: சராசரி மாணவர்களுக்கான முக்கிய உண்மைகள் (60%+)</span>
+                <h2>3. எட்டு முக்கிய நகர்ப்புற மையங்கள் மற்றும் உள்கட்டமைப்பு அமைப்புகள்</h2>
+                <p>சிந்து சமவெளி உள்கட்டமைப்பின் மையமாக விளங்கிய எட்டு முதன்மையான முக்கிய தளங்களின் புவியியல், பொருளாதார மற்றும் தொல்பொருள் பண்புகளை மாணவர்கள் முழுமையாக அறிந்து கொள்வது அவசியமாகும்.</p>
+
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ0MutlAsKNXE3qY4MOuh5K1CtrVm9a1FBSMrMi2upxhL39BQPsEep24UFeir5fEhPTX-VHMWUeifK3b4U" alt="The Great Bath Structure">
+                        <div class="image-tagline">மொஹஞ்சதாரோவில் உள்ள பெரும்குளம் - உள்கட்டமைப்பு பொறியியலின் உச்சம்</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://rakhigarhi.in/wp-content/uploads/2026/03/converted_image-99.webp" alt="Rakhigarhi Excavation Trenches">
+                        <div class="image-tagline">ராகிகர்ஹி அகழ்வாராய்ச்சி தளம் - சிந்து சமவெளியின் மிகப்பெரிய மாநகரம்</div>
+                    </div>
+                </div>
+
+                <h3>8 முக்கிய தளங்களின் விரிவான தொல்பொருள் பகுப்பாய்வு</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>தளம் மற்றும் தற்போதைய இருப்பிடம்</th>
+                            <th>தொடர்புடைய நதிகள் / ஓடைகள்</th>
+                            <th>முக்கிய கட்டடக்கலை அம்சங்கள் மற்றும் கண்டுபிடிப்புகள்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. ஹரப்பா</strong> (பஞ்சாப், பாகிஸ்தான்)</td><td>ரவி நதி</td><td>6 பெரிய தானியக் களஞ்சியங்களின் வரிசைகள், தானியம் தூற்றும் வட்ட வடிவ மேடைகள், தொழிலாளர் குடியிருப்புகள் மற்றும் மரப்பெட்டி அடக்கங்கள்.</td></tr>
+                        <tr><td><strong>2. மொஹஞ்சதாரோ</strong> (சிந்து, பாகிஸ்தான்)</td><td>சிந்து நதி</td><td>பெரும்குளம், பிரம்மாண்ட தானியக்களஞ்சியம், கூட்ட அரங்கு, வெண்கல நடனமாடும் மங்கை மற்றும் பூசாரி அரசன் சிலை.</td></tr>
+                        <tr><td><strong>3. லோத்தல்</strong> (குஜராத், இந்தியா)</td><td>போகாவோ நதி</td><td>நீர் பூட்டு வாயில்களுடன் கூடிய செயற்கையான சுட்ட செங்கல் கப்பல் கட்டும் தளம், கிடங்குகள் மற்றும் சுடுமண் கப்பல் மாதிரிகள்.</td></tr>
+                        <tr><td><strong>4. காலிபங்கன்</strong> (ராஜஸ்தான், இந்தியா)</td><td>காகர் நதி</td><td>உலகின் மிக பழமையான உழுத வயல்வெளிகள், யாக பலிபீடங்கள் மற்றும் அலங்கார மண் செங்கற்கள்.</td></tr>
+                        <tr><td><strong>5. சான்குதாரோ</strong> (சிந்து, பாகிஸ்தான்)</td><td>சிந்து நதி</td><td>அரண் போன்ற கோட்டை (Citadel) இல்லாத ஒரே முக்கிய நகரம். மணிகள் தயாரிப்பு தொழிற்பேட்டை நகரம்.</td></tr>
+                        <tr><td><strong>6. தோலவிரா</strong> (குஜராத், இந்தியா)</td><td>பருவகால <strong>மான்சர்</strong> (வடக்கு) மற்றும் <strong>மான்ஹர்</strong> (தெற்கு) ஓடைகளுக்கு இடையே; காதிர் தீவு[cite: 1].</td><td>தனித்துவமான மூன்று அடுக்கு நகர அமைப்பு (கோட்டை, இடை நகரம், கீழ் நகரம்), பாரிய நீர் தேக்க உள்கட்டமைப்பு அமைப்புகள் மற்றும் 10 குறியீடுகளைக் கொண்ட அறிவிப்புப் பலகை[cite: 1].</td></tr>
+                        <tr><td><strong>7. பனவாலி</strong> (ஹரியானா, இந்தியா)</td><td>சரஸ்வதி நதி</td><td>உயர்தர பார்லி தானியங்களின் இருப்பு மற்றும் சுடுமண்ணால் ஆன கலப்பை பொம்மை மாதிரி.</td></tr>
+                        <tr><td><strong>8. ராகிகர்ஹி</strong> (ஹரியானா, இந்தியா)</td><td>காகர்-ஹக்ரா</td><td>புவியியல் ரீதியாக சிந்து சமவெளியின் மிகப்பெரிய மாநகரம் (350 ஹெக்டேருக்கும் மேல்). பல மேடுகள் மற்றும் பெரிய நிர்வாகக் கோட்டைச் சுவர் கொண்டது.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- LEVEL 4 -->
+            <div class="card" id="lvl-4-ta">
+                <span class="difficulty-badge b-4">நிலை 4: மேம்பட்ட மற்றும் கலைசார்ந்த நுண்ணறிவுகள்</span>
+                <h2>4. முத்திரை கலைகள், உலோகவியல் அறிவியல் மற்றும் உலகளாவிய கடல்சார் வணிகம்</h2>
+                <p>மேம்பட்ட வரலாற்று அறிவைப் பெற, ஹரப்பா வர்த்தகர்களை பண்டைய அண்மை கிழக்கு நாடுகளுடன் இணைத்த சிக்கலான கைவினை முறைகள் மற்றும் வர்த்தக வழிகளை மாணவர்கள் உன்னிப்பாக ஆராய வேண்டும்.</p>
+
+                <div class="image-showcase-grid">
+                    <div class="image-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Dancing_girl_of_Mohenjo-daro.jpg" alt="The Bronze Dancing Girl Figurine">
+                        <div class="image-tagline">வெண்கல "நடனமாடும் மங்கை" சிலை - மெழுகு வார்ப்பு தொழில்நுட்பத்தின் சான்று</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://smarthistory.org/wp-content/uploads/2020/04/Thumbnail-Shiva_Pashupati.jpg" alt="The Pashupati Seal Artifact">
+                        <div class="image-tagline">திமிலுடன் கூடிய காளை முத்திரை / பசுபதி முத்திரை - ஸ்டೀட்டைட் கலைப்படைப்பு</div>
+                    </div>
+                </div>
+
+                <div class="curiosity-vault">
+                    <h4>💡 வரலாற்றுப் பெட்டகம்: பலகை விளையாட்டுகளில் ஹரப்பாவின் மரபு</h4>
+                    <p>நவீன பலகை விளையாட்டுகளான சதுரங்கம் (Chess) மற்றும் தாயக்கட்டம் (Ludo) ஆகியவற்றின் வேர்கள் லோத்தல் மற்றும் ஹரப்பாவின் தெருக்களிலிருந்து நேரடியாகத் தொடங்குகின்றன என்பது உங்களுக்குத் தெரியுமா? தொல்பொருள் ஆராய்ச்சியாளர்கள் செர்ட் மற்றும் களிமண்ணால் செய்யப்பட்ட கனசதுர பகடைக்கற்களுடன் கட்டங்கள் குறிக்கப்பட்ட சுடுமண் விளையாட்டுப் பலகைகளை மீட்டெடுத்துள்ளனர், இது ஹரப்பா நகர்ப்புற மையங்களில் இத்தகைய மூலோபாய விளையாட்டுகள் ஒரு பிரபலமான பொழுதுபோக்காக இருந்ததை நிரூபிக்கிறது!</p>
+                </div>
+
+                <h3>மெழுகு வார்ப்பு (Lost-Wax) உலோகவியல் முறை</h3>
+                <p>மொஹஞ்சதாரோவில் கண்டெடுக்கப்பட்ட சின்னஞ்சிறிய 10.5 செமீ உயரமுள்ள **"நடனமாடும் மங்கை"** சிலை பண்டைய அறிவியல் தொழில்நுட்பத்திற்கு ஒரு சிறந்த எடுத்துக்காட்டாகும். இது அதிநweisen <span class="highlight">மெழுகு வார்ப்பு (cire perdue)</span> தொழில்நுட்பத்தைப் பயன்படுத்தி தயாரிக்கப்பட்டது. கைவினைஞர் முதலில் தூய தேன்மெழுகில் ஒரு விரிவான மாதிரியை வடிவமத்து, அதை வண்டல் களிமண்ணால் முழுமையாக மூடி, பின்னர் அதைச் சுட்டு மெழுகை வெளியேற்றினார். இறுதியாக, உருகிய வெண்கலக் கலவை அந்த வெற்று இடத்தில் ஊற்றப்பட்டது. இது ஹரப்பர்கள் உலோகக் கலவை வேதியியலில் பெற்றிருந்த ஆளுமையைக் காட்டுகிறது.<span class="citation">CBSE Class 12 / ICSE</span></p>
+                <p>மென்மையான சோப்புக்கல்லால் (Steatite) செய்யப்பட்ட 3,000 க்கும் மேற்பட்ட சதுர வடிவ முத்திரைகள் மீட்கப்பட்டுள்ளன. இவற்றில் திமிலுடன் கூடிய காளை முத்திரை மிகவும் பிரபலமானது. இந்த முத்திரைகள் வர்த்தகர்களின் அடையாள சின்னங்களாக செயல்பட்டன.<span class="citation">Britannica</span></p>
+            </div>
+
+            <!-- LEVEL 5 -->
+            <div class="card" id="lvl-5-ta">
+                <span class="difficulty-badge b-5">நிலை 5: உயர்சிந்தனைத் திறன்கள் மற்றும் வரலாற்று விவாதங்கள்</span>
+                <h2>5. அரசியல் கோட்பாட்டு முரண்பாடுகள் மற்றும் நாகரிக வீழ்ச்சிக் கோட்பாடுகள்</h2>
+                <p>வரலாற்று paradigm ஆய்வின் மிக உயர்ந்த மட்டத்தில், சிந்து சமவெளி அரசின் அரசியல் முரண்பாடுகளை பகுப்பாய்வு செய்து, அதன் இறுதி வீழ்ச்சிக்கான காரணங்களை விவாதிக்கிறோம்.</p>
+                <p>சிந்து சமவெளி நாகரிகம் அரசியல் வரலாற்றாசிரியர்களுக்கு ஒரு தனித்துவமான புதிரை முன்வைக்கிறது. இது ஆயிரக்கணக்கான மைல்களுக்கு அப்பால் சீரான செங்கல் அளவுகள், ஒரே மாதிரியான எடை தரநிலைகள் மற்றும் ஒத்த நகர அமைப்புகளைப் பராமரித்தது. ஆயினும்கூட, விரிவான அகழ்வாராய்ச்சிகளில் **பெரிய அரண்மனைகளோ, அரசக் குறிப்புகளோ, இராணுவ முகாம்களோ அல்லது சிறப்புப் போர் ஆயுதங்களோ கண்டறியப்படவில்லை**. ஆயுதமேந்திய ஆளும் வர்க்கமோ அல்லது இராணுவப் படையோ இல்லாமல் இவ்வளவு பெரிய பிரதேசத்தில் அவர்கள் எவ்வாறு சட்டம் ஒழுங்கைப் பராமரித்தார்கள் என்பது ஒரு முக்கிய கேள்வியாகும்.<span class="citation">IB Core Readings</span></p>
+            </div>
+        </div>
+
+
+        <!-- ==================== INTERACTIVE QUIZ HUB ==================== -->
+        <div class="card" id="quiz-section" style="border-top: 6px solid var(--primary);">
+            <div class="quiz-top-banner">
+                <div>
+                    <h2>Interactive Practice Quiz Hub / சுயமதிப்பீட்டு வினாடி-வினா மையம்</h2>
+                    <p style="margin-bottom:0; font-size:1rem; color:#ffe0b2;">An expanded database of 50 multi-lingual tier-based questions matching your educational database criteria.</p>
+                </div>
+                <div style="text-align: right;">
+                    <span id="score-counter" style="font-size: 1.2rem; font-weight: bold; background:var(--accent); padding:6px 14px; border-radius:4px;">Questions Answered: 0/50</span>
+                </div>
+            </div>
+
+            <div class="quiz-button-group">
+                <button class="btn btn-toggle active" onclick="filterQuiz('All')">Show All 50 Questions</button>
+                <button class="btn btn-toggle" onclick="filterQuiz('Basic')">Basic</button>
+                <button class="btn btn-toggle" onclick="filterQuiz('Elementary Essential')">Elementary Essential</button>
+                <button class="btn btn-toggle" onclick="filterQuiz('Average Student')">Average Student</button>
+                <button class="btn btn-toggle" onclick="filterQuiz('Exploratory')">Exploratory</button>
+                <button class="btn btn-toggle" onclick="filterQuiz('High Order Thinking')">High Order Thinking</button>
+                <button class="btn" style="background:#1b5e20; margin-left:auto;" onclick="calculateTotalScore()">Finish & Grade Exam / தேர்வை முடித்து மதிப்பிடவும்</button>
+            </div>
+
+            <div id="quiz-questions-wrapper">
+                <!-- Javascript populates questions dynamically here -->
+            </div>
+
+            <div id="final-score-board" class="score-display-panel"></div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            document.body.className = 'view-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+
+        const quizData = [
+            {
+                id: 1, diff: "Basic", std: "Standard 6",
+                q_en: "Which was the first site excavated in the Indus Valley Civilisation?",
+                q_ta: "சிந்து சமவெளி நாகரிகத்தில் முதலில் அகழ்வாராய்ச்சி செய்யப்பட்ட இடம் எது?",
+                opts_en: ["Harappa", "Mohenjo-daro", "Lothal", "Kalibangan"],
+                opts_ta: ["ஹரப்பா", "மொஹஞ்சதாரோ", "லோத்தல்", "காலிபங்கன்"],
+                ans: "A", ans_en: "Harappa", ans_ta: "ஹரப்பா"
+            },
+            {
+                id: 2, diff: "Basic", std: "Standard 6",
+                q_en: "Along which river system did the Indus Valley Civilisation primarily flourish?",
+                q_ta: "சிந்து சமவெளி நாகரிகம் முக்கியமாக எந்த நதிக்கரையில் செழித்து வளர்ந்தது?",
+                opts_en: ["Ganga", "Indus", "Narmada", "Godavari"],
+                opts_ta: ["கங்கை", "சிந்து", "நர்மதை", "கோதாவரி"],
+                ans: "B", ans_en: "Indus", ans_ta: "சிந்து"
+            },
+            {
+                id: 3, diff: "Basic", std: "Standard 6",
+                q_en: "What alternative name is given to the Indus Valley Civilisation due to its first discovered site?",
+                q_ta: "முதலில் கண்டுபிடிக்கப்பட்ட தளத்தின் காரணமாக சிந்து சமவெளி நாகரிகத்திற்கு வழங்கப்படும் மாற்றுப் பெயர் என்ன?",
+                opts_en: ["Sumerian Culture", "Harappan Civilisation", "Vedic Culture", "Egyptian Civilisation"],
+                opts_ta: ["சுமேரிய கலாச்சாரம்", "ஹரப்பா நாகரிகம்", "வேத கலாச்சாரம்", "எகிப்திய நாகரிகம்"],
+                ans: "B", ans_en: "Harappan Civilisation", ans_ta: "ஹரப்பா நாகரிகம்"
+            },
+            {
+                id: 4, diff: "Basic", std: "Standard 6",
+                q_en: "The Indus Valley Civilisation belongs to which major historical period?",
+                q_ta: "சிந்து சமவெளி நாகரிகம் எந்த முக்கிய வரலாற்று காலத்தைச் சேர்ந்தது?",
+                opts_en: ["Iron Age", "Stone Age", "Bronze Age", "Golden Age"],
+                opts_ta: ["இரும்புக்காலம்", "கற்காலம்", "வெண்கலக்காலம்", "பொற்காலம்"],
+                ans: "C", ans_en: "Bronze Age", ans_ta: "வெண்கலக்காலம்"
+            },
+            {
+                id: 5, diff: "Basic", std: "Standard 6",
+                q_en: "In which modern-day nation is the famous site of Mohenjo-daro located?",
+                q_ta: "புகழ்பெற்ற மொஹஞ்சதாரோ தளம் இன்றைய எந்த நாட்டில் அமைந்துள்ளது?",
+                opts_en: ["India", "Pakistan", "Afghanistan", "Bangladesh"],
+                opts_ta: ["இந்தியா", "பாகிஸ்தான்", "ஆப்கானிஸ்தான்", "வங்களாதேசம்"],
+                ans: "B", ans_en: "Pakistan", ans_ta: "பாகிஸ்தான்"
+            },
+            {
+                id: 6, diff: "Basic", std: "Standard 6",
+                q_en: "In which year was the site of Harappa first officially excavated?",
+                q_ta: "ஹரப்பா தளம் முதன்முதலில் எந்த ஆண்டு அதிகாரப்பூர்வமாக அகழ்வாராய்ச்சி செய்யப்பட்டது?",
+                opts_en: ["1921", "1947", "1950", "1857"],
+                opts_ta: ["1921", "1947", "1950", "1857"],
+                ans: "A", ans_en: "1921", ans_ta: "1921"
+            },
+            {
+                id: 7, diff: "Basic", std: "Standard 6",
+                q_en: "Which of the following is an Indus Valley Civilisation site located in modern Gujarat, India?",
+                q_ta: "பின்வருவனவற்றில் இந்தியாவின் நவீன குஜராத்தில் அமைந்துள்ள சிந்து சமவெளி நாகரிக தளம் எது?",
+                opts_en: ["Ropar", "Lothal", "Harappa", "Mohenjo-daro"],
+                opts_ta: ["ரோபார்", "லோத்தல்", "ஹரப்பா", "மொஹஞ்சதாரோ"],
+                ans: "B", ans_en: "Lothal", ans_ta: "லோத்தல்"
+            },
+            {
+                id: 8, diff: "Basic", std: "Standard 6",
+                q_en: "What was the primary material used to construct residential houses in Harappa?",
+                q_ta: "ஹரப்பாவில் குடியிருப்பு வீடுகளைக் கட்டுவதற்குப் பயன்படுத்தப்பட்ட முதன்மைப் பொருள் எது?",
+                opts_en: ["Wood", "Unbaked Mud", "Baked Bricks", "Marble"],
+                opts_ta: ["மரம்", "சுடாத மண்", "சுட்ட செங்கற்கள்", "பளிங்குக்கல்"],
+                ans: "C", ans_en: "Baked Bricks", ans_ta: "சுட்ட செங்கற்கள்"
+            },
+            {
+                id: 9, diff: "Basic", std: "Standard 6",
+                q_en: "Which animal was widely depicted on Harappan seals and is thought to be mythical?",
+                q_ta: "ஹரப்பா முத்திரைகளில் பரவலாக சித்தரிக்கப்பட்ட மற்றும் கற்பனையானதாகக் கருதப்படும் விலங்கு எது?",
+                opts_en: ["Lion", "Horse", "Unicorn", "Cow"],
+                opts_ta: ["சிங்கம்", "குதிரை", "யூனிகார்ன் (ஒற்றைக் கொம்பு)", "பசு"],
+                ans: "C", ans_en: "Unicorn", ans_ta: "யூனிகார்ன் (ஒற்றைக் கொம்பு)"
+            },
+            {
+                id: 10, diff: "Basic", std: "Standard 6",
+                q_en: "Who was the Director-General of the ASI when the IVC discoveries were officially announced to the world?",
+                q_ta: "சிந்து சமவெளி நாகரிக கண்டுபிடிப்புகள் உலகிற்கு அதிகாரப்பூர்வமாக அறிவிக்கப்பட்டபோது ASI-ன் இயக்குநர் ஜெனரலாக இருந்தவர் யார்?",
+                opts_en: ["Alexander Cunningham", "John Marshall", "Mortimer Wheeler", "R.D. Banerji"],
+                opts_ta: ["அலெக்சாண்டர் கன்னிங்காம்", "ஜான் மார்ஷல்", "மார்டிமர் வீலர்", "ஆர்.டி. பானர்ஜி"],
+                ans: "B", ans_en: "John Marshall", ans_ta: "ஜான் மார்ஷல்"
+            },
+            {
+                id: 11, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "The roads of Harappan cities crossed each other at what angle?",
+                q_ta: "ஹரப்பா நகரங்களின் சாலைகள் ஒன்றையொன்று எந்த கோணத்தில் வெட்டிக்கொண்டன?",
+                opts_en: ["45 degrees", "60 degrees", "90 degrees", "180 degrees"],
+                opts_ta: ["45 டிகிரி", "60 டிகிரி", "90 டிகிரி", "180 டிகிரி"],
+                ans: "C", ans_en: "90 degrees", ans_ta: "90 டிகிரி"
+            },
+            {
+                id: 12, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "What unique ratio did the standard structural bricks of Harappa maintain?",
+                q_ta: "ஹரப்பாவின் நிலையான சுட்ட செங்கற்கள் எந்த தனித்துவமான விகிதத்தைக் கொண்டிருந்தன?",
+                opts_en: ["1:2:3", "1:3:5", "1:2:4", "1:4:8"],
+                opts_ta: ["1:2:3", "1:3:5", "1:2:4", "1:4:8"],
+                ans: "C", ans_en: "1:2:4", ans_ta: "1:2:4"
+            },
+            {
+                id: 13, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "The public bath known as 'The Great Bath' was discovered at which specific site?",
+                q_ta: "'பெரும்குளம்' என்று அழைக்கப்படும் பொதுக் குளியல் தளம் எந்த குறிப்பிட்ட இடத்தில் கண்டறியப்பட்டது?",
+                opts_en: ["Harappa", "Kalibangan", "Mohenjo-daro", "Lothal"],
+                opts_ta: ["ஹரப்பா", "காலிபங்கன்", "மொஹஞ்சதாரோ", "லோத்தல்"],
+                ans: "C", ans_en: "Mohenjo-daro", ans_ta: "மொஹஞ்சதாரோ"
+            },
+            {
+                id: 14, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "Into how many main sectors were most Harappan fortified cities split?",
+                q_ta: "பெரும்பாலான ஹரப்பா நகரங்கள் எத்தனை முக்கிய பிரிவுகளாக பிரிக்கப்பட்டிருந்தன?",
+                opts_en: ["Two", "Three", "Four", "Five"],
+                opts_ta: ["இரண்டு", "மூன்று", "நன்கு", "ஐந்து"],
+                ans: "A", ans_en: "Two", ans_ta: "இரண்டு"
+            },
+            {
+                id: 15, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "What was the raised western administrative sector of Harappan cities called?",
+                q_ta: "ஹரப்பா நகரங்களின் உயர்த்தப்பட்ட மேற்கு பகுதி நிர்வாகத் தளம் எவ்வாறு அழைக்கப்பட்டது?",
+                opts_en: ["Lower Town", "Citadel", "Granary", "Assembly Hall"],
+                opts_ta: ["கீழ் நகரம்", "கோட்டை (சிட்டடெல்)", "தானியக்களஞ்சியம்", "கூட்ட அரங்கு"],
+                ans: "B", ans_en: "Citadel", ans_ta: "கோட்டை (சிட்டடெல்)"
+            },
+            {
+                id: 16, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "Which of these crops is verified to have been extensively grown by the Harappans?",
+                q_ta: "ஹரப்பர்களால் பயிரிடப்பட்டதாக சரிபார்க்கப்பட்ட முதன்மைப் பயிர் எது?",
+                opts_en: ["Sugarcane", "Wheat", "Maize", "Potato"],
+                opts_ta: ["கரும்பு", "கோதுமை", "மக்காச்சோளம்", "உருளைக்கிழங்கு"],
+                ans: "B", ans_en: "Wheat", ans_ta: "கோதுமை"
+            },
+            {
+                id: 17, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "What type of stone weights did the Harappans use for commercial trade exchanges?",
+                q_ta: "வர்த்தக பரிமாற்றங்களுக்காக ஹரப்பர்கள் எந்த வகையான எடைக் கற்களைப் பயன்படுத்தினர்?",
+                opts_en: ["Cubical Chert Weights", "Spherical Iron Weights", "Wooden Balances", "Unstandardized Stones"],
+                opts_ta: ["கனசதுர செர்ட் எடைக் கற்கள்", "கோள வடிவ இரும்பு எடைக் கற்கள்", "மரத் தராசுகள்", "தரப்படுத்தப்படாத கற்கள்"],
+                ans: "A", ans_en: "Cubical Chert Weights", ans_ta: "கனசதுர செர்ட் எடைக் கற்கள்"
+            },
+            {
+                id: 18, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "Which Harappan site features an advanced system of stone-cut water reservoirs?",
+                q_ta: "பாறைகளைக் குடைந்து செய்யப்பட்ட நீர் தேக்கங்களின் அமைப்பைக் கொண்ட ஹரப்பா தளம் எது?",
+                opts_en: ["Banawali", "Dholavira", "Amri", "Kot Diji"],
+                opts_ta: ["பனவாலி", "தோலவிரா", "அம்ரி", "கோட் டிஜி"],
+                ans: "B", ans_en: "Dholavira", ans_ta: "தோலவிரா"
+            },
+            {
+                id: 19, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "Which metal was completely unknown to the citizens of the Indus Valley Civilisation?",
+                q_ta: "சிந்து சமவெளி நாகரிக குடிமக்களுக்கு முற்றிலும் தெரியாத உலோகம் எது?",
+                opts_en: ["Copper", "Gold", "Iron", "Bronze"],
+                opts_ta: ["செம்பு", "தங்கம்", "இரும்பு", "வெண்கலம்"],
+                ans: "C", ans_en: "Iron", ans_ta: "இரும்பு"
+            },
+            {
+                id: 20, diff: "Elementary Essential", std: "Standard 7",
+                q_en: "What soft soapstone material was predominantly chosen to manufacture Indus seals?",
+                q_ta: "சிந்து முத்திரைகளைத் தயாரிக்க முக்கியமாகப் பயன்படுத்தப்பட்ட மென்மையான சோப்புக்கல் பொருள் எது?",
+                opts_en: ["Terracotta", "Steatite", "Chert", "Carnelian"],
+                opts_ta: ["சுடுமண்", "ஸ்டீட்டைட்", "செர்ட்", "கார்னிலியன்"],
+                ans: "B", ans_en: "Steatite", ans_ta: "ஸ்டீட்டைட்"
+            },
+            {
+                id: 21, diff: "Average Student", std: "Standard 8",
+                q_en: "The famous Bronze Dancing Girl statue was recovered from which site?",
+                q_ta: "புகழ்பெற்ற வெண்கல நடனமாடும் மங்கை சிலை எந்த தளத்திலிருந்து மீட்கப்பட்டது?",
+                opts_en: ["Harappa", "Mohenjo-daro", "Rakhigarhi", "Lothal"],
+                opts_ta: ["ஹரப்பா", "மொஹஞ்சதாரோ", "ராகிகர்ஹி", "லோத்தல்"],
+                ans: "B", ans_en: "Mohenjo-daro", ans_ta: "மொஹஞ்சதாரோ"
+            },
+            {
+                id: 22, diff: "Average Student", std: "Standard 8",
+                q_en: "With which contemporary Middle Eastern civilization did the Harappans share direct maritime trade links?",
+                q_ta: "ஹரப்பர்கள் எந்த சமகால மத்திய கிழக்கு நாகரிகத்துடன் நேரடி கடல்வழி வர்த்தக தொடர்புகளைப் பகிர்ந்து கொண்டனர்?",
+                opts_en: ["Egyptian", "Mayan", "Mesopotamian", "Chinese"],
+                opts_ta: ["எகிப்திய", "மாயன்", "மெசபடோமிய", "சீன"],
+                ans: "C", ans_en: "Mesopotamian", ans_ta: "மெசபடோமிய"
+            },
+            {
+                id: 23, diff: "Average Student", std: "Standard 8",
+                q_en: "What reddish carnelian gemstone beads were highly prioritized for production by Harappan artisans?",
+                q_ta: "ஹரப்பா கைவினைஞர்களால் மணி தயாரிப்பிற்கு பயன்படுத்தப்பட்ட சிவப்பு நிற ரத்தினக் கல் எது?",
+                opts_en: ["Lapis Lazuli", "Jade", "Carnelian", "Quartz"],
+                opts_ta: ["லேபிஸ் லாஜுலி", "ஜேட்", "கார்னிலியன்", "குவார்ட்ஸ்"],
+                ans: "C", ans_en: "Carnelian", ans_ta: "கார்னிலியன்"
+            },
+            {
+                id: 24, diff: "Average Student", std: "Standard 8",
+                q_en: "At which Indus Valley site was definitive evidence of a pre-historic ploughed agricultural field discovered?",
+                q_ta: "வரலாற்றுக்கு முந்தைய உழுத வயல்களின் சான்றுகள் எந்த சிந்து சமவெளி தளத்தில் கண்டறியப்பட்டன?",
+                opts_en: ["Kalibangan", "Lothal", "Harappa", "Mitathal"],
+                opts_ta: ["காலிபங்கன்", "லோத்தல்", "ஹரப்பா", "மிட்டதால்"],
+                ans: "A", ans_en: "Kalibangan", ans_ta: "காலிபங்கன்"
+            },
+            {
+                id: 25, diff: "Average Student", std: "Standard 8",
+                q_en: "The seated male figure on seals surrounded by animals is traditionally identified as which proto-form deity?",
+                q_ta: "முத்திரைகளில் விலங்குகளால் சூழப்பட்டவாறு அமர்ந்திருக்கும் ஆண் உருவம் பாரம்பரியமாக எந்தத் தெய்வமாகக் கருதப்படுகிறது?",
+                opts_en: ["Indra", "Varuna", "Pashupati Shiva", "Agni"],
+                opts_ta: ["இந்திரன்", "வருணன்", "பசுபதி சிவன்", "அக்னி"],
+                ans: "C", ans_en: "Pashupati Shiva", ans_ta: "பசுபதி சிவன்"
+            },
+            {
+                id: 26, diff: "Average Student", std: "Standard 8",
+                q_en: "Where was unique evidence of wooden coffin burials discovered within the IVC site plans?",
+                q_ta: "சிந்து சமவெளி நாகரிகத்தில் மரப் பெட்டி அடக்கங்களின் தனித்துவமான சான்றுகள் எங்கே கண்டுபிடிக்கப்பட்டன?",
+                opts_en: ["Mohenjo-daro", "Harappa", "Chanhudaro", "Sutkagan Dor"],
+                opts_ta: ["மொஹஞ்சதாரோ", "ஹரப்பா", "சான்குதாரோ", "சுத்காகன் டோர்"],
+                ans: "B", ans_en: "Harappa", ans_ta: "ஹரப்பா"
+            },
+            {
+                id: 27, diff: "Average Student", std: "Standard 8",
+                q_en: "What mathematical system base properties did the Harappans implement for their standard weights?",
+                q_ta: "ஹரப்பர்கள் தங்களின் நிலையான எடைகளுக்கு எந்த கணித முறையைப் பயன்படுத்தினர்?",
+                opts_en: ["Decimal System Only", "Binary and Decimal Systems", "Roman Numerals", "Sexagesimal Base"],
+                opts_ta: ["தசம முறை மட்டும்", "பைனரி மற்றும் தசம முறைகள்", "ரோமானிய எண்கள்", "அறுபதின்ம முறை"],
+                ans: "B", ans_en: "Binary and Decimal Systems", ans_ta: "பைனரி மற்றும் தசம முறைகள்"
+            },
+            {
+                id: 28, diff: "Average Student", std: "Standard 8",
+                q_en: "Which river basin/tributary system provided direct geographical passage to the port at Lothal?",
+                q_ta: "லோத்தலில் உள்ள துறைமுகத்திற்கு நேரடி நீர்வழிப் பாதையை வழங்கிய நதி எது?",
+                opts_en: ["Indus Main Stem", "Ravi River Channel", "Bhogavo / Sabarmati Tributary", "Ghaggar River Stream"],
+                opts_ta: ["சிந்து முதன்மை நதி", "ரவி நதி", "போகாவோ / சபர்மதி துணை நதி", "காகர் நதி"],
+                ans: "C", ans_en: "Bhogavo / Sabarmati Tributary", ans_ta: "போகாவோ / சபர்மதி துணை நதி"
+            },
+            {
+                id: 29, diff: "Average Student", std: "Standard 8",
+                q_en: "What precise manufacturing technique was deployed to cast hollow bronze statues like the Dancing Girl?",
+                q_ta: "நடனமாடும் மங்கை போன்ற வெற்று வெண்கல சிலைகளை உருவாக்க எந்த தொழில்நுட்பம் பயன்படுத்தப்பட்டது?",
+                opts_en: ["Sand Casting Matrix", "Lost-Wax Casting Method", "Direct Wrought Forging", "Electro-Metallurgy Process"],
+                opts_ta: ["மணல் வார்ப்பு", "மெழுகு வார்ப்பு (Lost-Wax Casting)", "நேரடி இரும்பு ஃபோர்ஜிங்", "மின்-உலோகவியல் செயல்முறை"],
+                ans: "B", ans_en: "Lost-Wax Casting Method", ans_ta: "மெழுகு வார்ப்பு (Lost-Wax Casting)"
+            },
+            {
+                id: 30, diff: "Average Student", std: "Standard 8",
+                q_en: "Which site located in modern Haryana is recognized as the geographically largest metropolis of the IVC?",
+                q_ta: "நவீன ஹரியானாவில் அமைந்துள்ள சிந்து சமவெளியின் புவியியல் ரீதியாக மிகப்பெரிய மாநகரம் எது?",
+                opts_en: ["Rakhigarhi", "Lothal", "Rangpur", "Alamgirpur"],
+                opts_ta: ["ராகிகர்ஹி", "லோத்தல்", "ரங்பூர்", "ஆலம்கிர்பூர்"],
+                ans: "A", ans_en: "Rakhigarhi", ans_ta: "ராகிகர்ஹி"
+            },
+            {
+                id: 31, diff: "Exploratory", std: "Standard 9",
+                q_en: "Which major Harappan settlement completely lacked a fortified upper town layout?",
+                q_ta: "கோட்டை அமைப்பு இல்லாத ஒரே முக்கிய ஹரப்பா நகரம் எது?",
+                opts_en: ["Chanhudaro", "Kalibangan", "Surkotada", "Banawali"],
+                opts_ta: ["சான்குதாரோ", "காலிபங்கன்", "சுர்கோட்டடா", "பனவாலி"],
+                ans: "A", ans_en: "Chanhudaro", ans_ta: "சான்குதாரோ"
+            },
+            {
+                id: 32, diff: "Exploratory", std: "Standard 9",
+                q_en: "What specific trade designation term is used in Mesopotamian cuneiform to indicate the Indus Valley?",
+                q_ta: "மெசபடோமிய கியூனிஃபார்ம் எழுத்துக்களில் சிந்து சமவெளிப் பகுதியைக் குறிக்கப் பயன்படுத்திய சொல் எது?",
+                opts_en: ["Magan", "Meluhha", "Dilmun", "Akkad"],
+                opts_ta: ["மாகன்", "மெலூஹா", "தில்முன்", "அக்காட்"],
+                ans: "B", ans_en: "Meluhha", ans_ta: "மெலூஹா"
+            },
+            {
+                id: 33, diff: "Exploratory", std: "Standard 9",
+                q_en: "Which isolated northern commercial outpost gave Harappans control over blue Lapis Lazuli sourcing?",
+                q_ta: "ஹரப்பர்களுக்கு மதிப்புமிக்க நீல நிற லேபிஸ் லாஜுலியை வழங்கிய வடக்கு எல்லை வர்த்தகத் தளம் எது?",
+                opts_en: ["Shortughai", "Manda", "Daimabad", "Mitathal"],
+                opts_ta: ["ஷார்டுகை", "மாண்டா", "தைமாபாத்", "மிட்டதால்"],
+                ans: "A", ans_en: "Shortughai", ans_ta: "ஷார்டுகை"
+            },
+            {
+                id: 34, diff: "Exploratory", std: "Standard 9",
+                q_en: "At which specific maritime trade outpost was archeological proof of a joint dual burial recovered?",
+                q_ta: "கூட்டு இரட்டை அடக்கத்திற்கான தொல்பொருள் சான்றுகள் எந்த குறிப்பிட்ட இடத்தில் கண்டறியப்பட்டன?",
+                opts_en: ["Lothal", "Harappa", "Mohenjo-daro", "Kalibangan"],
+                opts_ta: ["லோத்தல்", "ஹரப்பா", "மொஹஞ்சதாரோ", "காலிபங்கன்"],
+                ans: "A", ans_en: "Lothal", ans_ta: "லோத்தல்"
+            },
+            {
+                id: 35, diff: "Exploratory", std: "Standard 9",
+                q_en: "What dynamic writing pattern is suspected for Harappan scripts based on alternating line directions?",
+                q_ta: "மாறிவரும் வரிசைகளின் திசைகளின் அடிப்படையில் ஹரப்பா எழுத்துமுறைக்கு எந்த எழுத்து வடிவம் சந்தேகிக்கப்படுகிறது?",
+                opts_en: ["Linear Cuneiform", "Pictographic Egyptian", "Boustrophedon Pattern", "Phoenician Semitic"],
+                opts_ta: ["நேரியல் கியூனிஃபார்ம்", "சித்திர எகிப்திய எழுத்து", "பூஸ்ட்ரோபெடான் முறை", "ஃபீனீசிய செமிட்டிக்"],
+                ans: "C", ans_en: "Boustrophedon Pattern", ans_ta: "பூஸ்ட்ரோபெடான் முறை"
+            },
+            {
+                id: 36, diff: "Exploratory", std: "Standard 9",
+                q_en: "Which animal is notably absent from major mainstream Mature phase Indus seals?",
+                q_ta: "முதிர்ந்த கட்ட சிந்து சமவெளி முத்திரைகளின் சித்தриப்புகளில் குறிப்பிடத்தக்க வகையில் இல்லாத விலங்கு எது?",
+                opts_en: ["Elephant", "Tiger", "Rhinoceros", "Horse"],
+                opts_ta: ["யானை", "புலி", "காண்டாமிருகம்", "குதிரை"],
+                ans: "D", ans_en: "Horse", ans_ta: "குதிரை"
+            },
+            {
+                id: 37, diff: "Exploratory", std: "Standard 9",
+                q_en: "To prevent water leaks, what compound was used to seal the floors of the Great Bath?",
+                q_ta: "நீர் க시வைத் தடுப்பதற்காக மொஹஞ்சதாரோவில் உள்ள பெரும்குளத்தின் தரைப் பகுதியில் பூசப்பட்ட பொருள் எது?",
+                opts_en: ["Thick Lime Mortar", "Gypsum-Bitumen Layering", "Alluvial Mud Mortar", "Coarse Cement Finish"],
+                opts_ta: ["அடர்ந்த சுண்ணாம்பு சாந்து", "ஜிப்சம்-பிற்றுமின் கலவை", "வண்டல் மண் சாந்து", "சிமெண்ட் பூச்சு"],
+                ans: "B", ans_en: "Gypsum-Bitumen Layering", ans_ta: "ஜிப்சம்-பிற்றுமின் கலவை"
+            },
+            {
+                id: 38, diff: "Exploratory", std: "Standard 9",
+                q_en: "Which coastal site forms the westernmost frontier border outpost of the Harappan civilization?",
+                q_ta: "ஹரப்பா நாகரிகத்தின் மேற்கு எல்லைக் காவல் தளமாக அமைந்துள்ள கடற்கரைத் தளம் எது?",
+                opts_en: ["Sutkagan Dor", "Alamgirpur", "Shortughai", "Daimabad"],
+                opts_ta: ["சுத்காகன் டோர்", "ஆலம்கிர்பூர்", "ஷார்டுகை", "தைமாபாத்"],
+                ans: "A", ans_en: "Sutkagan Dor", ans_ta: "சுத்காகன் டோர்"
+            },
+            {
+                id: 39, diff: "Exploratory", std: "Standard 9",
+                q_en: "Where was the famous stone sculpture of the bearded 'Priest-King' discovered?",
+                q_ta: "தாடியுடன் கூடிய புகழ்பெற்ற 'பூசாரி அரசன்' கல் சிலை எங்கே கண்டுபிடிக்கப்பட்டது?",
+                opts_en: ["Harappa", "Mohenjo-daro", "Lothal", "Banawali"],
+                opts_ta: ["ஹரப்பா", "மொஹஞ்சதாரோ", "லோத்தல்", "பனவாலி"],
+                ans: "B", ans_en: "Mohenjo-daro", ans_ta: "மொஹஞ்சதாரோ"
+            },
+            {
+                id: 40, diff: "Exploratory", std: "Standard 9",
+                q_en: "Which site in Haryana yielded high-quality barley crops and a terracotta toy plow model?",
+                q_ta: "ஹரியானாவில் உள்ள எந்த தளம் உயர்தர பார்லி பயிர்களையும் சுடுமண் ஏர் மாதிரியையும் வழங்கியது?",
+                opts_en: ["Banawali", "Kot Diji", "Ropar", "Amri"],
+                opts_ta: ["பனவாலி", "கோட் டிஜி", "ரோபார்", "அம்ரி"],
+                ans: "A", ans_en: "Banawali", ans_ta: "பனவாலி"
+            },
+            {
+                id: 41, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "Which scientist proposed the theory that climate changes and tectonic plate shifts caused the drying up of the Ghaggar system?",
+                q_ta: "காலநிலை மாற்றம் மற்றும் புவித்தட்டு நகர்வுகளால் காகர் நதி வறண்டு போனது என்ற கோட்பாட்டை முன்மொழிந்தவர் யார்?",
+                opts_en: ["Robert L. Raikes", "Mortimer Wheeler", "John Marshall", "Shereen Ratnagar"],
+                opts_ta: ["ராபர்ட் எல். ரைக்ஸ்", "மார்டிமர் வீலர்", "ஜான் மார்ஷல்", "ஷிரீன் ரத்னாகர்"],
+                ans: "A", ans_en: "Robert L. Raikes", ans_ta: "ராபர்ட் எல். ரைக்ஸ்"
+            },
+            {
+                id: 42, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "What layout difference makes the planning of Dholavira unique compared to standard sites like Harappa?",
+                q_ta: "ஹரப்பாவுடன் ஒப்பிடும்போது தோலவிராவின் நகர அமைப்பை தனித்துவமாக்கும் முரண்பாடு எது?",
+                opts_en: ["It is split into three sectors instead of two", "It has zero structural citadel walls", "It is built entirely of processed timber", "It completely lacks sub-street civic drainage"],
+                opts_ta: ["இது இரண்டுக்கு பதிலாக மூன்று பகுதிகளாக பிரிக்கப்பட்டுள்ளது", "இதற்குக் கோட்டை சுவர்கள் இல்லை", "இது முற்றிலும் மரத்தால் ஆனது", "இதில் தெரு வடிகால்கள் இல்லை"],
+                ans: "A", ans_en: "It is split into three sectors instead of two", ans_ta: "இது இரண்டுக்கு பதிலாக மூன்று பகுதிகளாக பிரிக்கப்பட்டுள்ளது"
+            },
+            {
+                id: 43, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "Why do modern forensic archeologists strongly reject Wheeler's Aryan Invasion Theory for the collapse of the IVC?",
+                q_ta: "சிந்து சமவெளி வீழ்ச்சிக்கு மார்டிமர் வீலரின் 'ஆரிய படையெடுப்பு கோட்பாட்டை' நவீன தொல்பொருள் ஆய்வாளர்கள் ஏன் நிராகரிக்கிறார்கள்?",
+                opts_en: ["Skeletons lack marks of physical weapon trauma", "Actual Indo-Aryan armor plates were recovered", "The settlements were instantly expanded", "No skeletal remains were found across urban levels"],
+                opts_ta: ["எலும்புக்கூடுகளில் ஆயுதங்களால் ஏற்பட்ட காயங்கள் இல்லை", "இந்தோ-ஆரிய கவசங்கள் கண்டுபிடிக்கப்பட்டன", "நகரங்கள் உடனடியாக விரிவுபடுத்தப்பட்டன", "எலும்புக்கூடுகளே காணப்படவில்லை"],
+                ans: "A", ans_en: "Skeletons lack marks of physical weapon trauma", ans_ta: "எலும்புக்கூடுகளில் ஆயுதங்களால் ஏற்பட்ட காயங்கள் இல்லை"
+            },
+            {
+                id: 44, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "What major challenge prevents an absolute academic consensus on the political system of the Harappan state?",
+                q_ta: "ஹரப்பா அரசின் அரசியல் நிர்வாகம் குறித்த ஒருமித்த கருத்தைத் தடுக்கும் முக்கிய சவால் எது?",
+                opts_en: ["Complete absence of weight standards", "Total lack of civic building systems", "Undeciphered scripts and lack of royal profiles", "Absence of regional cross-border commerce receipts"],
+                opts_ta: ["எடை தரநிலைகள் இல்லாமை", "பெரிய கட்டிடக்கலை முற்றிலும் இல்லாமை", "குறியீடுகள் அவிழ்க்கப்படாத எழுத்துமுறை மற்றும் அரசர்களின் சுயவிவரங்கள் இல்லாமை", "வர்த்தக ரசீதுகள் இல்லாமை"],
+                ans: "C", ans_en: "Undeciphered scripts and lack of royal profiles", opts_ta: "குறியீடுகள் அவிழ்க்கப்படாத எழுத்துமுறை மற்றும் அரசர்களின் சுயவிவரங்கள் இல்லாமை",
+                ans: "C", ans_en: "Undeciphered scripts and lack of royal profiles", ans_ta: "குறியீடுகள் அவிழ்க்கப்படாத எழுத்துமுறை மற்றும் அரசர்களின் சுயவிவரங்கள் இல்லாமை"
+            },
+            {
+                id: 45, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "The absolute timeline of the Mature Harappan phase was accurately refined using which laboratory technique?",
+                q_ta: "முதிர்ந்த ஹரப்பா கட்டத்தின் துல்லமான காலவரிசை எந்த ஆய்வக தொழில்நுட்பத்தைப் பயன்படுத்தி சுத்திகரிக்கப்பட்டது?",
+                opts_en: ["Geological Stratigraphy", "Carbon-14 Radiometric Dating", "Potassium-Argon Measurement", "Numismatic Inscription Evaluation"],
+                opts_ta: ["அடுக்குமுறை பகுப்பாய்வு", "கார்பன்-14 கதிரியக்கக் காலக்கணிப்பு", "பொட்டசியம்-ஆர்கான் அளவீடு", "நாணவியல் கல்வெட்டு மதிப்பீடு"],
+                ans: "B", ans_en: "Carbon-14 Radiometric Dating", ans_ta: "கார்பன்-14 கதிரியக்கக் காலக்கணிப்பு"
+            },
+            {
+                id: 46, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "Which site has yielded definitive evidence of a large-scale stone inscription resembling a public sign-board?",
+                q_ta: "பொது அறிவிப்பு பலகையை ஒத்த பெரிய அளவிலான கல்வெட்டின் சான்றுகளை வழங்கிய தளம் எது?",
+                opts_en: ["Dholavira", "Kalibangan", "Banawali", "Rakhigarhi"],
+                opts_ta: ["தோலவிரா", "காலிபங்கன்", "பனவாலி", "ராகிகர்ஹி"],
+                ans: "A", ans_en: "Dholavira", ans_ta: "தோலவிரா"
+            },
+            {
+                id: 47, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "The absence of offensive weapons and armor implies what about Harappan society?",
+                q_ta: "தாக்குதலுக்கான ஆயுதங்கள் மற்றும் கவசங்கள் இல்லாதது ஹரப்பா சமூகத்தைப் பற்றி எதை உணர்த்துகிறது?",
+                opts_en: ["They were completely separated from any global interface", "Society operated with highly peaceful egalitarian cooperation", "They hired foreign mercenary legions to protect gates", "Physical warfare was replaced by complex chemical conflicts"],
+                opts_ta: ["அவர்கள் முற்றிலும் உலகிலிருந்து தனிமைப்படுத்தப்பட்டிருந்தனர்", "சமூகம் மிகவும் அமைதியாகவும் சமத்துவமாகவும் செயல்பட்டது", "அவர்கள் வெளிநாட்டு கூலிப்படைகளை நம்பியிருந்தனர்", "போர்கள் இரசாயன மோதல்களாக மாற்றப்பட்டன"],
+                ans: "B", ans_en: "Society operated with highly peaceful egalitarian cooperation", ans_ta: "சமூகம் மிகவும் அமைதியாகவும் சமத்துவமாகவும் செயல்பட்டது"
+            },
+            {
+                id: 48, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "What critical economic role did middle stations like Dilmun and Magan play in maritime commerce?",
+                q_ta: "கடல்சார் வணிகத்தில் தில்முன் மற்றும் மாகன் போன்ற இடைநிலை நிலையங்கள் என்ன முக்கிய பங்கை வகித்தன?",
+                opts_en: ["They acted as transshipment ports for Indus-Mesopotamian trade", "They were the exclusive grain producers", "They deployed proxy armies to collect tariffs", "They built all standard chert weights"],
+                opts_ta: ["அவை சிந்து-மெசபடோமிய வர்த்தகத்திற்கான கப்பல் போக்குவரத்து துறைமுகங்களாக செயல்பட்டன", "அவை விவசாய தானியங்களின் முதன்மை ஆதாரங்களாக இருந்தன", "அவை சுங்கவரி வசூலிக்க படைகளை ஏவின", "அவை அனைத்து எடைக் கற்களையும் தயாரித்தன"],
+                ans: "A", ans_en: "They acted as transshipment ports for Indus-Mesopotamian trade", ans_ta: "அவை சிந்து-மெசபடோமிய வர்த்தகத்திற்கான கப்பல் போக்குவரத்து துறைமுகங்களாக செயல்பட்டன"
+            },
+            {
+                id: 49, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "Which post-urban phase is marked by a breakdown of civic infrastructure and regionalization of styles?",
+                q_ta: "நகரமயமாக்கலுக்குப் பிந்தைய எந்தக் கட்டம் சிவில் உள்கட்டமைப்பு முறிவு மற்றும் உள்ளூர் பாணிகளின் பிராந்தியமயமாக்கலால் குறிக்கப்படுகிறது?",
+                opts_en: ["Early Harappan", "Mature Harappan", "Late Harappan", "Pre-Harappan Transition"],
+                opts_ta: ["ஆரம்ப ஹரப்பா", "முதிர்ந்த ஹரப்பா", "பிந்தைய ஹரப்பா", "முந்தைய ஹரப்பா மாற்றம்"],
+                ans: "C", ans_en: "Late Harappan", ans_ta: "பிந்தைய ஹரப்பா"
+            },
+            {
+                id: 50, diff: "High Order Thinking", std: "Standard 10",
+                q_en: "Which region did migrating populations from late Indus settlements move toward during the urban decline?",
+                q_ta: "சிந்து சமவெளி வீழ்ச்சியின் போது இடம்பெயர்ந்த மக்கள் எந்த பகுதியை நோக்கி நகர்ந்தனர்?",
+                opts_en: ["Eastward into the Ganga-Yamuna Doab basin", "Westward across Hindu Kush into Persia", "Permanently into northern Himalayan valleys", "Into nomadic maritime sea colonies"],
+                opts_ta: ["கிழக்கு நோக்கி கங்கை-யமுனை சமவெளிப் பகுதிக்கு", "மேற்கு நோக்கி பெர்சியாவிற்கு", "இமயமலைப் பள்ளத்தாக்குகளுக்கு", "கடல்சார் நாடோடி காலனிகளுக்கு"],
+                ans: "A", ans_en: "Eastward into the Ganga-Yamuna Doab basin", ans_ta: "கிழக்கு நோக்கி கங்கை-யமுனை சமவெளிப் பகுதிக்கு"
+            }
+        ];
+
+        let userAnswers = {};
+
+        function renderQuiz() {
+            const wrapper = document.getElementById("quiz-questions-wrapper");
+            wrapper.innerHTML = "";
+
+            quizData.forEach((q, idx) => {
+                let optionsHTML = "";
+                const letterMapping = ["A", "B", "C", "D"];
+                
+                for(let i=0; i<4; i++) {
+                    optionsHTML += `
+                        <div class="option-element" id="opt-${q.id}-${letterMapping[i]}" onclick="selectOption(${q.id}, '${letterMapping[i]}')">
+                            <strong>${letterMapping[i]}:</strong> ${q.opts_en[i]} <br/>
+                            <span style="color: var(--text-muted); font-size:0.95rem;">${q.opts_ta[i]}</span>
+                        </div>
+                    `;
+                }
+
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.setAttribute("data-difficulty", q.diff);
+                card.id = `q-box-${q.id}`;
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:0.9rem; color:var(--text-muted);">
+                        <span>Question ${idx + 1} of 50 (${q.std})</span>
+                        <span style="font-weight:bold; color:var(--accent);">Tier: ${q.diff}</span>
+                    </div>
+                    <div class="question-title">
+                        <div>${idx + 1}. ${q.q_en}</div>
+                        <div style="color: #44332a; font-size: 1.1rem; margin-top:6px; font-weight: normal; font-style: italic;">${q.q_ta}</div>
+                    </div>
+                    <div class="options-list">
+                        ${optionsHTML}
+                    </div>
+                    <div class="feedback-log" id="feedback-${q.id}"></div>
+                `;
+                wrapper.appendChild(card);
+            });
+            updateScoreCounter();
+        }
+
+        function selectOption(questionId, optionLetter) {
+            const letterMapping = ["A", "B", "C", "D"];
+            letterMapping.forEach(l => {
+                document.getElementById(`opt-${questionId}-${l}`).classList.remove("selected");
+            });
+
+            document.getElementById(`opt-${questionId}-${optionLetter}`).classList.add("selected");
+            userAnswers[questionId] = optionLetter;
+            updateScoreCounter();
+        }
+
+        function updateScoreCounter() {
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById("score-counter").innerText = `Questions Answered: ${answeredCount}/50`;
+        }
+
+        function filterQuiz(level) {
+            const buttons = document.querySelectorAll(".btn-toggle");
+            buttons.forEach(b => b.classList.remove("active"));
+            event.target.classList.add("active");
+
+            const cards = document.querySelectorAll(".question-card");
+            cards.forEach(c => {
+                if(level === "All" || c.getAttribute("data-difficulty") === level) {
+                    c.style.display = "block";
+                } else {
+                    c.style.display = "none";
+                }
+            });
+        }
+
+        function calculateTotalScore() {
+            let correctCount = 0;
+            
+            quizData.forEach(q => {
+                const feedbackDiv = document.getElementById(`feedback-${q.id}`);
+                feedbackDiv.style.display = "block";
+                
+                const letterMapping = ["A", "B", "C", "D"];
+                letterMapping.forEach(l => {
+                    const optEl = document.getElementById(`opt-${q.id}-${l}`);
+                    optEl.classList.remove("correct", "wrong");
+                });
+
+                const userAns = userAnswers[q.id];
+                const correctEl = document.getElementById(`opt-${q.id}-${q.ans}`);
+                
+                if(userAns === q.ans) {
+                    correctCount++;
+                    correctEl.classList.add("correct");
+                    feedbackDiv.innerHTML = `<span style="color:#1b5e20;">✔ Correct Matrix! Selected ${q.ans} - ${q.ans_en} (${q.ans_ta})</span>`;
+                } else {
+                    if(userAns) {
+                        const wrongEl = document.getElementById(`opt-${q.id}-${userAns}`);
+                        wrongEl.classList.add("wrong");
+                    }
+                    correctEl.classList.add("correct");
+                    feedbackDiv.innerHTML = `<span style="color:#b71c1c;">✘ Misaligned Option. Correct Answer: ${q.ans} - ${q.ans_en} (${q.ans_ta})</span>`;
+                }
+            });
+
+            const finalPercentage = ((correctCount / 50) * 100).toFixed(1);
+            const scoreBoard = document.getElementById("final-score-board");
+            scoreBoard.style.display = "block";
+            scoreBoard.innerHTML = `
+                <div>Course Assessment Report Generated / வினாடி வினா முடிவுகள்!</div>
+                <div style="font-size: 2.2rem; margin:15px 0; font-family:'Arial';">Grading: ${correctCount} / 50 (${finalPercentage}%)</div>
+                <p style="text-align:center; margin-bottom:0; font-size:1.1rem; color:var(--text-dark);">
+                    ${finalPercentage >= 60 ? "Average Milestone Passed! Target 60% standard successfully established. / தேர்ச்சி மைல்கல் எட்டப்பட்டது!" : "Further Revision Recommended. / மீண்டும் படிக்க பரிந்துரைக்கப்படுகிறது."}
+                </p>
+            `;
+            scoreBoard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>
