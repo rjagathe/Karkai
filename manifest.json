@@ -15,6 +15,48 @@
               "en": "States, Union Territories, Capitals & Languages",
               "ta": "மாநிலங்கள், யூனியன் பிரதேசங்கள், தலைநகரங்கள் மற்றும் மொழிகள்",
               "path": "subjects/general-studies/chapter-01-indian-polity-and-administration/unit-01-states-uts-capitals-languages/index.html"
+            },
+            {
+              "key": "unit-02-constitution-salient-features",
+              "en": "Constitution of India — Preamble & Salient Features",
+              "ta": "இந்திய அரசியலமைப்பு — முகப்புரை மற்றும் முக்கிய அம்சங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-citizenship-fundamental-rights",
+              "en": "Citizenship & Fundamental Rights",
+              "ta": "குடியுரிமை மற்றும் அடிப்படை உரிமைகள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-fundamental-duties-dpspe",
+              "en": "Fundamental Duties & Directive Principles",
+              "ta": "அடிப்படை கடமைகள் மற்றும் அரசு நெறிமுறைக் கோட்பாடுகள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-05-union-executive-parliament",
+              "en": "Union Executive & Parliament",
+              "ta": "மத்திய நிர்வாகம் மற்றும் நாடாளுமன்றம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-06-state-executive-assembly",
+              "en": "State Executive & Legislative Assembly",
+              "ta": "மாநில நிர்வாகம் மற்றும் சட்டமன்றம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-07-local-government-panchayat",
+              "en": "Local Government & Panchayati Raj",
+              "ta": "உள்ளாட்சி அரசாங்கம் மற்றும் பஞ்சாயத்து ராஜ்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-08-judiciary-supreme-high-court",
+              "en": "Indian Judiciary — Supreme Court & High Courts",
+              "ta": "இந்திய நீதித்துறை — உச்ச நீதிமன்றம் மற்றும் உயர் நீதிமன்றங்கள்",
+              "path": "coming-soon.html"
             }
           ]
         }
@@ -24,37 +66,181 @@
       "key": "tamil-literature",
       "en": "Tamil Literature",
       "ta": "தமிழ் இலக்கியம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-sangam-literature",
+          "en": "Sangam & Post-Sangam Literature",
+          "ta": "சங்ககால மற்றும் சங்கமருவிய இலக்கியம்",
+          "units": [
+            {
+              "key": "unit-01-ettuthogai-pathupattu",
+              "en": "Ettuthogai & Pathupattu",
+              "ta": "எட்டுத்தொகை மற்றும் பத்துப்பாட்டு",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-pathinen-kilkanakku-thirukkural",
+              "en": "Pathinen Kilkanakku & Thirukkural",
+              "ta": "பதினெண்கீழ்க்கணக்கு மற்றும் திருக்குறள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-aimperum-aimsiru-kaappiyangal",
+              "en": "Five Major & Minor Epics",
+              "ta": "ஐம்பெருங் காப்பியங்கள் மற்றும் ஐஞ்சிறு காப்பியங்கள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "tamil-grammar",
       "en": "Tamil Grammar",
       "ta": "தமிழ் இலக்கணம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-five-types-of-grammar",
+          "en": "Five Types of Grammar",
+          "ta": "ஐந்து வகை இலக்கணம்",
+          "units": [
+            {
+              "key": "unit-01-ezhuthu-ilakkanam",
+              "en": "Letter Grammar",
+              "ta": "எழுத்து இலக்கணம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-sol-ilakkanam",
+              "en": "Word Grammar",
+              "ta": "சொல் இலக்கணம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-porul-ilakkanam",
+              "en": "Subject Matter Grammar",
+              "ta": "பொருள் இலக்கணம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-yaapu-ani-ilakkanam",
+              "en": "Prosody & Rhetoric Grammar",
+              "ta": "யாப்பு மற்றும் அணி இலக்கணம்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "tamil-language-history",
       "en": "History of Tamil Language",
       "ta": "தமிழ் மொழி வரலாறு",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-origin-and-evolution-of-tamil",
+          "en": "Origin and Evolution of Tamil",
+          "ta": "தமிழ் மொழியின் தோற்றமும் வளர்ச்சியும்",
+          "units": [
+            {
+              "key": "unit-01-classical-language-status",
+              "en": "Tamil as a Classical Language",
+              "ta": "செம்மொழி தகுதி மற்றும் சிறப்பு",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-language-evolution-scripts",
+              "en": "Evolution of Tamil Scripts",
+              "ta": "தமிழ் எழுத்துக்களின் பரிணாம வளர்ச்சி",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "english-literature",
       "en": "English Literature",
       "ta": "ஆங்கில இலக்கியம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-poetry-prose-appreciation",
+          "en": "Poetry and Prose Appreciation",
+          "ta": "ஆங்கில கவிதை மற்றும் உரைநடை நயம்",
+          "units": [
+            {
+              "key": "unit-01-famous-poems-figures-of-speech",
+              "en": "Famous Poems & Figures of Speech",
+              "ta": "புகழ்பெற்ற கவிதைகள் மற்றும் அணிநயங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-literary-works-authors",
+              "en": "Renowned Literary Works & Authors",
+              "ta": "புகழ்பெற்ற இலக்கியப் படைப்புகளும் ஆசிரியர்களும்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "english-grammar",
       "en": "English Grammar",
       "ta": "ஆங்கில இலக்கணம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-applied-english-grammar",
+          "en": "Applied English Grammar",
+          "ta": "ஆங்கில இலக்கணப் பயன்பாடு",
+          "units": [
+            {
+              "key": "unit-01-parts-of-speech-tenses",
+              "en": "Parts of Speech & Tenses",
+              "ta": "சொல்லிலக்கணம் மற்றும் காலங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-active-passive-direct-indirect",
+              "en": "Active/Passive Voice & Direct/Indirect Speech",
+              "ta": "செய்வினை/செயப்பாட்டு வினை மற்றும் நேர்க்கூற்று/அயற்கூற்று",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "history-of-tamil-nadu",
       "en": "History of Tamil Nadu",
       "ta": "தமிழ்நாடு வரலாறு",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-archaeology-and-dynasties-of-tamil-land",
+          "en": "Archaeology & Dynasties of Tamil Land",
+          "ta": "தமிழக தொல்லியல் மற்றும் பேரரசுகள்",
+          "units": [
+            {
+              "key": "unit-01-archaeological-sites-keeladi-adichanallur",
+              "en": "Archaeological Excavations — Keeladi & Adichanallur",
+              "ta": "தமிழக தொல்லியல் அகழ்வாராய்ச்சிகள் — கீழடி மற்றும் ஆதிச்சநல்லூர்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-pallavas-art-architecture",
+              "en": "The Pallava Dynasty — Art & Architecture",
+              "ta": "பல்லவப் பேரரசு — கலை மற்றும் கட்டடக்கலை",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-imperial-cholas-pandyas",
+              "en": "Imperial Cholas & Later Pandyas",
+              "ta": "பிற்காலச் சோழர்கள் மற்றும் பாண்டியர்கள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "history-of-india",
@@ -77,6 +263,92 @@
               "en": "The Vedic Ages",
               "ta": "வேத காலங்கள்",
               "path": "subjects/history-of-india/chapter-01-ancient-india/unit-02-vedic-ages/index.html"
+            },
+            {
+              "key": "unit-03-jainism-buddhism",
+              "en": "Jainism & Buddhism",
+              "ta": "சமண மதமும் பௌத்த மதமும்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-mahajanapadas-magadha",
+              "en": "Mahajanapadas & Rise of Magadha",
+              "ta": "மகாஜனபதங்கள் மற்றும் மகதத்தின் எழுச்சி",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-05-maurya-empire-administration",
+              "en": "The Maurya Empire — Administration",
+              "ta": "மௌரியப் பேரரசு — நிர்வாகம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-06-gupta-empire-golden-age",
+              "en": "The Gupta Empire — Golden Age",
+              "ta": "குப்தப் பேரரசு — பொற்காலம்",
+              "path": "coming-soon.html"
+            }
+          ]
+        },
+        {
+          "key": "chapter-02-medieval-india",
+          "en": "Medieval India",
+          "ta": "இடைக்கால இந்தியா",
+          "units": [
+            {
+              "key": "unit-01-delhi-sultanate",
+              "en": "The Delhi Sultanate",
+              "ta": "டெல்லி சுல்தானகம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-mughal-empire",
+              "en": "The Mughal Empire",
+              "ta": "முகலாயப் பேரரசு",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-vijayanagara-bahmani-kingdoms",
+              "en": "Vijayanagara & Bahmani Kingdoms",
+              "ta": "விஜயநகர மற்றும் பாமினி அரசுகள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-marathas-rise-administration",
+              "en": "The Marathas — Rise & Administration",
+              "ta": "மராட்டியர்கள் — எழுச்சி மற்றும் நிர்வாகம்",
+              "path": "coming-soon.html"
+            }
+          ]
+        },
+        {
+          "key": "chapter-03-modern-india-and-national-movement",
+          "en": "Modern India & National Movement",
+          "ta": "நவீன இந்தியா & தேசிய இயக்கம்",
+          "units": [
+            {
+              "key": "unit-01-advent-of-europeans",
+              "en": "Advent of Europeans",
+              "ta": "ஐரோப்பாவின் வருகை",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-revolt-of-1857",
+              "en": "The Great Revolt of 1857",
+              "ta": "1857 ஆம் ஆண்டின் பெரும் புரட்சி",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-indian-national-congress-early-phase",
+              "en": "INC — Moderate and Extremist Phases",
+              "ta": "இந்திய தேசிய காங்கிரஸ் — மிதவாதிகள் மற்றும் தீவிரவாதிகள் காலம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-gandhian-era-national-movement",
+              "en": "Gandhian Era & Freedom Struggle",
+              "ta": "காந்திய காலகட்டம் மற்றும் விடுதலைப் போராட்டம்",
+              "path": "coming-soon.html"
             }
           ]
         }
@@ -97,6 +369,43 @@
               "en": "Physical Features — High School Level",
               "ta": "இயற்பியல் அமைப்புகள் — உயர்நிலைப் பள்ளி மட்டம்",
               "path": "subjects/geography-of-india/chapter-01-physical-features/unit-01-physical-features-high-school-level/index.html"
+            },
+            {
+              "key": "unit-02-monsoon-rainfall-water-resources",
+              "en": "Monsoon, Rainfall & Water Resources",
+              "ta": "பருவக்காற்று, மழைப்பொழிவு மற்றும் நீர் வளங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-soils-natural-vegetation",
+              "en": "Soils & Natural Vegetation",
+              "ta": "மண் வகைகள் மற்றும் இயற்கை தாவரங்கள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        },
+        {
+          "key": "chapter-02-resources-and-industries",
+          "en": "Resources & Industries",
+          "ta": "வளங்கள் மற்றும் தொழிலகங்கள்",
+          "units": [
+            {
+              "key": "unit-01-mineral-energy-resources",
+              "en": "Mineral & Energy Resources",
+              "ta": "தாதுக்கள் மற்றும் ஆற்றல் வளங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-agriculture-cropping-patterns",
+              "en": "Agriculture & Cropping Patterns",
+              "ta": "வேளாண்மை மற்றும் பயிர்ச் சாகுபடி முறைகள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-industries-transport-communication",
+              "en": "Major Industries, Transport & Communication",
+              "ta": "தொழிலகங்கள், போக்குவரத்து மற்றும் தகவல் தொடர்பு",
+              "path": "coming-soon.html"
             }
           ]
         }
@@ -106,19 +415,85 @@
       "key": "geography-of-tamil-nadu",
       "en": "Geography of Tamil Nadu",
       "ta": "தமிழ்நாடு புவியியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-physical-geography-of-tamil-nadu",
+          "en": "Physical Geography of Tamil Nadu",
+          "ta": "தமிழக இயற்கை புவியியல்",
+          "units": [
+            {
+              "key": "unit-01-physical-divisions-tn",
+              "en": "Physical Divisions & Climate of TN",
+              "ta": "தமிழக இயற்கை பிரிவுகள் மற்றும் காலநிலை",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-rivers-wildlife-sanctuaries-tn",
+              "en": "Rivers, Forests & Sanctuaries in TN",
+              "ta": "தமிழக ஆறுகள், காடுகள் மற்றும் வனவிலங்கு சரணாலயங்கள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "economy-of-india",
       "en": "Economy of India",
       "ta": "இந்திய பொருளாதாரம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-structure-of-indian-economy",
+          "en": "Structure of Indian Economy",
+          "ta": "இந்திய பொருளாதாரத்தின் அமைப்பு",
+          "units": [
+            {
+              "key": "unit-01-national-income-gdp",
+              "en": "National Income & GDP",
+              "ta": "தேசிய வருவாய் மற்றும் மொத்த உள்நாட்டு உற்பத்தி",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-five-year-plans-niti-aayog",
+              "en": "Five-Year Plans & NITI Aayog",
+              "ta": "ஐந்தாண்டு திட்டங்கள் மற்றும் நிதி ஆயோக்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-banking-rbi-monetary-policy",
+              "en": "Banking System & RBI Monetary Policy",
+              "ta": "வங்கி முறைமை மற்றும் ரிசர்வ் வங்கியின் பணவழங்கீட்டுக் கொள்கை",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "economy-of-tamil-nadu",
-      "en": "Geography of Tamil Nadu",
+      "en": "Economy of Tamil Nadu",
       "ta": "தமிழ்நாடு பொருளாதாரம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-economic-profile-of-tamil-nadu",
+          "en": "Economic Profile of Tamil Nadu",
+          "ta": "தமிழக பொருளாதாரத்தின் அமைப்பு",
+          "units": [
+            {
+              "key": "unit-01-agricultural-industrial-growth-tn",
+              "en": "Agricultural & Industrial Growth in TN",
+              "ta": "தமிழக வேளாண்மை மற்றும் தொழில்துறை வளர்ச்சி",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-human-development-indicators-tn",
+              "en": "Human Development & Indicators of TN",
+              "ta": "தமிழக மனிதவள மேம்பாடு மற்றும் சமூகக் குறியீடுகள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "numerical-aptitude",
@@ -137,6 +512,43 @@
               "path": "subjects/numerical-aptitude/chapter-01-percentage/unit-01-percentage-high-school-level/index.html"
             }
           ]
+        },
+        {
+          "key": "chapter-02-arithmetic-ability",
+          "en": "Arithmetic Ability",
+          "ta": "கணிதத் திறன்",
+          "units": [
+            {
+              "key": "unit-01-simplification-hcf-lcm",
+              "en": "Simplification, HCF & LCM",
+              "ta": "சுருக்குதல், மீ.பொ.வ மற்றும் மீ.சி.ம",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-ratio-proportion",
+              "en": "Ratio & Proportion",
+              "ta": "விகிதம் மற்றும் விகிதாச்சாரம்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-03-simple-compound-interest",
+              "en": "Simple & Compound Interest",
+              "ta": "தனிவட்டி மற்றும் கூட்டுவட்டி",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-04-area-volume-mensuration",
+              "en": "Area & Volume — Mensuration",
+              "ta": "பரப்பளவு மற்றும் கனஅளவு — அளவியல்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-05-time-work-speed",
+              "en": "Time, Work, Speed & Distance",
+              "ta": "காலம், வேலை, வேகம் மற்றும் தூரம்",
+              "path": "coming-soon.html"
+            }
+          ]
         }
       ]
     },
@@ -144,31 +556,131 @@
       "key": "reasoning-and-logic",
       "en": "Reasoning & Logic",
       "ta": "பகுத்தறிவு மற்றும் தர்க்கம்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-mental-ability-logical-reasoning",
+          "en": "Mental Ability & Logical Reasoning",
+          "ta": "மனத்திறன் மற்றும் தர்க்க அறிவு",
+          "units": [
+            {
+              "key": "unit-01-number-series-puzzles",
+              "en": "Number Series & Puzzles",
+              "ta": "எண் தொடர்கள் மற்றும் புதிர்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-visual-spatial-reasoning",
+              "en": "Visual & Spatial Reasoning",
+              "ta": "காட்சி மற்றும் இடஞ்சார்ந்த பகுத்தறிதல்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "physics",
       "en": "Physics",
       "ta": "இயற்பியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-core-physics-laws",
+          "en": "Core Physics Laws",
+          "ta": "இயற்பியல் கோட்பாடுகள்",
+          "units": [
+            {
+              "key": "unit-01-force-motion-energy",
+              "en": "Force, Motion & Energy",
+              "ta": "விசை, இயக்கம் மற்றும் ஆற்றல்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-electricity-magnetism",
+              "en": "Electricity & Magnetism",
+              "ta": "மின்னியல் மற்றும் காந்தவியல்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "chemistry",
       "en": "Chemistry",
       "ta": "வேதியியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-elements-and-compounds",
+          "en": "Elements and Compounds",
+          "ta": "தனிமங்களும் சேர்மங்களும்",
+          "units": [
+            {
+              "key": "unit-01-matter-around-us-atoms",
+              "en": "Matter, Atoms & Molecules",
+              "ta": "பருப்பொருட்கள், அணுக்கள் மற்றும் மூலக்கூறுகள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-acids-bases-salts",
+              "en": "Acids, Bases & Salts",
+              "ta": "அமிலங்கள், காரங்கள் மற்றும் உப்புகள்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "botany",
       "en": "Botany",
       "ta": "தாவரவியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-plant-science",
+          "en": "Plant Science",
+          "ta": "தாவரவியல் உலகம்",
+          "units": [
+            {
+              "key": "unit-01-plant-kingdom-classification",
+              "en": "Plant Kingdom & Classification",
+              "ta": "தாவர உலகம் மற்றும் வகைப்பாடு",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-photosynthesis-plant-physiology",
+              "en": "Photosynthesis & Plant Physiology",
+              "ta": "ஒளிச்சேர்க்கை மற்றும் தாவர உடலியல்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "zoology",
       "en": "Zoology",
       "ta": "விலங்கியல்",
-      "chapters": []
+      "chapters": [
+        {
+          "key": "chapter-01-animal-biology",
+          "en": "Animal Biology",
+          "ta": "விலங்கியல் உலகம்",
+          "units": [
+            {
+              "key": "unit-01-animal-kingdom-human-systems",
+              "en": "Animal Kingdom & Human Organ Systems",
+              "ta": "விலங்கு உலகம் மற்றும் மனித உறுப்பு மண்டலங்கள்",
+              "path": "coming-soon.html"
+            },
+            {
+              "key": "unit-02-nutrition-health-hygiene",
+              "en": "Nutrition, Dietetics & Human Health",
+              "ta": "ஊட்டச்சத்து, உணவுமுறை மற்றும் மனித ஆரோக்கியம்",
+              "path": "coming-soon.html"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
