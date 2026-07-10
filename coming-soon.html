@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | விரைவில் வெளியிடப்படும்</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a1c10',
+                        secondary: '#8c3b1a',
+                        accent: '#d9742b',
+                        bgLight: '#fdfaf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+Tamil:wght@600&family=Inter:wght@400;600&display=swap');
+    </style>
+</head>
+<body class="bg-bgLight min-h-screen flex flex-col items-center justify-center p-6 text-center">
+
+    <div class="max-w-2xl bg-white border border-[#eddcd2] p-10 md:p-16 rounded-2xl shadow-xl border-t-8 border-accent">
+        
+        <!-- English Section -->
+        <div class="mb-10">
+            <span class="bg-[#ffe6d5] text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider font-inter">Upcoming Lesson</span>
+            <h1 class="font-cinzel text-3xl md:text-5xl font-bold text-primary mt-6 mb-4">Lesson Coming Soon</h1>
+            <p class="font-inter text-gray-600 text-lg leading-relaxed">
+                We are currently crafting high-yield educational notes, custom-coded interactive charts, and multi-tier question databases for this lesson. It will be published very soon!
+            </p>
+        </div>
+
+        <!-- Divider -->
+        <hr class="border-t border-[#eddcd2] my-8">
+
+        <!-- Tamil Section -->
+        <div class="mb-10">
+            <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider font-noto">புதிய பாடம்</span>
+            <h1 class="font-noto text-2xl md:text-4xl font-bold text-secondary mt-6 mb-4">பாடம் விரைவில் வெளியிடப்படும்</h1>
+            <p class="font-noto text-[#665248] text-base md:text-lg leading-relaxed">
+                இந்த பாடத்திற்கான விரிவான குறிப்புகள், ஊடாடும் வரைபடங்கள் மற்றும் சுயமதிப்பீட்டு வினாடி-வினாக்கள் தயாரிக்கப்பட்டு வருகின்றன. மிக விரைவில் இப்பக்கம் பதிவேற்றப்படும்!
+            </p>
+        </div>
+
+        <!-- Back Button -->
+        <a href="index.html" class="inline-block bg-primary hover:bg-secondary text-white font-bold px-8 py-3 rounded-xl transition duration-300 font-inter shadow-md">
+            ◀ Back to Home / முகப்புப் பக்கம் திரும்புக
+        </a>
+    </div>
+
+</body>
+</html>
