@@ -27,6 +27,17 @@
   }
   #search:focus{ outline:none; border-color:var(--gold); }
 
+  .quiz-launcher{
+    display:block; text-align:center; background:linear-gradient(135deg, var(--orange), var(--gold));
+    color:var(--white); text-decoration:none; padding:1rem 1.4rem; border-radius:14px;
+    margin:0 0 1.2rem; box-shadow:0 4px 14px rgba(216,90,48,0.3); transition:transform .15s, box-shadow .15s;
+    font-family:'Merriweather',serif;
+  }
+  .quiz-launcher:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(216,90,48,0.4); }
+  .quiz-launcher .en-label{ font-size:1.15rem; font-weight:700; display:block; }
+  .quiz-launcher .ta-label{ font-family:'Noto Sans Tamil',sans-serif; font-size:1rem; font-weight:600; display:block; margin-top:0.15rem; opacity:0.95; }
+  .quiz-launcher .sub-label{ font-family:'Inter',sans-serif; font-size:0.8rem; font-weight:400; display:block; margin-top:0.35rem; opacity:0.85; }
+
   .subject{ background:var(--white); border-radius:14px; margin-bottom:0.9rem; box-shadow:0 2px 10px rgba(99,56,6,0.07); overflow:hidden; }
   .subject-head{
     display:flex; justify-content:space-between; align-items:center; padding:1rem 1.3rem;
@@ -67,6 +78,12 @@
   <h1>All Subjects &amp; Units
     <span class="ta">அனைத்து பாடங்களும் பாடப்பிரிவுகளும்</span>
   </h1>
+
+  <a class="quiz-launcher" href="https://script.google.com/macros/s/AKfycbzbbl8Bm3Hu6mobNA3aJRBVo6YrfUexvhwNJtSqRw6CLQcrkz4J8r8Fy6TcIm9JJ_1Ttw/exec" target="_blank" rel="noopener">
+    <span class="en-label">📝 Generate a Quiz by Subject / Chapter / Unit</span>
+    <span class="ta-label">பாடம் / அத்தியாயம் / பாடப்பிரிவு வாரியாக வினாடி வினா உருவாக்குக</span>
+    <span class="sub-label">Opens in a new tab / புதிய தாவலில் திறக்கும்</span>
+  </a>
 
   <input type="text" id="search" placeholder="Search a subject, chapter, or unit... / பாடம், அத்தியாயம், அல்லது பாடப்பிரிவைத் தேடுங்கள்...">
 
