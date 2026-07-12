@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Karkai · கற்கை — Ratio and Proportion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --slate:#1e2b28; --slate-2:#26362f; --chalk:#f3ecd9; --gold:#c9a24b; --gold-soft:#e8cf8f;
+    --indigo:#2f3f6b; --coral:#b5493c; --teal:#3f7d72; --paper:#fbf7ec; --ink:#2a241a; --line:#d8cba7;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Source Serif 4', serif; line-height:1.7; font-size:17px; }
+  .ta{ font-family:'Noto Sans Tamil', serif; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:700; color:var(--slate); margin:0 0 .3em; }
+  .lang-ta h1,.lang-ta h2,.lang-ta h3,.lang-ta h4{ font-family:'Noto Sans Tamil', serif; font-weight:700; }
+  a{ color:var(--indigo); }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ===== BRAND BAR ===== */
+  .brandbar{
+    background:var(--slate); color:var(--chalk); display:flex; align-items:center; justify-content:space-between;
+    padding:14px 6vw; border-bottom:3px solid var(--gold); position:sticky; top:0; z-index:100; flex-wrap:wrap; gap:10px;
+  }
+  .brand{ display:flex; align-items:baseline; gap:10px; }
+  .brand .mark{ width:34px; height:34px; border:2px solid var(--gold); border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:700; color:var(--gold-soft); transform:rotate(-4deg); }
+  .brand .name-en{ font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem; letter-spacing:.02em; }
+  .brand .name-ta{ font-family:'Noto Sans Tamil',serif; font-weight:700; font-size:1.35rem; color:var(--gold-soft); }
+  .lang-switch{ display:flex; gap:0; border:1.5px solid var(--gold); border-radius:100px; overflow:hidden; }
+  .lang-switch button{
+    background:transparent; color:var(--chalk); border:none; padding:8px 20px; font-family:'JetBrains Mono',monospace;
+    font-size:13px; cursor:pointer; letter-spacing:.04em;
+  }
+  .lang-switch button.active{ background:var(--gold); color:var(--slate); font-weight:700; }
+
+  /* ===== HERO ===== */
+  .hero{ background:radial-gradient(1200px 500px at 15% -10%, #33453d, var(--slate) 60%); color:var(--chalk); padding:56px 6vw 50px; position:relative; overflow:hidden; border-bottom:6px solid var(--gold); }
+  .hero::before{ content:""; position:absolute; right:-60px; top:-60px; width:340px; height:340px; border-radius:50%; border:2px dashed rgba(232,207,143,0.25); }
+  .eyebrow{ display:inline-block; letter-spacing:.14em; text-transform:uppercase; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--gold-soft); border:1px solid rgba(232,207,143,.4); padding:5px 12px; border-radius:100px; margin-bottom:18px; }
+  .hero h1{ color:var(--chalk); font-size:clamp(2rem,4.3vw,3.2rem); line-height:1.15; max-width:18ch;}
+  .hero p.lede{ max-width:64ch; color:#d9d2bd; font-size:1.06rem; margin-top:16px;}
+  .chalkline{ color:#a9c7bc; font-style:italic; margin-top:18px; font-family:'Fraunces',serif;}
+  .lang-ta .chalkline{ font-family:'Noto Sans Tamil',serif; font-style:normal; }
+  .hero-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:36px; align-items:center; }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  /* interactive ratio splitter */
+  .splitter-wrap{ background:rgba(0,0,0,.18); border:1px solid rgba(232,207,143,.3); border-radius:14px; padding:20px; }
+  .splitter-inputs{ display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+  .splitter-inputs label{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--gold-soft); display:flex; flex-direction:column; gap:4px;}
+  .splitter-inputs input{ width:64px; padding:6px 8px; border-radius:6px; border:1px solid var(--gold-soft); background:#132019; color:var(--chalk); font-family:'JetBrains Mono',monospace; }
+  .ratio-bar{ display:flex; height:46px; border-radius:8px; overflow:hidden; border:1px solid rgba(232,207,143,.4); }
+  .ratio-bar div{ transition:flex-basis .4s ease; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:13px; color:#132019; font-weight:700;}
+  .seg1{ background:var(--gold); } .seg2{ background:var(--teal); color:#fff !important;} .seg3{ background:#c99a6b; }
+  .ratio-total{ text-align:center; margin-top:10px; color:#a9c7bc; font-family:'JetBrains Mono',monospace; font-size:13px;}
+
+  /* ===== NAV ===== */
+  nav.toc{ position:sticky; top:66px; z-index:90; background:var(--slate-2); color:var(--chalk); display:flex; gap:0; overflow-x:auto; white-space:nowrap; border-bottom:2px solid var(--gold); font-family:'JetBrains Mono',monospace; font-size:12px; }
+  nav.toc a{ color:#cfd6cf; text-decoration:none; padding:11px 14px; border-right:1px solid rgba(255,255,255,.08); }
+  nav.toc a:hover{ background:var(--slate); color:var(--gold-soft); }
+  .lang-ta nav.toc{ font-family:'Noto Sans Tamil',serif; font-size:13px; }
+
+  /* ===== LAYOUT ===== */
+  main{ max-width:960px; margin:0 auto; padding:10px 6vw 40px; }
+  section{ padding:44px 0; border-bottom:1px solid var(--line); }
+  section:last-child{ border-bottom:none; }
+  .kicker{ font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:8px; display:flex; align-items:center; gap:10px; }
+  .lang-ta .kicker{ font-family:'Noto Sans Tamil',serif; letter-spacing:0; text-transform:none; font-size:13px;}
+  .kicker .num{ background:var(--slate); color:var(--gold-soft); padding:2px 8px; border-radius:4px; font-family:'JetBrains Mono',monospace;}
+  h2{ font-size:clamp(1.45rem,2.8vw,2.05rem); border-left:5px solid var(--gold); padding-left:14px; }
+  h3{ font-size:1.2rem; color:var(--indigo); margin-top:1.4em; }
+
+  .fact{ background:#fff9ec; border:1.5px solid var(--gold); border-radius:10px; padding:16px 20px; margin:20px 0; position:relative; box-shadow:3px 3px 0 rgba(201,162,75,.25); }
+  .fact::before{ content:"★ KEY FACT"; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#8a6a1e; display:block; margin-bottom:6px; font-weight:700; }
+  .lang-ta .fact::before{ content:"★ முக்கிய குறிப்பு"; font-family:'Noto Sans Tamil',serif; letter-spacing:0;}
+
+  .warn{ background:#fdf0ee; border:1.5px solid var(--coral); border-radius:10px; padding:16px 20px; margin:20px 0; }
+  .warn::before{ content:"⚠ COMMON MISTAKE"; font-family:'JetBrains Mono',monospace; font-size:11px; color:#8a3225; font-weight:700; display:block; margin-bottom:6px;}
+  .lang-ta .warn::before{ content:"⚠ பொதுவான தவறு"; font-family:'Noto Sans Tamil',serif; }
+
+  .formula{ background:var(--slate); color:var(--chalk); border-radius:10px; padding:18px 22px; margin:18px 0; font-family:'JetBrains Mono',monospace; font-size:1.05rem; overflow-x:auto; }
+  .formula .lbl{ color:var(--gold-soft); font-size:12px; text-transform:uppercase; letter-spacing:.1em; display:block; margin-bottom:6px; font-family:'JetBrains Mono',monospace;}
+  .lang-ta .formula{ font-family:'Noto Sans Tamil',serif; font-size:1rem;}
+  .lang-ta .formula .lbl{ font-family:'Noto Sans Tamil',serif; letter-spacing:0; text-transform:none;}
+
+  table{ width:100%; border-collapse:collapse; margin:18px 0; font-size:.95rem; }
+  th,td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+  th{ background:var(--slate); color:var(--chalk); font-family:'JetBrains Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.05em;}
+  .lang-ta th{ font-family:'Noto Sans Tamil',serif; text-transform:none; letter-spacing:0;}
+  tr:nth-child(even){ background:#f4ecd6; }
+  .tblwrap{ overflow-x:auto; }
+
+  .example{ background:#eef2ee; border-radius:10px; padding:16px 20px; margin:16px 0; border-top:3px solid var(--teal); }
+  .example .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); text-transform:uppercase; font-weight:700;}
+  .lang-ta .example .tag{ font-family:'Noto Sans Tamil',serif; text-transform:none;}
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:800px){ .grid2{grid-template-columns:1fr;} }
+
+  .chart-card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px; margin:18px 0;}
+  .chart-card h4{ margin-top:0; font-size:1rem; color:var(--slate); }
+
+  .badge{ display:inline-block; padding:3px 10px; border-radius:100px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.04em; margin-right:6px; }
+  .b-easy{ background:#dcefe1; color:#1f6b3a; } .b-med{ background:#fdeecb; color:#8a5a10; } .b-hard{ background:#fbe0dc; color:#96331f; } .b-hot{ background:#e4e0f5; color:#3f2f8a; }
+
+  details{ background:#fff; border:1px solid var(--line); border-radius:8px; margin:10px 0; padding:10px 16px;}
+  summary{ cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:.88rem; color:var(--indigo); font-weight:600;}
+  .lang-ta summary{ font-family:'Noto Sans Tamil',serif; }
+  details[open] summary{ margin-bottom:8px;}
+
+  .footer{ background:var(--slate); color:#c9c2ab; padding:36px 6vw; text-align:center; font-size:.9rem;}
+  .footer .ta{ color:var(--gold-soft); }
+
+  .count{ font-family:'Fraunces',serif; font-weight:700; font-size:2rem; color:var(--gold-soft);}
+  .stat-row{ display:flex; gap:24px; margin-top:20px; flex-wrap:wrap;}
+  .stat{ min-width:100px;}
+  .stat .lbl{ font-family:'JetBrains Mono',monospace; font-size:11px; color:#a9c7bc; text-transform:uppercase;}
+  .lang-ta .stat .lbl{ font-family:'Noto Sans Tamil',serif; text-transform:none;}
+
+  /* lang panels */
+  .lang-panel{ display:none; }
+  .lang-panel.active{ display:block; }
+
+  /* quiz (shared, bilingual, outside tabs) */
+  .quiz-q{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:14px 0; }
+  .quiz-q .qhead{ font-weight:600; color:var(--slate); margin-bottom:4px; }
+  .quiz-q .qtamil{ font-family:'Noto Sans Tamil',serif; color:var(--teal); font-size:.92rem; margin-bottom:10px; }
+  .quiz-q .qmeta{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#8a8370; margin-bottom:8px; }
+  .quiz-opts label{ display:block; padding:7px 10px; margin:5px 0; border-radius:6px; border:1px solid var(--line); cursor:pointer; }
+  .quiz-opts label:hover{ background:#f4ecd6; }
+  .quiz-opts input{ margin-right:8px; }
+  .quiz-q.correct .quiz-opts label.right-ans{ background:#dcefe1; border-color:#1f6b3a; }
+  .quiz-q.incorrect .quiz-opts label.chosen-wrong{ background:#fbe0dc; border-color:#96331f; }
+  .quiz-q.incorrect .quiz-opts label.right-ans{ background:#dcefe1; border-color:#1f6b3a; }
+  .btn{ background:var(--slate); color:var(--chalk); border:none; padding:12px 26px; border-radius:8px; font-family:'JetBrains Mono',monospace; cursor:pointer; font-size:14px; margin-top:10px; }
+  .btn-outline{ background:transparent; color:var(--indigo); border:1.5px solid var(--indigo); padding:12px 26px; border-radius:8px; font-family:'JetBrains Mono',monospace; cursor:pointer; font-size:14px; margin-top:10px; margin-left:10px; }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; animation:none !important; } }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="brand">
+    <span class="mark">க</span>
+    <span class="name-en">KARKAI</span>
+    <span class="name-ta">கற்கை</span>
+  </div>
+  <div class="lang-switch">
+    <button data-lang="en" class="active" id="btnEN">English</button>
+    <button data-lang="ta" id="btnTA">தமிழ்</button>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- ==========================  ENGLISH  =========================== -->
+<!-- ================================================================= -->
+<div id="panel-en" class="lang-panel active">
+
+<header class="hero">
+  <div class="eyebrow">KARKAI NOTES · A CHALKBOARD TRADITION, 100 YEARS DEEP</div>
+  <div class="hero-grid">
+    <div>
+      <h1>Ratio and Proportion: The Grammar of Comparison</h1>
+      <p class="lede">Every time you compare two quantities — a recipe, a map, a screen, a heartbeat, a galaxy's rotation curve — you are using a ratio. This note walks that one idea from a six-year-old sharing sweets fairly, all the way to the golden ratio, section formulas in coordinate geometry, and the mathematics of scaling laws in biology.</p>
+      <p class="chalkline">"Numbers alone tell you how much. A ratio tells you how much <em>compared to what</em> — and that second question is where all of mathematics really begins." — a teacher's aphorism</p>
+      <div class="stat-row">
+        <div class="stat"><span class="count" data-target="2">0</span><div class="lbl">terms in the simplest ratio</div></div>
+        <div class="stat"><span class="count" data-target="5">0</span><div class="lbl">Learning Tiers</div></div>
+        <div class="stat"><span class="count" data-target="50">0</span><div class="lbl">Quiz Questions</div></div>
+      </div>
+    </div>
+    <div class="splitter-wrap">
+      <div class="splitter-inputs">
+        <label>Part A <input type="number" id="rA_en" value="2" min="0"></label>
+        <label>Part B <input type="number" id="rB_en" value="3" min="0"></label>
+        <label>Part C <input type="number" id="rC_en" value="5" min="0"></label>
+        <label>Total ₹ <input type="number" id="rTotal_en" value="1000" min="0"></label>
+      </div>
+      <div class="ratio-bar" id="ratioBar_en">
+        <div class="seg1"></div><div class="seg2"></div><div class="seg3"></div>
+      </div>
+      <div class="ratio-total" id="ratioLabel_en">Splitting ₹1000 in the ratio 2 : 3 : 5</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#en-tier1">01 · Foundation</a>
+  <a href="#en-tier2">02 · Formulae</a>
+  <a href="#en-tier3">03 · Intermediate + Shortcuts</a>
+  <a href="#en-tier4">04 · Advanced</a>
+  <a href="#en-tier5">05 · Higher-Order Thinking</a>
+  <a href="#en-taxonomy">06 · Problem Taxonomy</a>
+  <a href="#en-shortcuts">07 · Shortcut Vault</a>
+  <a href="#en-life">08 · Daily-Life Gallery</a>
+  <a href="#en-practice">09 · Practice Sets</a>
+  <a href="#quiz">10 · 50-Q Quiz</a>
+</nav>
+
+<main>
+
+<!-- TIER 1 -->
+<section id="en-tier1">
+  <div class="kicker"><span class="num">01</span> Basic Foundational Outline</div>
+  <h2>What "Ratio" Actually Means</h2>
+  <p>A <strong>ratio</strong> is a way of comparing two quantities of the same kind by division. If a classroom has 12 boys and 18 girls, we say the ratio of boys to girls is 12 : 18, which simplifies to 2 : 3. This does not tell you how many boys or girls there are — it tells you the <em>relationship</em> between the two numbers, stripped of their actual size. That is the entire idea, and everything else in this subject is built on top of it.</p>
+
+  <div class="fact">A ratio compares <strong>like with like</strong>. You can form a ratio of rupees to rupees, or kilometres to kilometres, but "3 apples : 4 hours" is not a ratio in the mathematical sense — it is a <em>rate</em>, a different (though related) idea, because the two quantities are measured in different units.</div>
+
+  <h3>The Vocabulary Every Learner Must Know</h3>
+  <ul>
+    <li><strong>Antecedent:</strong> the first term of a ratio (the "a" in a : b).</li>
+    <li><strong>Consequent:</strong> the second term of a ratio (the "b" in a : b).</li>
+    <li><strong>Equivalent ratios:</strong> ratios that represent the same comparison, e.g. 2:3, 4:6, 20:30 are all equivalent, exactly the way 1/2, 2/4, 10/20 are equivalent fractions.</li>
+    <li><strong>A ratio in its simplest form:</strong> when the antecedent and consequent share no common factor other than 1 (e.g. 2:3, not 12:18).</li>
+  </ul>
+
+  <h3>Proportion: When Two Ratios Agree</h3>
+  <p>A <strong>proportion</strong> is a statement that two ratios are equal. If a : b = c : d, we write this as a : b :: c : d, read "a is to b as c is to d." A proportion is to a ratio what an equation is to an expression — it is the moment a comparison becomes a claim you can test, cross-check, and solve unknowns from.</p>
+
+  <div class="chart-card">
+    <h4>Same Ratio, Different Scale — Recipe for 4 vs. Recipe for 10</h4>
+    <canvas id="chartRecipe_en" height="150"></canvas>
+  </div>
+
+  <h3>First Daily-Life Encounters</h3>
+  <ul>
+    <li><strong>Recipes:</strong> flour to sugar in a cake, scaled up or down for more guests.</li>
+    <li><strong>Maps:</strong> a scale of 1 : 50,000 means 1 cm on paper is 50,000 cm (500 m) on the ground.</li>
+    <li><strong>Screens:</strong> a 16 : 9 television and a 4 : 3 television show the same content at a different shape.</li>
+    <li><strong>Sharing money:</strong> three friends invest in a shop and share the profit in the ratio of their investment.</li>
+    <li><strong>Speed:</strong> the ratio of distance to time is what we call speed.</li>
+    <li><strong>Mixing paint or concrete:</strong> cement, sand, and gravel are mixed in a fixed ratio like 1 : 2 : 4.</li>
+  </ul>
+
+  <div class="warn">A ratio has no unit of its own, because the units of the two quantities cancel: 12 boys : 18 girls simplifies to the pure number-pair 2 : 3, with "boys" and "girls" no longer attached. Students who write "2:3 boys" are carrying over a habit from ordinary measurement that does not belong in ratio notation.</div>
+</section>
+
+<!-- TIER 2 -->
+<section id="en-tier2">
+  <div class="kicker"><span class="num">02</span> Elementary-Level Formulae</div>
+  <h2>The Core Formulae of Ratio and Proportion</h2>
+
+  <div class="formula"><span class="lbl">Formula 1 — A ratio as a fraction</span>a : b = a/b &nbsp;(b ≠ 0)</div>
+  <div class="formula"><span class="lbl">Formula 2 — The Golden Rule of Proportion (Cross-Multiplication)</span>a : b :: c : d &nbsp;⟺&nbsp; a × d = b × c &nbsp;("product of extremes = product of means")</div>
+  <div class="example"><span class="tag">Worked Example</span><p>Is 4:6 in proportion with 10:15? Cross-multiply: 4×15 = 60, and 6×10 = 60. Since both products match, <strong>yes, they are in proportion.</strong></p></div>
+
+  <div class="formula"><span class="lbl">Formula 3 — Continued Proportion</span>a : b :: b : c &nbsp;⟹&nbsp; b² = a × c &nbsp;(b is the <strong>mean proportional</strong> between a and c)</div>
+  <div class="example"><span class="tag">Worked Example</span><p>Find the mean proportional between 4 and 25.<br>b² = 4 × 25 = 100 → b = <strong>10</strong> (since 4:10 :: 10:25 → 4×25 = 10×10 = 100 ✓)</p></div>
+
+  <div class="formula"><span class="lbl">Formula 4 — Third and Fourth Proportional</span>Third proportional to a, b: find c such that a:b :: b:c<br>Fourth proportional to a, b, c: find d such that a:b :: c:d</div>
+
+  <h3>Direct Proportion and Inverse Proportion</h3>
+  <div class="formula"><span class="lbl">Direct Proportion (y varies directly as x)</span>y = kx &nbsp;(as x increases, y increases in the same ratio; k is the constant of proportionality)</div>
+  <div class="formula"><span class="lbl">Inverse Proportion (y varies inversely as x)</span>y = k / x &nbsp;(as x increases, y decreases so that their product stays constant)</div>
+
+  <div class="fact">The single question that tells direct and inverse proportion apart: <strong>"If one quantity doubles, does the other double too (direct), or does it halve (inverse)?"</strong> More workers finishing a wall faster is inverse (more workers → less time). More hours worked earning more wages is direct (more hours → more pay).</div>
+
+  <h3>Ratio–Fraction–Percentage Conversion Table</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Ratio</th><th>As a Fraction</th><th>As a Percentage (of the whole)</th></tr>
+    <tr><td>1 : 1</td><td>1/2</td><td>50% : 50%</td></tr>
+    <tr><td>1 : 3</td><td>1/4</td><td>25% : 75%</td></tr>
+    <tr><td>2 : 3</td><td>2/5</td><td>40% : 60%</td></tr>
+    <tr><td>3 : 5</td><td>3/8</td><td>37.5% : 62.5%</td></tr>
+    <tr><td>1 : 4</td><td>1/5</td><td>20% : 80%</td></tr>
+  </table>
+  </div>
+  <div class="fact">To convert a two-term ratio a : b into percentages of a whole, always divide by (a + b), never by a or b alone — this single habit prevents the most common ratio-to-percentage error.</div>
+</section>
+
+<!-- TIER 3 -->
+<section id="en-tier3">
+  <div class="kicker"><span class="num">03</span> Intermediate Problem-Solving with Shortcuts</div>
+  <h2>Where Ratio Meets Real Sharing and Scaling</h2>
+
+  <h3>3.1 Dividing a Quantity in a Given Ratio</h3>
+  <div class="formula"><span class="lbl">Core method — the "parts" technique</span>To split a total T in the ratio a : b : c, each "part" is worth T ÷ (a+b+c). The three shares are then a, b, and c times that part-value.</div>
+  <div class="example"><span class="tag">Worked Example</span><p>Split ₹1,000 between three friends in the ratio 2 : 3 : 5.<br>Total parts = 2+3+5 = 10. One part = 1000÷10 = ₹100.<br>Shares: 2×100=<strong>₹200</strong>, 3×100=<strong>₹300</strong>, 5×100=<strong>₹500</strong>.</p></div>
+
+  <h3>3.2 Combining Two Ratios (Chain / Bridging Method)</h3>
+  <div class="example"><span class="tag">Worked Example</span><p>If A:B = 2:3 and B:C = 4:5, find A:B:C.<br>Make B's value common: A:B = 2:3 = 8:12 (multiply by 4); B:C = 4:5 = 12:15 (multiply by 3). Now B matches at 12 in both.<br>So <strong>A : B : C = 8 : 12 : 15</strong>.</p></div>
+
+  <h3>⚡ Shortcut: The Bridging Multiplier</h3>
+  <div class="formula"><span class="lbl">Fast rule for combining A:B and B:C into A:B:C</span>Multiply the first ratio by (B-value from the second ratio) and the second ratio by (B-value from the first ratio).</div>
+
+  <h3>3.3 Age, Mixture, and Money Word Problems</h3>
+  <div class="example"><span class="tag">Worked Example — Ages</span><p>The present ages of two brothers are in the ratio 3:5. After 4 years, the ratio becomes 4:6. Find their present ages.<br>Let ages = 3x, 5x. (3x+4):(5x+4) = 4:6 → 6(3x+4) = 4(5x+4) → 18x+24 = 20x+16 → 2x = 8 → x = 4.<br>Present ages: <strong>12 years and 20 years</strong>.</p></div>
+
+  <h3>3.4 Direct and Inverse Variation Problems</h3>
+  <div class="example"><span class="tag">Worked Example — Inverse (Work-Time)</span><p>12 workers finish a wall in 8 days. How many days will 16 workers take, working at the same rate?<br>Workers × Days = constant → 12×8 = 16×d → d = 96÷16 = <strong>6 days</strong>.</p></div>
+
+  <h3>⚡ Shortcuts for Everyday Ratio Calculation</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Shortcut</th><th>How it works</th><th>Example</th></tr>
+    <tr><td><strong>Cross-multiplication test</strong></td><td>a:b :: c:d is true only if a×d = b×c</td><td>Check 3:4 vs 9:12 → 3×12=36, 4×9=36 ✓ proportion holds</td></tr>
+    <tr><td><strong>Unitary method</strong></td><td>Find the value of "one unit" first, then scale</td><td>If 5 pens cost ₹60, 1 pen costs ₹12, so 8 pens cost ₹96</td></tr>
+    <tr><td><strong>Parts method for sharing</strong></td><td>Divide total by sum of ratio terms to get one "part"</td><td>Split ₹900 in 2:3:4 → 1 part=₹100 → shares 200,300,400</td></tr>
+    <tr><td><strong>Componendo-Dividendo</strong></td><td>If a/b = c/d, then (a+b)/(a−b) = (c+d)/(c−d)</td><td>Solves ratio equations without cross-multiplying large numbers</td></tr>
+    <tr><td><strong>Scaling shortcut</strong></td><td>Multiplying or dividing both terms of a ratio by the same number never changes it</td><td>2:3 = 200:300 = 2000:3000</td></tr>
+  </table>
+  </div>
+
+  <div class="chart-card">
+    <h4>Dividing ₹1,000 in the Ratio 2 : 3 : 5</h4>
+    <canvas id="chartDivide_en" height="200"></canvas>
+  </div>
+</section>
+
+<!-- TIER 4 -->
+<section id="en-tier4">
+  <div class="kicker"><span class="num">04</span> Problems for Advanced Students</div>
+  <h2>Ratio as an Algebraic and Geometric Tool</h2>
+
+  <h3>4.1 The k-Method — the Single Most Powerful Undergraduate Technique</h3>
+  <div class="formula"><span class="lbl">If a : b : c = p : q : r</span>Write a = pk, b = qk, c = rk for some constant k, then solve using any additional equation given in the problem.</div>
+  <div class="example"><span class="tag">Worked Example</span><p>The sides of a triangle are in the ratio 3:4:5, and its perimeter is 60 cm. Find each side.<br>Let sides = 3k, 4k, 5k. Sum = 12k = 60 → k = 5.<br>Sides: <strong>15 cm, 20 cm, 25 cm</strong>.</p></div>
+
+  <h3>4.2 Componendo, Dividendo, Invertendo, Alternendo (the four classical rules)</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Rule</th><th>Statement (if a/b = c/d)</th></tr>
+    <tr><td>Invertendo</td><td>b/a = d/c</td></tr>
+    <tr><td>Alternendo</td><td>a/c = b/d</td></tr>
+    <tr><td>Componendo</td><td>(a+b)/b = (c+d)/d</td></tr>
+    <tr><td>Dividendo</td><td>(a−b)/b = (c−d)/d</td></tr>
+    <tr><td>Componendo-Dividendo</td><td>(a+b)/(a−b) = (c+d)/(c−d)</td></tr>
+  </table>
+  </div>
+
+  <h3>4.3 Ratios in Geometry — Similar Figures</h3>
+  <div class="fact">If two figures are similar with a linear scale factor of a:b, then their <strong>areas</strong> are in the ratio a² : b², and their <strong>volumes</strong> (for solids) are in the ratio a³ : b³. Doubling every length of a cube (ratio 1:2) multiplies its surface area by 4 and its volume by 8 — this single rule underlies everything from architectural models to why small animals and large animals have very different body proportions.</div>
+  <div class="example"><span class="tag">Worked Example</span><p>Two similar cylinders have radii in the ratio 2:3. Find the ratio of their volumes.<br>Volume ratio = 2³ : 3³ = <strong>8 : 27</strong>.</p></div>
+
+  <h3>4.4 The Section Formula (Ratio in Coordinate Geometry)</h3>
+  <div class="formula"><span class="lbl">Dividing a line segment joining (x₁,y₁) and (x₂,y₂) in the ratio m:n</span>Point = ( (m·x₂ + n·x₁)/(m+n) , (m·y₂ + n·y₁)/(m+n) )</div>
+  <div class="example"><span class="tag">Worked Example</span><p>Find the point dividing the segment from (2,3) to (8,9) in the ratio 1:2.<br>x = (1×8 + 2×2)/3 = 12/3 = 4. y = (1×9 + 2×3)/3 = 15/3 = 5.<br>Point = <strong>(4, 5)</strong>.</p></div>
+
+  <h3>4.5 Ratios in Finance — Reading a Balance Sheet</h3>
+  <div class="example"><span class="tag">Worked Example</span><p>A company has current assets of ₹5,00,000 and current liabilities of ₹2,50,000. Find the current ratio.<br>Current Ratio = 500000 : 250000 = <strong>2 : 1</strong> (a healthy ability to cover short-term obligations).</p></div>
+
+  <div class="chart-card">
+    <h4>Volume Ratio Grows Faster than Length Ratio (Similar Solids)</h4>
+    <canvas id="chartScaling_en" height="180"></canvas>
+  </div>
+</section>
+
+<!-- TIER 5 -->
+<section id="en-tier5">
+  <div class="kicker"><span class="num">05</span> Higher-Order Thinking (Postgraduate Tier)</div>
+  <h2>Ratio at the Frontier: The Golden Ratio, Limits, and Scaling Laws</h2>
+
+  <h3>5.1 The Golden Ratio φ — a Continued Proportion That Never Ends</h3>
+  <div class="formula"><span class="lbl">Defining equation</span>a : b = (a+b) : a &nbsp;⟹&nbsp; φ = (1+√5)/2 ≈ 1.6180339887…</div>
+  <p>The golden ratio is the unique positive number satisfying φ² = φ + 1 — the one ratio where "the whole is to the larger part as the larger part is to the smaller part." It appears in the proportions of the Parthenon, in sunflower seed spirals, in nautilus shells, and, remarkably, as the limiting ratio of consecutive Fibonacci numbers.</p>
+
+  <div class="formula"><span class="lbl">The Fibonacci Connection (a genuine limit, in the calculus sense)</span>lim (n→∞) F(n+1)/F(n) = φ</div>
+  <div class="chart-card">
+    <h4>Fibonacci Ratios Converging to the Golden Ratio φ ≈ 1.618</h4>
+    <canvas id="chartFib_en" height="180"></canvas>
+  </div>
+
+  <h3>5.2 Ratio as a Field Element — Why Cross-Multiplication Always Works</h3>
+  <p>At the postgraduate level, a ratio a:b is best understood as the equivalence class of the ordered pair (a,b) under the relation (a,b) ~ (c,d) ⟺ ad = bc. This is precisely how the rational numbers ℚ are constructed formally from the integers ℤ — a ratio, a fraction, and a rational number are, at the level of rigorous algebra, the exact same object wearing three different notations. Cross-multiplication "works" because it is the defining equivalence relation of the field of fractions.</p>
+
+  <h3>5.3 Dimensional Analysis — the Physicist's Higher-Order Ratio Rule</h3>
+  <div class="fact">A ratio of two physical quantities is only physically meaningful if the units cancel to leave a pure number, or reduce to an interpretable compound unit. Speed (distance/time), density (mass/volume), and the Reynolds number (a dimensionless ratio of inertial to viscous forces in fluid dynamics) are all ratios engineered so their units either cancel completely or combine meaningfully. This is why "ratio thinking" is the backbone of dimensional analysis in physics and engineering.</div>
+
+  <h3>5.4 Allometric Scaling — Ratios That Govern Biology</h3>
+  <div class="formula"><span class="lbl">Kleiber's Law (metabolic scaling)</span>Metabolic Rate ∝ (Body Mass)^(3/4)</div>
+  <p>Surface area scales with the <em>square</em> of an animal's linear size, while volume (and mass) scales with the <em>cube</em> — so the ratio of surface area to volume shrinks as an animal gets larger. This single geometric ratio explains why mice must eat constantly to survive the cold (huge surface-to-volume ratio) while elephants radiate heat inefficiently and can overheat (tiny surface-to-volume ratio). Kleiber's Law refines this further into a 3/4-power ratio for metabolism versus mass, one of biology's most famous quantitative laws, discovered empirically and only partly explained by network-scaling theory even today.</p>
+
+  <h3>5.5 Odds vs. Probability — a Ratio That Confuses Even Professionals</h3>
+  <div class="formula"><span class="lbl">Converting odds to probability and back</span>If odds in favour are a : b, then Probability = a / (a+b). If probability is p, odds in favour = p : (1−p).</div>
+  <div class="example"><span class="tag">Worked Example</span><p>A horse has odds of 3:2 in favour of winning. Find the probability of winning.<br>P = 3/(3+2) = <strong>3/5 = 0.6 = 60%</strong>.</p></div>
+  <div class="warn">Betting "odds of 3:2" and "a 3:2 chance" are routinely, and wrongly, treated as "60% probability" by casual readers when in fact odds <em>against</em> and odds <em>in favour</em> are easily swapped in careless writing — always identify which direction the ratio describes before converting.</div>
+
+  <h3>5.6 Continued Ratios and Geometric Sequences — the Calculus Bridge</h3>
+  <p>A sequence in continued proportion (a : b :: b : c :: c : d …) is precisely a geometric sequence, where each term is the previous term multiplied by a constant common ratio r. This is the same "ratio" idea powering compound interest (Tier 5 of the Percentage lesson), radioactive decay, and population growth models — anywhere a quantity is repeatedly scaled by the same ratio, a geometric sequence, and therefore a continued proportion, is silently at work.</p>
+</section>
+
+<!-- TAXONOMY -->
+<section id="en-taxonomy">
+  <div class="kicker"><span class="num">06</span> How Many Types of Problems Will You Face?</div>
+  <h2>The Complete Taxonomy of Ratio & Proportion Problems</h2>
+  <div class="tblwrap">
+  <table>
+    <tr><th>#</th><th>Problem Type</th><th>Level</th><th>Signature Phrase</th></tr>
+    <tr><td>1</td><td>Simplifying a ratio</td><td><span class="badge b-easy">Foundation</span></td><td>"Express 12:18 in simplest form"</td></tr>
+    <tr><td>2</td><td>Checking a proportion (cross-multiplication)</td><td><span class="badge b-easy">Foundation</span></td><td>"Is 4:6 in proportion with 10:15?"</td></tr>
+    <tr><td>3</td><td>Finding an unknown term in a proportion</td><td><span class="badge b-easy">Foundation</span></td><td>"Find x if 3:4 :: x:20"</td></tr>
+    <tr><td>4</td><td>Mean/third/fourth proportional</td><td><span class="badge b-med">Elementary</span></td><td>"Find the mean proportional between 4 and 25"</td></tr>
+    <tr><td>5</td><td>Direct and inverse variation</td><td><span class="badge b-med">Elementary</span></td><td>"More workers, fewer days"</td></tr>
+    <tr><td>6</td><td>Dividing a quantity in a given ratio</td><td><span class="badge b-med">Intermediate</span></td><td>"Split ₹1000 in the ratio 2:3:5"</td></tr>
+    <tr><td>7</td><td>Combining two ratios (A:B, B:C → A:B:C)</td><td><span class="badge b-med">Intermediate</span></td><td>"If A:B=2:3 and B:C=4:5"</td></tr>
+    <tr><td>8</td><td>Age, mixture, and money word problems</td><td><span class="badge b-med">Intermediate</span></td><td>"Ages of two brothers in ratio..."</td></tr>
+    <tr><td>9</td><td>The k-method for multi-part ratios</td><td><span class="badge b-hard">Advanced</span></td><td>"Sides of a triangle in ratio 3:4:5"</td></tr>
+    <tr><td>10</td><td>Componendo-dividendo & classical rules</td><td><span class="badge b-hard">Advanced</span></td><td>"If a/b = c/d, prove that..."</td></tr>
+    <tr><td>11</td><td>Ratio of areas/volumes of similar figures</td><td><span class="badge b-hard">Advanced</span></td><td>"Radii of two cylinders in ratio 2:3"</td></tr>
+    <tr><td>12</td><td>Section formula (coordinate geometry)</td><td><span class="badge b-hard">Advanced</span></td><td>"Divides the segment in the ratio 1:2"</td></tr>
+    <tr><td>13</td><td>Financial ratios (current ratio, P/E, debt-equity)</td><td><span class="badge b-hard">Advanced</span></td><td>"Current assets vs current liabilities"</td></tr>
+    <tr><td>14</td><td>Golden ratio & Fibonacci limits</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Limiting ratio of consecutive terms"</td></tr>
+    <tr><td>15</td><td>Ratio as field element / rational construction</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Equivalence class of ordered pairs"</td></tr>
+    <tr><td>16</td><td>Dimensional analysis ratios</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Reynolds number, speed, density"</td></tr>
+    <tr><td>17</td><td>Allometric scaling (biology)</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Metabolic rate vs. body mass"</td></tr>
+    <tr><td>18</td><td>Odds vs. probability conversion</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Odds of 3:2 in favour"</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- SHORTCUT VAULT -->
+<section id="en-shortcuts">
+  <div class="kicker"><span class="num">07</span> The Shortcut Vault</div>
+  <h2>Every Shortcut Method in One Place</h2>
+  <details open><summary>1. Cross-Multiplication Test</summary><p>To check if a:b :: c:d, simply verify a×d = b×c. No need to simplify either ratio first.</p></details>
+  <details><summary>2. The Unitary Method</summary><p>Find the value of one unit first ("what is 1 pen's cost, 1 worker's daily output, 1 part's value"), then scale up or down — this single habit solves the majority of school-level ratio and proportion word problems.</p></details>
+  <details><summary>3. The Parts Method for Sharing</summary><p>To split a total in ratio a:b:c, divide the total by (a+b+c) to get the value of "one part," then multiply by a, b, and c respectively.</p></details>
+  <details><summary>4. Componendo-Dividendo</summary><p>If a/b = c/d, then (a+b)/(a−b) = (c+d)/(c−d). This avoids messy cross-multiplication in many algebraic ratio proofs.</p></details>
+  <details><summary>5. The Bridging Multiplier for Combining Ratios</summary><p>Given A:B and B:C, scale each ratio so the B-terms match, then read off A:B:C directly.</p></details>
+  <details><summary>6. The k-Method</summary><p>Whenever a problem gives a ratio of three or more quantities plus one more equation (a sum, a perimeter, a difference), write the quantities as multiples of k and solve a single linear equation for k.</p></details>
+  <details><summary>7. Odds-to-Probability Flip</summary><p>Odds a:b in favour convert instantly to probability a/(a+b); remember the denominator is the sum of both sides of the odds, not just one side.</p></details>
+  <details><summary>8. Scale-Factor Squaring/Cubing Rule</summary><p>For similar figures, never compute area or volume ratios from scratch — square the linear ratio for area, cube it for volume.</p></details>
+</section>
+
+<!-- DAILY LIFE GALLERY -->
+<section id="en-life">
+  <div class="kicker"><span class="num">08</span> Daily-Life Application Gallery</div>
+  <h2>Where You Meet Ratio Every Single Day</h2>
+  <div class="grid2">
+    <div class="example"><span class="tag">Cooking</span><p>Scaling a recipe up or down keeps every ingredient in the same ratio to avoid ruining the taste.</p></div>
+    <div class="example"><span class="tag">Photography & Screens</span><p>Aspect ratios like 4:3, 16:9, and 21:9 decide how an image is framed and how much gets cropped when you switch formats.</p></div>
+    <div class="example"><span class="tag">Maps & Models</span><p>A map's scale ratio (1:50,000) and a toy car's scale ratio (1:64) both use the same section-formula logic.</p></div>
+    <div class="example"><span class="tag">Construction</span><p>Concrete mixes (cement:sand:aggregate, e.g. 1:2:4) rely on the parts method to determine exact bag quantities.</p></div>
+    <div class="example"><span class="tag">Finance</span><p>Current ratio, debt-to-equity ratio, and price-to-earnings ratio are the daily vocabulary of investors and accountants.</p></div>
+    <div class="example"><span class="tag">Sports</span><p>Win-loss ratios and gear ratios on a bicycle both describe the same underlying idea of comparing two related quantities.</p></div>
+    <div class="example"><span class="tag">Art & Architecture</span><p>The golden ratio has guided proportion in design from ancient Greek temples to modern logo design.</p></div>
+    <div class="example"><span class="tag">Biology & Medicine</span><p>Waist-to-hip ratio, dosage per body weight, and surface-to-volume ratio all drive real clinical decisions.</p></div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="en-practice">
+  <div class="kicker"><span class="num">09</span> Practice Problem Sets by Level</div>
+  <h2>Test Yourself, Tier by Tier</h2>
+  <h3><span class="badge b-easy">Foundation</span></h3>
+  <ol>
+    <li>Simplify the ratio 45:60 to its lowest terms.</li>
+    <li>Is 8:12 in proportion with 6:9?</li>
+    <li>Find x if 5:8 :: x:40.</li>
+  </ol>
+  <h3><span class="badge b-med">Intermediate</span></h3>
+  <ol>
+    <li>Divide ₹2,400 among A, B, and C in the ratio 3:4:5.</li>
+    <li>If A:B = 3:4 and B:C = 8:9, find A:B:C.</li>
+    <li>18 workers build a wall in 12 days. How many days would 24 workers take?</li>
+  </ol>
+  <h3><span class="badge b-hard">Advanced</span></h3>
+  <ol>
+    <li>The angles of a triangle are in the ratio 2:3:4. Find each angle.</li>
+    <li>Two similar cones have heights in the ratio 3:5. Find the ratio of their volumes.</li>
+    <li>Find the point that divides the segment joining (1,2) and (7,8) in the ratio 2:1.</li>
+  </ol>
+  <h3><span class="badge b-hot">Higher-Order Thinking</span></h3>
+  <ol>
+    <li>Show algebraically why the ratio of consecutive Fibonacci numbers approaches φ = (1+√5)/2.</li>
+    <li>A metabolic rate scales as (body mass)^(3/4). If Animal B has 16 times the mass of Animal A, find the ratio of their metabolic rates.</li>
+    <li>Convert odds of 5:3 against an event into a probability, and explain the difference between "odds against" and "odds in favour."</li>
+  </ol>
+  <div class="fact">Answers are intentionally left for the learner to derive using the methods above — true fluency comes from working the method, not memorising the number.</div>
+</section>
+
+</main>
+</div>
+<!-- ===================== END ENGLISH PANEL ===================== -->
+
+<!-- ================================================================= -->
+<!-- ===========================  TAMIL  ============================ -->
+<!-- ================================================================= -->
+<div id="panel-ta" class="lang-panel lang-ta">
+
+<header class="hero">
+  <div class="eyebrow">கற்கை குறிப்புகள் · 100 ஆண்டுகால கரும்பலகை மரபு</div>
+  <div class="hero-grid">
+    <div>
+      <h1>விகிதம் மற்றும் விகிதசமம்: ஒப்பீட்டின் இலக்கணம்</h1>
+      <p class="lede">சமையல் குறிப்பு, வரைபடம், திரை அளவு, இதயத் துடிப்பு, விண்மீன் சுழற்சி வேகம் — எதை ஒப்பிட்டாலும் அதன் அடிப்படையில் இருப்பது விகிதமே. ஆறு வயது குழந்தை இனிப்புகளை நியாயமாகப் பகிர்வதிலிருந்து, பொன் விகிதம் மற்றும் ஆயத்தொலைவியல் பிரிவு சூத்திரம் வரை, இக்கருத்தை முழுமையாகப் பின்தொடர்வோம்.</p>
+      <p class="chalkline">"எண்கள் மட்டும் 'எவ்வளவு' என்பதைச் சொல்லும். விகிதம் 'எதனுடன் ஒப்பிடும்போது எவ்வளவு' என்பதைச் சொல்கிறது — அந்த இரண்டாவது கேள்வியிலிருந்தே கணிதம் உண்மையில் தொடங்குகிறது."</p>
+      <div class="stat-row">
+        <div class="stat"><span class="count" data-target="2">0</span><div class="lbl">எளிய விகிதத்தின் உறுப்புகள்</div></div>
+        <div class="stat"><span class="count" data-target="5">0</span><div class="lbl">கற்றல் நிலைகள்</div></div>
+        <div class="stat"><span class="count" data-target="50">0</span><div class="lbl">வினாடி வினா கேள்விகள்</div></div>
+      </div>
+    </div>
+    <div class="splitter-wrap">
+      <div class="splitter-inputs">
+        <label>பாகம் A <input type="number" id="rA_ta" value="2" min="0"></label>
+        <label>பாகம் B <input type="number" id="rB_ta" value="3" min="0"></label>
+        <label>பாகம் C <input type="number" id="rC_ta" value="5" min="0"></label>
+        <label>மொத்தம் ₹ <input type="number" id="rTotal_ta" value="1000" min="0"></label>
+      </div>
+      <div class="ratio-bar" id="ratioBar_ta">
+        <div class="seg1"></div><div class="seg2"></div><div class="seg3"></div>
+      </div>
+      <div class="ratio-total" id="ratioLabel_ta">₹1000-ஐ 2:3:5 என்ற விகிதத்தில் பிரித்தல்</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#ta-tier1">01 · அடிப்படை</a>
+  <a href="#ta-tier2">02 · சூத்திரங்கள்</a>
+  <a href="#ta-tier3">03 · இடைநிலை + குறுக்குவழி</a>
+  <a href="#ta-tier4">04 · மேம்பட்டவை</a>
+  <a href="#ta-tier5">05 · உயர்நிலை சிந்தனை</a>
+  <a href="#ta-taxonomy">06 · வகைப்பாடு</a>
+  <a href="#ta-shortcuts">07 · குறுக்குவழி களஞ்சியம்</a>
+  <a href="#ta-life">08 · அன்றாட பயன்பாடுகள்</a>
+  <a href="#ta-practice">09 · பயிற்சி கணக்குகள்</a>
+  <a href="#quiz">10 · 50 வினா</a>
+</nav>
+
+<main>
+
+<!-- TIER 1 -->
+<section id="ta-tier1">
+  <div class="kicker"><span class="num">01</span> அடிப்படை கருத்துருவம்</div>
+  <h2>"விகிதம்" என்றால் என்ன?</h2>
+  <p><strong>விகிதம்</strong> என்பது ஒரே வகையான இரண்டு அளவுகளை வகுத்தல் மூலம் ஒப்பிடும் ஒரு முறை. ஒரு வகுப்பறையில் 12 சிறுவர்களும் 18 சிறுமியர்களும் இருந்தால், சிறுவர்–சிறுமியர் விகிதம் 12:18 எனப்படும், இது எளிமையாக்கப்பட்டால் 2:3 ஆகும். இது சிறுவர் அல்லது சிறுமியர் எத்தனை பேர் என்பதைச் சொல்லவில்லை — இரண்டு எண்களுக்கும் இடையேயான <em>தொடர்பை</em>, அவற்றின் உண்மையான அளவை நீக்கிவிட்டுச் சொல்கிறது. இதுவே இந்தப் பாடத்தின் முழு அடிப்படை.</p>
+
+  <div class="fact">விகிதம் எப்போதும் <strong>ஒரே வகையானவற்றை</strong> ஒப்பிடுகிறது. ரூபாய்க்கு ரூபாய், கிலோமீட்டருக்கு கிலோமீட்டர் என விகிதம் அமையலாம். ஆனால் "3 ஆப்பிள் : 4 மணி நேரம்" என்பது கணித அர்த்தத்தில் விகிதம் அல்ல — அது ஒரு <em>வீதம் (rate)</em>, ஏனெனில் இரு அளவுகளும் வெவ்வேறு அலகுகளில் அளக்கப்படுகின்றன.</div>
+
+  <h3>ஒவ்வொரு கற்பவரும் அறிந்திருக்க வேண்டிய சொற்கள்</h3>
+  <ul>
+    <li><strong>முந்திடு (Antecedent):</strong> விகிதத்தின் முதல் உறுப்பு (a:b இல் "a").</li>
+    <li><strong>பிந்திடு (Consequent):</strong> விகிதத்தின் இரண்டாம் உறுப்பு (a:b இல் "b").</li>
+    <li><strong>சமான விகிதங்கள்:</strong> ஒரே ஒப்பீட்டைக் குறிக்கும் விகிதங்கள் — எ.கா. 2:3, 4:6, 20:30 எல்லாம் 1/2, 2/4, 10/20 போன்ற சமான பின்னங்கள் போலவே சமமானவை.</li>
+    <li><strong>எளிய வடிவில் உள்ள விகிதம்:</strong> முந்திடும் பிந்திடும் 1 தவிர வேறு பொது காரணி இல்லாதபோது (எ.கா. 12:18 அல்ல, 2:3).</li>
+  </ul>
+
+  <h3>விகிதசமம்: இரண்டு விகிதங்கள் ஒத்துப்போகும்போது</h3>
+  <p><strong>விகிதசமம் (Proportion)</strong> என்பது இரண்டு விகிதங்கள் சமமானவை என்ற கூற்று. a:b = c:d எனில், அதை a:b :: c:d என எழுதி, "a, b-க்கு எப்படியோ, அப்படியே c, d-க்கு" எனப் படிக்கிறோம். ஒரு கூற்றை (expression) சமன்பாடு (equation) ஆக்குவது போல, விகிதசமம் ஒரு ஒப்பீட்டை சோதிக்கக்கூடிய, மறு பரிசோதனை செய்யக்கூடிய, அறியாத எண்களைத் தீர்க்கக்கூடிய ஒரு கூற்றாக மாற்றுகிறது.</p>
+
+  <div class="chart-card">
+    <h4>ஒரே விகிதம், வெவ்வேறு அளவு — 4 பேருக்கான சமையல் Vs 10 பேருக்கான சமையல்</h4>
+    <canvas id="chartRecipe_ta" height="150"></canvas>
+  </div>
+
+  <h3>முதல் அன்றாட எடுத்துக்காட்டுகள்</h3>
+  <ul>
+    <li><strong>சமையல் குறிப்புகள்:</strong> கேக்கில் மாவு-சர்க்கரை விகிதம், விருந்தினர் எண்ணிக்கைக்கு ஏற்ப அளவு மாற்றம்.</li>
+    <li><strong>வரைபடங்கள்:</strong> 1:50,000 அளவுகோல் என்றால், காகிதத்தில் 1 செ.மீ நிலத்தில் 50,000 செ.மீ (500 மீ) ஆகும்.</li>
+    <li><strong>திரைகள்:</strong> 16:9 தொலைக்காட்சியும் 4:3 தொலைக்காட்சியும் ஒரே காட்சியை வெவ்வேறு வடிவில் காட்டுகின்றன.</li>
+    <li><strong>பணப் பகிர்வு:</strong> மூன்று நண்பர்கள் ஒரு கடையில் முதலீடு செய்து, தங்கள் முதலீட்டு விகிதத்தில் லாபத்தைப் பகிர்கிறார்கள்.</li>
+    <li><strong>வேகம்:</strong> தூரத்திற்கும் நேரத்திற்கும் இடையேயான விகிதமே வேகம் எனப்படுகிறது.</li>
+    <li><strong>சாந்து கலவை:</strong> சிமெண்ட், மணல், கல் ஆகியவை 1:2:4 போன்ற நிலையான விகிதத்தில் கலக்கப்படுகின்றன.</li>
+  </ul>
+
+  <div class="warn">விகிதத்திற்கு அதன் சொந்த அலகு கிடையாது, ஏனெனில் இரு அளவுகளின் அலகுகளும் ரத்து செய்யப்படுகின்றன: 12 சிறுவர்கள் : 18 சிறுமியர்கள் என்பது வெறும் 2:3 என்ற எண் ஜோடியாக மாறுகிறது, "சிறுவர்", "சிறுமியர்" என்ற அலகுகள் இணைக்கப்படுவதில்லை.</div>
+</section>
+
+<!-- TIER 2 -->
+<section id="ta-tier2">
+  <div class="kicker"><span class="num">02</span> அடிப்படை சூத்திரங்கள்</div>
+  <h2>விகிதம் மற்றும் விகிதசமத்தின் முக்கிய சூத்திரங்கள்</h2>
+
+  <div class="formula"><span class="lbl">சூத்திரம் 1 — பின்னமாக விகிதம்</span>a : b = a/b &nbsp;(b ≠ 0)</div>
+  <div class="formula"><span class="lbl">சூத்திரம் 2 — விகிதசமத்தின் தங்க விதி (குறுக்கு பெருக்கல்)</span>a : b :: c : d &nbsp;⟺&nbsp; a × d = b × c &nbsp;("தீவிரங்களின் பெருக்குத்தொகை = சராசரிகளின் பெருக்குத்தொகை")</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>4:6, 10:15-உடன் விகிதசமமா? குறுக்கு பெருக்கு: 4×15=60, 6×10=60. இரண்டும் சமம் என்பதால் <strong>ஆம், விகிதசமம்.</strong></p></div>
+
+  <div class="formula"><span class="lbl">சூத்திரம் 3 — தொடர் விகிதசமம்</span>a : b :: b : c &nbsp;⟹&nbsp; b² = a × c &nbsp;(b என்பது a, c-க்கு இடையேயான <strong>சராசரி விகிதசமம்</strong>)</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>4, 25-க்கு இடையேயான சராசரி விகிதசமத்தைக் காணவும்.<br>b² = 4×25 = 100 → b = <strong>10</strong></p></div>
+
+  <div class="formula"><span class="lbl">சூத்திரம் 4 — மூன்றாம் மற்றும் நான்காம் விகிதசமம்</span>a, b-க்கு மூன்றாம் விகிதசமம்: a:b :: b:c ஆக அமையும் c-ஐக் காணுதல்<br>a, b, c-க்கு நான்காம் விகிதசமம்: a:b :: c:d ஆக அமையும் d-ஐக் காணுதல்</div>
+
+  <h3>நேர் விகிதசமம் மற்றும் எதிர் விகிதசமம்</h3>
+  <div class="formula"><span class="lbl">நேர் விகிதசமம் (y, x-ஐப் பொறுத்து நேரடியாக மாறுகிறது)</span>y = kx &nbsp;(x அதிகரிக்க அதிகரிக்க, y அதே விகிதத்தில் அதிகரிக்கும்; k என்பது விகிதசம மாறிலி)</div>
+  <div class="formula"><span class="lbl">எதிர் விகிதசமம் (y, x-ஐப் பொறுத்து எதிர்மாறாக மாறுகிறது)</span>y = k / x &nbsp;(x அதிகரிக்க அதிகரிக்க, y குறையும்; பெருக்குத்தொகை மாறாமல் இருக்கும்)</div>
+
+  <div class="fact">நேர் மற்றும் எதிர் விகிதசமத்தை வேறுபடுத்தும் ஒரே கேள்வி: <strong>"ஒரு அளவு இரட்டிப்பானால், மற்றொன்றும் இரட்டிப்பாகுமா (நேர்), அல்லது பாதியாகுமா (எதிர்)?"</strong> அதிக தொழிலாளர்கள் சுவரை விரைவாக முடிப்பது எதிர் விகிதசமம் (அதிக தொழிலாளர் → குறைவான நாட்கள்). அதிக மணி நேரம் வேலை செய்தால் அதிக ஊதியம் கிடைப்பது நேர் விகிதசமம்.</div>
+
+  <h3>விகிதம்–பின்னம்–சதவீதம் மாற்று அட்டவணை</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>விகிதம்</th><th>பின்னமாக</th><th>சதவீதமாக (மொத்தத்தில்)</th></tr>
+    <tr><td>1 : 1</td><td>1/2</td><td>50% : 50%</td></tr>
+    <tr><td>1 : 3</td><td>1/4</td><td>25% : 75%</td></tr>
+    <tr><td>2 : 3</td><td>2/5</td><td>40% : 60%</td></tr>
+    <tr><td>3 : 5</td><td>3/8</td><td>37.5% : 62.5%</td></tr>
+    <tr><td>1 : 4</td><td>1/5</td><td>20% : 80%</td></tr>
+  </table>
+  </div>
+  <div class="fact">இரு-உறுப்பு விகிதம் a:b-ஐ மொத்தத்தின் சதவீதங்களாக மாற்ற, எப்போதும் (a+b) ஆல் வகுக்கவும் — a அல்லது b மட்டும் அல்ல. இந்த ஒரு பழக்கமே பொதுவான தவறைத் தடுக்கும்.</div>
+</section>
+
+<!-- TIER 3 -->
+<section id="ta-tier3">
+  <div class="kicker"><span class="num">03</span> இடைநிலை சிக்கல் தீர்வு மற்றும் குறுக்குவழிகள்</div>
+  <h2>விகிதம் நிஜ பகிர்வையும் அளவு மாற்றத்தையும் சந்திக்கும் இடம்</h2>
+
+  <h3>3.1 கொடுக்கப்பட்ட விகிதத்தில் ஒரு தொகையைப் பிரித்தல்</h3>
+  <div class="formula"><span class="lbl">அடிப்படை முறை — "பாகங்கள்" நுட்பம்</span>ஒரு மொத்தத்தை T-ஐ a:b:c விகிதத்தில் பிரிக்க, ஒவ்வொரு "பாகமும்" T ÷ (a+b+c) மதிப்புடையது. மூன்று பங்குகளும் அந்தப் பாக-மதிப்பை a, b, c ஆல் பெருக்கினால் கிடைக்கும்.</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>₹1,000-ஐ மூன்று நண்பர்களிடையே 2:3:5 விகிதத்தில் பிரிக்கவும்.<br>மொத்த பாகங்கள் = 2+3+5 = 10. ஒரு பாகம் = 1000÷10 = ₹100.<br>பங்குகள்: 2×100=<strong>₹200</strong>, 3×100=<strong>₹300</strong>, 5×100=<strong>₹500</strong>.</p></div>
+
+  <h3>3.2 இரண்டு விகிதங்களை இணைத்தல் (பாலம் அமைக்கும் முறை)</h3>
+  <div class="example"><span class="tag">உதாரணம்</span><p>A:B = 2:3 மற்றும் B:C = 4:5 எனில், A:B:C-ஐக் காணவும்.<br>B-இன் மதிப்பை பொதுவாக்கவும்: A:B = 8:12 (4 ஆல் பெருக்கவும்); B:C = 12:15 (3 ஆல் பெருக்கவும்). இப்போது B இரண்டிலும் 12.<br>எனவே <strong>A : B : C = 8 : 12 : 15</strong>.</p></div>
+
+  <h3>⚡ குறுக்குவழி: பாலம் அமைக்கும் பெருக்கி</h3>
+  <div class="formula"><span class="lbl">A:B, B:C ஐ A:B:C ஆக இணைப்பதற்கான விரைவு விதி</span>முதல் விகிதத்தை இரண்டாம் விகிதத்தின் B-மதிப்பால் பெருக்கவும், இரண்டாம் விகிதத்தை முதல் விகிதத்தின் B-மதிப்பால் பெருக்கவும்.</div>
+
+  <h3>3.3 வயது, கலவை, பண வாக்கிய கணக்குகள்</h3>
+  <div class="example"><span class="tag">உதாரணம் — வயது</span><p>இரு சகோதரர்களின் தற்போதைய வயதுகள் 3:5 விகிதத்தில் உள்ளன. 4 ஆண்டுகளுக்குப் பிறகு விகிதம் 4:6 ஆகிறது. தற்போதைய வயதுகளைக் காணவும்.<br>வயதுகள் = 3x, 5x எனக் கொள்ளவும். (3x+4):(5x+4) = 4:6 → 6(3x+4)=4(5x+4) → 18x+24=20x+16 → 2x=8 → x=4.<br>தற்போதைய வயதுகள்: <strong>12 மற்றும் 20 ஆண்டுகள்</strong>.</p></div>
+
+  <h3>3.4 நேர் மற்றும் எதிர் மாறுபாடு கணக்குகள்</h3>
+  <div class="example"><span class="tag">உதாரணம் — எதிர் விகிதசமம் (வேலை-நேரம்)</span><p>12 தொழிலாளர்கள் ஒரு சுவரை 8 நாட்களில் முடிக்கிறார்கள். அதே வேகத்தில் 16 தொழிலாளர்கள் எத்தனை நாட்களில் முடிப்பார்கள்?<br>தொழிலாளர் × நாட்கள் = மாறிலி → 12×8 = 16×d → d = 96÷16 = <strong>6 நாட்கள்</strong>.</p></div>
+
+  <h3>⚡ அன்றாட விகிதக் கணக்குகளுக்கான குறுக்குவழிகள்</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>குறுக்குவழி</th><th>எப்படி வேலை செய்கிறது</th><th>உதாரணம்</th></tr>
+    <tr><td><strong>குறுக்கு பெருக்கல் சோதனை</strong></td><td>a:b :: c:d உண்மையாக இருக்க a×d = b×c ஆக வேண்டும்</td><td>3:4 vs 9:12 → 3×12=36, 4×9=36 ✓</td></tr>
+    <tr><td><strong>ஒற்றை அலகு முறை</strong></td><td>முதலில் "ஒரு அலகின்" மதிப்பைக் காணவும், பின் அளவு மாற்றவும்</td><td>5 பேனாக்கள் ₹60 எனில், 1 பேனா ₹12, 8 பேனாக்கள் ₹96</td></tr>
+    <tr><td><strong>பகிர்வுக்கான பாகங்கள் முறை</strong></td><td>மொத்தத்தை விகித உறுப்புகளின் கூட்டுத்தொகையால் வகுத்து ஒரு "பாகத்தைக்" காணவும்</td><td>₹900-ஐ 2:3:4 → 1 பாகம்=₹100 → 200,300,400</td></tr>
+    <tr><td><strong>Componendo-Dividendo</strong></td><td>a/b = c/d எனில், (a+b)/(a−b) = (c+d)/(c−d)</td><td>பெரிய எண்களைக் குறுக்கு பெருக்காமல் விகித சமன்பாடுகளைத் தீர்க்கும்</td></tr>
+    <tr><td><strong>அளவு மாற்று குறுக்குவழி</strong></td><td>விகிதத்தின் இரு உறுப்புகளையும் ஒரே எண்ணால் பெருக்கினாலும் வகுத்தாலும் விகிதம் மாறாது</td><td>2:3 = 200:300 = 2000:3000</td></tr>
+  </table>
+  </div>
+
+  <div class="chart-card">
+    <h4>₹1,000-ஐ 2:3:5 விகிதத்தில் பிரித்தல்</h4>
+    <canvas id="chartDivide_ta" height="200"></canvas>
+  </div>
+</section>
+
+<!-- TIER 4 -->
+<section id="ta-tier4">
+  <div class="kicker"><span class="num">04</span> மேம்பட்ட மாணவர்களுக்கான சிக்கல்கள்</div>
+  <h2>இயற்கணிதம் மற்றும் வடிவவியலில் விகிதம்</h2>
+
+  <h3>4.1 k-முறை — இளங்கலை மாணவர்களுக்கான மிக சக்திவாய்ந்த நுட்பம்</h3>
+  <div class="formula"><span class="lbl">a : b : c = p : q : r எனில்</span>a = pk, b = qk, c = rk என எழுதி, கணக்கில் கொடுக்கப்பட்ட கூடுதல் சமன்பாட்டைப் பயன்படுத்தி தீர்க்கவும்.</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>ஒரு முக்கோணத்தின் பக்கங்கள் 3:4:5 விகிதத்தில் உள்ளன, சுற்றளவு 60 செ.மீ. ஒவ்வொரு பக்கத்தையும் காணவும்.<br>பக்கங்கள் = 3k, 4k, 5k. கூட்டுத்தொகை = 12k = 60 → k = 5.<br>பக்கங்கள்: <strong>15, 20, 25 செ.மீ</strong>.</p></div>
+
+  <h3>4.2 Componendo, Dividendo, Invertendo, Alternendo (நான்கு பாரம்பரிய விதிகள்)</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>விதி</th><th>கூற்று (a/b = c/d எனில்)</th></tr>
+    <tr><td>Invertendo</td><td>b/a = d/c</td></tr>
+    <tr><td>Alternendo</td><td>a/c = b/d</td></tr>
+    <tr><td>Componendo</td><td>(a+b)/b = (c+d)/d</td></tr>
+    <tr><td>Dividendo</td><td>(a−b)/b = (c−d)/d</td></tr>
+    <tr><td>Componendo-Dividendo</td><td>(a+b)/(a−b) = (c+d)/(c−d)</td></tr>
+  </table>
+  </div>
+
+  <h3>4.3 வடிவவியலில் விகிதங்கள் — ஒத்த உருவங்கள்</h3>
+  <div class="fact">இரு உருவங்கள் a:b என்ற நேர்கோட்டு அளவுகோல் காரணியுடன் ஒத்தவையாக இருந்தால், அவற்றின் <strong>பரப்பளவுகள்</strong> a²:b² என்ற விகிதத்திலும், (திடப்பொருட்களுக்கு) <strong>கன அளவுகள்</strong> a³:b³ என்ற விகிதத்திலும் இருக்கும். ஒரு கனசதுரத்தின் ஒவ்வொரு நீளத்தையும் இரட்டிப்பாக்கினால் (1:2 விகிதம்), அதன் பரப்பளவு 4 மடங்காகவும், கன அளவு 8 மடங்காகவும் ஆகும்.</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>இரு ஒத்த உருளைகளின் ஆரங்கள் 2:3 விகிதத்தில் உள்ளன. அவற்றின் கன அளவுகளின் விகிதத்தைக் காணவும்.<br>கன அளவு விகிதம் = 2³:3³ = <strong>8:27</strong>.</p></div>
+
+  <h3>4.4 பிரிவு சூத்திரம் (ஆயத்தொலைவியல் வடிவவியலில் விகிதம்)</h3>
+  <div class="formula"><span class="lbl">(x₁,y₁), (x₂,y₂) புள்ளிகளை இணைக்கும் கோட்டுத்துண்டை m:n விகிதத்தில் பிரித்தல்</span>புள்ளி = ( (m·x₂ + n·x₁)/(m+n) , (m·y₂ + n·y₁)/(m+n) )</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>(2,3)-லிருந்து (8,9) வரையிலான கோட்டுத்துண்டை 1:2 விகிதத்தில் பிரிக்கும் புள்ளியைக் காணவும்.<br>x = (1×8+2×2)/3 = 4. y = (1×9+2×3)/3 = 5.<br>புள்ளி = <strong>(4, 5)</strong>.</p></div>
+
+  <h3>4.5 நிதியியலில் விகிதங்கள் — இருப்புநிலைக் குறிப்பைப் படித்தல்</h3>
+  <div class="example"><span class="tag">உதாரணம்</span><p>ஒரு நிறுவனத்தின் நடப்பு சொத்துக்கள் ₹5,00,000, நடப்புக் கடன்கள் ₹2,50,000. நடப்பு விகிதத்தைக் காணவும்.<br>நடப்பு விகிதம் = 500000:250000 = <strong>2:1</strong> (குறுகிய கால கடமைகளை ஈடுசெய்யும் நல்ல திறன்).</p></div>
+
+  <div class="chart-card">
+    <h4>நீளவிகிதத்தை விட கன அளவு விகிதம் வேகமாக வளர்கிறது (ஒத்த திடப்பொருட்கள்)</h4>
+    <canvas id="chartScaling_ta" height="180"></canvas>
+  </div>
+</section>
+
+<!-- TIER 5 -->
+<section id="ta-tier5">
+  <div class="kicker"><span class="num">05</span> உயர்நிலை சிந்தனை (முதுகலைப் பட்ட நிலை)</div>
+  <h2>விகிதத்தின் எல்லை: பொன் விகிதம், எல்லைகள், அளவீட்டு விதிகள்</h2>
+
+  <h3>5.1 பொன் விகிதம் φ — முடிவே இல்லாத தொடர் விகிதசமம்</h3>
+  <div class="formula"><span class="lbl">வரையறுக்கும் சமன்பாடு</span>a : b = (a+b) : a &nbsp;⟹&nbsp; φ = (1+√5)/2 ≈ 1.6180339887…</div>
+  <p>பொன் விகிதம் என்பது φ² = φ + 1 எனும் நிபந்தனையை நிறைவேற்றும் தனித்துவமான நேர்மறை எண் — "மொத்தம் பெரிய பாகத்திற்கு எப்படியோ, பெரிய பாகம் சிறிய பாகத்திற்கு அப்படியே" இருக்கும் ஒரே விகிதம். இது பார்த்தீனான் கோவிலின் அமைப்பிலும், சூரியகாந்தி விதைகளின் சுழல் அமைப்பிலும், நாட்டிலஸ் ஓட்டிலும், மேலும் ஆச்சரியமாக, தொடர்ச்சியான ஃபிபனாச்சி எண்களின் விகிதத்தின் எல்லையாகவும் தோன்றுகிறது.</p>
+  <div class="formula"><span class="lbl">ஃபிபனாச்சி தொடர்பு (கால்குலஸ் அர்த்தத்தில் ஒரு உண்மையான எல்லை)</span>lim (n→∞) F(n+1)/F(n) = φ</div>
+  <div class="chart-card">
+    <h4>பொன் விகிதம் φ ≈ 1.618-ஐ நோக்கி நெருங்கும் ஃபிபனாச்சி விகிதங்கள்</h4>
+    <canvas id="chartFib_ta" height="180"></canvas>
+  </div>
+
+  <h3>5.2 ஒரு "புலத்தின்" உறுப்பாக விகிதம் — குறுக்கு பெருக்கல் ஏன் எப்போதும் வேலை செய்கிறது</h3>
+  <p>முதுகலைப் பட்ட நிலையில், a:b என்ற விகிதத்தை (a,b) என்ற வரிசைப்படுத்தப்பட்ட ஜோடியின் சமான வகுப்பாகப் புரிந்துகொள்வதே சிறந்தது — (a,b) ~ (c,d) ⟺ ad = bc என்ற தொடர்பின் கீழ். இதுவே முழு எண்களிலிருந்து (ℤ) விகிதமுறு எண்களை (ℚ) முறையாக உருவாக்கும் வழிமுறை. விகிதம், பின்னம், விகிதமுறு எண் — கடுமையான இயற்கணிதத்தின் அளவில் இவை மூன்றும் வெவ்வேறு குறியீடுகளில் அணிந்திருக்கும் ஒரே பொருள்தான். குறுக்கு பெருக்கல் "வேலை செய்வதற்கு" காரணம், அது பின்னங்களின் புலத்தை வரையறுக்கும் சமான தொடர்பே ஆகும்.</p>
+
+  <h3>5.3 அளவீட்டு பகுப்பாய்வு — இயற்பியலாளரின் உயர்நிலை விகித விதி</h3>
+  <div class="fact">இரு இயற்பியல் அளவுகளின் விகிதம், அலகுகள் முழுமையாக ரத்தாகி ஒரு தூய எண்ணாக மாறினால் மட்டுமே அர்த்தமுள்ளதாக இருக்கும். வேகம் (தூரம்/நேரம்), அடர்த்தி (திணிவு/கன அளவு), மற்றும் ரெனால்ட்ஸ் எண் (திரவ இயக்கவியலில் அசைவியல்-பிசுக்குமை விசைகளின் அலகற்ற விகிதம்) — இவை அனைத்தும் அலகுகள் முழுமையாக ரத்தாகவோ அல்லது அர்த்தமுள்ள கூட்டு அலகாக இணையவோ வடிவமைக்கப்பட்ட விகிதங்கள். இதனால்தான் இயற்பியல் மற்றும் பொறியியலில் அளவீட்டு பகுப்பாய்வின் முதுகெலும்பாக "விகித சிந்தனை" திகழ்கிறது.</div>
+
+  <h3>5.4 உயிரியலை ஆளும் விகிதங்கள் — அலோமெட்ரிக் அளவீடு</h3>
+  <div class="formula"><span class="lbl">க்லைபரின் விதி (வளர்சிதை மாற்ற அளவீடு)</span>வளர்சிதை மாற்ற வீதம் ∝ (உடல் திணிவு)^(3/4)</div>
+  <p>ஒரு விலங்கின் நேரியல் அளவின் <em>வர்க்கத்திற்கு</em> ஏற்ப பரப்பளவும், <em>கனத்திற்கு</em> ஏற்ப கன அளவும் (திணிவும்) மாறுகிறது — எனவே விலங்கு பெரிதாகும்போது பரப்பளவு-கன அளவு விகிதம் சுருங்குகிறது. இந்த ஒரு வடிவவியல் விகிதமே, குளிரில் உயிர்வாழ எலிகள் தொடர்ந்து உண்ண வேண்டியிருப்பதற்கும் (பெரிய பரப்பளவு-கன அளவு விகிதம்), யானைகள் வெப்பத்தை திறமையின்றி வெளியேற்றி அதிக வெப்பமடைவதற்கும் (சிறிய பரப்பளவு-கன அளவு விகிதம்) காரணமாக அமைகிறது. க்லைபரின் விதி இதை மேலும் நுட்பமாக்கி, திணிவுக்கும் வளர்சிதை மாற்றத்திற்கும் இடையேயான 3/4-அடுக்கு விகிதமாக வழங்குகிறது.</p>
+
+  <h3>5.5 நிகழ்தகவும் "ஆட்ஸ்"-உம் — வல்லுநர்களைக் கூட குழப்பும் விகிதம்</h3>
+  <div class="formula"><span class="lbl">ஆட்ஸை நிகழ்தகவாக மாற்றுதல்</span>சாதகமான ஆட்ஸ் a:b எனில், நிகழ்தகவு = a/(a+b). நிகழ்தகவு p எனில், சாதகமான ஆட்ஸ் = p:(1−p).</div>
+  <div class="example"><span class="tag">உதாரணம்</span><p>ஒரு குதிரைக்கு வெற்றி பெறுவதற்கான ஆட்ஸ் 3:2. வெற்றி நிகழ்தகவைக் காணவும்.<br>P = 3/(3+2) = <strong>3/5 = 0.6 = 60%</strong>.</p></div>
+  <div class="warn">"3:2 ஆட்ஸ்" மற்றும் "3:2 வாய்ப்பு" என்பவை பெரும்பாலும் தவறாக "60% நிகழ்தகவு" எனக் கருதப்படுகின்றன — சாதகமான ஆட்ஸையும் பாதகமான ஆட்ஸையும் கவனக்குறைவாக மாற்றி எழுதுவது பொதுவான தவறு. மாற்றும் முன் எந்த திசையை விகிதம் குறிக்கிறது என்பதை எப்போதும் உறுதிப்படுத்திக் கொள்ளவும்.</div>
+
+  <h3>5.6 தொடர் விகிதங்களும் geometric தொடர்களும் — கால்குலஸ் பாலம்</h3>
+  <p>தொடர் விகிதசமத்தில் உள்ள ஒரு தொடர் (a:b::b:c::c:d…) என்பது ஒரு geometric தொடரே — ஒவ்வொரு உறுப்பும் முந்தைய உறுப்பை ஒரு மாறிலி பொது விகிதத்தால் பெருக்கியது. இதே "விகிதம்" கருத்துதான் கூட்டு வட்டியிலும் (Percentage பாடத்தின் 5-ஆம் நிலை), கதிரியக்கச் சிதைவிலும், மக்கள்தொகை வளர்ச்சி மாதிரிகளிலும் வேலை செய்கிறது.</p>
+</section>
+
+<!-- TAXONOMY TA -->
+<section id="ta-taxonomy">
+  <div class="kicker"><span class="num">06</span> எத்தனை வகையான சிக்கல்களை எதிர்கொள்வீர்கள்?</div>
+  <h2>விகிதம் & விகிதசம சிக்கல்களின் முழுமையான வகைப்பாடு</h2>
+  <div class="tblwrap">
+  <table>
+    <tr><th>#</th><th>சிக்கல் வகை</th><th>நிலை</th><th>அடையாள சொற்றொடர்</th></tr>
+    <tr><td>1</td><td>விகிதத்தை எளிமையாக்குதல்</td><td><span class="badge b-easy">அடிப்படை</span></td><td>"12:18-ஐ எளிய வடிவில் எழுதவும்"</td></tr>
+    <tr><td>2</td><td>விகிதசமத்தைச் சோதித்தல் (குறுக்கு பெருக்கல்)</td><td><span class="badge b-easy">அடிப்படை</span></td><td>"4:6, 10:15-உடன் விகிதசமமா?"</td></tr>
+    <tr><td>3</td><td>விகிதசமத்தில் தெரியாத உறுப்பைக் காணுதல்</td><td><span class="badge b-easy">அடிப்படை</span></td><td>"3:4 :: x:20 எனில் x காண்க"</td></tr>
+    <tr><td>4</td><td>சராசரி/மூன்றாம்/நான்காம் விகிதசமம்</td><td><span class="badge b-med">அடிப்படை மேலோட்டம்</span></td><td>"4, 25-க்கு இடையேயான சராசரி விகிதசமம்"</td></tr>
+    <tr><td>5</td><td>நேர் மற்றும் எதிர் மாறுபாடு</td><td><span class="badge b-med">அடிப்படை மேலோட்டம்</span></td><td>"அதிக தொழிலாளர், குறைவான நாட்கள்"</td></tr>
+    <tr><td>6</td><td>கொடுக்கப்பட்ட விகிதத்தில் தொகையைப் பிரித்தல்</td><td><span class="badge b-med">இடைநிலை</span></td><td>"₹1000-ஐ 2:3:5 விகிதத்தில் பிரிக்கவும்"</td></tr>
+    <tr><td>7</td><td>இரு விகிதங்களை இணைத்தல் (A:B, B:C → A:B:C)</td><td><span class="badge b-med">இடைநிலை</span></td><td>"A:B=2:3, B:C=4:5 எனில்"</td></tr>
+    <tr><td>8</td><td>வயது, கலவை, பண வாக்கியக் கணக்குகள்</td><td><span class="badge b-med">இடைநிலை</span></td><td>"இரு சகோதரர்களின் வயது விகிதம்..."</td></tr>
+    <tr><td>9</td><td>பல-பாக விகிதங்களுக்கான k-முறை</td><td><span class="badge b-hard">மேம்பட்டவை</span></td><td>"முக்கோணத்தின் பக்கங்கள் 3:4:5 விகிதத்தில்"</td></tr>
+    <tr><td>10</td><td>Componendo-Dividendo மற்றும் பாரம்பரிய விதிகள்</td><td><span class="badge b-hard">மேம்பட்டவை</span></td><td>"a/b = c/d எனில் நிரூபிக்கவும்"</td></tr>
+    <tr><td>11</td><td>ஒத்த உருவங்களின் பரப்பளவு/கன அளவு விகிதம்</td><td><span class="badge b-hard">மேம்பட்டவை</span></td><td>"இரு உருளைகளின் ஆரங்கள் 2:3 விகிதத்தில்"</td></tr>
+    <tr><td>12</td><td>பிரிவு சூத்திரம் (ஆயத்தொலைவியல்)</td><td><span class="badge b-hard">மேம்பட்டவை</span></td><td>"கோட்டுத்துண்டை 1:2 விகிதத்தில் பிரிக்கிறது"</td></tr>
+    <tr><td>13</td><td>நிதி விகிதங்கள் (நடப்பு விகிதம், P/E, கடன்-பங்கு)</td><td><span class="badge b-hard">மேம்பட்டவை</span></td><td>"நடப்பு சொத்துக்கள் Vs நடப்புக் கடன்கள்"</td></tr>
+    <tr><td>14</td><td>பொன் விகிதம் & ஃபிபனாச்சி எல்லைகள்</td><td><span class="badge b-hot">உயர்நிலை/PG</span></td><td>"தொடர்ச்சியான உறுப்புகளின் எல்லை விகிதம்"</td></tr>
+    <tr><td>15</td><td>புலத்தின் உறுப்பாக விகிதம் / விகிதமுறு கட்டமைப்பு</td><td><span class="badge b-hot">உயர்நிலை/PG</span></td><td>"வரிசைப்படுத்தப்பட்ட ஜோடிகளின் சமான வகுப்பு"</td></tr>
+    <tr><td>16</td><td>அளவீட்டு பகுப்பாய்வு விகிதங்கள்</td><td><span class="badge b-hot">உயர்நிலை/PG</span></td><td>"ரெனால்ட்ஸ் எண், வேகம், அடர்த்தி"</td></tr>
+    <tr><td>17</td><td>அலோமெட்ரிக் அளவீடு (உயிரியல்)</td><td><span class="badge b-hot">உயர்நிலை/PG</span></td><td>"வளர்சிதை மாற்ற வீதம் Vs உடல் திணிவு"</td></tr>
+    <tr><td>18</td><td>ஆட்ஸ் Vs நிகழ்தகவு மாற்றம்</td><td><span class="badge b-hot">உயர்நிலை/PG</span></td><td>"3:2 சாதக ஆட்ஸ்"</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- SHORTCUT VAULT TA -->
+<section id="ta-shortcuts">
+  <div class="kicker"><span class="num">07</span> குறுக்குவழி களஞ்சியம்</div>
+  <h2>அனைத்து குறுக்குவழி முறைகளும் ஒரே இடத்தில்</h2>
+  <details open><summary>1. குறுக்கு பெருக்கல் சோதனை</summary><p>a:b :: c:d என்பதைச் சரிபார்க்க, a×d = b×c என உறுதிசெய்யவும். எந்த விகிதத்தையும் முதலில் எளிமையாக்க வேண்டியதில்லை.</p></details>
+  <details><summary>2. ஒற்றை அலகு முறை</summary><p>முதலில் ஒரு அலகின் மதிப்பைக் கண்டு (ஒரு பேனாவின் விலை, ஒரு தொழிலாளியின் நாளாந்த வேலை), பின் அளவை அதிகரிக்கவும்/குறைக்கவும் — இதுவே பள்ளி மட்ட விகித வாக்கியக் கணக்குகளில் பெரும்பாலானவற்றைத் தீர்க்கிறது.</p></details>
+  <details><summary>3. பகிர்வுக்கான பாகங்கள் முறை</summary><p>a:b:c விகிதத்தில் மொத்தத்தைப் பிரிக்க, மொத்தத்தை (a+b+c) ஆல் வகுத்து "ஒரு பாகத்தின்" மதிப்பைக் காணவும், பின் a, b, c ஆல் முறையே பெருக்கவும்.</p></details>
+  <details><summary>4. Componendo-Dividendo</summary><p>a/b = c/d எனில், (a+b)/(a−b) = (c+d)/(c−d). இது பல இயற்கணித விகித நிரூபணங்களில் சிக்கலான குறுக்கு பெருக்கலைத் தவிர்க்கிறது.</p></details>
+  <details><summary>5. விகிதங்களை இணைப்பதற்கான பாலம் அமைக்கும் பெருக்கி</summary><p>A:B, B:C கொடுக்கப்பட்டால், B-உறுப்புகள் பொருந்துமாறு ஒவ்வொரு விகிதத்தையும் அளவு மாற்றி, நேரடியாக A:B:C-ஐப் படிக்கவும்.</p></details>
+  <details><summary>6. k-முறை</summary><p>ஒரு கணக்கு மூன்று அல்லது அதற்கு மேற்பட்ட அளவுகளின் விகிதத்தையும், ஒரு கூடுதல் சமன்பாட்டையும் (கூட்டுத்தொகை, சுற்றளவு, வித்தியாசம்) தந்தால், அளவுகளை k-இன் மடங்குகளாக எழுதி, ஒரே ஒரு நேரியல் சமன்பாட்டைத் தீர்க்கவும்.</p></details>
+  <details><summary>7. ஆட்ஸ்-லிருந்து-நிகழ்தகவு மாற்றம்</summary><p>சாதகமான ஆட்ஸ் a:b உடனடியாக நிகழ்தகவு a/(a+b) ஆக மாறும்; வகுத்தி ஆட்ஸின் இரு பக்கங்களின் கூட்டுத்தொகை என்பதை நினைவில் கொள்ளவும்.</p></details>
+  <details><summary>8. அளவுகோல்-காரணி வர்க்கம்/கனப்படுத்தல் விதி</summary><p>ஒத்த உருவங்களுக்கு, பரப்பளவு அல்லது கன அளவு விகிதங்களை மீண்டும் கணக்கிடாதீர்கள் — பரப்பளவுக்கு நேரியல் விகிதத்தை வர்க்கமாக்கவும், கன அளவுக்கு கனமாக்கவும்.</p></details>
+</section>
+
+<!-- LIFE GALLERY TA -->
+<section id="ta-life">
+  <div class="kicker"><span class="num">08</span> அன்றாட வாழ்வு பயன்பாட்டு காட்சியகம்</div>
+  <h2>அன்றாடம் நீங்கள் விகிதத்தைச் சந்திக்கும் இடங்கள்</h2>
+  <div class="grid2">
+    <div class="example"><span class="tag">சமையல்</span><p>ஒரு சமையல் குறிப்பை அளவு மாற்றும்போது, சுவை கெடாமல் இருக்க ஒவ்வொரு பொருளும் ஒரே விகிதத்தில் இருக்க வேண்டும்.</p></div>
+    <div class="example"><span class="tag">புகைப்படம் & திரைகள்</span><p>4:3, 16:9, 21:9 போன்ற வடிவ விகிதங்கள் ஒரு படம் எப்படி கட்டமைக்கப்படுகிறது என்பதை தீர்மானிக்கின்றன.</p></div>
+    <div class="example"><span class="tag">வரைபடங்கள் & மாதிரிகள்</span><p>வரைபடத்தின் அளவுகோல் விகிதமும் (1:50,000), பொம்மை கார் அளவுகோல் விகிதமும் (1:64) ஒரே பிரிவு சூத்திர தர்க்கத்தைப் பயன்படுத்துகின்றன.</p></div>
+    <div class="example"><span class="tag">கட்டுமானம்</span><p>சாந்து கலவைகள் (சிமெண்ட்:மணல்:கல், எ.கா. 1:2:4) பாகங்கள் முறையை நம்பியே சரியான பை அளவுகளைத் தீர்மானிக்கின்றன.</p></div>
+    <div class="example"><span class="tag">நிதி</span><p>நடப்பு விகிதம், கடன்-பங்கு விகிதம், விலை-வருவாய் விகிதம் ஆகியவை முதலீட்டாளர்கள் மற்றும் கணக்காளர்களின் அன்றாட சொற்கள்.</p></div>
+    <div class="example"><span class="tag">விளையாட்டு</span><p>வெற்றி-தோல்வி விகிதங்களும், சைக்கிளின் கியர் விகிதங்களும் இரண்டு தொடர்புடைய அளவுகளை ஒப்பிடும் ஒரே கருத்தை விவரிக்கின்றன.</p></div>
+    <div class="example"><span class="tag">கலை & கட்டிடக்கலை</span><p>பொன் விகிதம் பண்டைய கிரேக்க கோவில்களிலிருந்து நவீன லோகோ வடிவமைப்பு வரை விகிதாசாரத்தை வழிநடத்தியுள்ளது.</p></div>
+    <div class="example"><span class="tag">உயிரியல் & மருத்துவம்</span><p>இடுப்பு-இடை விகிதம், உடல் எடைக்கேற்ற மருந்தளவு, பரப்பளவு-கன அளவு விகிதம் — இவை அனைத்தும் உண்மையான மருத்துவ முடிவுகளை இயக்குகின்றன.</p></div>
+  </div>
+</section>
+
+<!-- PRACTICE TA -->
+<section id="ta-practice">
+  <div class="kicker"><span class="num">09</span> நிலைவாரியாக பயிற்சி கணக்குகள்</div>
+  <h2>ஒவ்வொரு நிலையிலும் உங்களைச் சோதிக்கவும்</h2>
+  <h3><span class="badge b-easy">அடிப்படை</span></h3>
+  <ol>
+    <li>45:60 என்ற விகிதத்தை எளிய வடிவில் எழுதவும்.</li>
+    <li>8:12, 6:9-உடன் விகிதசமமா?</li>
+    <li>5:8 :: x:40 எனில் x-ஐக் காணவும்.</li>
+  </ol>
+  <h3><span class="badge b-med">இடைநிலை</span></h3>
+  <ol>
+    <li>₹2,400-ஐ A, B, C-க்கிடையே 3:4:5 விகிதத்தில் பிரிக்கவும்.</li>
+    <li>A:B = 3:4, B:C = 8:9 எனில், A:B:C-ஐக் காணவும்.</li>
+    <li>18 தொழிலாளர்கள் ஒரு சுவரை 12 நாட்களில் கட்டுகிறார்கள். 24 தொழிலாளர்கள் எத்தனை நாட்கள் எடுத்துக்கொள்வார்கள்?</li>
+  </ol>
+  <h3><span class="badge b-hard">மேம்பட்டவை</span></h3>
+  <ol>
+    <li>ஒரு முக்கோணத்தின் கோணங்கள் 2:3:4 விகிதத்தில் உள்ளன. ஒவ்வொரு கோணத்தையும் காணவும்.</li>
+    <li>இரு ஒத்த கூம்புகளின் உயரங்கள் 3:5 விகிதத்தில் உள்ளன. அவற்றின் கன அளவுகளின் விகிதத்தைக் காணவும்.</li>
+    <li>(1,2), (7,8) புள்ளிகளை இணைக்கும் கோட்டுத்துண்டை 2:1 விகிதத்தில் பிரிக்கும் புள்ளியைக் காணவும்.</li>
+  </ol>
+  <h3><span class="badge b-hot">உயர்நிலை சிந்தனை</span></h3>
+  <ol>
+    <li>தொடர்ச்சியான ஃபிபனாச்சி எண்களின் விகிதம் ஏன் φ = (1+√5)/2-ஐ நெருங்குகிறது என இயற்கணிதப்படி விளக்கவும்.</li>
+    <li>வளர்சிதை மாற்ற வீதம் (உடல் திணிவு)^(3/4) என அளவீடு செய்யப்படுகிறது. விலங்கு B-க்கு விலங்கு A-ஐ விட 16 மடங்கு திணிவு இருந்தால், அவற்றின் வளர்சிதை மாற்ற வீதங்களின் விகிதத்தைக் காணவும்.</li>
+    <li>5:3 எதிர் ஆட்ஸை நிகழ்தகவாக மாற்றி, "எதிர் ஆட்ஸ்" மற்றும் "சாதக ஆட்ஸ்" இடையேயான வேறுபாட்டை விளக்கவும்.</li>
+  </ol>
+  <div class="fact">மேலே உள்ள முறைகளைப் பயன்படுத்தி மாணவரே விடைகளைக் கண்டறிய வேண்டும் என்பதே இதன் நோக்கம் — எண்ணை மனனம் செய்வதில் அல்ல, முறையைப் பயிற்சி செய்வதில்தான் உண்மையான திறமை உள்ளது.</div>
+</section>
+
+</main>
+</div>
+<!-- ===================== END TAMIL PANEL ===================== -->
+
+<!-- ============ SHARED 50-QUESTION BILINGUAL QUIZ ============ -->
+<main>
+<section id="quiz">
+  <div class="kicker"><span class="num">10</span> Final Objective-Type Quiz · இறுதி புறவய வினாடி வினா</div>
+  <h2>50-Question Self-Test (Foundation → Postgraduate)</h2>
+  <p>Choose one option for every question, then press <strong>Check My Score</strong>. Correct answers turn green, incorrect ones turn red.<br>ஒவ்வொரு கேள்விக்கும் ஒரு விடையைத் தேர்ந்தெடுத்து, <strong>மதிப்பெண் பார்க்க</strong> பொத்தானை அழுத்தவும்.</p>
+  <div id="quizScoreBar" class="fact" style="display:none;"><span id="quizScoreText"></span></div>
+  <form id="quizForm"></form>
+  <button id="quizSubmit" class="btn" type="button">Check My Score · மதிப்பெண் பார்க்க</button>
+  <button id="quizReset" class="btn-outline" type="button">Reset · மீட்டமை</button>
+</section>
+</main>
+
+<footer class="footer">
+  <p>Karkai · a note spanning Grade 6 to postgraduate mathematics on Ratio and Proportion — the grammar every comparison in nature, finance, and art quietly obeys.</p>
+  <p class="ta">கற்கை · விகிதம் மற்றும் விகிதசமம் — ஆறாம் வகுப்பிலிருந்து முதுகலைப் பட்டப்படிப்பு வரை பரவிய குறிப்பு. இயற்கை, நிதி, கலை ஆகியவற்றில் ஒவ்வொரு ஒப்பீடும் அமைதியாகக் கடைப்பிடிக்கும் இலக்கணம் இதுவே.</p>
+</footer>
+
+<script>
+// ---- Language tab switching ----
+const btnEN = document.getElementById('btnEN');
+const btnTA = document.getElementById('btnTA');
+const panelEN = document.getElementById('panel-en');
+const panelTA = document.getElementById('panel-ta');
+btnEN.addEventListener('click', ()=>{
+  panelEN.classList.add('active'); panelTA.classList.remove('active');
+  btnEN.classList.add('active'); btnTA.classList.remove('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+btnTA.addEventListener('click', ()=>{
+  panelTA.classList.add('active'); panelEN.classList.remove('active');
+  btnTA.classList.add('active'); btnEN.classList.remove('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// ---- animated counters ----
+document.querySelectorAll('.count').forEach(el=>{
+  const target = parseInt(el.getAttribute('data-target'));
+  let cur = 0;
+  const step = Math.max(1, Math.round(target/30));
+  const t = setInterval(()=>{
+    cur += step;
+    if(cur>=target){ cur=target; clearInterval(t); }
+    el.textContent = cur;
+  }, 35);
+});
+
+// ---- interactive ratio splitter bar (shared logic for en & ta) ----
+function wireSplitter(suffix, currencyLabel, splitWord, ofWord){
+  const a = document.getElementById('rA_'+suffix);
+  const b = document.getElementById('rB_'+suffix);
+  const c = document.getElementById('rC_'+suffix);
+  const tot = document.getElementById('rTotal_'+suffix);
+  const bar = document.getElementById('ratioBar_'+suffix);
+  const label = document.getElementById('ratioLabel_'+suffix);
+  const segs = bar.querySelectorAll('div');
+  function repaint(){
+    const va = parseFloat(a.value)||0, vb = parseFloat(b.value)||0, vc = parseFloat(c.value)||0;
+    const sum = va+vb+vc || 1;
+    const total = parseFloat(tot.value)||0;
+    segs[0].style.flexBasis = (va/sum*100)+'%';
+    segs[1].style.flexBasis = (vb/sum*100)+'%';
+    segs[2].style.flexBasis = (vc/sum*100)+'%';
+    segs[0].textContent = (total*va/sum).toFixed(0);
+    segs[1].textContent = (total*vb/sum).toFixed(0);
+    segs[2].textContent = (total*vc/sum).toFixed(0);
+    label.textContent = splitWord + ' ' + currencyLabel + total + ' ' + ofWord + ' ' + va+':'+vb+':'+vc;
+  }
+  [a,b,c,tot].forEach(inp=>inp.addEventListener('input', repaint));
+  repaint();
+}
+wireSplitter('en','₹','Splitting','in the ratio');
+wireSplitter('ta','₹','','-ஐ இந்த விகிதத்தில் பிரித்தல்:');
+
+// ================= CHARTS (duplicated EN + TA) =================
+function makeRecipeChart(id){
+  new Chart(document.getElementById(id), {
+    type:'bar',
+    data:{
+      labels: id.includes('_ta') ? ['மாவு','சர்க்கரை','வெண்ணெய்'] : ['Flour','Sugar','Butter'],
+      datasets:[
+        {label: id.includes('_ta') ? '4 பேருக்கு (கிராம்)' : 'Serves 4 (grams)', data:[200,100,80], backgroundColor:'#c9a24b'},
+        {label: id.includes('_ta') ? '10 பேருக்கு (கிராம்)' : 'Serves 10 (grams)', data:[500,250,200], backgroundColor:'#3f7d72'}
+      ]
+    },
+    options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+  });
+}
+makeRecipeChart('chartRecipe_en');
+makeRecipeChart('chartRecipe_ta');
+
+function makeDivideChart(id){
+  const isTA = id.includes('_ta');
+  new Chart(document.getElementById(id), {
+    type:'doughnut',
+    data:{
+      labels: isTA ? ['பங்கு 1 (₹200)','பங்கு 2 (₹300)','பங்கு 3 (₹500)'] : ['Share 1 (₹200)','Share 2 (₹300)','Share 3 (₹500)'],
+      datasets:[{data:[200,300,500], backgroundColor:['#c9a24b','#3f7d72','#2f3f6b']}]
+    },
+    options:{ responsive:true, plugins:{legend:{position:'bottom'}} }
+  });
+}
+makeDivideChart('chartDivide_en');
+makeDivideChart('chartDivide_ta');
+
+function makeScalingChart(id){
+  const isTA = id.includes('_ta');
+  const linear = [1,1.5,2,2.5,3];
+  const area = linear.map(v=>v*v);
+  const volume = linear.map(v=>v*v*v);
+  new Chart(document.getElementById(id), {
+    type:'line',
+    data:{
+      labels: linear.map(v=>'×'+v),
+      datasets:[
+        {label: isTA ? 'நீள விகிதம்' : 'Linear Ratio', data:linear, borderColor:'#c9a24b', fill:false},
+        {label: isTA ? 'பரப்பளவு விகிதம் (²)' : 'Area Ratio (²)', data:area, borderColor:'#3f7d72', fill:false},
+        {label: isTA ? 'கன அளவு விகிதம் (³)' : 'Volume Ratio (³)', data:volume, borderColor:'#b5493c', fill:false}
+      ]
+    },
+    options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+  });
+}
+makeScalingChart('chartScaling_en');
+makeScalingChart('chartScaling_ta');
+
+function makeFibChart(id){
+  const isTA = id.includes('_ta');
+  const fib = [1,1,2,3,5,8,13,21,34,55,89,144];
+  const ratios = [];
+  for(let i=1;i<fib.length;i++){ ratios.push(fib[i]/fib[i-1]); }
+  new Chart(document.getElementById(id), {
+    type:'line',
+    data:{
+      labels: ratios.map((_,i)=>'F'+(i+2)+'/F'+(i+1)),
+      datasets:[
+        {label: isTA ? 'F(n+1)/F(n)' : 'F(n+1)/F(n)', data:ratios, borderColor:'#3f7d72', fill:false, tension:0.2},
+        {label: 'φ ≈ 1.618', data:ratios.map(()=>1.6180339887), borderColor:'#c9a24b', borderDash:[6,4], fill:false, pointRadius:0}
+      ]
+    },
+    options:{ responsive:true, plugins:{legend:{position:'bottom'}} }
+  });
+}
+makeFibChart('chartFib_en');
+makeFibChart('chartFib_ta');
+
+// ================= 50-QUESTION BILINGUAL QUIZ =================
+const quizData = [
+["Express 12:18 in simplest form.","12:18-ஐ எளிய வடிவில் எழுதவும்.",["2:3","3:4","4:5","1:2"],0,"Foundation"],
+["Is 4:6 in proportion with 10:15?","4:6, 10:15-உடன் விகிதசமமா?",["Yes","No","Cannot say","Only if simplified"],0,"Foundation"],
+["Find x if 3:4 :: x:20.","3:4 :: x:20 எனில் x-ஐக் காணவும்.",["12","15","18","20"],1,"Foundation"],
+["What is the antecedent in the ratio 7:9?","7:9 விகிதத்தில் முந்திடு எது?",["7","9","16","2"],0,"Foundation"],
+["What is the consequent in the ratio 5:11?","5:11 விகிதத்தில் பிந்திடு எது?",["5","11","16","6"],1,"Foundation"],
+["Which of these is NOT equivalent to 2:5?","இவற்றில் எது 2:5-க்குச் சமமானது அல்ல?",["4:10","6:15","10:20","20:50"],2,"Foundation"],
+["A class has 20 boys and 25 girls. Find the ratio of boys to girls in simplest form.","ஒரு வகுப்பில் 20 சிறுவர்கள், 25 சிறுமியர்கள். சிறுவர்-சிறுமியர் விகிதத்தை எளிய வடிவில் காணவும்.",["4:5","5:4","2:3","3:2"],0,"Foundation"],
+["Convert the ratio 3:7 into a fraction (part to whole).","3:7 விகிதத்தை பின்னமாக மாற்றவும் (பாகம் முழுமைக்கு).",["3/7","7/3","3/10","7/10"],2,"Foundation"],
+["'3 apples : 4 hours' is best described as:","'3 ஆப்பிள் : 4 மணி நேரம்' எதைக் குறிக்கும்?",["A ratio","A rate","A proportion","A percentage"],1,"Foundation"],
+["What does '::' mean between two ratios?","இரு விகிதங்களுக்கு இடையே '::' எதைக் குறிக்கிறது?",["Multiplication","Addition","They are in proportion (equal)","They are unequal"],2,"Foundation"],
+["Find the mean proportional between 4 and 25.","4, 25-க்கு இடையேயான சராசரி விகிதசமத்தைக் காணவும்.",["10","12","14.5","100"],0,"Elementary"],
+["Find the third proportional to 3 and 6.","3, 6-க்கு மூன்றாம் விகிதசமத்தைக் காணவும்.",["9","12","18","24"],2,"Elementary"],
+["Find the fourth proportional to 2, 3, and 8.","2, 3, 8-க்கு நான்காம் விகிதசமத்தைக் காணவும்.",["10","12","16","20"],1,"Elementary"],
+["If y varies directly as x, and y=10 when x=2, find y when x=5.","y, x-ஐப் பொறுத்து நேரடியாக மாறினால், x=2 ஆக y=10 எனில், x=5 ஆக y காணவும்.",["20","25","30","15"],1,"Elementary"],
+["If y varies inversely as x, and y=6 when x=4, find y when x=8.","y, x-ஐப் பொறுத்து எதிர்மாறாக மாறினால், x=4 ஆக y=6 எனில், x=8 ஆக y காணவும்.",["2","3","4","12"],1,"Elementary"],
+["More workers finishing a job faster is an example of:","அதிக தொழிலாளர்கள் வேலையை விரைவாக முடிப்பது எதற்கு எடுத்துக்காட்டு?",["Direct proportion","Inverse proportion","No proportion","Equal proportion"],1,"Elementary"],
+["Convert the ratio 1:4 into percentages of the whole.","1:4 விகிதத்தை மொத்தத்தின் சதவீதங்களாக மாற்றவும்.",["10% : 90%","20% : 80%","25% : 75%","40% : 60%"],1,"Elementary"],
+["Which value must you divide by to convert ratio a:b into percentages of a whole?","a:b விகிதத்தை மொத்தத்தின் சதவீதங்களாக மாற்ற எதனால் வகுக்க வேண்டும்?",["a only","b only","a+b","a−b"],2,"Elementary"],
+["If a:b = 3:4, what is b:a?","a:b = 3:4 எனில், b:a என்ன?",["3:4","4:3","1:1","7:1"],1,"Elementary"],
+["Simplify the ratio 0.4 : 0.6.","0.4 : 0.6 என்ற விகிதத்தை எளிமையாக்கவும்.",["2:3","4:6","3:2","1:1"],0,"Elementary"],
+["Divide ₹1,000 in the ratio 2:3:5. Find the largest share.","₹1,000-ஐ 2:3:5 விகிதத்தில் பிரிக்கவும். பெரிய பங்கைக் காணவும்.",["₹200","₹300","₹500","₹400"],2,"Intermediate"],
+["Divide ₹900 in the ratio 2:3:4. Find the smallest share.","₹900-ஐ 2:3:4 விகிதத்தில் பிரிக்கவும். சிறிய பங்கைக் காணவும்.",["₹100","₹200","₹300","₹400"],1,"Intermediate"],
+["If A:B = 2:3 and B:C = 4:5, find A:B:C.","A:B = 2:3, B:C = 4:5 எனில், A:B:C-ஐக் காணவும்.",["8:12:15","2:4:5","6:9:10","8:9:15"],0,"Intermediate"],
+["If A:B = 3:4 and B:C = 8:9, find A:C.","A:B = 3:4, B:C = 8:9 எனில், A:C-ஐக் காணவும்.",["6:9","3:9","24:36","2:3"],3,"Intermediate"],
+["Two brothers' ages are in ratio 3:5. After 4 years the ratio becomes 4:6. Find the younger brother's present age.","இரு சகோதரர்களின் வயது விகிதம் 3:5. 4 ஆண்டுகளுக்குப் பிறகு விகிதம் 4:6. இளைய சகோதரனின் தற்போதைய வயதைக் காணவும்.",["10","12","15","20"],1,"Intermediate"],
+["12 workers finish a wall in 8 days. How many days for 16 workers?","12 தொழிலாளர்கள் ஒரு சுவரை 8 நாட்களில் முடிக்கின்றனர். 16 தொழிலாளர்களுக்கு எத்தனை நாட்கள்?",["4 days","6 days","10 days","12 days"],1,"Intermediate"],
+["18 workers build a wall in 12 days. How many days would 24 workers take?","18 தொழிலாளர்கள் ஒரு சுவரை 12 நாட்களில் கட்டுகின்றனர். 24 தொழிலாளர்களுக்கு எத்தனை நாட்கள்?",["6 days","8 days","9 days","10 days"],2,"Intermediate"],
+["A mixture has milk and water in the ratio 4:1. If 20 litres of water is added to 80 litres of this mixture, find the new ratio of milk to water.","ஒரு கலவையில் பால்-நீர் விகிதம் 4:1. 80 லிட்டர் கலவையில் 20 லிட்டர் நீர் சேர்த்தால், புதிய பால்-நீர் விகிதத்தைக் காணவும்.",["2:1","4:3","8:5","3:2"],1,"Intermediate"],
+["Using componendo-dividendo, if a/b = c/d, then (a+b)/(a−b) equals:","Componendo-dividendo பயன்படுத்தி, a/b=c/d எனில், (a+b)/(a−b) எதற்குச் சமம்?",["(c+d)/(c−d)","(c−d)/(c+d)","c/d","d/c"],0,"Intermediate"],
+["If a:b = 5:7, find (a+b):(a−b).","a:b = 5:7 எனில், (a+b):(a−b)-ஐக் காணவும்.",["12:2","6:1","2:12","1:6"],1,"Intermediate"],
+["The sides of a triangle are in ratio 3:4:5 with perimeter 60 cm. Find the longest side.","ஒரு முக்கோணத்தின் பக்கங்கள் 3:4:5 விகிதத்தில், சுற்றளவு 60 செ.மீ. நீளமான பக்கத்தைக் காணவும்.",["15 cm","20 cm","25 cm","30 cm"],2,"Advanced"],
+["Two similar cylinders have radii in ratio 2:3. Find the ratio of their volumes.","இரு ஒத்த உருளைகளின் ஆரங்கள் 2:3 விகிதத்தில். கன அளவுகளின் விகிதத்தைக் காணவும்.",["4:9","8:27","2:3","6:9"],1,"Advanced"],
+["Two similar triangles have sides in ratio 2:5. Find the ratio of their areas.","இரு ஒத்த முக்கோணங்களின் பக்கங்கள் 2:5 விகிதத்தில். பரப்பளவுகளின் விகிதத்தைக் காணவும்.",["2:5","4:25","4:10","8:125"],1,"Advanced"],
+["Find the point dividing the segment from (2,3) to (8,9) in the ratio 1:2.","(2,3)-லிருந்து (8,9) வரையிலான கோட்டுத்துண்டை 1:2 விகிதத்தில் பிரிக்கும் புள்ளியைக் காணவும்.",["(4,5)","(5,6)","(6,7)","(4,6)"],0,"Advanced"],
+["Find the midpoint (ratio 1:1) of the segment from (0,0) to (10,14).","(0,0)-லிருந்து (10,14) வரையிலான கோட்டுத்துண்டின் நடுப்புள்ளியைக் (1:1) காணவும்.",["(5,7)","(4,6)","(10,14)","(5,14)"],0,"Advanced"],
+["A company has current assets ₹6,00,000 and current liabilities ₹3,00,000. Find the current ratio.","ஒரு நிறுவனத்தின் நடப்பு சொத்துக்கள் ₹6,00,000, நடப்புக் கடன்கள் ₹3,00,000. நடப்பு விகிதத்தைக் காணவும்.",["1:1","2:1","3:1","1:2"],1,"Advanced"],
+["Using invertendo, if a/b = c/d, then:","Invertendo பயன்படுத்தி, a/b=c/d எனில்:",["b/a = d/c","a/c = b/d","(a+b)/b=(c+d)/d","a/b = d/c"],0,"Advanced"],
+["Using alternendo, if a/b = c/d, then:","Alternendo பயன்படுத்தி, a/b=c/d எனில்:",["b/a=d/c","a/c=b/d","(a−b)/b=(c−d)/d","a/d=b/c"],1,"Advanced"],
+["A recipe for 4 people needs 200g flour. How much flour for 10 people (keeping the ratio same)?","4 பேருக்கான சமையல் குறிப்புக்கு 200கிராம் மாவு தேவை. 10 பேருக்கு (அதே விகிதத்தில்) எவ்வளவு மாவு தேவை?",["400g","450g","500g","550g"],2,"Advanced"],
+["Debt-to-equity ratio of 2:1 means debt is how many times equity?","2:1 கடன்-பங்கு விகிதம் என்றால் கடன் பங்கை விட எத்தனை மடங்கு?",["Equal","2 times","0.5 times","3 times"],1,"Advanced"],
+["The golden ratio φ satisfies which equation?","பொன் விகிதம் φ எந்த சமன்பாட்டை நிறைவேற்றுகிறது?",["φ² = φ + 1","φ² = φ − 1","φ = 2φ","φ² = 2φ"],0,"HOT/PG"],
+["The exact value of the golden ratio φ is:","பொன் விகிதம் φ-இன் துல்லியமான மதிப்பு:",["(1+√5)/2","(1−√5)/2","√5/2","2/√5"],0,"HOT/PG"],
+["As n→∞, the ratio F(n+1)/F(n) of consecutive Fibonacci numbers approaches:","n→∞ ஆக, தொடர்ச்சியான ஃபிபனாச்சி எண்களின் விகிதம் F(n+1)/F(n) எதை நெருங்கும்?",["e","π","φ ≈ 1.618","2"],2,"HOT/PG"],
+["A ratio a:b is formally defined in advanced algebra as an equivalence class under which relation?","மேம்பட்ட இயற்கணிதத்தில் a:b விகிதம் எந்த தொடர்பின் கீழ் சமான வகுப்பாக வரையறுக்கப்படுகிறது?",["a+d = b+c","ad = bc","a−d = b−c","a/d = b/c is false"],1,"HOT/PG"],
+["Which of these is a dimensionless ratio used in fluid dynamics?","திரவ இயக்கவியலில் பயன்படும் அலகற்ற விகிதம் எது?",["Speed","Reynolds number","Density","Pressure"],1,"HOT/PG"],
+["Kleiber's Law states metabolic rate is proportional to body mass raised to the power:","க்லைபரின் விதிப்படி வளர்சிதை மாற்ற வீதம் உடல் திணிவின் எந்த அடுக்குக்கு விகிதாசாரமாக உள்ளது?",["1/2","3/4","2/3","1"],1,"HOT/PG"],
+["If Animal B has 16 times the mass of Animal A, and metabolic rate ∝ mass^(3/4), find the ratio of metabolic rates B:A.","விலங்கு B, விலங்கு A-ஐ விட 16 மடங்கு திணிவு கொண்டது, வளர்சிதை மாற்ற வீதம் ∝ திணிவு^(3/4) எனில், B:A வளர்சிதை மாற்ற விகிதத்தைக் காணவும்.",["4:1","8:1","16:1","2:1"],1,"HOT/PG"],
+["Odds of 3:2 in favour of an event convert to what probability?","ஒரு நிகழ்வுக்கு சாதகமான 3:2 ஆட்ஸ் எந்த நிகழ்தகவாக மாறும்?",["0.4","0.5","0.6","0.75"],2,"HOT/PG"],
+["Surface-area-to-volume ratio of an object, as its linear size increases, generally:","ஒரு பொருளின் நேரியல் அளவு அதிகரிக்கும்போது, பரப்பளவு-கன அளவு விகிதம் பொதுவாக:",["Increases","Decreases","Stays constant","Becomes zero"],1,"HOT/PG"]
+];
+
+const quizForm = document.getElementById('quizForm');
+quizData.forEach((item,i)=>{
+  const [qEn,qTa,opts,correct,tag] = item;
+  const div = document.createElement('div');
+  div.className = 'quiz-q';
+  div.dataset.correct = correct;
+  const letters = ['A','B','C','D'];
+  div.innerHTML = `
+    <div class="qmeta">Q${i+1} · ${tag}</div>
+    <div class="qhead">${i+1}. ${qEn}</div>
+    <div class="qtamil">${qTa}</div>
+    <div class="quiz-opts">
+      ${opts.map((o,j)=>`<label data-idx="${j}"><input type="radio" name="q${i}" value="${j}"> ${letters[j]}) ${o}</label>`).join('')}
+    </div>`;
+  quizForm.appendChild(div);
+});
+
+document.getElementById('quizSubmit').addEventListener('click', ()=>{
+  let score = 0;
+  document.querySelectorAll('.quiz-q').forEach((div,i)=>{
+    const correct = parseInt(div.dataset.correct);
+    const chosen = div.querySelector(`input[name="q${i}"]:checked`);
+    const labels = div.querySelectorAll('.quiz-opts label');
+    labels.forEach(l=>l.classList.remove('right-ans','chosen-wrong'));
+    labels[correct].classList.add('right-ans');
+    if(chosen){
+      const chosenIdx = parseInt(chosen.value);
+      if(chosenIdx === correct){ score++; div.classList.add('correct'); div.classList.remove('incorrect'); }
+      else { div.classList.add('incorrect'); div.classList.remove('correct'); labels[chosenIdx].classList.add('chosen-wrong'); }
+    } else {
+      div.classList.add('incorrect');
+    }
+  });
+  const bar = document.getElementById('quizScoreBar');
+  bar.style.display = 'block';
+  document.getElementById('quizScoreText').textContent = `You scored ${score} / 50 (${(score*2)}%) · உங்கள் மதிப்பெண் 50-இல் ${score}`;
+  bar.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+document.getElementById('quizReset').addEventListener('click', ()=>{
+  document.querySelectorAll('.quiz-q').forEach(div=>{
+    div.classList.remove('correct','incorrect');
+    div.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+    div.querySelectorAll('.quiz-opts label').forEach(l=>l.classList.remove('right-ans','chosen-wrong'));
+  });
+  document.getElementById('quizScoreBar').style.display='none';
+});
+</script>
+</body>
+</html>
