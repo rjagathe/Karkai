@@ -501,17 +501,25 @@
       "ta": "எண் திறன்",
       "chapters": [
         {
-          "key": "chapter-01-percentage",
-          "en": "Percentage",
-          "ta": "சதவீதம்",
-          "units": [
-            {
-              "key": "unit-01-percentage-high-school-level",
-              "en": "Percentage — High School Level",
-              "ta": "சதவீதம் — உயர்நிலைப் பள்ளி மட்டம்",
-              "path": "subjects/numerical-aptitude/chapter-01-percentage/unit-01-percentage-high-school-level/index.html"
-            }
-          ],
+  "key": "chapter-01-percentage",
+  "en": "Percentage",
+  "ta": "சதவீதம்",
+  "units": [
+    {
+      "key": "unit-01-percentage-high-school-level",
+      "en": "Percentage — High School Level",
+      "ta": "சதவீதம் — உயர்நிலைப் பள்ளி மட்டம்",
+      "path": "subjects/numerical-aptitude/chapter-01-percentage/unit-01-percentage-high-school-level/index.html"
+    },
+    {
+      "key": "unit-02-ratio-proportion",
+      "en": "Ratio & Proportion",
+      "ta": "விகிதம் மற்றும் விகிதாச்சாரம்",
+      "path": "subjects/numerical-aptitude/chapter-02-ratio-and-proportion/unit-01-ratio-and-proportion/index.html"
+    }
+  ]
+}
+
           {
               "key": "unit-02-ratio-proportion",
               "en": "Ratio & Proportion",
