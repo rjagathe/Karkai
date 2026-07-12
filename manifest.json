@@ -519,15 +519,7 @@
     }
   ]
 }
-
-          {
-              "key": "unit-02-ratio-proportion",
-              "en": "Ratio & Proportion",
-              "ta": "விகிதம் மற்றும் விகிதாச்சாரம்",
-              "path": "subjects/numerical-aptitude/chapter-02-ratio-and-proportion/unit-01-ratio-and-proportion/index.html"
-            }
-        },
-        {
+       {
           "key": "chapter-02-arithmetic-ability",
           "en": "Arithmetic Ability",
           "ta": "கணிதத் திறன்",
