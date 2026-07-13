@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Percentage Masterclass | சதவீதம் — Grade 6 to Postgraduate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --slate:#1e2b28;
+    --slate-2:#26362f;
+    --chalk:#f3ecd9;
+    --gold:#c9a24b;
+    --gold-soft:#e8cf8f;
+    --indigo:#2f3f6b;
+    --coral:#b5493c;
+    --teal:#3f7d72;
+    --paper:#fbf7ec;
+    --ink:#2a241a;
+    --line:#d8cba7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    line-height:1.7;
+    font-size:17px;
+  }
+  .ta{ font-family:'Noto Sans Tamil', serif; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:700; color:var(--slate); margin:0 0 .3em; }
+  h1 .ta, h2 .ta, h3 .ta{ font-family:'Noto Sans Tamil', serif; font-weight:600; }
+  a{ color:var(--indigo); }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ===== KARKAI BANNER (added) ===== */
+  .karkai-banner{ background:var(--slate); color:var(--chalk); text-align:center; padding:1rem 1rem; border-bottom:4px solid var(--gold); }
+  .karkai-banner h1{ color:var(--chalk); margin:0; font-size:2rem; }
+  .karkai-banner .ta{ display:block; color:var(--gold-soft); font-size:1.15rem; margin-top:0.2rem; }
+
+  /* ===== LANGUAGE TOGGLE (added) ===== */
+  nav.langbar{ display:flex; justify-content:center; gap:0.5rem; padding:0.7rem; background:var(--slate-2); }
+  nav.langbar button{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:0.85rem; padding:0.45rem 1.2rem; border-radius:999px; border:2px solid var(--gold); background:transparent; color:var(--chalk); cursor:pointer; }
+  nav.langbar button.active{ background:var(--gold); border-color:var(--gold); color:var(--slate); }
+  body.lang-en-only .ta,
+  body.lang-en-only .tamil-block,
+  body.lang-en-only .qtamil{ display:none !important; }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:radial-gradient(1200px 500px at 15% -10%, #33453d, var(--slate) 60%);
+    color:var(--chalk);
+    padding:70px 6vw 60px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px solid var(--gold);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; right:-60px; top:-60px;
+    width:340px; height:340px; border-radius:50%;
+    border:2px dashed rgba(232,207,143,0.25);
+  }
+  .eyebrow{
+    display:inline-block; letter-spacing:.14em; text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--gold-soft);
+    border:1px solid rgba(232,207,143,.4); padding:5px 12px; border-radius:100px; margin-bottom:18px;
+  }
+  .hero h1{ color:var(--chalk); font-size:clamp(2.1rem,4.5vw,3.4rem); line-height:1.15; max-width:16ch;}
+  .hero .sub{ font-family:'Noto Sans Tamil',serif; color:var(--gold-soft); font-size:1.35rem; margin-top:6px;}
+  .hero p.lede{ max-width:62ch; color:#d9d2bd; font-size:1.08rem; margin-top:18px;}
+  .chalkline{ color:#a9c7bc; font-style:italic; margin-top:20px; font-family:'Fraunces',serif;}
+
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center; margin-top:10px;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  /* signature: 100-square animated percentage grid */
+  .percent-grid-wrap{
+    background:rgba(0,0,0,.18); border:1px solid rgba(232,207,143,.3); border-radius:14px; padding:22px;
+  }
+  .percent-grid{
+    display:grid; grid-template-columns:repeat(10,1fr); gap:3px; width:100%; max-width:300px; margin:0 auto 14px;
+  }
+  .percent-grid div{
+    aspect-ratio:1; background:rgba(255,255,255,.08); border-radius:2px;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .percent-grid div.on{ background:var(--gold); }
+  .grid-controls{ display:flex; align-items:center; gap:14px; color:var(--chalk); font-family:'JetBrains Mono',monospace; font-size:14px;}
+  .grid-controls input[type=range]{ flex:1; accent-color:var(--gold); }
+  #gridValue{ font-size:1.4rem; color:var(--gold-soft); min-width:64px; text-align:right;}
+
+  /* ===== NAV ===== */
+  nav.toc{
+    position:sticky; top:0; z-index:50;
+    background:var(--slate); color:var(--chalk);
+    display:flex; gap:0; overflow-x:auto; white-space:nowrap;
+    border-bottom:3px solid var(--gold);
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+  }
+  nav.toc a{
+    color:#cfd6cf; text-decoration:none; padding:12px 16px; border-right:1px solid rgba(255,255,255,.08);
+  }
+  nav.toc a:hover{ background:var(--slate-2); color:var(--gold-soft); }
+
+  /* ===== LAYOUT ===== */
+  main{ max-width:960px; margin:0 auto; padding:10px 6vw 40px; }
+  section{ padding:46px 0; border-bottom:1px solid var(--line); }
+  section:last-child{ border-bottom:none; }
+  .kicker{
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--teal); margin-bottom:8px; display:flex; align-items:center; gap:10px;
+  }
+  .kicker .num{ background:var(--slate); color:var(--gold-soft); padding:2px 8px; border-radius:4px;}
+  h2{ font-size:clamp(1.5rem,3vw,2.15rem); border-left:5px solid var(--gold); padding-left:14px; }
+  h3{ font-size:1.25rem; color:var(--indigo); margin-top:1.4em; }
+  .tamil-block{
+    background:#f2ecd8; border-left:4px solid var(--teal); padding:14px 18px; border-radius:0 8px 8px 0;
+    font-family:'Noto Sans Tamil',serif; margin:14px 0; font-size:1.02rem;
+  }
+
+  /* fact box */
+  .fact{
+    background:#fff9ec; border:1.5px solid var(--gold); border-radius:10px;
+    padding:16px 20px; margin:20px 0; position:relative; box-shadow:3px 3px 0 rgba(201,162,75,.25);
+  }
+  .fact::before{
+    content:"★ KEY FACT"; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em;
+    color:#8a6a1e; display:block; margin-bottom:6px; font-weight:700;
+  }
+  .fact.tamil::before{ content:"★ முக்கிய குறிப்பு"; }
+
+  .warn{
+    background:#fdf0ee; border:1.5px solid var(--coral); border-radius:10px; padding:16px 20px; margin:20px 0;
+  }
+  .warn::before{ content:"⚠ COMMON MISTAKE"; font-family:'JetBrains Mono',monospace; font-size:11px; color:#8a3225; font-weight:700; display:block; margin-bottom:6px;}
+
+  .formula{
+    background:var(--slate); color:var(--chalk); border-radius:10px; padding:18px 22px; margin:18px 0;
+    font-family:'JetBrains Mono',monospace; font-size:1.05rem; overflow-x:auto;
+  }
+  .formula .lbl{ color:var(--gold-soft); font-size:12px; text-transform:uppercase; letter-spacing:.1em; display:block; margin-bottom:6px;}
+
+  table{ width:100%; border-collapse:collapse; margin:18px 0; font-size:.96rem; }
+  th,td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+  th{ background:var(--slate); color:var(--chalk); font-family:'JetBrains Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em;}
+  tr:nth-child(even){ background:#f4ecd6; }
+  .tblwrap{ overflow-x:auto; }
+
+  .example{
+    background:#eef2ee; border-radius:10px; padding:16px 20px; margin:16px 0; border-top:3px solid var(--teal);
+  }
+  .example .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); text-transform:uppercase; font-weight:700;}
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:800px){ .grid2{grid-template-columns:1fr;} }
+
+  .chart-card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px; margin:18px 0;}
+  .chart-card h4{ margin-top:0; font-size:1rem; color:var(--slate); }
+
+  .badge{
+    display:inline-block; padding:3px 10px; border-radius:100px; font-family:'JetBrains Mono',monospace;
+    font-size:11px; font-weight:700; letter-spacing:.04em; margin-right:6px;
+  }
+  .b-easy{ background:#dcefe1; color:#1f6b3a; }
+  .b-med{ background:#fdeecb; color:#8a5a10; }
+  .b-hard{ background:#fbe0dc; color:#96331f; }
+  .b-hot{ background:#e4e0f5; color:#3f2f8a; }
+
+  details{ background:#fff; border:1px solid var(--line); border-radius:8px; margin:10px 0; padding:10px 16px;}
+  summary{ cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:.9rem; color:var(--indigo); font-weight:600;}
+  details[open] summary{ margin-bottom:8px;}
+
+  .footer{ background:var(--slate); color:#c9c2ab; padding:40px 6vw; text-align:center; font-size:.9rem;}
+  .footer .ta{ color:var(--gold-soft); }
+
+  .count{ font-family:'Fraunces',serif; font-weight:700; font-size:2.1rem; color:var(--gold-soft);}
+  .stat-row{ display:flex; gap:26px; margin-top:22px; flex-wrap:wrap;}
+  .stat{ min-width:110px;}
+  .stat .lbl{ font-family:'JetBrains Mono',monospace; font-size:11px; color:#a9c7bc; text-transform:uppercase;}
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; animation:none !important; } }
+
+  /* quiz */
+  .quiz-q{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:14px 0; }
+  .quiz-q .qhead{ font-weight:600; color:var(--slate); margin-bottom:4px; }
+  .quiz-q .qtamil{ font-family:'Noto Sans Tamil',serif; color:var(--teal); font-size:.92rem; margin-bottom:10px; }
+  .quiz-q .qmeta{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#8a8370; margin-bottom:8px; }
+  .quiz-opts label{ display:block; padding:7px 10px; margin:5px 0; border-radius:6px; border:1px solid var(--line); cursor:pointer; }
+  .quiz-opts label:hover{ background:#f4ecd6; }
+  .quiz-opts input{ margin-right:8px; }
+  .quiz-q.correct .quiz-opts label.right-ans{ background:#dcefe1; border-color:#1f6b3a; }
+  .quiz-q.incorrect .quiz-opts label.chosen-wrong{ background:#fbe0dc; border-color:#96331f; }
+  .quiz-q.incorrect .quiz-opts label.right-ans{ background:#dcefe1; border-color:#1f6b3a; }
+</style>
+</head>
+<body>
+
+<div class="karkai-banner">
+  <h1>கற்கை<span class="ta">Karkai — Percentage Masterclass</span></h1>
+</div>
+
+<nav class="langbar">
+  <button id="btn-both" class="active" onclick="setAdvLang('both')">EN + தமிழ்</button>
+  <button id="btn-en" onclick="setAdvLang('en')">English</button>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">A NOTE FROM THE CHALKBOARD · 100 YEARS AT THE BLACKBOARD</div>
+  <div class="hero-grid">
+    <div>
+      <h1>The Complete Grammar of Percentage<br><span class="sub">சதவீதம் — முழுமையான பாடம்</span></h1>
+      <p class="lede">From the six-year-old's first pizza slice to the postgraduate's continuously-compounding integral — percentage is one idea, "out of a hundred," followed all the way to the edge of what mathematics can say about change. This note walks that whole road, in English and in Tamil, without skipping a step.</p>
+      <p class="chalkline">"Give me a ratio, and I will give you a percentage. Give me a percentage, and I will show you the whole world counting in hundreds." — a teacher's aphorism</p>
+      <div class="stat-row">
+        <div class="stat"><span class="count" data-target="100">0</span><div class="lbl">is always the whole</div></div>
+        <div class="stat"><span class="count" data-target="5">0</span><div class="lbl">Learning Tiers</div></div>
+        <div class="stat"><span class="count" data-target="30">0</span><div class="lbl">Worked Examples</div></div>
+      </div>
+    </div>
+    <div class="percent-grid-wrap">
+      <div class="percent-grid" id="percentGrid"></div>
+      <div class="grid-controls">
+        <span>0%</span>
+        <input type="range" min="0" max="100" value="42" id="gridSlider">
+        <span>100%</span>
+      </div>
+      <div style="text-align:center;margin-top:8px;"><span id="gridValue">42%</span> <span style="color:#a9c7bc;font-size:13px;">of the square shaded</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#tier1">01 · Foundation</a>
+  <a href="#tier2">02 · Formulae</a>
+  <a href="#tier3">03 · Intermediate + Shortcuts</a>
+  <a href="#tier4">04 · Advanced</a>
+  <a href="#tier5">05 · Higher-Order Thinking</a>
+  <a href="#taxonomy">06 · Problem Taxonomy</a>
+  <a href="#shortcuts">07 · Shortcut Vault</a>
+  <a href="#life">08 · Daily-Life Gallery</a>
+  <a href="#practice">09 · Practice Sets</a>
+  <a href="#quiz">10 · 50-Q Quiz</a>
+</nav>
+
+<main>
+
+<!-- ============ TIER 1 : FOUNDATION ============ -->
+<section id="tier1">
+  <div class="kicker"><span class="num">01</span> Basic Foundational Outline · அடிப்படை கருத்துருவம்</div>
+  <h2>What "Percentage" Actually Means</h2>
+  <p>The word <em>percentage</em> comes from the Latin <em>per centum</em>, meaning "by the hundred" or "out of a hundred." Whenever you meet a percentage, your mind should immediately translate it into a picture: a square, a strip, a jar of one hundred marbles, divided into one hundred equal parts, of which some number are coloured in. A percentage is nothing more, and nothing less, than a fraction whose denominator has been fixed, once and for all, at 100.</p>
+
+  <div class="tamil-block">
+    <strong>தமிழில்:</strong> "சதவீதம்" என்ற சொல் "நூற்றுக்கு" என்று பொருள்படும் இலத்தீன் சொல்லான <em>per centum</em> என்பதிலிருந்து வந்தது. ஒரு சதவீதத்தைக் கண்டால் உடனே அதை ஒரு படமாக மாற்றி பாருங்கள் — நூறு சம பாகங்களாகப் பிரிக்கப்பட்ட ஒரு சதுரம் அல்லது நூறு உருண்டைகள் கொண்ட ஒரு பாத்திரம் — அதில் எத்தனை பாகங்கள் நிறமிடப்பட்டுள்ளனவோ, அதுவே சதவீதம். எனவே சதவீதம் என்பது வெறுமனே 100 ஐத் தொகுதியாகக் கொண்ட ஒரு பின்னம்தான்.
+  </div>
+
+  <div class="fact">
+    A percentage is a <strong>frozen fraction</strong>. "45%" is simply a shorthand for the fraction 45/100, which is a shorthand for the ratio 45 : 100, which is a shorthand for "45 parts out of every 100 parts of the whole." Every rule in this entire subject is a consequence of that single sentence.
+  </div>
+
+  <h3>The Three Faces of the Same Number</h3>
+  <p>Grade-6 students should learn, before anything else, that a fraction, a decimal, and a percentage are three costumes worn by the same underlying quantity. 1/2, 0.5, and 50% are not three different ideas — they are one idea photographed from three different angles.</p>
+
+  <div class="tblwrap">
+  <table>
+    <tr><th>Fraction</th><th>Decimal</th><th>Percentage</th><th>Everyday picture</th></tr>
+    <tr><td>1/2</td><td>0.5</td><td>50%</td><td>Half a chapati</td></tr>
+    <tr><td>1/4</td><td>0.25</td><td>25%</td><td>One leg of a table (out of four)</td></tr>
+    <tr><td>3/4</td><td>0.75</td><td>75%</td><td>Three-quarters of a water bottle</td></tr>
+    <tr><td>1/5</td><td>0.20</td><td>20%</td><td>One friend out of a group of five</td></tr>
+    <tr><td>1/10</td><td>0.10</td><td>10%</td><td>One rupee out of ten</td></tr>
+    <tr><td>1</td><td>1.00</td><td>100%</td><td>The full glass, the whole class, everything</td></tr>
+  </table>
+  </div>
+
+  <h3>Why the Whole World Uses "Out of 100"</h3>
+  <p>Humans standardised on 100 for the same reason we standardised on metres and kilograms: because comparison is impossible without a common unit. If Arun scores 34 out of 40 in Mathematics and 78 out of 90 in Science, you cannot tell, at a glance, which is the better performance — the two "wholes" are different sizes. But convert both to "out of 100," and instantly they can stand side by side on the same ruler: 85% and 86.7%. Percentage is the great equaliser of fractions with unequal denominators.</p>
+
+  <div class="chart-card">
+    <h4>Why We Convert to a Common Base — Marks Comparison</h4>
+    <canvas id="chartCompare" height="140"></canvas>
+  </div>
+
+  <h3>First Daily-Life Encounters (for the young learner)</h3>
+  <ul>
+    <li><strong>School marks:</strong> "You scored 90%" — meaning, if the test had been out of 100, you'd have got 90.</li>
+    <li><strong>Battery and signal bars:</strong> your phone's 63% battery is literally 63 parts out of 100 of the total charge.</li>
+    <li><strong>Weather:</strong> "70% chance of rain" tells you how many times out of a hundred similar weather patterns, rain followed.</li>
+    <li><strong>Shopping discount tags:</strong> "Flat 30% Off" on a shirt tag.</li>
+    <li><strong>Milk fat content:</strong> "Toned milk, 3% fat."</li>
+  </ul>
+
+  <div class="tamil-block">
+    <strong>அன்றாட வாழ்வில்:</strong> தேர்வு மதிப்பெண்கள் (90%), மொபைல் பேட்டரி (63%), வானிலை அறிக்கை (மழைக்கான 70% வாய்ப்பு), கடைகளில் தள்ளுபடி (30% தள்ளுபடி), பாலில் உள்ள கொழுப்பு அளவு (3%) — இவை அனைத்தும் சதவீதத்தின் முதல் அன்றாட எடுத்துக்காட்டுகள்.
+  </div>
+
+  <h3>The Visual Model Every Teacher Should Draw First</h3>
+  <p>Draw a 10×10 grid — a hundred small squares. Shade a portion. The number of shaded squares <em>is</em> the percentage. This is precisely the animated grid at the top of this document: move the slider, and watch the shaded count and the percentage move together, square for square. This single image is the seed from which every later formula grows — the grid never lies, and whenever a formula feels confusing, redraw the grid.</p>
+
+  <div class="warn">
+    A percentage on its own, with no "of what," is meaningless. "20% off" only makes sense once you know 20% <em>of the marked price</em>. Students at every level — including postgraduate ones reading financial reports — forget to ask "20% of what base?" This single question prevents almost every classic percentage trap you will meet later in this document.
+  </div>
+</section>
+
+<!-- ============ TIER 2 : ELEMENTARY FORMULAE ============ -->
+<section id="tier2">
+  <div class="kicker"><span class="num">02</span> Elementary-Level Formulae · அடிப்படை சூத்திரங்கள்</div>
+  <h2>The Four Core Formulae</h2>
+  <p>Every percentage problem you will ever face — from a Grade 6 worksheet to a postgraduate econometrics paper — is built from combinations of just four elementary moves. Master these four, and the "intermediate," "advanced," and "higher-order" tiers later in this document are simply these same four ideas wearing more elaborate clothing.</p>
+
+  <div class="formula">
+    <span class="lbl">Formula 1 — Percentage of a whole</span>
+    Percentage % = (Part ÷ Whole) × 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>Out of 25 students in a class, 20 passed. What percentage passed?<br>
+    % = (20 ÷ 25) × 100 = 0.8 × 100 = <strong>80%</strong></p>
+  </div>
+
+  <div class="formula">
+    <span class="lbl">Formula 2 — Finding the part (percentage of a number)</span>
+    Part = (Percentage ÷ 100) × Whole
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>Find 15% of 240.<br>
+    Part = (15 ÷ 100) × 240 = 0.15 × 240 = <strong>36</strong></p>
+  </div>
+
+  <div class="formula">
+    <span class="lbl">Formula 3 — Finding the whole (reverse percentage)</span>
+    Whole = (Part ÷ Percentage) × 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>60 is 24% of what number?<br>
+    Whole = (60 ÷ 24) × 100 = <strong>250</strong></p>
+  </div>
+
+  <div class="formula">
+    <span class="lbl">Formula 4 — Percentage change (increase / decrease)</span>
+    % Change = [(New Value − Old Value) ÷ Old Value] × 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>A shirt's price rises from ₹800 to ₹920. Find the percentage increase.<br>
+    % Change = [(920 − 800) ÷ 800] × 100 = (120 ÷ 800) × 100 = <strong>15% increase</strong></p>
+  </div>
+
+  <div class="tamil-block">
+    <strong>நான்கு அடிப்படை சூத்திரங்கள்:</strong><br>
+    1) சதவீதம் = (பாகம் ÷ முழுமை) × 100<br>
+    2) பாகம் = (சதவீதம் ÷ 100) × முழுமை<br>
+    3) முழுமை = (பாகம் ÷ சதவீதம்) × 100<br>
+    4) மாற்ற சதவீதம் = [(புதிய மதிப்பு − பழைய மதிப்பு) ÷ பழைய மதிப்பு] × 100<br>
+    இந்த நான்கு சூத்திரங்களே இந்தப் பாடத்தின் அனைத்து பிரச்சினைகளுக்கும் அடிப்படை.
+  </div>
+
+  <h3>Converting Between the Three Forms — the Working Rules</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>From</th><th>To</th><th>Rule</th><th>Example</th></tr>
+    <tr><td>Fraction</td><td>Percentage</td><td>Multiply by 100%</td><td>3/8 → (3/8)×100 = 37.5%</td></tr>
+    <tr><td>Decimal</td><td>Percentage</td><td>Multiply by 100 (shift decimal 2 places right)</td><td>0.625 → 62.5%</td></tr>
+    <tr><td>Percentage</td><td>Decimal</td><td>Divide by 100 (shift decimal 2 places left)</td><td>8% → 0.08</td></tr>
+    <tr><td>Percentage</td><td>Fraction</td><td>Write over 100, then simplify</td><td>44% → 44/100 = 11/25</td></tr>
+  </table>
+  </div>
+
+  <div class="fact">
+    Whenever you multiply, the two numbers you multiply must describe the <strong>same whole</strong>. "15% of 240" works because both the 15% and the 240 refer to the same base. A huge share of student errors comes from applying a percentage to the wrong base — always ask, silently, "15% of <em>what</em>, exactly?"
+  </div>
+
+  <h3>Essential Fraction–Percentage Equivalents (memorise these — they are the engine of every shortcut in Tier 3)</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th></tr>
+    <tr><td>1/2</td><td>50%</td><td>1/3</td><td>33.33%</td><td>1/6</td><td>16.67%</td></tr>
+    <tr><td>1/4</td><td>25%</td><td>2/3</td><td>66.67%</td><td>1/7</td><td>14.29%</td></tr>
+    <tr><td>3/4</td><td>75%</td><td>1/5</td><td>20%</td><td>1/8</td><td>12.5%</td></tr>
+    <tr><td>1/9</td><td>11.11%</td><td>2/5</td><td>40%</td><td>3/8</td><td>37.5%</td></tr>
+    <tr><td>1/10</td><td>10%</td><td>3/5</td><td>60%</td><td>5/8</td><td>62.5%</td></tr>
+    <tr><td>1/11</td><td>9.09%</td><td>4/5</td><td>80%</td><td>7/8</td><td>87.5%</td></tr>
+    <tr><td>1/12</td><td>8.33%</td><td>1/16</td><td>6.25%</td><td>1/20</td><td>5%</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ============ TIER 3 : INTERMEDIATE + SHORTCUTS ============ -->
+<section id="tier3">
+  <div class="kicker"><span class="num">03</span> Intermediate Problem-Solving with Shortcuts · இடைநிலை சூழல்கள் மற்றும் குறுக்குவழிகள்</div>
+  <h2>Where Percentage Meets Real Transactions</h2>
+  <p>This tier is where percentage stops being an abstract exercise and starts running the world's shops, banks, and newsrooms. Six problem-families dominate this tier: profit & loss, discount, tax, simple interest, mixtures/averages, and successive change. Each gets its formula, a shortcut, and a worked example.</p>
+
+  <h3>3.1 Profit and Loss</h3>
+  <div class="formula">
+    <span class="lbl">Core relations</span>
+    Profit % = (Profit ÷ Cost Price) × 100&nbsp;&nbsp;|&nbsp;&nbsp; Loss % = (Loss ÷ Cost Price) × 100<br>
+    Selling Price = Cost Price × (1 ± Profit/Loss %/100)
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>A trader buys a fan for ₹1,200 and sells it for ₹1,380. Find the profit percentage.<br>
+    Profit = 1380 − 1200 = 180. Profit % = (180 ÷ 1200) × 100 = <strong>15%</strong></p>
+  </div>
+  <div class="fact">Profit and Loss percentages are <strong>always</strong> calculated on the Cost Price, never on the Selling Price — this single rule resolves most confusion in this chapter.</div>
+
+  <h3>3.2 Discount</h3>
+  <div class="formula">
+    <span class="lbl">Core relation</span>
+    Selling Price = Marked Price × (1 − Discount%/100)
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example — Successive Discounts</span>
+    <p>A shop offers "30% off, plus an extra 10% off" on a ₹2,000 jacket. What is the final price? (Note: this is NOT a 40% discount!)<br>
+    After 30%: 2000 × 0.70 = 1400. After extra 10%: 1400 × 0.90 = <strong>₹1,260</strong> (an effective discount of 37%, not 40%).</p>
+  </div>
+  <div class="warn">Successive percentage changes never simply add up. "30% off then 10% off" is <em>not</em> "40% off." The shortcut formula for this appears below.</div>
+
+  <h3>⚡ Shortcut: The Successive Percentage-Change Formula</h3>
+  <div class="formula">
+    <span class="lbl">For two successive changes of a% and b% (use negative values for decreases)</span>
+    Net % Change = a + b + (a × b)/100
+  </div>
+  <div class="example">
+    <span class="tag">Applying the shortcut</span>
+    <p>Discounts of 30% then 10%: here a = −30, b = −10.<br>
+    Net = −30 + (−10) + (−30×−10)/100 = −40 + 3 = <strong>−37%</strong> (matches the ₹1,260 answer instantly, no multiplication of large numbers needed).</p>
+  </div>
+
+  <h3>3.3 Tax (GST/VAT-style problems)</h3>
+  <div class="formula">
+    <span class="lbl">Core relation</span>
+    Price Paid = List Price × (1 + Tax%/100)
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>An item listed at ₹1,500 attracts 18% GST. Find the final billed amount.<br>
+    Final = 1500 × 1.18 = <strong>₹1,770</strong></p>
+  </div>
+
+  <h3>3.4 Simple Interest as a Percentage-Per-Year Problem</h3>
+  <div class="formula">
+    <span class="lbl">Core relation</span>
+    Simple Interest = (Principal × Rate% × Time in years) ÷ 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>₹8,000 is invested at 9% simple interest per year for 3 years. Find the interest earned.<br>
+    SI = (8000 × 9 × 3) ÷ 100 = <strong>₹2,160</strong></p>
+  </div>
+
+  <h3>3.5 Mixtures and Weighted Percentage Averages</h3>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>A class of 30 boys has an average score of 70%, and a class of 20 girls has an average score of 85%. What is the combined average percentage?<br>
+    Weighted average = (30×70 + 20×85) ÷ 50 = (2100 + 1700) ÷ 50 = 3800 ÷ 50 = <strong>76%</strong> — not the naive (70+85)/2 = 77.5%.</p>
+  </div>
+  <div class="warn">Never average two percentages by simply adding and halving unless the two groups are of exactly equal size. Always weight by the size of each group.</div>
+
+  <h3>⚡ Mental-Math Shortcuts for Everyday Percentage Calculation</h3>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Shortcut</th><th>How it works</th><th>Example</th></tr>
+    <tr><td><strong>10% trick</strong></td><td>Move the decimal point one place left</td><td>10% of 450 = 45</td></tr>
+    <tr><td><strong>1% trick</strong></td><td>Move the decimal point two places left</td><td>1% of 450 = 4.5</td></tr>
+    <tr><td><strong>5% trick</strong></td><td>Find 10%, then halve it</td><td>5% of 450 = 45 ÷ 2 = 22.5</td></tr>
+    <tr><td><strong>15% trick</strong></td><td>10% + half of 10%</td><td>15% of 450 = 45 + 22.5 = 67.5</td></tr>
+    <tr><td><strong>20% trick</strong></td><td>Double the 10% value</td><td>20% of 450 = 45 × 2 = 90</td></tr>
+    <tr><td><strong>25% trick</strong></td><td>Divide by 4 (since 25% = 1/4)</td><td>25% of 480 = 480 ÷ 4 = 120</td></tr>
+    <tr><td><strong>50% trick</strong></td><td>Simply halve</td><td>50% of 360 = 180</td></tr>
+    <tr><td><strong>Flip trick (x% of y = y% of x)</strong></td><td>Percentage is commutative</td><td>8% of 25 = 25% of 8 = 2 (easier direction!)</td></tr>
+    <tr><td><strong>Multiplying-factor trick</strong></td><td>+r% → multiply by (1+r/100); −r% → multiply by (1−r/100)</td><td>Increase 350 by 12% → 350 × 1.12 = 392</td></tr>
+  </table>
+  </div>
+
+  <div class="fact">
+    The "Flip Trick" — <strong>x% of y = y% of x</strong> — is one of the most underused shortcuts in all of school mathematics. Asked for 8% of 25? Flip it mentally to 25% of 8, i.e. a quarter of 8, which is 2 — done in two seconds, with no written multiplication at all.
+  </div>
+
+  <div class="tamil-block">
+    <strong>குறுக்குவழி நுட்பங்கள்:</strong> 10% கண்டுபிடிக்க தசம புள்ளியை ஒரு இடம் இடமாக நகர்த்தவும்; 5% என்பது 10% இன் பாதி; 25% என்பது எண்ணை 4 ஆல் வகுத்தல்; தொடர் தள்ளுபடிகளுக்கு a + b + (ab/100) என்ற சூத்திரத்தைப் பயன்படுத்தவும் — இது பெரிய எண்களைப் பெருக்காமலேயே விடையைத் தரும்.
+  </div>
+
+  <div class="chart-card">
+    <h4>Successive Discount vs. a Single Flat Discount — ₹2,000 Jacket</h4>
+    <canvas id="chartDiscount" height="140"></canvas>
+  </div>
+</section>
+
+<!-- ============ TIER 4 : ADVANCED ============ -->
+<section id="tier4">
+  <div class="kicker"><span class="num">04</span> Problems for Advanced Students · மேம்பட்ட மாணவர்களுக்கான சிக்கல்கள்</div>
+  <h2>Percentage as an Algebraic and Statistical Tool</h2>
+  <p>At the undergraduate tier, percentage stops being arithmetic and becomes algebra: unknowns are embedded inside percentage relationships, and percentages must be combined across time, across categories, and across measurement systems.</p>
+
+  <h3>4.1 Percentage Points vs. Percentage Change (a crucial distinction)</h3>
+  <div class="fact">
+    If an interest rate rises from 8% to 10%, it has risen by <strong>2 percentage points</strong>, but by <strong>25% in relative (percentage) terms</strong> — because (10−8)/8 × 100 = 25%. Newspapers routinely confuse these two, and advanced students must learn to tell them apart, since financial and policy decisions depend on which one is meant.
+  </div>
+
+  <h3>4.2 Successive Percentage Change Over Multiple Periods (Compounding of Percentages)</h3>
+  <div class="formula">
+    <span class="lbl">General n-period compounding of a percentage rate r</span>
+    Final Value = Initial Value × (1 + r/100)<sup>n</sup>
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example — Population Growth</span>
+    <p>A town's population is 50,000 and grows at 4% per year. Find the population after 3 years.<br>
+    P = 50000 × (1.04)³ = 50000 × 1.124864 = <strong>56,243</strong> (approx.)</p>
+  </div>
+
+  <h3>4.3 Reverse-Engineering the Original Value (Back-calculation)</h3>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>After a 20% pay cut, an employee's salary is ₹36,000. What was the original salary?<br>
+    36000 = Original × (1 − 0.20) = Original × 0.80 → Original = 36000 ÷ 0.80 = <strong>₹45,000</strong></p>
+  </div>
+  <div class="warn">Students often wrongly reverse a decrease by simply adding back the same percentage (adding 20% of 36,000). That is incorrect, because the 20% cut was taken from a <em>larger</em> original base, not from the reduced value. Always divide by (1 − r/100), never multiply back by (1 + r/100), when reversing a decrease.</div>
+
+  <h3>4.4 Data Interpretation: Reading Percentages from a Pie Chart</h3>
+  <div class="chart-card">
+    <h4>Household Monthly Budget — Percentage Breakdown</h4>
+    <canvas id="chartBudget" height="220"></canvas>
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>If the monthly household income is ₹60,000, and the chart shows 22% spent on Education, find the amount.<br>
+    Amount = (22/100) × 60000 = <strong>₹13,200</strong></p>
+  </div>
+
+  <h3>4.5 Percentage Error in Measurement (a bridge to Physics and Engineering)</h3>
+  <div class="formula">
+    <span class="lbl">Definition</span>
+    % Error = (|Measured Value − True Value| ÷ True Value) × 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>The true length of a rod is 200 cm; a student measures 198.5 cm. Find the percentage error.<br>
+    % Error = (1.5 ÷ 200) × 100 = <strong>0.75%</strong></p>
+  </div>
+
+  <h3>4.6 Algebraic (Unknown-in-the-Middle) Percentage Equations</h3>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>A number increased by 25% and then decreased by 20% gives 114. Find the original number x.<br>
+    x × 1.25 × 0.80 = 114 → x × 1.00 = 114 → <strong>x = 114</strong><br>
+    (Notice: +25% followed by −20% is a coincidence that returns a net multiplier of exactly 1 — a nice example of how successive percentage changes can cancel, but only when the multipliers themselves multiply to 1, not when the raw percentages sum to zero.)</p>
+  </div>
+
+  <h3>4.7 Combining Percentages Across Different Bases (Ratio & Proportion Bridge)</h3>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>In an election, Candidate A gets 55% of 40,000 votes cast in Ward 1, and 45% of 60,000 votes cast in Ward 2. Who wins overall, and by what overall percentage?<br>
+    A's votes = 0.55×40000 + 0.45×60000 = 22000 + 27000 = 49000 out of 100000 total = <strong>49%</strong> — A actually loses the overall contest despite winning Ward 1 comfortably, since Ward 2 was larger and there A's share was under half.</p>
+  </div>
+  <div class="fact">This is a classic case of <strong>Simpson's Paradox in miniature</strong> — good performance in each sub-group does not guarantee a good overall percentage once the sub-groups are unevenly sized. Advanced students meet this idea again in statistics.</div>
+</section>
+
+<!-- ============ TIER 5 : HIGHER ORDER THINKING ============ -->
+<section id="tier5">
+  <div class="kicker"><span class="num">05</span> Higher-Order Thinking (Postgraduate Tier) · உயர்நிலை சிந்தனை</div>
+  <h2>Percentage at the Frontier: Calculus, Finance, and Inference</h2>
+  <p>At the postgraduate level, "percentage" reveals itself as the discrete cousin of a much deeper idea: the <em>relative rate of change</em>. This section connects percentage to calculus, continuous compounding, and statistical inference — the places where research mathematicians and economists actually live.</p>
+
+  <h3>5.1 From Discrete Percentage Growth to Continuous Growth (the calculus bridge)</h3>
+  <p>When a quantity N grows by a constant percentage rate r every instant rather than once a year, the discrete formula N×(1+r/100)ⁿ is replaced by exponential growth governed by a differential equation:</p>
+  <div class="formula">
+    <span class="lbl">Continuous percentage growth</span>
+    dN/dt = rN&nbsp;&nbsp;⟹&nbsp;&nbsp; N(t) = N₀ e<sup>rt</sup>
+  </div>
+  <p>Here, r (as a decimal, e.g. 0.05 for 5%) is precisely a <strong>relative</strong> or <strong>percentage</strong> rate of change: r = (1/N)(dN/dt). This is why economists call r the "instantaneous percentage growth rate" — it is the calculus definition of a percentage change happening continuously rather than once a year.</p>
+
+  <div class="fact">
+    The bridge from school percentage to university calculus is this single identity: <strong>percentage rate of change ≈ derivative of the natural logarithm.</strong> Formally, the relative rate of change of N is d(ln N)/dt. This is why "percentage growth rates" appear so often expressed as differences in logarithms in econometrics — ln(N_new) − ln(N_old) ≈ percentage change, for small changes.
+  </div>
+
+  <h3>5.2 Continuous Compounding vs. Annual Compounding — the Limit</h3>
+  <div class="formula">
+    <span class="lbl">The classical limit definition</span>
+    lim (n→∞) (1 + r/n)<sup>n</sup> = e<sup>r</sup>
+  </div>
+  <p>Compounding a percentage rate more and more frequently — annually, then monthly, then daily, then every instant — converges to Euler's number e raised to the rate. This single limit is the historical origin of the constant e itself: Jacob Bernoulli discovered it in 1683 while studying compound interest, which is to say, while studying percentages compounding faster and faster.</p>
+
+  <div class="chart-card">
+    <h4>Simple vs. Compound vs. Continuous Growth of ₹10,000 at 10% over 20 Years</h4>
+    <canvas id="chartGrowth" height="180"></canvas>
+  </div>
+
+  <h3>5.3 CAGR — The Postgraduate Finance Standard</h3>
+  <div class="formula">
+    <span class="lbl">Compound Annual Growth Rate</span>
+    CAGR = [(Final Value ÷ Initial Value)<sup>1/n</sup> − 1] × 100
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>An investment grows from ₹2,00,000 to ₹4,50,000 over 6 years. Find the CAGR.<br>
+    CAGR = [(450000/200000)^(1/6) − 1] × 100 = [(2.25)^(0.1667) − 1] × 100 ≈ <strong>14.4% per year</strong></p>
+  </div>
+  <div class="warn">A common analyst's error is to report the total percentage gain (125% here) as if it were an annual rate. CAGR exists precisely to correct that — always distinguish <em>total</em> percentage growth from <em>annualised</em> percentage growth.</div>
+
+  <h3>5.4 Real vs. Nominal Percentage Returns — the Fisher Relation</h3>
+  <div class="formula">
+    <span class="lbl">Approximate and exact forms</span>
+    Real Rate ≈ Nominal Rate − Inflation Rate&nbsp;&nbsp;(approximate)<br>
+    (1 + Real) = (1 + Nominal) ÷ (1 + Inflation)&nbsp;&nbsp;(exact, Irving Fisher's equation)
+  </div>
+  <div class="example">
+    <span class="tag">Worked Example</span>
+    <p>A bank offers 8% nominal interest while inflation runs at 5.5%. Find the exact real return.<br>
+    (1+Real) = 1.08 ÷ 1.055 = 1.0237 → Real ≈ <strong>2.37%</strong> (not the naive 2.5% from simple subtraction).</p>
+  </div>
+
+  <h3>5.5 Percentages and the Base-Rate Fallacy (Bayesian Statistics)</h3>
+  <p>Postgraduate statistics reveals that percentages describing conditional probabilities can be dangerously misleading if the underlying <em>base rate</em> is ignored — this is one of the most important "higher-order" percentage traps in all applied mathematics.</p>
+  <div class="example">
+    <span class="tag">The Classic Base-Rate Problem</span>
+    <p>A disease affects 1% of a population. A test for it is 95% accurate (correctly identifies both sick and healthy people 95% of the time). If a random person tests positive, what is the actual percentage chance they have the disease?<br>
+    Out of 10,000 people: 100 are truly sick (1%), of whom 95 test positive. Of the 9,900 healthy people, 5% — that is 495 — <em>also</em> test positive (false positives). So of 95 + 495 = 590 positive results, only 95 are truly sick.<br>
+    True percentage chance of disease given a positive test = 95 ÷ 590 × 100 ≈ <strong>16.1%</strong>, dramatically lower than the "95%" the test's accuracy might suggest.</p>
+  </div>
+  <div class="fact">This is <strong>Bayes' Theorem</strong> expressed entirely in percentage language, and it is the single most important "percentage trap" a postgraduate reader of medical, legal, or machine-learning statistics can learn to recognise. A high accuracy percentage does not translate directly into a high confidence percentage once the base rate is small.</div>
+
+  <h3>5.6 Percentage Change of a Ratio — the Delta Method (Research-Level)</h3>
+  <p>When a quantity Q is itself a ratio of two other quantities, Q = A/B, and both A and B change by small percentages a% and b% respectively, the percentage change in Q is approximately:</p>
+  <div class="formula">
+    <span class="lbl">First-order approximation (used throughout error propagation in the sciences)</span>
+    % Change in Q ≈ a% − b%
+  </div>
+  <p>This single approximation underlies "percentage error propagation" in physics laboratories, GDP-per-capita calculations in economics (where A = GDP, B = population), and productivity statistics everywhere. It is the discrete shadow of the calculus rule d(ln(A/B)) = d(ln A) − d(ln B).</p>
+</section>
+
+<!-- ============ TAXONOMY ============ -->
+<section id="taxonomy">
+  <div class="kicker"><span class="num">06</span> How Many Types of Problems Will You Face? · எத்தனை வகையான சிக்கல்கள்</div>
+  <h2>The Complete Taxonomy of Percentage Problems</h2>
+  <p>Across every textbook, competitive exam, and research paper, percentage problems reduce to the following recognisable families. Learning to <em>recognise which family a new problem belongs to</em> is the single highest-leverage skill in this entire subject.</p>
+
+  <div class="tblwrap">
+  <table>
+    <tr><th>#</th><th>Problem Type</th><th>Level</th><th>Signature Phrase</th></tr>
+    <tr><td>1</td><td>Basic part-of-whole calculation</td><td><span class="badge b-easy">Foundation</span></td><td>"What percentage of X is Y?"</td></tr>
+    <tr><td>2</td><td>Finding a part given a percentage</td><td><span class="badge b-easy">Foundation</span></td><td>"Find 15% of 240"</td></tr>
+    <tr><td>3</td><td>Reverse percentage (finding the whole)</td><td><span class="badge b-easy">Foundation</span></td><td>"60 is 24% of what number?"</td></tr>
+    <tr><td>4</td><td>Percentage increase / decrease</td><td><span class="badge b-med">Elementary</span></td><td>"Price rose from ₹800 to ₹920"</td></tr>
+    <tr><td>5</td><td>Profit & Loss percentage</td><td><span class="badge b-med">Intermediate</span></td><td>"Bought for X, sold for Y"</td></tr>
+    <tr><td>6</td><td>Discount (single & successive)</td><td><span class="badge b-med">Intermediate</span></td><td>"30% off, extra 10% off"</td></tr>
+    <tr><td>7</td><td>Tax / GST addition</td><td><span class="badge b-med">Intermediate</span></td><td>"18% GST applicable"</td></tr>
+    <tr><td>8</td><td>Simple Interest via percentage rate</td><td><span class="badge b-med">Intermediate</span></td><td>"Invested at 9% per annum"</td></tr>
+    <tr><td>9</td><td>Weighted average of percentages</td><td><span class="badge b-med">Intermediate</span></td><td>"Two groups of different sizes"</td></tr>
+    <tr><td>10</td><td>Percentage points vs. percentage change</td><td><span class="badge b-hard">Advanced</span></td><td>"Rate rose from 8% to 10%"</td></tr>
+    <tr><td>11</td><td>Multi-period compounding of a rate</td><td><span class="badge b-hard">Advanced</span></td><td>"Grows at 4% per year for 3 years"</td></tr>
+    <tr><td>12</td><td>Back-calculating an original value</td><td><span class="badge b-hard">Advanced</span></td><td>"After a 20% cut, salary is ₹36,000"</td></tr>
+    <tr><td>13</td><td>Data Interpretation from charts</td><td><span class="badge b-hard">Advanced</span></td><td>"Pie chart shows 22% on Education"</td></tr>
+    <tr><td>14</td><td>Percentage error in measurement</td><td><span class="badge b-hard">Advanced</span></td><td>"True value vs. measured value"</td></tr>
+    <tr><td>15</td><td>Combining percentages over unequal bases (Simpson's Paradox)</td><td><span class="badge b-hard">Advanced</span></td><td>"55% of 40,000 and 45% of 60,000"</td></tr>
+    <tr><td>16</td><td>Continuous growth & e<sup>rt</sup></td><td><span class="badge b-hot">HOT / PG</span></td><td>"Instantaneous rate of growth"</td></tr>
+    <tr><td>17</td><td>CAGR / annualised growth</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Grew from X to Y over n years"</td></tr>
+    <tr><td>18</td><td>Real vs. nominal rate (Fisher equation)</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Nominal rate adjusted for inflation"</td></tr>
+    <tr><td>19</td><td>Base-rate fallacy / Bayesian percentage</td><td><span class="badge b-hot">HOT / PG</span></td><td>"Test is 95% accurate, disease is rare"</td></tr>
+    <tr><td>20</td><td>Percentage change of a ratio (delta method)</td><td><span class="badge b-hot">HOT / PG</span></td><td>"GDP per capita percentage change"</td></tr>
+  </table>
+  </div>
+
+  <div class="tamil-block">
+    <strong>சுருக்கமாக:</strong> சதவீத பிரச்சினைகள் இருபது முக்கிய வகைகளாகப் பிரிக்கப்படலாம் — எளிய பாகம்/முழுமை கணக்குகளில் தொடங்கி, லாபம்-நஷ்டம், தள்ளுபடி, வரி, தொடர் மாற்றங்கள் வழியாக, இறுதியில் தொடர்ச்சியான வளர்ச்சி (e<sup>rt</sup>), CAGR, பேயீசியன் புள்ளியியல் வரை செல்கிறது. ஒவ்வொரு புதிய கணக்கையும் இந்த இருபது வகைகளில் ஒன்றாக அடையாளம் காண்பதே இப்பாடத்தின் மிக முக்கியமான திறமை.
+  </div>
+</section>
+
+<!-- ============ SHORTCUT VAULT ============ -->
+<section id="shortcuts">
+  <div class="kicker"><span class="num">07</span> The Shortcut Vault · குறுக்குவழி களஞ்சியம்</div>
+  <h2>Every Shortcut Method in One Place</h2>
+
+  <details open>
+    <summary>1. The 10% / 1% Ladder</summary>
+    <p>Find 10% (shift decimal one place), then scale: 5% = half of 10%; 20% = double 10%; 1% = shift decimal two places; 2%, 3%... = multiples of 1%. Almost any "nice" percentage (5, 10, 15, 20, 25, 50, 75) can be built from 10% and 1% in two mental steps.</p>
+  </details>
+
+  <details>
+    <summary>2. The Flip Trick — x% of y = y% of x</summary>
+    <p>Always choose whichever direction is easier to compute mentally. 4% of 75 is awkward; flipped, it's 75% of 4 = 3. Instant.</p>
+  </details>
+
+  <details>
+    <summary>3. The Multiplying-Factor Method for Increase/Decrease</summary>
+    <p>Instead of computing the change and adding/subtracting, multiply directly by the factor (1 ± r/100). This avoids a two-step calculation and is essential once problems stack multiple percentage changes together.</p>
+  </details>
+
+  <details>
+    <summary>4. The Successive-Change Formula</summary>
+    <p>Net % = a + b + ab/100 for two successive percentage changes a% and b% (use negative numbers for decreases). Extend to three changes by applying the formula twice, combining two changes at a time.</p>
+  </details>
+
+  <details>
+    <summary>5. Fraction-Equivalent Memory Table</summary>
+    <p>Memorising that 1/8 = 12.5%, 1/3 = 33.33%, 1/16 = 6.25%, etc. converts many percentage-of-a-number calculations into simple division, which is often faster than multiplying by a decimal.</p>
+  </details>
+
+  <details>
+    <summary>6. Reverse-Percentage Division Rule</summary>
+    <p>To undo a percentage decrease of r%, divide by (1 − r/100); to undo an increase of r%, divide by (1 + r/100). Never "add back" or "subtract back" the same percentage — the base has changed.</p>
+  </details>
+
+  <details>
+    <summary>7. Weighted-Average Shortcut (Alligation)</summary>
+    <p>When mixing two percentages in a known ratio, use the alligation rule: the ratio of quantities mixed is inversely proportional to the distance of each percentage from the resulting mean. This avoids setting up a full weighted-average equation.</p>
+  </details>
+
+  <details>
+    <summary>8. Log-Based Estimate for Compounding (Rule of 72)</summary>
+    <p>To estimate how many years it takes a quantity to double at a compound percentage rate r% per year, divide 72 by r. At 8% per year, doubling takes roughly 72/8 = 9 years. This shortcut is derived from the natural logarithm of 2 (≈0.693) and is a favourite of postgraduate finance courses for mental estimation.</p>
+  </details>
+
+  <details>
+    <summary>9. Percentage-Point Awareness Check</summary>
+    <p>Before answering any question involving "rate changed from a% to b%," pause and ask whether the question wants the percentage-point difference (b − a) or the relative percentage change [(b−a)/a × 100]. These numbers are only equal by coincidence.</p>
+  </details>
+
+  <details>
+    <summary>10. Base-Rate Sanity Check (Bayesian shortcut)</summary>
+    <p>Whenever a percentage describes "accuracy" or "confidence" about a rare event, always build a hypothetical table of 10,000 cases before trusting the percentage at face value — this converts a confusing conditional percentage into simple counting, as shown in Tier 5.5 above.</p>
+  </details>
+</section>
+
+<!-- ============ DAILY LIFE GALLERY ============ -->
+<section id="life">
+  <div class="kicker"><span class="num">08</span> Daily-Life Application Gallery · அன்றாட வாழ்வு பயன்பாடுகள்</div>
+  <h2>Where You Meet Percentage Every Single Day</h2>
+
+  <div class="grid2">
+    <div class="example"><span class="tag">Shopping</span><p>End-of-season sales stack percentages: "flat 40% + extra 20% on billing" — use the successive-change formula, not simple addition.</p></div>
+    <div class="example"><span class="tag">Banking</span><p>Fixed deposits quote an annual percentage rate; your actual maturity value depends on whether interest compounds yearly, quarterly, or monthly.</p></div>
+    <div class="example"><span class="tag">Nutrition Labels</span><p>"%RDA" (Recommended Daily Allowance) on a food packet expresses a nutrient amount as a percentage of what a typical adult needs in a day.</p></div>
+    <div class="example"><span class="tag">Sports</span><p>A batter's strike rate, a bowler's economy conversion, a football team's win percentage, and a basketball player's free-throw percentage are all part-of-whole percentage calculations.</p></div>
+    <div class="example"><span class="tag">Elections</span><p>Vote-share percentages must be combined across constituencies carefully, as in the Simpson's Paradox example in Tier 4.7.</p></div>
+    <div class="example"><span class="tag">Health</span><p>Body fat percentage, oxygen saturation (SpO₂ %), and humidity percentage are all readings against a fixed maximum of 100.</p></div>
+    <div class="example"><span class="tag">Economics</span><p>Inflation, GDP growth, and unemployment are always reported as percentages, and comparing countries requires the "percentage of what base" question from Tier 1.</p></div>
+    <div class="example"><span class="tag">Exams and Admissions</span><p>Cut-off percentages, reservation percentages, and normalisation across different exam boards all rely on the common-base idea introduced in Tier 1.</p></div>
+  </div>
+
+  <div class="tamil-block">
+    <strong>அன்றாட பயன்பாடுகள்:</strong> கடை தள்ளுபடிகள், வங்கி வட்டி, உணவுப் பொட்டலங்களில் %RDA, விளையாட்டு புள்ளிவிவரங்கள் (பேட்டிங் சராசரி, வெற்றி சதவீதம்), தேர்தல் வாக்கு பங்கு, உடல்நல அளவீடுகள் (SpO₂, உடல் கொழுப்பு %), பொருளாதார குறியீடுகள் (பணவீக்கம், மொத்த உள்நாட்டு உற்பத்தி வளர்ச்சி) — இவை அனைத்திலும் சதவீதம் இன்றியமையாதது.
+  </div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section id="practice">
+  <div class="kicker"><span class="num">09</span> Practice Problem Sets by Level · பயிற்சி கணக்குகள்</div>
+  <h2>Test Yourself, Tier by Tier</h2>
+
+  <h3><span class="badge b-easy">Foundation (Grade 6–8)</span></h3>
+  <ol>
+    <li>What is 35% of 200?</li>
+    <li>Express 7/20 as a percentage.</li>
+    <li>18 out of 24 marbles are red. What percentage are red?</li>
+    <li>45 is what percentage of 180?</li>
+  </ol>
+
+  <h3><span class="badge b-med">Intermediate (Grade 9–12)</span></h3>
+  <ol>
+    <li>A shopkeeper marks an item 40% above cost price and then gives a 15% discount on the marked price. Find his overall profit percentage.</li>
+    <li>A number is first increased by 30% and then decreased by 30%. Find the net percentage change.</li>
+    <li>A mixture of milk and water is 80% milk. If 20 litres of pure water is added to 100 litres of this mixture, find the new percentage of milk.</li>
+  </ol>
+
+  <h3><span class="badge b-hard">Advanced (Undergraduate)</span></h3>
+  <ol>
+    <li>A company's revenue grows by 12% in Year 1 and falls by 8% in Year 2. Find the overall percentage change over the two years, and compare it with the naive sum (12% − 8%).</li>
+    <li>Prices rose by 25%. By what percentage must the new price now fall to return to the original price?</li>
+    <li>In a survey, candidate X gets 62% of 15,000 votes in District A and 38% of 25,000 votes in District B. Find X's overall percentage across both districts, and state whether X wins overall.</li>
+  </ol>
+
+  <h3><span class="badge b-hot">Higher-Order Thinking (Postgraduate)</span></h3>
+  <ol>
+    <li>An investment doubles in value in exactly 9 years under continuous compounding. Estimate the annual continuous growth rate r using N(t)=N₀e^(rt), and cross-check using the Rule of 72.</li>
+    <li>A screening test for a rare condition (base rate 0.5%) has a 98% true-positive rate and a 3% false-positive rate. Find the exact percentage chance that a person who tests positive actually has the condition.</li>
+    <li>Nominal wage growth is 7% while inflation is 6%. Find the exact real wage growth using the Fisher relation, and explain why it is not simply 1%.</li>
+  </ol>
+
+  <div class="fact">Answers are intentionally left for the learner to work through using the formulae and shortcuts developed in Tiers 2–5 above — the goal of this document is fluency in the method, not a memorised final number.</div>
+</section>
+
+<!-- ============ 50-QUESTION QUIZ ============ -->
+<section id="quiz">
+  <div class="kicker"><span class="num">10</span> Final Objective-Type Quiz · இறுதி புறவய வினாடி வினா</div>
+  <h2>50-Question Self-Test (Foundation → Postgraduate)</h2>
+  <p>Choose one option for every question, then press <strong>Check My Score</strong> at the bottom. Correct answers turn green, incorrect ones turn red, so you can see exactly where to revise.</p>
+  <div id="quizScoreBar" class="fact" style="display:none;"><span id="quizScoreText"></span></div>
+  <form id="quizForm"></form>
+  <button id="quizSubmit" type="button" style="background:var(--slate);color:var(--chalk);border:none;padding:12px 26px;border-radius:8px;font-family:'JetBrains Mono',monospace;cursor:pointer;font-size:14px;margin-top:10px;">Check My Score</button>
+  <button id="quizReset" type="button" style="background:transparent;color:var(--indigo);border:1.5px solid var(--indigo);padding:12px 26px;border-radius:8px;font-family:'JetBrains Mono',monospace;cursor:pointer;font-size:14px;margin-top:10px;margin-left:10px;">Reset</button>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Prepared as a single continuous note spanning Grade 6 to postgraduate mathematics — one idea, "out of a hundred," followed to its logarithmic and Bayesian conclusions.</p>
+  <p class="ta">100 என்பதை அடிப்படையாகக் கொண்ட ஒரே ஒரு எண் கருத்து — ஆறாம் வகுப்பிலிருந்து முதுகலைப் பட்டப்படிப்பு வரை — இதுவே சதவீதத்தின் முழுமையான பயணம்.</p>
+</footer>
+
+<script>
+// ---- language toggle (added for karkai wrapper) ----
+function setAdvLang(lang){
+  document.getElementById('btn-both').classList.toggle('active', lang==='both');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.body.classList.toggle('lang-en-only', lang==='en');
+}
+
+// ---- 100-square animated grid ----
+const gridEl = document.getElementById('percentGrid');
+for(let i=0;i<100;i++){ const d=document.createElement('div'); gridEl.appendChild(d); }
+const slider = document.getElementById('gridSlider');
+const gridValue = document.getElementById('gridValue');
+function paintGrid(val){
+  const cells = gridEl.children;
+  for(let i=0;i<100;i++){ cells[i].classList.toggle('on', i < val); }
+  gridValue.textContent = val + '%';
+}
+slider.addEventListener('input', e=>paintGrid(parseInt(e.target.value)));
+paintGrid(parseInt(slider.value));
+
+// ---- animated counters ----
+document.querySelectorAll('.count').forEach(el=>{
+  const target = parseInt(el.getAttribute('data-target'));
+  let cur = 0;
+  const step = Math.max(1, Math.round(target/40));
+  const t = setInterval(()=>{
+    cur += step;
+    if(cur>=target){ cur=target; clearInterval(t); }
+    el.textContent = cur;
+  }, 30);
+});
+
+// ---- Chart.js: Marks comparison ----
+new Chart(document.getElementById('chartCompare'), {
+  type:'bar',
+  data:{
+    labels:['Maths (34/40)','Science (78/90)'],
+    datasets:[
+      {label:'Raw Score', data:[34,78], backgroundColor:'#c9a24b'},
+      {label:'As Percentage', data:[85,86.7], backgroundColor:'#3f7d72'}
+    ]
+  },
+  options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+});
+
+// ---- Chart.js: Discount comparison ----
+new Chart(document.getElementById('chartDiscount'), {
+  type:'bar',
+  data:{
+    labels:['Marked Price','30% off only','30% then 10% off (net 37%)','Flat 40% off (hypothetical)'],
+    datasets:[{label:'Price (₹)', data:[2000,1400,1260,1200], backgroundColor:['#2f3f6b','#c9a24b','#3f7d72','#b5493c']}]
+  },
+  options:{ responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+});
+
+// ---- Chart.js: Budget doughnut ----
+new Chart(document.getElementById('chartBudget'), {
+  type:'doughnut',
+  data:{
+    labels:['Housing 30%','Food 20%','Education 22%','Transport 10%','Savings 12%','Other 6%'],
+    datasets:[{data:[30,20,22,10,12,6], backgroundColor:['#2f3f6b','#c9a24b','#3f7d72','#b5493c','#8a6a1e','#7d7d7d']}]
+  },
+  options:{ responsive:true, plugins:{legend:{position:'bottom'}} }
+});
+
+// ---- 50-question quiz data: [English Q, Tamil Q, [4 options], correctIndex(0-3), tier tag] ----
+const quizData = [
+["What is 20% of 150?","150-இல் 20% என்ன?",["20","25","30","35"],2,"Foundation"],
+["Express 3/4 as a percentage.","3/4-ஐ சதவீதமாக மாற்றவும்.",["70%","75%","80%","65%"],1,"Foundation"],
+["18 out of 50 is what percentage?","50-இல் 18 என்பது எத்தனை சதவீதம்?",["32%","34%","36%","38%"],2,"Foundation"],
+["Convert 0.45 to a percentage.","0.45-ஐ சதவீதமாக மாற்றவும்.",["4.5%","45%","450%","0.45%"],1,"Foundation"],
+["60 is what % of 240?","240-இல் 60 என்பது எத்தனை %?",["20%","25%","30%","15%"],1,"Foundation"],
+["Convert 5% to a decimal.","5%-ஐ தசமமாக மாற்றவும்.",["0.5","0.05","0.005","5.0"],1,"Foundation"],
+["Which fraction equals 25%?","எந்த பின்னம் 25%-க்குச் சமம்?",["1/5","1/4","1/3","1/2"],1,"Foundation"],
+["A phone shows 63% battery. This means the charge is:","மொபைலில் 63% பேட்டரி — இதன் பொருள்:",["63/1000 of full charge","63/100 of full charge","6.3/100 of full charge","630/100 of full charge"],1,"Foundation"],
+["100% of any number equals:","எந்த எண்ணின் 100% என்பது:",["Half the number","Double the number","The number itself","Zero"],2,"Foundation"],
+["What does 'per cent' literally mean?","'per cent' என்றால் உண்மையில் என்ன பொருள்?",["Per thousand","Per hundred","Per ten","Per million"],1,"Foundation"],
+["40 out of 50 students passed. Percentage passed?","50-இல் 40 மாணவர்கள் தேர்ச்சி — சதவீதம்?",["75%","78%","80%","82%"],2,"Foundation"],
+["3/8 equals what percentage?","3/8 என்பது எத்தனை சதவீதம்?",["30%","37.5%","35%","40%"],1,"Foundation"],
+["Find 15% of 400.","400-இல் 15% கண்டுபிடிக்கவும்.",["50","55","60","65"],2,"Elementary"],
+["90 is 30% of what number?","90 என்பது எந்த எண்ணின் 30%?",["250","270","300","320"],2,"Elementary"],
+["45 is what percent of 180?","180-இல் 45 என்பது எத்தனை %?",["20%","25%","30%","35%"],1,"Elementary"],
+["Increase 250 by 20% gives:","250-ஐ 20% அதிகரித்தால்:",["270","290","300","310"],2,"Elementary"],
+["Decrease 500 by 15% gives:","500-ஐ 15% குறைத்தால்:",["420","425","430","435"],1,"Elementary"],
+["Which multiplying factor represents a 12% increase?","12% அதிகரிப்புக்கான பெருக்கல் காரணி எது?",["0.88","1.12","1.012","12"],1,"Elementary"],
+["Which multiplying factor represents a 12% decrease?","12% குறைப்புக்கான பெருக்கல் காரணி எது?",["1.12","0.88","0.12","0.012"],1,"Elementary"],
+["Price rose from ₹400 to ₹460. Find the % increase.","விலை ₹400-லிருந்து ₹460-ஆக உயர்ந்தது. % அதிகரிப்பு?",["10%","12%","15%","20%"],2,"Elementary"],
+["CP = ₹800, SP = ₹920. Find the profit %.","அடக்க விலை ₹800, விற்பனை விலை ₹920. லாப %?",["10%","12%","15%","20%"],2,"Intermediate"],
+["MP = ₹2000, successive discounts 30% then 10%. Final price?","MP ₹2000, தொடர் தள்ளுபடி 30% பின் 10%. இறுதி விலை?",["₹1200","₹1240","₹1260","₹1300"],2,"Intermediate"],
+["Successive discounts of 30% then 10% — net % using the shortcut formula?","30% பின் 10% தொடர் தள்ளுபடி — நிகர % (குறுக்குவழி சூத்திரம்)?",["-40%","-37%","-35%","-33%"],1,"Intermediate"],
+["An item at ₹1500 attracts 18% GST. Final billed amount?","₹1500 பொருளுக்கு 18% GST. இறுதி தொகை?",["₹1750","₹1765","₹1770","₹1780"],2,"Intermediate"],
+["SI on ₹8000 at 9% p.a. for 3 years?","₹8000-க்கு 9% வருடாந்திர வட்டி, 3 ஆண்டுகள்?",["₹2100","₹2150","₹2160","₹2200"],2,"Intermediate"],
+["30 boys average 70%, 20 girls average 85%. Combined average %?","30 சிறுவர் சராசரி 70%, 20 சிறுமியர் சராசரி 85%. இணைந்த சராசரி %?",["75%","76%","77%","77.5%"],1,"Intermediate"],
+["Using the 10% trick, 10% of 450 is:","10% தந்திரம் மூலம், 450-இல் 10%:",["40","42","45","48"],2,"Intermediate"],
+["Using the flip trick, 8% of 25 equals 25% of 8, which is:","புரட்டு தந்திரம்: 8% of 25 = 25% of 8 =",["1","1.5","2","2.5"],2,"Intermediate"],
+["A price rises 30% then falls 30%. Net percentage change?","விலை 30% உயர்ந்து பின் 30% குறைந்தால் நிகர மாற்றம்?",["0%","-6%","-9%","-10%"],2,"Advanced"],
+["After a 20% pay cut, salary is ₹36,000. Original salary?","20% ஊதியக் குறைப்புக்குப் பின் சம்பளம் ₹36,000. அசல் சம்பளம்?",["₹40,000","₹42,000","₹45,000","₹48,000"],2,"Advanced"],
+["True length 200cm, measured 198.5cm. Percentage error?","உண்மை நீளம் 200cm, அளந்தது 198.5cm. % பிழை?",["0.5%","0.65%","0.75%","0.85%"],2,"Advanced"],
+["A rate rises from 8% to 10%. The percentage-POINT increase is:","வீதம் 8%-லிருந்து 10%-ஆக உயர்கிறது. சதவீத-புள்ளி அதிகரிப்பு:",["2 points","20 points","25 points","80 points"],0,"Advanced"],
+["Same scenario (8% to 10%) — the relative percentage increase is:","அதே நிலை (8% to 10%) — சார்பு சதவீத அதிகரிப்பு:",["2%","20%","25%","30%"],2,"Advanced"],
+["Population 50,000 grows at 4%/yr. Approx. population after 3 years?","மக்கள்தொகை 50,000, 4%/ஆண்டு வளர்ச்சி. 3 ஆண்டுகளில் தோராயமாக?",["54,000","55,000","56,243","58,000"],2,"Advanced"],
+["Candidate gets 55% of 40,000 votes and 45% of 60,000 votes. Overall %?","வேட்பாளர் 40,000-இல் 55% மற்றும் 60,000-இல் 45% பெறுகிறார். மொத்த %?",["48%","49%","50%","51%"],1,"Advanced"],
+["Good performance in each sub-group but a poor overall percentage describes:","ஒவ்வொரு துணைக்குழுவிலும் நல்ல செயல்திறன் ஆனால் மொத்த % குறைவு — இது:",["Bayes' Theorem","Simpson's Paradox","Fisher's Equation","Fermat's Principle"],1,"Advanced"],
+["Pie chart shows 22% on Education; income ₹60,000. Amount spent?","வரைபடத்தில் கல்விக்கு 22%; வருமானம் ₹60,000. செலவு தொகை?",["₹12,000","₹12,500","₹13,200","₹13,500"],2,"Advanced"],
+["A number increased 25% then decreased 20% gives 114. Find the number.","ஒரு எண் 25% அதிகரித்து பின் 20% குறைந்து 114 ஆகிறது. எண் என்ன?",["100","110","114","120"],2,"Advanced"],
+["Discounts of 25% then 25% again — net percentage?","25% பின் மீண்டும் 25% தள்ளுபடி — நிகர சதவீதம்?",["-50%","-45%","-43.75%","-40%"],2,"Advanced"],
+["Two successive 20% discounts — net percentage (shortcut formula)?","இரு தொடர் 20% தள்ளுபடிகள் — நிகர % (குறுக்குவழி)?",["-38%","-36%","-40%","-34%"],1,"Advanced"],
+["Investment grows ₹2,00,000 to ₹4,50,000 in 6 years. Approx. CAGR?","முதலீடு 6 ஆண்டுகளில் ₹2,00,000-லிருந்து ₹4,50,000. தோராய CAGR?",["12%","13%","14.4%","16%"],2,"HOT/PG"],
+["Rule of 72: at 8% annual compound rate, approx. doubling time?","72-இன் விதி: 8% வருடாந்திர வட்டியில், தோராய இரட்டிப்பு காலம்?",["6 years","8 years","9 years","12 years"],2,"HOT/PG"],
+["The continuous growth formula is N(t) =","தொடர்ச்சியான வளர்ச்சி சூத்திரம் N(t) =",["N₀(1+r)^t","N₀e^(rt)","N₀rt","N₀/e^(rt)"],1,"HOT/PG"],
+["The relative rate of change of N equals the derivative of:","N-இன் சார்பு மாற்ற வீதம் எதன் வகைக்கெழுவிற்குச் சமம்:",["N","ln N","e^N","1/N"],1,"HOT/PG"],
+["Nominal 8%, inflation 5.5%. Exact real rate (Fisher)?","நேரடி வீதம் 8%, பணவீக்கம் 5.5%. உண்மையான வீதம் (பிஷர்)?",["2.5%","2.4%","2.37%","2.3%"],2,"HOT/PG"],
+["Disease base rate 1%, test 95% accurate. True chance of disease given positive result?","நோய் அடிப்படை வீதம் 1%, சோதனை 95% துல்லியம். நேர்மறை முடிவில் உண்மை நோய் வாய்ப்பு?",["95%","50%","16.1%","5%"],2,"HOT/PG"],
+["lim(n→∞) (1 + r/n)^n equals:","lim(n→∞) (1 + r/n)^n எதற்குச் சமம்:",["r","e^r","r^e","1"],1,"HOT/PG"],
+["% change of ratio Q = A/B, when A rises a% and B rises b%, is approximately:","Q = A/B எனும் விகிதத்தின் % மாற்றம் (A a% ஏறும், B b% ஏறும்) தோராயமாக:",["a + b","a − b","ab/100","a/b"],1,"HOT/PG"],
+["GDP-per-capita % growth is approximately GDP growth % minus:","தனிநபர் GDP % வளர்ச்சி தோராயமாக GDP வளர்ச்சி % கழித்தல்:",["Inflation %","Population growth %","Tax %","Interest %"],1,"HOT/PG"],
+["Which constant did Bernoulli discover while studying compound interest (percentages compounding faster and faster)?","தொடர்ச்சியான வட்டி கூட்டு ஆய்வின்போது பெர்னோலி கண்டுபிடித்த மாறிலி எது?",["π","e","φ","√2"],1,"HOT/PG"]
+];
+
+const quizForm = document.getElementById('quizForm');
+quizData.forEach((item,i)=>{
+  const [qEn,qTa,opts,correct,tag] = item;
+  const div = document.createElement('div');
+  div.className = 'quiz-q';
+  div.dataset.correct = correct;
+  const letters = ['A','B','C','D'];
+  div.innerHTML = `
+    <div class="qmeta">Q${i+1} · ${tag}</div>
+    <div class="qhead">${i+1}. ${qEn}</div>
+    <div class="qtamil">${qTa}</div>
+    <div class="quiz-opts">
+      ${opts.map((o,j)=>`<label data-idx="${j}"><input type="radio" name="q${i}" value="${j}"> ${letters[j]}) ${o}</label>`).join('')}
+    </div>`;
+  quizForm.appendChild(div);
+});
+
+document.getElementById('quizSubmit').addEventListener('click', ()=>{
+  let score = 0;
+  document.querySelectorAll('.quiz-q').forEach((div,i)=>{
+    const correct = parseInt(div.dataset.correct);
+    const chosen = div.querySelector(`input[name="q${i}"]:checked`);
+    const labels = div.querySelectorAll('.quiz-opts label');
+    labels.forEach(l=>l.classList.remove('right-ans','chosen-wrong'));
+    labels[correct].classList.add('right-ans');
+    if(chosen){
+      const chosenIdx = parseInt(chosen.value);
+      if(chosenIdx === correct){ score++; div.classList.add('correct'); div.classList.remove('incorrect'); }
+      else { div.classList.add('incorrect'); div.classList.remove('correct'); labels[chosenIdx].classList.add('chosen-wrong'); }
+    } else {
+      div.classList.add('incorrect');
+    }
+  });
+  const bar = document.getElementById('quizScoreBar');
+  bar.style.display = 'block';
+  document.getElementById('quizScoreText').textContent = `You scored ${score} / 50 (${(score*2)}%). Review the green (correct) and red (incorrect) highlights above.`;
+  bar.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+document.getElementById('quizReset').addEventListener('click', ()=>{
+  document.querySelectorAll('.quiz-q').forEach(div=>{
+    div.classList.remove('correct','incorrect');
+    div.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+    div.querySelectorAll('.quiz-opts label').forEach(l=>l.classList.remove('right-ans','chosen-wrong'));
+  });
+  document.getElementById('quizScoreBar').style.display='none';
+});
+
+// ---- Chart.js: Growth comparison ----
+const years = Array.from({length:21},(_,i)=>i);
+const simple = years.map(t=>10000*(1+0.10*t));
+const annualComp = years.map(t=>10000*Math.pow(1.10,t));
+const continuous = years.map(t=>10000*Math.exp(0.10*t));
+new Chart(document.getElementById('chartGrowth'), {
+  type:'line',
+  data:{
+    labels: years,
+    datasets:[
+      {label:'Simple (10% p.a.)', data:simple, borderColor:'#b5493c', fill:false, tension:0.15},
+      {label:'Annual Compound (10% p.a.)', data:annualComp, borderColor:'#c9a24b', fill:false, tension:0.15},
+      {label:'Continuous (e^{rt}, r=0.10)', data:continuous, borderColor:'#3f7d72', fill:false, tension:0.15}
+    ]
+  },
+  options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+});
+</script>
+</body>
+</html>
