@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>கற்கை | Percentage — High School Level</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --cream:#FAEEDA; --cream-dark:#F3E2BE; --brown:#633806; --brown-deep:#3F2404;
+    --orange:#D85A30; --gold:#BA7517; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--cream); color:var(--brown-deep); font-family:'Inter',sans-serif; line-height:1.65; }
+  .ta{ font-family:'Noto Sans Tamil',sans-serif; }
+  header.banner{ width:100%; background:var(--white); text-align:center; border-bottom:3px solid var(--gold); padding: 1.4rem 1rem; }
+  header.banner h1{ font-family:'Merriweather',serif; font-weight:900; color:var(--brown); font-size:2.2rem; margin:0; }
+  header.banner .ta{ display:block; color:var(--orange); font-size:1.3rem; margin-top:0.2rem; }
+
+  nav.langbar{ display:flex; justify-content:center; gap:0.5rem; padding:0.8rem; background:var(--brown-deep); }
+  nav.langbar button{ font-family:'Inter',sans-serif; font-weight:600; font-size:0.95rem; padding:0.5rem 1.4rem; border-radius:999px; border:2px solid var(--gold); background:transparent; color:var(--cream); cursor:pointer; }
+  nav.langbar button.active{ background:var(--orange); border-color:var(--orange); color:var(--white); }
+
+  main{ max-width:940px; margin:0 auto; padding:2rem 1.2rem 4rem; }
+  h1.title{ font-family:'Merriweather',serif; font-weight:900; color:var(--brown); font-size:2rem; text-align:center; margin-top:1.5rem;}
+  h2.section-head{ font-family:'Merriweather',serif; font-weight:700; color:var(--orange); border-bottom:2px solid var(--cream-dark); padding-bottom:0.4rem; margin-top:3rem; }
+
+  .notes-box{ background:var(--white); border-radius:14px; padding:1.6rem 1.8rem; box-shadow:0 3px 14px rgba(99,56,6,0.08);}
+  .notes-box h3{ font-family:'Merriweather',serif; color:var(--brown); margin-top:0;}
+  .notes-box h4{ color:var(--gold); margin-bottom:0.3rem;}
+  .notes-box p.formula{ background:var(--cream); border-left:4px solid var(--orange); padding:0.6rem 1rem; border-radius:6px; overflow-x:auto; }
+  .notes-box ul{ padding-left:1.3rem; }
+
+  .level-header{ display:flex; align-items:center; gap:0.6rem; margin:2rem 0 0.8rem; }
+  .level-badge{ display:inline-block; padding:0.3rem 0.9rem; border-radius:999px; color:var(--white); font-weight:700; font-size:0.9rem; }
+  .level-badge .ta{ display:block; font-size:0.72rem; font-weight:500; }
+
+  .example-card, .quiz-card{ background:var(--white); border-radius:14px; padding:1.2rem 1.5rem; margin-bottom:1rem; box-shadow:0 2px 10px rgba(99,56,6,0.07);}
+  .example-card .qtext, .quiz-card .qtext{ font-weight:600; margin-bottom:0.6rem; }
+  .example-card .qtext .ta, .quiz-card .qtext .ta{ display:block; font-weight:500; color:var(--brown); margin-top:0.15rem;}
+  .steps{ background:var(--cream); border-radius:8px; padding:0.8rem 1rem; margin-top:0.6rem; display:none; }
+  .steps.show{ display:block; }
+  .steps li{ margin-bottom:0.4rem; }
+  .reveal-btn{ background:var(--gold); color:var(--white); border:none; padding:0.4rem 1rem; border-radius:8px; cursor:pointer; font-weight:600; font-size:0.85rem; }
+  .answer-tag{ margin-top:0.6rem; font-weight:700; color:var(--orange); }
+
+  .opt{ display:block; width:100%; text-align:left; padding:0.55rem 0.9rem; margin:0.35rem 0; border:2px solid var(--cream-dark); border-radius:8px; background:var(--cream); cursor:pointer; font-size:0.95rem; }
+  .opt:hover{ border-color:var(--gold); }
+  .opt.correct{ background:#DFF3DD; border-color:#4C9A57; }
+  .opt.wrong{ background:#FBDBD3; border-color:var(--orange); }
+  .opt[disabled]{ cursor:default; }
+
+  #scoreBar{ position:sticky; top:0; z-index:10; background:var(--brown-deep); color:var(--cream); text-align:center; padding:0.7rem; font-weight:600; font-size:1rem; }
+  #scoreBar .ta{ display:block; font-weight:500; font-size:0.85rem; opacity:.85;}
+
+  .cta-footer{ text-align:center; margin-top:3rem; padding:2rem; background:var(--brown-deep); border-radius:16px; color:var(--cream);}
+  .cta-footer a{ color:var(--gold); font-weight:700; text-decoration:none; font-size:1.05rem;}
+  .cta-footer a:hover{ text-decoration:underline; }
+  .cta-footer .playlist{ margin-top:0.8rem; font-size:0.95rem; color:var(--creamDark); }
+
+  @media(max-width:600px){ h1.title{font-size:1.4rem;} }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <h1>கற்கை<span class="ta">Karkai — Percentage, High School Level</span></h1>
+</header>
+
+<nav class="langbar">
+  <button id="btn-both" class="active" onclick="setLang('both')">EN + தமிழ்</button>
+  <button id="btn-en" onclick="setLang('en')">English</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</nav>
+
+<div id="scoreBar">Score: <span id="scoreVal">0</span> / 30 &nbsp;|&nbsp; Answered: <span id="answeredVal">0</span> / 30
+  <span class="ta">மதிப்பெண்: <span id="scoreValTa">0</span> / 30</span>
+</div>
+
+<main>
+  <h1 class="title">Percentage — High School Level
+    <span class="ta" style="display:block;font-size:1.15rem;margin-top:0.3rem;">சதவீதம் — உயர்நிலைப் பள்ளி மட்டம்</span>
+  </h1>
+
+  <h2 class="section-head">Notes / குறிப்புகள்</h2>
+  <div class="notes-box lang-en">
+<h3>Percentage — High School Level</h3>
+
+<p>The word "percentage" comes from the Latin <i>per centum</i>, meaning "per hundred." A percentage is simply a way of expressing a number as a fraction of 100 &mdash; it lets us compare quantities of very different sizes on a single, common scale. The symbol used is <b>%</b>.</p>
+
+<h4>The Basic Formula</h4>
+<p>Every percentage question, no matter how complicated it looks, comes back to one core formula:</p>
+<p class="formula">\( \text{Percentage} = \dfrac{\text{Part}}{\text{Whole}} \times 100 \)</p>
+<p>Here, "Part" is the quantity you are interested in, and "Whole" is the total or the base amount you are comparing it against. Identifying the correct "Whole" is the single most common source of errors in percentage problems &mdash; always ask "percentage of what?" before you calculate.</p>
+
+<h4>Converting Between Forms</h4>
+<p>Fractions, decimals, and percentages are three ways of writing the same value, and you should be able to move between them instantly:</p>
+<ul>
+  <li><b>Fraction to Percentage:</b> multiply the fraction by 100. \( \dfrac{3}{4} \times 100 = 75\% \)</li>
+  <li><b>Decimal to Percentage:</b> multiply by 100 (shift the decimal point two places right). \( 0.6 \times 100 = 60\% \)</li>
+  <li><b>Percentage to Decimal/Fraction:</b> divide by 100. \( 45\% = \dfrac{45}{100} = 0.45 \)</li>
+</ul>
+<p>Memorising a few common equivalents saves valuable time in exams: \( \tfrac{1}{2}=50\%,\ \tfrac{1}{4}=25\%,\ \tfrac{1}{5}=20\%,\ \tfrac{1}{3}\approx33.33\%,\ \tfrac{1}{8}=12.5\%,\ \tfrac{1}{10}=10\% \).</p>
+
+<h4>Finding a Percentage of a Number</h4>
+<p>To find X% of a number Y, convert the percentage to a fraction or decimal and multiply:</p>
+<p class="formula">\( X\% \text{ of } Y = \dfrac{X}{100} \times Y \)</p>
+<p>A useful shortcut, especially for mental maths, is the <b>swap rule</b>: \( X\% \text{ of } Y = Y\% \text{ of } X \). For example, 8% of 50 is exactly the same as 50% of 8, which is instantly obvious as 4. This trick turns awkward-looking percentage questions into simple ones.</p>
+
+<h4>Percentage Increase and Decrease</h4>
+<p>When a value grows or shrinks by a percentage, the new value is found using:</p>
+<p class="formula">\( \text{New Value} = \text{Original} \times \left(1 \pm \dfrac{r}{100}\right) \)</p>
+<p>using <b>+</b> for an increase and <b>&minus;</b> for a decrease, where <i>r</i> is the rate of change. To work in the other direction &mdash; finding the percentage change when you already know the old and new values &mdash; use:</p>
+<p class="formula">\( \text{Percentage Change} = \dfrac{\text{New} - \text{Old}}{\text{Old}} \times 100 \)</p>
+<p>A positive result means an increase; a negative result means a decrease.</p>
+
+<h4>Successive Percentage Changes</h4>
+<p>This is where many students go wrong: if a value increases by 20% and then decreases by 20%, it does <b>not</b> return to its original value, because the second change is applied to a different (larger) base. The combined effect of two successive percentage changes <i>a</i>% and <i>b</i>% is given by:</p>
+<p class="formula">\( \text{Net \% Change} = a + b + \dfrac{ab}{100} \)</p>
+<p>Use a negative sign for a decrease. So a 20% increase followed by a 20% decrease gives \( 20 - 20 + \dfrac{20 \times (-20)}{100} = -4\% \) &mdash; an overall 4% <i>decrease</i>, not zero. Always remember: percentages are calculated on a moving base, not a fixed one.</p>
+
+<h4>Where Percentages Show Up</h4>
+<p>Once this base formula is mastered, dozens of "different" topics turn out to be the same idea in disguise: profit and loss percentage, discount percentage, sales tax and GST, simple interest rate, exam mark percentage, population growth rate, and percentage error in measurements. All of them ask the same underlying question &mdash; "what fraction of the whole, expressed per hundred?"</p>
+
+<h4>Common Mistakes to Avoid</h4>
+<p>Three traps appear again and again in exams. First, confusing a <b>percentage point</b> difference with a <b>percentage</b> change &mdash; going from 40% to 50% is a rise of 10 percentage points, but a 25% relative increase (\( \tfrac{10}{40}\times100 \)). Second, forgetting that the base changes after every successive increase or decrease, as shown above. Third, applying the percentage to the wrong quantity &mdash; always re-read the question to confirm exactly what the "whole" refers to before multiplying.</p>
+
+<h4>Exam Strategy</h4>
+<p>Read the question twice: once to understand the situation, and once to identify precisely what is being asked and what the base ("whole") is. Convert percentages to fractions with easy denominators (25% = 1/4, 12.5% = 1/8) whenever the numbers allow it, since fraction arithmetic is often faster than decimal multiplication under exam pressure. Finally, sanity-check your answer: if you calculated that a price "decreased" to a value larger than the original, you have made a sign error somewhere.</p>
+</div>
+  <div class="notes-box lang-ta ta" style="display:none;">
+<h3>சதவீதம் — உயர்நிலைப் பள்ளி மட்டம்</h3>
+
+<p>"சதவீதம்" என்ற சொல் லேட்டின் மொழியின் <i>per centum</i> என்ற சொல்லிலிருந்து வந்தது, அதன் பொருள் "நூற்றுக்கு" என்பதாகும். ஒரு சதவீதம் என்பது ஒரு எண்ணை 100-ன் பின்னமாக வெளிப்படுத்தும் ஒரு வழிமுறை &mdash; இது வெவ்வேறு அளவுகளை ஒரே பொதுவான அளவுகோலில் ஒப்பிட உதவுகிறது. இதைக் குறிக்கும் குறியீடு <b>%</b>.</p>
+
+<h4>அடிப்படை சூத்திரம்</h4>
+<p>எவ்வளவு சிக்கலாகத் தோன்றினாலும், ஒவ்வொரு சதவீதக் கேள்வியும் இந்த ஒரு அடிப்படை சூத்திரத்திற்குத் திரும்பிச் செல்கிறது:</p>
+<p class="formula">\( \text{சதவீதம்} = \dfrac{\text{பகுதி}}{\text{மொத்தம்}} \times 100 \)</p>
+<p>இங்கு, "பகுதி" என்பது நீங்கள் கவனிக்க வேண்டிய அளவு, "மொத்தம்" என்பது நீங்கள் ஒப்பிடும் அடிப்படை அளவு. சரியான "மொத்தத்தை" கண்டறிவதே சதவீதக் கணக்குகளில் அதிகம் தவறு நேரும் இடம் &mdash; கணக்கிடும் முன் எப்போதும் "எதன் சதவீதம்?" என்று கேளுங்கள்.</p>
+
+<h4>வடிவங்களுக்கு இடையே மாற்றுதல்</h4>
+<p>பின்னங்கள், தசமங்கள், சதவீதங்கள் மூன்றும் ஒரே மதிப்பை வெளிப்படுத்தும் மூன்று வழிமுறைகள்; இவற்றுக்கு இடையே உடனடியாக மாற இயலவேண்டும்:</p>
+<ul>
+  <li><b>பின்னத்தை சதவீதமாக்க:</b> பின்னத்தை 100-ஆல் பெருக்கவும். \( \dfrac{3}{4} \times 100 = 75\% \)</li>
+  <li><b>தசமத்தை சதவீதமாக்க:</b> 100-ஆல் பெருக்கவும் (தசம புள்ளியை வலமாக இரு இடங்கள் நகர்த்தவும்). \( 0.6 \times 100 = 60\% \)</li>
+  <li><b>சதவீதத்தை தசமம்/பின்னமாக்க:</b> 100-ஆல் வகுக்கவும். \( 45\% = \dfrac{45}{100} = 0.45 \)</li>
+</ul>
+<p>தேர்வுகளில் நேரத்தை மிச்சப்படுத்த சில பொதுவான சமான மதிப்புகளை மனப்பாடம் செய்யுங்கள்: \( \tfrac{1}{2}=50\%,\ \tfrac{1}{4}=25\%,\ \tfrac{1}{5}=20\%,\ \tfrac{1}{3}\approx33.33\%,\ \tfrac{1}{8}=12.5\%,\ \tfrac{1}{10}=10\% \).</p>
+
+<h4>ஒரு எண்ணின் சதவீதத்தைக் கண்டறிதல்</h4>
+<p>Y-ன் X% கண்டறிய, சதவீதத்தை பின்னம் அல்லது தசமமாக மாற்றி பெருக்கவும்:</p>
+<p class="formula">\( Y\text{-ன் } X\% = \dfrac{X}{100} \times Y \)</p>
+<p>மனக்கணிதத்திற்கு உதவும் ஒரு எளிய உபாயம் <b>இடமாற்று விதி</b>: \( Y\text{-ன் } X\% = X\text{-ன் } Y\% \). எடுத்துக்காட்டாக, 50-ன் 8% என்பது 8-ன் 50%-ஐப் போன்றே இருக்கும், அது உடனடியாக 4 எனத் தெரியும். இந்த உபாயம் சிக்கலான சதவீதக் கேள்விகளை எளிதாக்குகிறது.</p>
+
+<h4>சதவீத அதிகரிப்பு மற்றும் குறைப்பு</h4>
+<p>ஒரு மதிப்பு சதவீத அளவில் அதிகரிக்கும் அல்லது குறையும் போது, புதிய மதிப்பு இந்த சூத்திரத்தால் கண்டறியப்படுகிறது:</p>
+<p class="formula">\( \text{புதிய மதிப்பு} = \text{அசல் மதிப்பு} \times \left(1 \pm \dfrac{r}{100}\right) \)</p>
+<p>அதிகரிப்புக்கு <b>+</b>, குறைப்புக்கு <b>&minus;</b> பயன்படுத்தவும், இங்கு <i>r</i> என்பது மாற்ற விகிதம். பழைய மற்றும் புதிய மதிப்புகள் தெரிந்திருக்கும்போது சதவீத மாற்றத்தைக் கண்டறிய:</p>
+<p class="formula">\( \text{சதவீத மாற்றம்} = \dfrac{\text{புதியது} - \text{பழையது}}{\text{பழையது}} \times 100 \)</p>
+<p>பதில் நேர்மறையாக இருந்தால் அது அதிகரிப்பு; எதிர்மறையாக இருந்தால் அது குறைப்பு.</p>
+
+<h4>தொடர்ச்சியான சதவீத மாற்றங்கள்</h4>
+<p>பல மாணவர்கள் இங்குதான் தவறு செய்கின்றனர்: ஒரு மதிப்பு 20% அதிகரித்து, பின் 20% குறைந்தால், அது அசல் மதிப்புக்குத் <b>திரும்பாது</b>, ஏனெனில் இரண்டாவது மாற்றம் ஒரு வேறுபட்ட (பெரிய) அடிப்படையின் மீது கணக்கிடப்படுகிறது. இரண்டு தொடர்ச்சியான சதவீத மாற்றங்களான <i>a</i>% மற்றும் <i>b</i>%-ன் ஒட்டுமொத்த விளைவு:</p>
+<p class="formula">\( \text{மொத்த \% மாற்றம்} = a + b + \dfrac{ab}{100} \)</p>
+<p>குறைப்புக்கு எதிர்மறைக் குறியீட்டைப் பயன்படுத்தவும். எனவே 20% அதிகரிப்பு தொடர்ந்து 20% குறைப்பு \( 20 - 20 + \dfrac{20 \times (-20)}{100} = -4\% \) என வரும் &mdash; அதாவது ஒட்டுமொத்தமாக 4% <i>குறைவு</i>, பூஜ்ஜியம் அல்ல. சதவீதங்கள் எப்போதும் நகரும் அடிப்படையின் மீதே கணக்கிடப்படுகின்றன என்பதை நினைவில் கொள்ளுங்கள்.</p>
+
+<h4>சதவீதம் பயன்படும் இடங்கள்</h4>
+<p>இந்த அடிப்படை சூத்திரத்தில் தேர்ச்சி பெற்றால், "வேறுவேறு" எனத் தோன்றும் பல தலைப்புகள் ஒரே கருத்தின் வேறுவேறு வேடங்கள்தான் என்பது தெரியவரும்: இலாபம்-நஷ்ட சதவீதம், தள்ளுபடி சதவீதம், விற்பனை வரி மற்றும் ஜிஎஸ்டி, எளிய வட்டி விகிதம், தேர்வு மதிப்பெண் சதவீதம், மக்கள்தொகை வளர்ச்சி விகிதம், அளவீட்டுப் பிழை சதவீதம். இவை அனைத்தும் ஒரே அடிப்படைக் கேள்வியைக் கேட்கின்றன &mdash; "மொத்தத்தில் எவ்வளவு பங்கு, நூற்றுக்கு எவ்வளவு?"</p>
+
+<h4>தவிர்க்க வேண்டிய பொதுவான தவறுகள்</h4>
+<p>தேர்வுகளில் மீண்டும் மீண்டும் தோன்றும் மூன்று சிக்கல்கள். முதலாவதாக, <b>சதவீத புள்ளி</b> வேறுபாட்டை <b>சதவீத</b> மாற்றத்துடன் குழப்புவது &mdash; 40%-லிருந்து 50%-ஆக மாறுவது 10 சதவீத புள்ளிகள் உயர்வு, ஆனால் இது 25% சார்பு அதிகரிப்பு (\( \tfrac{10}{40}\times100 \)). இரண்டாவதாக, ஒவ்வொரு தொடர்ச்சியான அதிகரிப்பு/குறைப்புக்கும் பிறகு அடிப்படை மாறுவதை மறப்பது. மூன்றாவதாக, தவறான அளவின் மீது சதவீதத்தைப் பயன்படுத்துவது &mdash; பெருக்கும் முன் "மொத்தம்" எதைக் குறிக்கிறது என்பதை உறுதிசெய்ய கேள்வியை மீண்டும் படிக்கவும்.</p>
+
+<h4>தேர்வு உபாயம்</h4>
+<p>கேள்வியை இரண்டு முறை படியுங்கள்: ஒரு முறை நிலைமையைப் புரிந்துகொள்ள, மற்றொரு முறை என்ன கேட்கப்படுகிறது, "மொத்தம்" எது என்பதைத் துல்லியமாகக் கண்டறிய. எண்கள் அனுமதித்தால் சதவீதங்களை எளிய பகுதிகளாக மாற்றவும் (25% = 1/4, 12.5% = 1/8), ஏனெனில் தேர்வு அழுத்தத்தில் பின்ன கணக்கு பெரும்பாலும் தசம பெருக்கலை விட வேகமானது. இறுதியாக, உங்கள் விடையை சரிபார்க்கவும்: ஒரு விலை "குறைந்தது" எனக் கணக்கிட்டு, அது அசல் விலையை விட அதிகமாக வந்தால், எங்கோ ஒரு குறியீட்டுத் தவறு ஏற்பட்டுள்ளது.</p>
+</div>
+
+  <h2 class="section-head">Worked Practice Problems / தீர்க்கப்பட்ட பயிற்சி கணக்குகள்</h2>
+  <p style="text-align:center;">At least 3 solved problems per difficulty level — try them yourself before revealing the steps.
+    <span class="ta" style="display:block;">ஒவ்வொரு நிலைக்கும் குறைந்தது 3 தீர்க்கப்பட்ட கணக்குகள் — படிகளை பார்ப்பதற்கு முன் நீங்களே முயற்சி செய்யுங்கள்.</span>
+  </p>
+  <div id="examplesContainer"></div>
+
+  <h2 class="section-head">Quiz — 30 Questions in 5 Levels / வினாடி வினா — 5 நிலைகளில் 30 கேள்விகள்</h2>
+  <div id="quizContainer"></div>
+
+  <div class="cta-footer">
+    <p>Watch the video lesson:</p>
+    <p class="ta">காணொலி பாடத்தைப் பாருங்கள்:</p>
+    <a href="https://www.youtube.com/@karkainandrae2026" target="_blank">▶ YOUTUBE.COM/@karkainandrae2026</a>
+    <div class="playlist">Playlist: Numerical Aptitude / Percentage<br>
+      <span class="ta">பிளேலிஸ்ட்: எண் திறன் / சதவீதம்</span>
+    </div>
+  </div>
+</main>
+
+<script>
+const QUIZ = [{"level":"basic","en":{"q":"What does \"percent\" mean?","o":["Per thousand","Per ten","Per hundred","Per million"]},"ta":{"q":"\"சதவீதம்\" என்றால் என்ன பொருள்?","o":["ஆயிரத்திற்கு","பத்திற்கு","நூறுக்கு","மில்லியனுக்கு"]},"a":2},{"level":"basic","en":{"q":"The basic formula for percentage is:","o":["Part × Whole ÷ 100","(Part/Whole) × 100","(Whole/Part) × 100","Part + Whole"]},"ta":{"q":"சதவீதத்தின் அடிப்படை சூத்திரம் எது?","o":["பகுதி × மொத்தம் ÷ 100","(பகுதி/மொத்தம்) × 100","(மொத்தம்/பகுதி) × 100","பகுதி + மொத்தம்"]},"a":1},{"level":"basic","en":{"q":"To convert a fraction to a percentage, you:","o":["Divide by 100","Multiply by 100","Add 100","Subtract 100"]},"ta":{"q":"பின்னத்தை சதவீதமாக மாற்ற என்ன செய்ய வேண்டும்?","o":["100ஆல் வகுக்க வேண்டும்","100ஆல் பெருக்க வேண்டும்","100ஐ கூட்ட வேண்டும்","100ஐ கழிக்க வேண்டும்"]},"a":1},{"level":"basic","en":{"q":"45% expressed as a decimal is:","o":["4.5","0.045","0.45","45.0"]},"ta":{"q":"45% ஐ தசமமாக எழுதினால்?","o":["4.5","0.045","0.45","45.0"]},"a":2},{"level":"basic","en":{"q":"Which fraction equals 25%?","o":["1/2","1/3","1/4","1/5"]},"ta":{"q":"25%-க்கு சமமான பின்னம் எது?","o":["1/2","1/3","1/4","1/5"]},"a":2},{"level":"basic","en":{"q":"The \"swap rule\" states X% of Y equals:","o":["Y% of X","X ÷ Y","Y − X","100 − X"]},"ta":{"q":"\"இடமாற்று விதி\" கூறுவது Y-ன் X% என்பது எதற்குச் சமம்?","o":["X-ன் Y%","X ÷ Y","Y − X","100 − X"]},"a":0},{"level":"elementary","en":{"q":"What is 10% of 200?","o":["10","20","100","2"]},"ta":{"q":"200-ன் 10% எவ்வளவு?","o":["10","20","100","2"]},"a":1},{"level":"elementary","en":{"q":"What is 25% of 80?","o":["15","20","25","40"]},"ta":{"q":"80-ன் 25% எவ்வளவு?","o":["15","20","25","40"]},"a":1},{"level":"elementary","en":{"q":"50 out of 200 is what percentage?","o":["10%","20%","25%","40%"]},"ta":{"q":"200-ல் 50 என்பது எத்தனை சதவீதம்?","o":["10%","20%","25%","40%"]},"a":2},{"level":"elementary","en":{"q":"20% of a number is 40. What is the number?","o":["80","100","200","400"]},"ta":{"q":"ஒரு எண்ணின் 20% என்பது 40. அந்த எண் என்ன?","o":["80","100","200","400"]},"a":2},{"level":"elementary","en":{"q":"Increase 100 by 10%. Result?","o":["100","110","90","101"]},"ta":{"q":"100-ஐ 10% அதிகரித்தால் விடை என்ன?","o":["100","110","90","101"]},"a":1},{"level":"elementary","en":{"q":"Decrease 100 by 20%. Result?","o":["120","80","20","100"]},"ta":{"q":"100-ஐ 20% குறைத்தால் விடை என்ன?","o":["120","80","20","100"]},"a":1},{"level":"inter","en":{"q":"A number is increased by 20% then decreased by 20%. Net change is:","o":["No change","4% decrease","4% increase","20% decrease"]},"ta":{"q":"ஒரு எண் 20% அதிகரித்து பின் 20% குறைக்கப்பட்டால், மொத்த மாற்றம் என்ன?","o":["மாற்றம் இல்லை","4% குறைவு","4% அதிகரிப்பு","20% குறைவு"]},"a":1},{"level":"inter","en":{"q":"A price increased by 25%. What % decrease restores the original price?","o":["20%","25%","30%","33.33%"]},"ta":{"q":"ஒரு விலை 25% அதிகரித்தது. மீண்டும் அசல் விலைக்கு வர எத்தனை % குறைக்க வேண்டும்?","o":["20%","25%","30%","33.33%"]},"a":0},{"level":"inter","en":{"q":"A student scored 65% and got 260 marks. What is the total marks?","o":["300","350","400","420"]},"ta":{"q":"ஒரு மாணவர் 65% பெற்று 260 மதிப்பெண்கள் பெற்றார். மொத்த மதிப்பெண் எவ்வளவு?","o":["300","350","400","420"]},"a":2},{"level":"inter","en":{"q":"Population grows 10% in year 1, then 20% in year 2. Total % increase over 2 years?","o":["30%","28%","32%","33%"]},"ta":{"q":"மக்கள்தொகை முதல் ஆண்டில் 10%, இரண்டாம் ஆண்டில் 20% வளர்ந்தது. இரு ஆண்டுகளில் மொத்த % அதிகரிப்பு?","o":["30%","28%","32%","33%"]},"a":2},{"level":"inter","en":{"q":"If A is 20% more than B, B is what % less than A?","o":["20%","16.67%","25%","none of these"]},"ta":{"q":"A என்பது B-யை விட 20% அதிகமாக இருந்தால், B என்பது A-யை விட எத்தனை % குறைவு?","o":["20%","16.67%","25%","இவற்றில் ஏதுமில்லை"]},"a":1},{"level":"inter","en":{"q":"An item at ₹500 gets a 10% discount, then a further 10% discount. Final price?","o":["₹400","₹405","₹410","₹450"]},"ta":{"q":"₹500 பொருளுக்கு 10% தள்ளுபடி, பின் மேலும் 10% தள்ளுபடி வழங்கப்பட்டால், இறுதி விலை எவ்வளவு?","o":["₹400","₹405","₹410","₹450"]},"a":1},{"level":"advanced","en":{"q":"Using a+b+ab/100, the combined effect of +30% and −30% is:","o":["0%","−9%","9%","−30%"]},"ta":{"q":"a+b+ab/100 சூத்திரத்தைப் பயன்படுத்தி, +30% மற்றும் −30%-ன் ஒட்டுமொத்த விளைவு?","o":["0%","−9%","9%","−30%"]},"a":1},{"level":"advanced","en":{"q":"The side of a square is measured with a 2% excess error. The percentage error in its area is approximately:","o":["2%","4%","0.04%","8%"]},"ta":{"q":"ஒரு சதுரத்தின் பக்கம் 2% கூடுதலாக அளவிடப்பட்டது. அதன் பரப்பளவில் ஏற்படும் % பிழை?","o":["2%","4%","0.04%","8%"]},"a":1},{"level":"advanced","en":{"q":"A mixture has 40% milk. If 5 litres of water is added to 20 litres of this mixture, the new % of milk is:","o":["32%","28%","30%","25%"]},"ta":{"q":"ஒரு கலவையில் 40% பால் உள்ளது. 20 லிட்டர் கலவையில் 5 லிட்டர் தண்ணீர் சேர்த்தால், புதிய பால் சதவீதம்?","o":["32%","28%","30%","25%"]},"a":1},{"level":"advanced","en":{"q":"If 30% of A equals 60% of B, then A:B is:","o":["1:2","2:1","1:1","3:2"]},"ta":{"q":"A-ன் 30% என்பது B-ன் 60%-க்குச் சமமெனில், A:B எவ்வளவு?","o":["1:2","2:1","1:1","3:2"]},"a":1},{"level":"advanced","en":{"q":"A quantity grows by 10% every year. After 2 years it becomes what % of the original?","o":["120%","121%","110%","100%"]},"ta":{"q":"ஒரு அளவு ஆண்டுக்கு 10% வளர்கிறது. 2 ஆண்டுகளுக்குப் பிறகு அசலின் எத்தனை %ஆக மாறும்?","o":["120%","121%","110%","100%"]},"a":1},{"level":"advanced","en":{"q":"40% of X is 20 more than 25% of X. Find X.","o":["100","120","133.33","150"]},"ta":{"q":"X-ன் 40% என்பது X-ன் 25%-ஐ விட 20 அதிகம். X-ஐக் காண்க.","o":["100","120","133.33","150"]},"a":2},{"level":"expert","en":{"q":"A shopkeeper marks up price by 40% then gives 20% discount on the marked price. His net profit % over cost price is:","o":["12%","20%","8%","16%"]},"ta":{"q":"ஒரு வர்த்தகர் விலையை 40% உயர்த்தி, குறிக்கப்பட்ட விலையில் 20% தள்ளுபடி தருகிறார். அவரது மொத்த லாப % (அசல் விலையின் அடிப்படையில்)?","o":["12%","20%","8%","16%"]},"a":0},{"level":"expert","en":{"q":"A's salary is 25% more than B's. If B's salary increases by 20%, B's new salary is what % of A's original salary?","o":["96%","100%","90%","104%"]},"ta":{"q":"A-ன் சம்பளம் B-யை விட 25% அதிகம். B-ன் சம்பளம் 20% அதிகரித்தால், B-ன் புதிய சம்பளம் A-ன் அசல் சம்பளத்தில் எத்தனை %?","o":["96%","100%","90%","104%"]},"a":0},{"level":"expert","en":{"q":"Rising from 200 to 250 is what percentage point AND percentage change respectively? (as ratio)","o":["50 pts / 25%","25 pts / 25%","50 pts / 50%","25 pts / 50%"]},"ta":{"q":"200-லிருந்து 250-ஆக உயர்வது எத்தனை சதவீத புள்ளிகள் மற்றும் எத்தனை % மாற்றம்? (விகிதமாக)","o":["50 புள்ளிகள் / 25%","25 புள்ளிகள் / 25%","50 புள்ளிகள் / 50%","25 புள்ளிகள் / 50%"]},"a":0},{"level":"expert","en":{"q":"A number is first increased by 50%, then the result is decreased by x% to return to the original. Find x.","o":["50%","33.33%","40%","25%"]},"ta":{"q":"ஒரு எண் முதலில் 50% அதிகரிக்கப்பட்டு, பின் அசல் மதிப்புக்குத் திரும்ப x% குறைக்கப்படுகிறது. x-ஐக் காண்க.","o":["50%","33.33%","40%","25%"]},"a":1},{"level":"expert","en":{"q":"After a 10% tax is added to a price, the total is ₹660. What was the price before tax?","o":["₹600","₹594","₹610","₹650"]},"ta":{"q":"ஒரு விலைக்கு 10% வரி சேர்த்தபின் மொத்தம் ₹660 ஆனது. வரி சேர்க்கும் முன் விலை என்ன?","o":["₹600","₹594","₹610","₹650"]},"a":0},{"level":"expert","en":{"q":"In an election, candidate A got 55% of votes and won by 4,000 votes. What was the total number of votes?","o":["20,000","40,000","36,000","44,000"]},"ta":{"q":"ஒரு தேர்தலில், வேட்பாளர் A 55% வோட்டுகள் பெற்று 4,000 வோட்டுகள் வித்தியாசத்தில் வெற்றி பெற்றார். மொத்த வோட்டுகள் எவ்வளவு?","o":["20,000","40,000","36,000","44,000"]},"a":1}];
+const LEVELS = [{"key":"basic","en":"Basic (Facts & Formulae)","ta":"அடிப்படை (விதிகள் மற்றும் சூத்திரங்கள்)","color":"#4C9A57"},{"key":"elementary","en":"Elementary (Simple Application)","ta":"எலிமெண்டரி (எளிய பயன்பாடு)","color":"#3B8FB5"},{"key":"inter","en":"Intermediate (Average Student)","ta":"இண்டர் (சராசரி மாணவர்)","color":"#BA7517"},{"key":"advanced","en":"Advanced (For the Genius)","ta":"மேம்பட்ட (திறமையாளர்களுக்கு)","color":"#D85A30"},{"key":"expert","en":"Expert (Higher-Order Thinking)","ta":"நிபுணர் (உயர் சிந்தனை)","color":"#8E2A2A"}];
+const WORKED = [{"level":"basic","en":{"q":"Write 0.72 as a percentage.","steps":["Multiply the decimal by 100: \\(0.72 \\times 100\\)","This shifts the decimal point two places right."],"answer":"72%"},"ta":{"q":"0.72-ஐ சதவீதமாக எழுதுக.","steps":["தசமத்தை 100ஆல் பெருக்கவும்: \\(0.72 \\times 100\\)","இது தசம புள்ளியை வலமாக இரு இடங்கள் நகர்த்தும்."],"answer":"72%"}},{"level":"basic","en":{"q":"Express 5/8 as a percentage.","steps":["Multiply the fraction by 100: \\(\\dfrac{5}{8}\\times 100\\)","\\(= 62.5\\)"],"answer":"62.5%"},"ta":{"q":"5/8-ஐ சதவீதமாக எழுதுக.","steps":["பின்னத்தை 100ஆல் பெருக்கவும்: \\(\\dfrac{5}{8}\\times 100\\)","\\(= 62.5\\)"],"answer":"62.5%"}},{"level":"basic","en":{"q":"Convert 8% into its simplest fraction form.","steps":["\\(8\\% = \\dfrac{8}{100}\\)","Simplify by dividing numerator and denominator by 4."],"answer":"2/25"},"ta":{"q":"8%-ஐ எளிமையான பின்னமாக மாற்றுக.","steps":["\\(8\\% = \\dfrac{8}{100}\\)","4ஆல் வகுத்து எளிமையாக்கவும்."],"answer":"2/25"}},{"level":"elementary","en":{"q":"Find 15% of 240.","steps":["\\(15\\% \\text{ of } 240 = \\dfrac{15}{100}\\times 240\\)","\\(= 15 \\times 2.4\\)"],"answer":"36"},"ta":{"q":"240-ன் 15%-ஐக் காண்க.","steps":["\\(\\dfrac{15}{100}\\times 240\\)","\\(= 15 \\times 2.4\\)"],"answer":"36"}},{"level":"elementary","en":{"q":"36 is what percentage of 90?","steps":["\\(\\dfrac{36}{90}\\times 100\\)","\\(= 0.4 \\times 100\\)"],"answer":"40%"},"ta":{"q":"90-ல் 36 என்பது எத்தனை சதவீதம்?","steps":["\\(\\dfrac{36}{90}\\times 100\\)","\\(= 0.4 \\times 100\\)"],"answer":"40%"}},{"level":"elementary","en":{"q":"A number, when increased by 25%, becomes 100. Find the number.","steps":["Let the number be \\(x\\).","\\(x \\times 1.25 = 100\\)","\\(x = \\dfrac{100}{1.25}\\)"],"answer":"80"},"ta":{"q":"ஒரு எண் 25% அதிகரிக்கப்பட்டு 100 ஆகிறது. அந்த எண்ணைக் காண்க.","steps":["எண்ணை \\(x\\) என்க.","\\(x \\times 1.25 = 100\\)","\\(x = \\dfrac{100}{1.25}\\)"],"answer":"80"}},{"level":"inter","en":{"q":"The price of an item is increased by 30%, then decreased by 10%. Find the net percentage change.","steps":["Use \\(a+b+\\dfrac{ab}{100}\\) with \\(a=30,\\ b=-10\\)","\\(30 - 10 + \\dfrac{30\\times(-10)}{100}\\)","\\(= 20 - 3\\)"],"answer":"Net increase of 17%"},"ta":{"q":"ஒரு பொருளின் விலை 30% அதிகரிக்கப்பட்டு, பின் 10% குறைக்கப்பட்டது. மொத்த % மாற்றத்தைக் காண்க.","steps":["\\(a+b+\\dfrac{ab}{100}\\), இங்கு \\(a=30,\\ b=-10\\)","\\(30 - 10 + \\dfrac{30\\times(-10)}{100}\\)","\\(= 20 - 3\\)"],"answer":"மொத்த அதிகரிப்பு 17%"}},{"level":"inter","en":{"q":"A student needs 40% marks to pass. He scored 130 marks and failed by 10 marks. Find the maximum marks.","steps":["Passing marks \\(= 130 + 10 = 140\\)","\\(40\\% \\text{ of total} = 140\\)","\\(\\text{Total} = \\dfrac{140}{0.40}\\)"],"answer":"350"},"ta":{"q":"தேர்ச்சிக்கு 40% மதிப்பெண் தேவை. ஒரு மாணவர் 130 மதிப்பெண் பெற்று 10 மதிப்பெண் குறைவால் தேர்ச்சி பெறவில்லை. அதிகபட்ச மதிப்பெண்ணைக் காண்க.","steps":["தேர்ச்சி மதிப்பெண் \\(= 130 + 10 = 140\\)","\\(40\\% \\text{ மொத்தம்} = 140\\)","\\(\\text{மொத்தம்} = \\dfrac{140}{0.40}\\)"],"answer":"350"}},{"level":"inter","en":{"q":"In a class of 60 students, 40% are girls. If 6 more girls join, what is the new percentage of girls?","steps":["Girls initially \\(= 40\\% \\text{ of } 60 = 24\\)","New girls \\(= 24+6=30\\); New total \\(=60+6=66\\)","\\(\\dfrac{30}{66}\\times 100\\)"],"answer":"≈ 45.45%"},"ta":{"q":"60 மாணவர்கள் கொண்ட வகுப்பில் 40% பெண்கள். மேலும் 6 பெண்கள் சேர்ந்தால், புதிய பெண்கள் சதவீதம் என்ன?","steps":["தொடக்கப் பெண்கள் \\(= 40\\% \\text{ of } 60 = 24\\)","புதிய பெண்கள் \\(=24+6=30\\); புதிய மொத்தம் \\(=60+6=66\\)","\\(\\dfrac{30}{66}\\times 100\\)"],"answer":"≈ 45.45%"}},{"level":"advanced","en":{"q":"A shopkeeper sells an item at a 20% profit. If he had bought it for 10% less and sold it for the same price, his profit % would be?","steps":["Let cost price \\(=100\\); Selling price \\(=120\\)","New cost price \\(=90\\); Selling price stays \\(120\\)","Profit \\(\\% = \\dfrac{120-90}{90}\\times100\\)"],"answer":"≈ 33.33%"},"ta":{"q":"ஒரு வர்த்தகர் 20% லாபத்தில் ஒரு பொருளை விற்கிறார். அவர் அதை 10% குறைவாக வாங்கி, அதே விலைக்கு விற்றால் அவரது லாப % என்ன?","steps":["அசல் விலை \\(=100\\); விற்பனை விலை \\(=120\\)","புதிய அசல் விலை \\(=90\\); விற்பனை விலை \\(120\\) அப்படியே","லாபம் \\(\\% = \\dfrac{120-90}{90}\\times100\\)"],"answer":"≈ 33.33%"}},{"level":"advanced","en":{"q":"Two numbers are respectively 20% and 50% more than a third number. What percentage is the first of the second?","steps":["Let the third number \\(=100\\)","First \\(=120\\); Second \\(=150\\)","\\(\\dfrac{120}{150}\\times100\\)"],"answer":"80%"},"ta":{"q":"இரண்டு எண்கள் மூன்றாவது எண்ணை விட முறையே 20% மற்றும் 50% அதிகம். முதலாவது இரண்டாவதன் எத்தனை %?","steps":["மூன்றாவது எண் \\(=100\\)","முதலாவது \\(=120\\); இரண்டாவது \\(=150\\)","\\(\\dfrac{120}{150}\\times100\\)"],"answer":"80%"}},{"level":"advanced","en":{"q":"The population of a town decreases by 10% every year due to migration. If the current population is 81,000, what was it 2 years ago?","steps":["Let past population \\(=P\\)","\\(P \\times 0.9 \\times 0.9 = 81000\\)","\\(P = \\dfrac{81000}{0.81}\\)"],"answer":"1,00,000"},"ta":{"q":"ஒரு நகரத்தின் மக்கள்தொகை இடம்பெயர்வு காரணமாக ஆண்டுக்கு 10% குறைகிறது. இப்போது மக்கள்தொகை 81,000 எனில், 2 ஆண்டுகளுக்கு முன் அது என்ன?","steps":["முந்தைய மக்கள்தொகை \\(=P\\)","\\(P \\times 0.9 \\times 0.9 = 81000\\)","\\(P = \\dfrac{81000}{0.81}\\)"],"answer":"1,00,000"}},{"level":"expert","en":{"q":"A trader marks his goods 50% above cost price and allows a discount of x% to gain 20% profit. Find x.","steps":["Let cost price \\(=100\\); Marked price \\(=150\\)","Required selling price for 20% profit \\(=120\\)","Discount \\(\\% = \\dfrac{150-120}{150}\\times100\\)"],"answer":"20%"},"ta":{"q":"ஒரு வர்த்தகர் தனது பொருட்களை அசல் விலையை விட 50% அதிகமாக குறித்து, 20% லாபம் பெற x% தள்ளுபடி தருகிறார். x-ஐக் காண்க.","steps":["அசல் விலை \\(=100\\); குறிக்கப்பட்ட விலை \\(=150\\)","20% லாபத்திற்குத் தேவையான விற்பனை விலை \\(=120\\)","தள்ளுபடி \\(\\% = \\dfrac{150-120}{150}\\times100\\)"],"answer":"20%"}},{"level":"expert","en":{"q":"In an exam, 72% of students passed. If 84 students failed, how many students appeared?","steps":["Failed \\(\\% = 100-72=28\\%\\)","\\(28\\% \\text{ of total} = 84\\)","\\(\\text{Total} = \\dfrac{84}{0.28}\\)"],"answer":"300"},"ta":{"q":"ஒரு தேர்வில் 72% மாணவர்கள் தேர்ச்சி பெற்றனர். 84 மாணவர்கள் தோல்வியடைந்தால், எத்தனை மாணவர்கள் தேர்வு எழுதினர்?","steps":["தோல்வி \\(\\% = 100-72=28\\%\\)","\\(28\\% \\text{ மொத்தம்} = 84\\)","\\(\\text{மொத்தம்} = \\dfrac{84}{0.28}\\)"],"answer":"300"}},{"level":"expert","en":{"q":"A's income is 30% more than B's, and B's income is 20% less than C's. If C's income is ₹25,000, find A's income.","steps":["B's income \\(= 25000 \\times 0.8 = 20000\\)","A's income \\(= 20000 \\times 1.30\\)"],"answer":"₹26,000"},"ta":{"q":"A-ன் வருமானம் B-யை விட 30% அதிகம், B-ன் வருமானம் C-யை விட 20% குறைவு. C-ன் வருமானம் ₹25,000 எனில், A-ன் வருமானத்தைக் காண்க.","steps":["B-ன் வருமானம் \\(= 25000 \\times 0.8 = 20000\\)","A-ன் வருமானம் \\(= 20000 \\times 1.30\\)"],"answer":"₹26,000"}}];
+let currentLang = 'both';
+let score = 0, answered = 0;
+
+function levelInfo(key){ return LEVELS.find(l => l.key === key); }
+
+function levelHeaderHtml(lvl){
+  return `<div class="level-header">
+    <span class="level-badge" style="background:${lvl.color}">${lvl.en}<span class="ta">${lvl.ta}</span></span>
+  </div>`;
+}
+
+function renderExamples(){
+  const container = document.getElementById('examplesContainer');
+  container.innerHTML = '';
+  LEVELS.forEach(lvl => {
+    container.innerHTML += levelHeaderHtml(lvl);
+    WORKED.filter(w => w.level === lvl.key).forEach((w, idx) => {
+      const uid = lvl.key + '-' + idx;
+      const qHtml = currentLang === 'ta'
+        ? '<span class="ta">' + w.ta.q + '</span>'
+        : currentLang === 'en'
+          ? w.en.q
+          : w.en.q + '<span class="ta">' + w.ta.q + '</span>';
+      const stepsEn = w.en.steps.map(s => '<li>' + s + '</li>').join('');
+      const stepsTa = w.ta.steps.map(s => '<li class="ta">' + s + '</li>').join('');
+      const stepsHtml = currentLang === 'ta' ? stepsTa : currentLang === 'en' ? stepsEn : stepsEn + stepsTa;
+      const answer = currentLang === 'ta' ? w.ta.answer : currentLang === 'en' ? w.en.answer : w.en.answer + ' / ' + w.ta.answer;
+
+      container.innerHTML += `
+        <div class="example-card">
+          <div class="qtext">${qHtml}</div>
+          <button class="reveal-btn" onclick="toggleSteps('${uid}')">Show Solution / தீர்வு காட்டு</button>
+          <ol class="steps" id="steps-${uid}">${stepsHtml}</ol>
+          <div class="answer-tag" id="ans-${uid}" style="display:none;">Answer: ${answer}</div>
+        </div>`;
+    });
+  });
+  if(window.renderMathInElement) renderMathInElement(container, katexOptions());
+}
+
+function toggleSteps(uid){
+  const steps = document.getElementById('steps-'+uid);
+  const ans = document.getElementById('ans-'+uid);
+  steps.classList.toggle('show');
+  ans.style.display = steps.classList.contains('show') ? 'block' : 'none';
+}
+
+function renderQuiz(){
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  let qNum = 0;
+  LEVELS.forEach(lvl => {
+    container.innerHTML += levelHeaderHtml(lvl);
+    QUIZ.filter(item => item.level === lvl.key).forEach(item => {
+      qNum++;
+      const card = document.createElement('div');
+      card.className = 'quiz-card';
+      const qtext = document.createElement('div');
+      qtext.className = 'qtext';
+      let qHtml = (currentLang !== 'ta') ? qNum+'. '+item.en.q : '';
+      if(currentLang === 'both') qHtml += '<span class="ta">'+qNum+'. '+item.ta.q+'</span>';
+      if(currentLang === 'ta') qHtml = qNum+'. <span class="ta">'+item.ta.q+'</span>';
+      qtext.innerHTML = qHtml;
+      card.appendChild(qtext);
+
+      item.en.o.forEach((optEn, oi) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt';
+        let label = (currentLang !== 'ta') ? optEn : '';
+        if(currentLang === 'both') label += '  /  ' + item.ta.o[oi];
+        if(currentLang === 'ta') label = item.ta.o[oi];
+        btn.textContent = label;
+        btn.onclick = () => selectAnswer(card, item, oi, btn);
+        card.appendChild(btn);
+      });
+      container.appendChild(card);
+    });
+  });
+  if(window.renderMathInElement) renderMathInElement(container, katexOptions());
+}
+
+function selectAnswer(card, item, oi, btn){
+  if(card.dataset.answered) return;
+  card.dataset.answered = '1';
+  answered++;
+  if(oi === item.a) score++;
+  card.querySelectorAll('.opt').forEach((el, i) => {
+    el.disabled = true;
+    if(i === item.a) el.classList.add('correct');
+    else if(i === oi) el.classList.add('wrong');
+  });
+  updateScoreBar();
+}
+
+function updateScoreBar(){
+  document.getElementById('scoreVal').textContent = score;
+  document.getElementById('scoreValTa').textContent = score;
+  document.getElementById('answeredVal').textContent = answered;
+}
+
+function katexOptions(){
+  return { delimiters: [
+    {left: "\\(", right: "\\)", display: false},
+    {left: "\\[", right: "\\]", display: true}
+  ]};
+}
+
+function setLang(lang){
+  currentLang = lang;
+  document.querySelectorAll('#btn-both,#btn-en,#btn-ta').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+lang).classList.add('active');
+  document.querySelector('.notes-box.lang-en').style.display = (lang==='ta') ? 'none' : 'block';
+  document.querySelector('.notes-box.lang-ta').style.display = (lang==='en') ? 'none' : 'block';
+  renderExamples();
+  renderQuiz();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  renderExamples();
+  renderQuiz();
+  if(window.renderMathInElement){
+    renderMathInElement(document.querySelector('.notes-box.lang-en'), katexOptions());
+    renderMathInElement(document.querySelector('.notes-box.lang-ta'), katexOptions());
+  } else {
+    // KaTeX auto-render script loads with 'defer'; retry shortly after full load.
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        renderMathInElement(document.body, katexOptions());
+      }, 300);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
